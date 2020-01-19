@@ -1,6 +1,7 @@
 # coding=utf-8
 import time
 import urllib
+import traceback
 from selenium import webdriver        
 from bs4 import BeautifulSoup
 
@@ -11,9 +12,11 @@ def getProblemListPage(url):
     time.sleep(2)
 
     #找到入口xpath节点
-    entrys = driver.find_elements_by_xpath("//div[@id='cnblogs_post_body']")
+    entrys = driver.find_elements_by_xpath("//div[@class='table-responsive question-list-table']")
     #1.确定是否唯一
     print len(entrys)
+    time.sleep(10)
+
     #2.确定使用的索引
     entry_idx = 0
 
@@ -23,15 +26,26 @@ def getProblemListPage(url):
     print len(parts)
 
     #2.分层处理（多层处理用for循环）
+    counter = 0
     for part in parts:
+        counter += 1
         #不需要指定索引，用的是find_elements，node不是list类型
         try:
+            #href  = part.get_attribute("href")
             nodes = part.find_elements_by_xpath(".//td")
-            href  = part.find_element_by_xpath(".//a").get_attribute("href")
-            score = nodes[0].text
-            title = nodes[1].text
-            print "\t".join([score, title, href])
+            flag = nodes[0].find_elements_by_xpath(".//i")
+            typ = 0
+            if len(flag) == 0:
+                typ = 1
+            typ = str(typ)
+            num = nodes[1].text
+            url = nodes[2].find_element_by_xpath(".//a").get_attribute("href")
+            tit = nodes[2].find_element_by_xpath(".//a").text
+            lev = nodes[5].text
+            print "\t".join([typ, num, url, tit, lev]).encode("utf8")
+            #print "\t".join([score, title, href])
         except:
+            traceback.print_exc()
             continue
 
     #完成，退出
@@ -73,11 +87,11 @@ def getPageDetail(filename):
             #break
 
 if __name__ == '__main__':
-    begin_url = "https://www.cnblogs.com/grandyang/p/4606334.html"
+    begin_url = "https://leetcode-cn.com/problemset/all/"
 
     #get leetcode problem idx title url
-    #getProblemListPage(begin_url)
+    getProblemListPage(begin_url)
 
     #save problem html page
-    getPageDetail("problem.idx")
+    #getPageDetail("problem.idx")
 
