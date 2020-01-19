@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="We are given , a length string of characters from the set . (These letters stand for &amp;quot;decreasin" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 903. Valid Permutations for DI Sequence DI序列的有效排列 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/11094525.html">[LeetCode] 903. Valid Permutations for DI Sequence DI序列的有效排列</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+We are given <code>S</code>, a length <code>n</code> string of characters from the set <code>{'D', 'I'}</code>. (These letters stand for &quot;decreasing&quot; and &quot;increasing&quot;.)</p>
+<p>A <em>valid permutation</em> is a permutation <code>P[0], P[1], ..., P[n]</code> of integers <code>{0, 1, ..., n}</code>, such that for all <code>i</code>:</p>
+<ul>
+<li>If <code>S[i] == 'D'</code>, then <code>P[i] &gt; P[i+1]</code>, and;</li>
+<li>If <code>S[i] == 'I'</code>, then <code>P[i] &lt; P[i+1]</code>.</li>
+</ul>
+<p>How many valid permutations are there?  Since the answer may be large, return your answer modulo <code>10^9 + 7</code>.</p>
+<p>Example 1:</p>
+<pre><code>Input: &quot;DID&quot;
+Output: 5
+Explanation:
+The 5 valid permutations of (0, 1, 2, 3) are:
+(1, 0, 3, 2)
+(2, 0, 3, 1)
+(2, 1, 3, 0)
+(3, 0, 2, 1)
+(3, 1, 2, 0)</code></pre>
+<p>Note:</p>
+<ol>
+<li><code>1 &lt;= S.length &lt;= 200</code></li>
+<li><code>S</code> consists only of characters from the set <code>{'D', 'I'}</code>.</li>
+</ol>
+<p><br><br />
+这道题给了我们一个长度为n的字符串S，里面只有两个字母D和I，分别表示下降 Decrease 和上升 Increase，意思是对于 [0, n] 内所有数字的排序，必须满足S的模式，比如题目中给的例子 S=&quot;DID&quot;，就表示序列需要先降，再升，再降，于是就有那5种情况。题目中提示了结果可能会是一个超大数，让我们对 1e9+7 取余，经验丰富的刷题老司机看到这里就知道肯定不能递归遍历所有情况，编译器估计都不允许，这里动态规划 Dynamic Programming 就是不二之选，但是这道题正确的动态规划解法其实是比较难想出来的，因为存在着关键的隐藏信息 Hidden Information，若不能正确的挖掘出来（山东布鲁斯特挖掘机专业了解一下？），是不太容易解出来的。首先来定义我们的 DP 数组吧，这里大家的第一直觉可能是想着就用一个一维数组 dp，其中 dp[i] 表示范围在 [0, i] 内的字符串S的子串能有的不同序列的个数。这样定义的话，就无法写出状态转移方程，像之前说的，我们忽略了很关键的隐藏信息。先来想，序列是升是降到底跟什么关系最大，答案是最后一个数字，比如我们现在有一个数字3，当前的模式是D，说明需要下降，所以可能的数字就是 0，1，2，但如果当前的数字是1，那么还要下降的话，那么貌似就只能加0了？其实也不一定，因为这道题说了只需要保证升降模式正确就行了，数字之间的顺序关系其实并不重要，举个例子来说吧，假如我们现在已经有了一个 &quot;DID&quot; 模式的序列 1032，假如我们还想加一个D，变成 &quot;DIDD&quot;，该怎么加数字呢？多了一个模式符，就多了一个数字4，显然直接加4是不行的，实际是可以在末尾加2的，但是要先把原序列中大于等于2的数字都先加1，即 1032 -&gt; 1043，然后再加2，变成 10432，就是 &quot;DIDD&quot; 了。虽然我们改变了序列的数字顺序，但是升降模式还是保持不变的。同理，也是可以加1的，1032 -&gt; 2043 -&gt; 20431，也是可以加0的，1032 -&gt; 2143 -&gt; 21430。但是无法加3和4，因为 1032 最后一个数字2很很重要，所有小于等于2的数字，都可以加在后面，从而形成降序。那么反过来也是一样，若要加个升序，比如变成 &quot;DIDI&quot;，猜也猜的出来，后面要加大于2的数字，然后把所有大于等于这个数字的地方都减1，比如加上3，1032 -&gt; 1042 -&gt; 10423，再比如加上4，1032 -&gt; 1032 -&gt; 10324。</p>
+<p>通过上面的分析，我们知道了最后一个位置的数字的大小非常的重要，不管是要新加升序还是降序，最后的数字的大小直接决定了能形成多少个不同的序列，这个就是本题的隐藏信息，所以我们在定义 dp 数组的时候必须要把最后一个数字考虑进去，这样就需要一个二维的 dp 数组，其中 dp[i][j] 表示由范围 [0, i] 内的数字组成且最后一个数字为j的不同序列的个数。就拿题目中的例子来说吧，由数字 [0, 1, 2, 3] 组成 &quot;DID&quot; 模式的序列，首先 dp[0][0] 是要初始化为1，如下所示（括号里是实际的序列）：</p>
+<p><code>dp[0][0] = 1  (0)</code></p>
+<p>然后需要加第二个数字，由于需要降序，那么根据之前的分析，加的数字不能大于最后一个数字0，则只能加0，如下所示：</p>
+<pre><code>加0:  ( dp[1][0] = 1 )
+0 -&gt; 1 -&gt; 10</code></pre>
+<p>然后需要加第三个数字，由于需要升序，那么根据之前的分析，加的数字不能小于最后一个数字0，那么实际上可以加的数字有 1，2，如下所示：</p>
+<pre><code>加1:  ( dp[2][1] = 1 )
+10 -&gt; 20 -&gt; 201
+
+加2:  ( dp[2][2] = 1 )
+10 -&gt; 10 -&gt; 102</code></pre>
+<p>然后需要加第四个数字，由于需要降序，那么根据之前的分析，加的数字不能大于最后一个数字，上一轮的最后一个数字有1或2，那么实际上可以加的数字有 0，1，2，如下所示：</p>
+<pre><code>加0:  ( dp[3][0] = 2 )
+201 -&gt; 312 -&gt; 3120
+102 -&gt; 213 -&gt; 2130
+
+加1:  ( dp[3][1] = 2 )
+201 -&gt; 302 -&gt; 3021
+102 -&gt; 203 -&gt; 2031
+
+加2:  ( dp[3][2] = 1 )
+102 -&gt; 103 -&gt; 1032</code></pre>
+<p>这种方法算出的 dp 数组为：</p>
+<pre><code>1 0 0 0 
+1 0 0 0 
+0 1 1 0 
+2 2 1 0 </code></pre>
+<p>最后把 dp 数组的最后一行加起来 2+2+1 = 5 就是最终的结果，分析到这里，其实状态转移方程已经不难得到了，根据前面的分析，当是降序时，下一个数字不小于当前最后一个数字，反之是升序时，下一个数字小于当前最后一个数字，所以可以写出状态转移方程如下所示：</p>
+<pre><code>if (S[i-1] == &#39;D&#39;)    dp[i][j] += dp[i-1][k]    ( j &lt;= k &lt;= i-1 )
+else                  dp[i][j] += dp[i-1][k]    ( 0 &lt;= k &lt; j )</code></pre>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    int numPermsDISequence(string S) {
+        int res = 0, n = S.size(), M = 1e9 + 7;
+        vector&lt;vector&lt;int&gt;&gt; dp(n + 1, vector&lt;int&gt;(n + 1));
+        dp[0][0] = 1;
+        for (int i = 1; i &lt;= n; ++i) {
+            for (int j = 0; j &lt;= i; ++j) {
+                if (S[i - 1] == &#39;D&#39;) {
+                    for (int k = j; k &lt;= i - 1; ++k) {
+                        dp[i][j] = (dp[i][j] + dp[i - 1][k]) % M;
+                    } 
+                } else {
+                    for (int k = 0; k &lt;= j - 1; ++k) {
+                        dp[i][j] = (dp[i][j] + dp[i - 1][k]) % M;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i &lt;= n; ++i) {
+            res = (res + dp[n][i]) % M;
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+我们还可以换一种形式 DP 解法，这里的 dp 数组在定义上跟之前的略有区别，还是用一个二维数组，这里的 dp[i][j] 表示由 i+1 个数字组成且第 i+1 个数字（即序列中的最后一个数字）是剩余数字中（包括当前数字）中第 j+1 小的数字。比如 dp[0][0]，表示序列只有1个数字，且该数字是剩余数字中最小的，那就只能是0。再比如，dp[1][2] 表示该序列有两个数字，且第二个数字是剩余数字中第三小的，那么序列只能是 32，因为剩余数字为 0，1，2（包括最后一个数字），这里2就是第三小的。有些情况序列不唯一，比如 dp[1][1] 表示该序列有两个数字，且第二个数字是剩余数字中第二小的，此时的序列就有 31（1是 0，1，2 中第二小的）和 21（1是 0，1，3 中第二小的）两种情况。搞清楚了 dp 的定义之后，再来推导状态转移方程吧，对于 dp[0][j] 的情况，十分好判断，因为只有一个数字，并不存在升序降序的问题，所以 dp[0][j] 可以都初始化为1，如下所示（括号里是实际的序列）：</p>
+<pre><code>dp[0][3] = 1  (3)
+dp[0][2] = 1  (2)
+dp[0][1] = 1  (1)
+dp[0][0] = 1  (0)</code></pre>
+<p>然后需要加第二个数字，由于需要降序，那么根据之前的分析，新加的数字不可能是第四小的，所以不可能出现 dp[1][3] 为正数，因为这表示有两个数字，且第二个数字是剩余数字中的第四小，总共就四个数字，第四小的数字就是最大数字，由于是降序，所以第二个数字要小于第一个数字，这里就矛盾了，所以 dp[1][3] 一定为0，而其余的确实可以从上一层递推过来，具体来说，对于 dp[1][j]，需要累加 dp[0][k] ( j &lt; k &lt;= n-1 )：</p>
+<pre><code>dp[1][2] = dp[0][3] = 1  (32)
+dp[1][1] = dp[0][3] + dp[0][2] = 2  (31, 21)
+dp[1][0] = dp[0][3] + dp[0][2] + dp[0][1] = 3  (30, 20, 10)</code></pre>
+<p>然后需要加第三个数字，由于需要升序，那么根据之前的分析，此时已经有两个数字了，新加的第三个数字只可能是剩余数字的第一小和第二小，即只有 dp[2][0] 和 dp[2][1] 会有值，跟上面相似，其也是由上一层累加而来，对于 dp[2][j]，需要累加 dp[1][k] ( 0 &lt;= k &lt;= j ):</p>
+<pre><code>dp[2][1] = dp[1][1] + dp[1][0] = 5  (312, 213, 302, 203, 103)
+dp[2][0] = dp[1][0] = 3  (301, 201, 102)</code></pre>
+<p>最后再加第四个数字，由于需要降序，那么根据之前的分析，此时已经有三个数字了，新加的第四个数字只可能是剩余数字的第一小，即只有 dp[3][0] 会有值，跟上面相似，其也是由上一层累加而来，对于 dp[3][j]，需要累加 dp[2][k] ( j&lt; k &lt;= n-1 )，这里有值的只有 dp[2][1]：</p>
+<p><code>dp[3][0] = dp[2][1] = 5  (3120, 2130, 3021, 2031, 1032)</code></p>
+<p>这种方法算出的 dp 数组为：</p>
+<pre><code>1 1 1 1 
+3 2 1 0 
+3 5 0 0 
+5 0 0 0 </code></pre>
+<p>这种方法算出的最终结果一定是保存在 dp[n][0] 中的，分析到这里，其实状态转移方程已经不难得到了，如下所示：</p>
+<pre><code>if (S[i] == &#39;D&#39;)    dp[i+1][j] = sum(dp[i][k])    ( j &lt; k &lt;= n-1 )
+else                dp[i+1][j] = sum(dp[i][k])    ( 0 &lt;= k &lt;= j )</code></pre>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    int numPermsDISequence(string S) {
+        int n = S.size(), M = 1e9 + 7;
+        vector&lt;vector&lt;int&gt;&gt; dp(n + 1, vector&lt;int&gt;(n + 1));
+        for (int j = 0; j &lt;= n; ++j) dp[0][j] = 1;
+        for (int i = 0; i &lt; n; ++i) {
+            if (S[i] == &#39;I&#39;) {
+                for (int j = 0, cur = 0; j &lt; n - i; ++j) {
+                    dp[i + 1][j] = cur = (cur + dp[i][j]) % M;
+                }
+            } else {
+                for (int j = n - 1 - i, cur = 0; j &gt;= 0; --j) {
+                    dp[i + 1][j] = cur = (cur + dp[i][j + 1]) % M;
+                }
+            }
+        }
+        return dp[n][0];
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/903" class="uri">https://github.com/grandyang/leetcode/issues/903</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/valid-permutations-for-di-sequence/" class="uri">https://leetcode.com/problems/valid-permutations-for-di-sequence/</a></p>
+<p><a href="https://leetcode.com/problems/valid-permutations-for-di-sequence/discuss/168278/C%2B%2BJavaPython-DP-Solution-O(N2)">https://leetcode.com/problems/valid-permutations-for-di-sequence/discuss/168278/C%2B%2BJavaPython-DP-Solution-O(N2)</a></p>
+<p><a href="https://leetcode.com/problems/valid-permutations-for-di-sequence/discuss/196939/Easy-to-understand-solution-with-detailed-explanation" class="uri">https://leetcode.com/problems/valid-permutations-for-di-sequence/discuss/196939/Easy-to-understand-solution-with-detailed-explanation</a></p>
+<p><a href="https://leetcode.com/problems/valid-permutations-for-di-sequence/discuss/168612/Top-down-with-Memo-greater-Bottom-up-DP-greater-N3-DP-greater-N2-DP-greater-O(N)-space" class="uri">https://leetcode.com/problems/valid-permutations-for-di-sequence/discuss/168612/Top-down-with-Memo-greater-Bottom-up-DP-greater-N3-DP-greater-N2-DP-greater-O(N)-space</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-06-26 23:22</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11094525" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(11094525);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 11094525, cb_entryCreatedDate = '2019-06-26 23:22', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

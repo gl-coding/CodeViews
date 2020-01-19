@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="You are given the number of rows&amp;#160;n_rows&amp;#160;and number of columns&amp;#160;n_cols&amp;#160;of a&amp;#160;2" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Random Flip Matrix 随机翻转矩阵 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9781289.html">[LeetCode] Random Flip Matrix 随机翻转矩阵</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>You are given the number of rows&nbsp;<code>n_rows</code>&nbsp;and number of columns&nbsp;<code>n_cols</code>&nbsp;of a&nbsp;2D&nbsp;binary matrix&nbsp;where all values are initially 0.&nbsp;Write a function&nbsp;<code>flip</code>&nbsp;which chooses&nbsp;a 0 value&nbsp;<a href="https://en.wikipedia.org/wiki/Discrete_uniform_distribution" target="_blank">uniformly at random</a>,&nbsp;changes it to 1,&nbsp;and then returns the position&nbsp;<code>[row.id, col.id]</code>&nbsp;of that value. Also, write a function&nbsp;<code>reset</code>&nbsp;which sets all values back to 0.&nbsp;Try to minimize the number of calls to system's Math.random()&nbsp;and optimize the time and&nbsp;space complexity.</p>
+<p>Note:</p>
+<ol>
+<li><code>1 &lt;= n_rows, n_cols&nbsp;&lt;= 10000</code></li>
+<li><code>0 &lt;= row.id &lt; n_rows</code>&nbsp;and&nbsp;<code>0 &lt;= col.id &lt; n_cols</code></li>
+<li><code>flip</code>&nbsp;will not be called when the matrix has no&nbsp;0 values left.</li>
+<li>the total number of calls to&nbsp;<code>flip</code>&nbsp;and&nbsp;<code>reset</code>&nbsp;will not exceed&nbsp;1000.</li>
+</ol>
+<p>Example 1:</p>
+<pre>Input: 
+<span id="example-input-1-1">["Solution","flip","flip","flip","flip"]
+<span id="example-input-1-2">[[2,3],[],[],[],[]]
+Output: <span id="example-output-1">[null,[0,1],[1,2],[1,0],[1,1]]
+</span></span></span></pre>
+<div>
+<p>Example 2:</p>
+<pre>Input: 
+<span id="example-input-2-1">["Solution","flip","flip","reset","flip"]
+<span id="example-input-2-2">[[1,2],[],[],[],[]]
+Output: <span id="example-output-2">[null,[0,0],[0,1],null,[0,0]]</span></span></span></pre>
+</div>
+<p>Explanation of Input Syntax:</p>
+<p>The input is two lists:&nbsp;the subroutines called&nbsp;and their&nbsp;arguments.&nbsp;<code>Solution</code>'s constructor&nbsp;has two arguments,&nbsp;<code>n_rows</code>&nbsp;and&nbsp;<code>n_cols</code>.&nbsp;<code>flip</code>&nbsp;and&nbsp;<code>reset</code>have&nbsp;no&nbsp;arguments.&nbsp;Arguments&nbsp;are&nbsp;always wrapped with a list, even if there aren't any.</p>
+<p>&nbsp;</p>
+<p>这道题让我们随机翻转矩阵中的一个位置，由于之前连续做了好几道随机选点的题&nbsp;<a id="homepage1_HomePageDays_DaysList_ctl04_DayList_TitleUrl_0" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9727206.html">Implement Rand10() Using Rand7()</a>，<a id="homepage1_HomePageDays_DaysList_ctl03_DayList_TitleUrl_0" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9741220.html">Generate Random Point in a Circle</a>，和&nbsp;<a id="homepage1_HomePageDays_DaysList_ctl02_DayList_TitleUrl_0" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9752145.html">Random Point in Non-overlapping Rectangles</a>。以为这道题也要用拒绝采样Rejection Sampling来做，其实不是的。这道题给了我们一个矩形的长和宽，让我们每次随机翻转其中的一个点，其中的隐含条件是，之前翻转过的点，下一次不能再翻转回来，而我们随机生成点是有可能有重复的，一旦很多点都被翻转后，很大概率会重复生成之前的点，所以我们需要有去重复的操作，而这也是本题的难点所在。博主最先的想法是，既然有可能生成重复的点，那么我们使用一个while循环，只要生成了之前的点，我们就重新再生成一个，这么一说，感觉又有点像<a href="https://en.wikipedia.org/wiki/Rejection_sampling" target="_blank">拒绝采样Rejection Sampling</a>的原理了。不管了，不管黑猫白猫，能抓耗子🐭的就是好猫🐱。题目中说了让我们尽量减少空间使用度，那么我们就不能生成整个二维数组了，我们可以用一个HashSet来记录翻转过了点，这样也方便我们进行查重操作。所以我们每次都随机出一个长和宽，然后看这个点是否已经在HashSet中了，不在的话，就加入HashSet，然后返回即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    Solution(</span><span style="color: #0000ff;">int</span> n_rows, <span style="color: #0000ff;">int</span><span style="color: #000000;"> n_cols) {
+        row </span>= n_rows; col =<span style="color: #000000;"> n_cols;
+    }
+    
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> flip() {
+        </span><span style="color: #0000ff;">while</span> (<span style="color: #0000ff;">true</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">int</span> x = rand() % row, y = rand() %<span style="color: #000000;"> col;
+            </span><span style="color: #0000ff;">if</span> (!flipped.count(x * col +<span style="color: #000000;"> y)) {
+                flipped.insert(x </span>* col +<span style="color: #000000;"> y);
+                </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> {x, y};
+            }
+        }
+    }
+    
+    </span><span style="color: #0000ff;">void</span><span style="color: #000000;"> reset() {
+        flipped.clear();
+    }
+
+</span><span style="color: #0000ff;">private</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> row, col;
+    unordered_set</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> flipped;
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>由于题目中让我们尽量少用rand()函数，所以我们可以进行优化一样，不在同时生成两个随机数，而是只生成一个，然后拆分出长和宽即可，其他部分和上面均相同，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    Solution(</span><span style="color: #0000ff;">int</span> n_rows, <span style="color: #0000ff;">int</span><span style="color: #000000;"> n_cols) {
+        row </span>= n_rows; col =<span style="color: #000000;"> n_cols;
+    }
+    
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> flip() {
+        </span><span style="color: #0000ff;">while</span> (<span style="color: #0000ff;">true</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">int</span> val = rand() % (row *<span style="color: #000000;"> col);
+            </span><span style="color: #0000ff;">if</span> (!<span style="color: #000000;">flipped.count(val)) {
+                flipped.insert(val);
+                </span><span style="color: #0000ff;">return</span> {val / col, val %<span style="color: #000000;"> col};
+            }
+        }
+    }
+    
+    </span><span style="color: #0000ff;">void</span><span style="color: #000000;"> reset() {
+        flipped.clear();
+    }
+
+</span><span style="color: #0000ff;">private</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> row, col;
+    unordered_set</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> flipped;
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>其实我们还可以进一步的优化rand()的调用数，我们可以让每个flip()函数只调用一次rand()函数，这该怎么做呢，这里就有一些trick了。我们需要使用一个变量size，初始化为矩形的长乘以宽，然后还是只生成一个随机数id，并使用另一个变量val来记录它。接下来我们给size自减1，我们知道 rand() % size 得到的随机数的范围是 [0, size-1]，那么假如第一次随机出了size-1后，此时size自减1之后，下一次不必担心还会随机出size-1，因为此时的size比之前减少了1。如果第一次随机出了0，假设最开始size=4，那么此时自减1之后，size=3，此时我们将0映射到3。那么下次我们如果再次随机出了0，此时size自减1之后，size=2，现在0有映射值，所以我们将id改为其映射值3，然后再将0映射到2，这样下次就算再摇出了0，我们还可以改变id值。大家有没有发现，我们的映射值都是没有没使用过的数字，这也是为啥开始先检测id是否被使用了，若已经被使用了，则换成其映射值，然后再更新之前的id的映射值，找到下一个未被使用的值即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    Solution(</span><span style="color: #0000ff;">int</span> n_rows, <span style="color: #0000ff;">int</span><span style="color: #000000;"> n_cols) {
+        row </span>= n_rows; col =<span style="color: #000000;"> n_cols;
+        size </span>= row *<span style="color: #000000;"> col;
+    }
+    
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> flip() {
+        </span><span style="color: #0000ff;">int</span> id = rand() % size, val =<span style="color: #000000;"> id;
+        </span>--<span style="color: #000000;">size;
+        </span><span style="color: #0000ff;">if</span> (m.count(id)) id =<span style="color: #000000;"> m[id];
+        m[val] </span>= m.count(size) ?<span style="color: #000000;"> m[size] : size;
+        </span><span style="color: #0000ff;">return</span> {id / col, id %<span style="color: #000000;"> col};
+    }
+    
+    </span><span style="color: #0000ff;">void</span><span style="color: #000000;"> reset() {
+        m.clear();
+        size </span>= row *<span style="color: #000000;"> col;
+    }
+
+</span><span style="color: #0000ff;">private</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> row, col, size;
+    unordered_map</span>&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> m;
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/random-flip-matrix/" target="_blank">https://leetcode.com/problems/random-flip-matrix/</a></p>
+<p><a href="https://leetcode.com/problems/random-flip-matrix/discuss/177809/c%2B%2B-solution" target="_blank">https://leetcode.com/problems/random-flip-matrix/discuss/177809/c%2B%2B-solution</a></p>
+<p><a href="https://leetcode.com/problems/random-flip-matrix/discuss/154053/Java-AC-Solution-call-Least-times-of-Random.nextInt()-function" target="_blank">https://leetcode.com/problems/random-flip-matrix/discuss/154053/Java-AC-Solution-call-Least-times-of-Random.nextInt()-function</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4606334.html" target="_blank">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-10-12 23:32</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9781289" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(9781289);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 9781289, cb_entryCreatedDate = '2018-10-12 23:32', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

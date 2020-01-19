@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta property="og:description" content="We are given a binary tree (with root node ), a node, and an integer value . Return a list of the va" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 863. All Nodes Distance K in Binary Tree 二叉树距离为K的所有结点 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/10686922.html">[LeetCode] 863. All Nodes Distance K in Binary Tree 二叉树距离为K的所有结点</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+We are given a binary tree (with root node <code>root</code>), a <code>target</code> node, and an integer value <code>K</code>.</p>
+<p>Return a list of the values of all nodes that have a distance <code>K</code> from the <code>target</code> node.  The answer can be returned in any order.</p>
+<p>Example 1:</p>
+<pre><code>Input: root = [3,5,1,6,2,0,8,null,null,7,4], target = 5, K = 2
+
+Output: [7,4,1]
+
+Explanation:
+The nodes that are a distance 2 from the target node (with value 5)
+have values 7, 4, and 1.</code></pre>
+<p><img src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/06/28/sketch0.png" /></p>
+<p>Note that the inputs &quot;root&quot; and &quot;target&quot; are actually TreeNodes.<br />
+The descriptions of the inputs above are just serializations of these objects.</p>
+<p>Note:</p>
+<ol>
+<li>The given tree is non-empty.</li>
+<li>Each node in the tree has unique values <code>0 &lt;= node.val &lt;= 500</code>.</li>
+<li>The <code>target</code> node is a node in the tree.</li>
+<li><code>0 &lt;= K &lt;= 1000</code>.</li>
+</ol>
+<p><br><br />
+这道题给了我们一棵二叉树，一个目标结点 target，还有一个整数K，让返回所有跟目标结点 target 相距K的结点。我们知道在子树中寻找距离为K的结点很容易，因为只需要一层一层的向下遍历即可，难点就在于符合题意的结点有可能是祖先结点，或者是在旁边的兄弟子树中，这就比较麻烦了，因为二叉树只有从父结点到子结点的路径，反过来就不行。既然没有，我们就手动创建这样的反向连接即可，这样树的遍历问题就转为了图的遍历（其实树也是一种特殊的图）。建立反向连接就是用一个 HashMap 来来建立每个结点和其父结点之间的映射，使用先序遍历建立好所有的反向连接，然后再开始查找和目标结点距离K的所有结点，这里需要一个 HashSet 来记录所有已经访问过了的结点。</p>
+<p>在递归函数中，首先判断当前结点是否已经访问过，是的话直接返回，否则就加入到 visited 中。再判断此时K是否为0，是的话说明当前结点已经是距离目标结点为K的点了，将其加入结果 res 中，然后直接返回。否则分别对当前结点的左右子结点调用递归函数，注意此时带入 K-1，这两步是对子树进行查找。之前说了，还得对父结点，以及兄弟子树进行查找，这是就体现出建立的反向连接 HashMap 的作用了，若当前结点的父结点存在，我们也要对其父结点调用递归函数，并同样带入 K-1，这样就能正确的找到所有满足题意的点了，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    vector&lt;int&gt; distanceK(TreeNode* root, TreeNode* target, int K) {
+        if (!root) return {};
+        vector&lt;int&gt; res;
+        unordered_map&lt;TreeNode*, TreeNode*&gt; parent;
+        unordered_set&lt;TreeNode*&gt; visited;
+        findParent(root, parent);
+        helper(target, K, parent, visited, res);
+        return res;
+    }
+    void findParent(TreeNode* node, unordered_map&lt;TreeNode*, TreeNode*&gt;&amp; parent) {
+        if (!node) return;
+        if (node-&gt;left) parent[node-&gt;left] = node;
+        if (node-&gt;right) parent[node-&gt;right] = node;
+        findParent(node-&gt;left, parent);
+        findParent(node-&gt;right, parent);
+    }
+    void helper(TreeNode* node, int K, unordered_map&lt;TreeNode*, TreeNode*&gt;&amp; parent, unordered_set&lt;TreeNode*&gt;&amp; visited, vector&lt;int&gt;&amp; res) {
+        if (visited.count(node)) return;
+        visited.insert(node);
+        if (K == 0) {res.push_back(node-&gt;val); return;}
+        if (node-&gt;left) helper(node-&gt;left, K - 1, parent, visited, res);
+        if (node-&gt;right) helper(node-&gt;right, K - 1, parent, visited, res);
+        if (parent[node]) helper(parent[node], K - 1, parent, visited, res);
+    }
+};</code></pre>
+<p><br><br />
+既然是图的遍历，那就也可以使用 BFS 来做，为了方便起见，我们直接建立一个邻接链表，即每个结点最多有三个跟其相连的结点，左右子结点和父结点，使用一个 HashMap 来建立每个结点和其相邻的结点数组之间的映射，这样就几乎完全将其当作图来对待了，建立好邻接链表之后，原来的树的结构都不需要用了。既然是 BFS 进行层序遍历，就要使用队列 queue，还要一个 HashSet 来记录访问过的结点。在 while 循环中，若K为0了，说明当前这层的结点都是符合题意的，就把当前队列中所有的结点加入结果 res，并返回即可。否则就进行层序遍历，取出当前层的每个结点，并在邻接链表中找到和其相邻的结点，若没有访问过，就加入 visited 和 queue 中即可。记得每层遍历完成之后，K要自减1，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    vector&lt;int&gt; distanceK(TreeNode* root, TreeNode* target, int K) {
+        if (!root) return {};
+        vector&lt;int&gt; res;
+        unordered_map&lt;TreeNode*, vector&lt;TreeNode*&gt;&gt; m;
+        queue&lt;TreeNode*&gt; q{{target}};
+        unordered_set&lt;TreeNode*&gt; visited{{target}};
+        findParent(root, NULL, m);
+        while (!q.empty()) {
+            if (K == 0) {
+                for (int i = q.size(); i &gt; 0; --i) {
+                    res.push_back(q.front()-&gt;val); q.pop();
+                }
+                return res;
+            }
+            for (int i = q.size(); i &gt; 0; --i) {
+                TreeNode *t = q.front(); q.pop();
+                for (TreeNode *node : m[t]) {
+                    if (visited.count(node)) continue;
+                    visited.insert(node);
+                    q.push(node);
+                }
+            }
+            --K;
+        }
+        return res;
+    }
+    void findParent(TreeNode* node, TreeNode* pre, unordered_map&lt;TreeNode*, vector&lt;TreeNode*&gt;&gt;&amp; m) {
+        if (!node) return;
+        if (m.count(node)) return;
+        if (pre) {
+            m[node].push_back(pre);
+            m[pre].push_back(node);
+        }
+        findParent(node-&gt;left, node, m);
+        findParent(node-&gt;right, node, m);
+    }
+};</code></pre>
+<p><br><br />
+其实这道题也可以不用 HashMap，不建立邻接链表，直接在递归中完成所有的需求，真正体现了递归的博大精深。在进行递归之前，我们要先判断一个 corner case，那就是当 K==0 时，此时要返回的就是目标结点值本身，可以直接返回。否则就要进行递归了。这里的递归函数跟之前的有所不同，是需要返回值的，这个返回值表示的含义比较复杂，若为0，表示当前结点为空或者当前结点就是距离目标结点为K的点，此时返回值为0，是为了进行剪枝，使得不用对其左右子结点再次进行递归。当目标结点正好是当前结点的时候，递归函数返回值为1，其他的返回值为当前结点离目标结点的距离加1。还需要一个参数 dist，其含义为离目标结点的距离，注意和递归的返回值区别，这里不用加1，且其为0时候不是为了剪枝，而是真不知道离目标结点的距离。</p>
+<p>在递归函数中，首先判断若当前结点为空，则直接返回0。然后判断 dist 是否为k，是的话，说目标结点距离当前结点的距离为K，是符合题意的，需要加入结果 res 中，并返回0，注意这里返回0是为了剪枝。否则判断，若当前结点正好就是目标结点，或者已经遍历过了目标结点（表现为 dist 大于0），那么对左右子树分别调用递归函数，并将返回值分别存入 left 和 right 两个变量中。注意此时应带入 dist+1，因为是先序遍历，若目标结点之前被遍历到了，那么说明目标结点肯定不在当前结点的子树中，当前要往子树遍历的话，肯定离目标结点又远了一些，需要加1。若当前结点不是目标结点，也还没见到目标结点时，同样也需要对左右子结点调用递归函数，但此时 dist 不加1，因为不确定目标结点的位置。若 left 或者 right 值等于K，则说明目标结点在子树中，且距离当前结点为K（为啥呢？因为目标结点本身是返回1，所以当左右子结点返回K时，和当前结点距离是K）。接下来判断，若当前结点是目标结点，直接返回1，这个前面解释过了。然后再看 left 和 right 的值是否大于0，若 left 值大于0，说明目标结点在左子树中，我们此时就要对右子结点再调用一次递归，并且 dist 带入 left+1，同理，若 right 值大于0，说明目标结点在右子树中，我们此时就要对左子结点再调用一次递归，并且 dist 带入 right+1。这两步很重要，是之所以能不建立邻接链表的关键所在。若 left 大于0，则返回 left+1，若 right 大于0，则返回 right+1，否则就返回0，参见代码如下：</p>
+<p><br><br />
+解法三：</p>
+<pre><code>class Solution {
+public:
+    vector&lt;int&gt; distanceK(TreeNode* root, TreeNode* target, int K) {
+        if (K == 0) return {target-&gt;val};
+        vector&lt;int&gt; res;
+        helper(root, target, K, 0, res);
+        return res;
+    }
+    int helper(TreeNode* node, TreeNode* target, int k, int dist, vector&lt;int&gt;&amp; res) {
+        if (!node) return 0;
+        if (dist == k) {res.push_back(node-&gt;val); return 0;}
+        int left = 0, right = 0;
+        if (node-&gt;val == target-&gt;val || dist &gt; 0) {
+            left = helper(node-&gt;left, target, k, dist + 1, res);
+            right = helper(node-&gt;right, target, k, dist + 1, res);
+        } else {
+            left = helper(node-&gt;left, target, k, dist, res);
+            right = helper(node-&gt;right, target, k, dist, res);
+        }
+        if (left == k || right == k) {res.push_back(node-&gt;val); return 0;}
+        if (node-&gt;val == target-&gt;val) return 1;
+        if (left &gt; 0) helper(node-&gt;right, target, k, left + 1, res);
+        if (right &gt; 0) helper(node-&gt;left, target, k, right + 1, res);
+        if (left &gt; 0 || right &gt; 0) return left &gt; 0 ? left + 1 : right + 1;
+        return 0;
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/863" class="uri">https://github.com/grandyang/leetcode/issues/863</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/" class="uri">https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/</a></p>
+<p><a href="https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/discuss/143752/JAVA-Graph-%2B-BFS">https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/discuss/143752/JAVA-Graph-%2B-BFS</a></p>
+<p><a href="https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/discuss/143775/very-easy-to-understand-c%2B%2B-solution.">https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/discuss/143775/very-easy-to-understand-c%2B%2B-solution.</a></p>
+<p><a href="https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/discuss/143886/Java-O(1)-space-excluding-recursive-stack-space" class="uri">https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/discuss/143886/Java-O(1)-space-excluding-recursive-stack-space</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-04-10 23:18</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10686922" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(10686922);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 10686922, cb_entryCreatedDate = '2019-04-10 23:18', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="There are G people in a gang, and a list of various crimes they could commit. The th crime generates" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 879. Profitable Schemes 盈利方案 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/11108205.html">[LeetCode] 879. Profitable Schemes 盈利方案</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+There are G people in a gang, and a list of various crimes they could commit.</p>
+<p>The <code>i</code>-th crime generates a <code>profit[i]</code> and requires <code>group[i]</code> gang members to participate.</p>
+<p>If a gang member participates in one crime, that member can't participate in another crime.</p>
+<p>Let's call a <em>profitable scheme</em> any subset of these crimes that generates at least <code>P</code> profit, and the total number of gang members participating in that subset of crimes is at most G.</p>
+<p>How many schemes can be chosen?  Since the answer may be very large, return it modulo <code>10^9 + 7</code>.</p>
+<p>Example 1:</p>
+<pre><code>Input: G = 5, P = 3, group = [2,2], profit = [2,3]
+Output: 2
+Explanation:
+To make a profit of at least 3, the gang could either commit crimes 0 and 1, or just crime 1.
+In total, there are 2 schemes.</code></pre>
+<p>Example 2:</p>
+<pre><code>Input: G = 10, P = 5, group = [2,3,5], profit = [6,7,8]
+Output: 7
+Explanation:
+To make a profit of at least 5, the gang could commit any crimes, as long as they commit one.
+There are 7 possible schemes: (0), (1), (2), (0,1), (0,2), (1,2), and (0,1,2).</code></pre>
+<p>Note:</p>
+<ol>
+<li><code>1 &lt;= G &lt;= 100</code></li>
+<li><code>0 &lt;= P &lt;= 100</code></li>
+<li><code>1 &lt;= group[i] &lt;= 100</code></li>
+<li><code>0 &lt;= profit[i] &lt;= 100</code></li>
+<li><code>1 &lt;= group.length = profit.length &lt;= 100</code></li>
+</ol>
+<p><br></p>
+<p>这道题说的是黑帮如何合理分配资源，从而实现利润最大化的问题，感觉这年头连黑帮也得合理分配资源，还必须得懂动态规划，我也是醉了。这个题目的背景设定这么叼，不怕教坏小盆友么。说是黑帮中总共有G个人，现在有好几票生意，每票买卖需要的人手不同，分别放在数组 group 中，对应的每票生意能赚的利润放在了数组 profit 中。假如现在黑帮老大设定了一个绩效指标P，帮里这G个人随便用，任务随便做，只要能赚到不少于P的利润即可，唯一的限制就是一个弟兄不能做多个任务（可能因为危险度很高，弟兄可能没法活着回来），问有多少种做任务的方式。这其实是一道多重背包问题 Knapsack，改天有时间了博主想专门做一期背包问题的总结帖，敬请期待～ 好，回到题目来，题目中说了结果可能非常大，要对一个超大数取余，看到这里，我们也就该明白为了不爆栈，只能用动态规划 Dynamic Programming 来做，LeetCode 里有好多题都是要对这个 1e9+7 取余，不知道为啥都是对这个数取余。Anyway，who cares，还是来想想 dp 数组如何定义以及怎么推导状态转移方程吧。</p>
+<p>首先来看分配黑帮资源时候都需要考虑哪些因素，总共有三点，要干几票买卖，要用多少人，能挣多少钱。所以我们需要一个三维的 dp 数组，其中 dp[k][i][j] 表示最多干k票买卖，总共用了i个人，获得利润为j的情况下分配方案的总数，初始化 dp[0][0][0] 为1。现在来推导状态转移方程，整个规划的核心是买卖，总共买卖的个数是固定的，每多干一票买卖，可能的分配方法就可能增加，但不可能减少的，因为假如当前已经算出来做 k-1 次买卖的分配方法总数，再做一次买卖，之前的分配方法不会减少，顶多是人数不够，做不成当前这票买卖而已，所以我们的 dp[k][i][j] 可以先更新为 dp[k-1][i][j]，然后再来看这第k个买卖还能不能做，我们知道假设这第k个买卖需要g个人，能获得利润p，只有当我们现在的人数i大于等于g的时候，才有可能做这个任务，我们要用g个人来做任务k的话，那么其余的 k-1 个任务只能由 i-g 个人来做了，而且由于整个需要产生利润j，第k个任务能产生利润p，所以其余的 k-1 个任务需要产生利润 j-p，由于利润不能是负值，所以我们还需要跟0比较，取二者的最大值，综上所述，若我们选择做任务k，则能新产生的分配方案的个数为 dp[k-1][i-g][max(0,j-p)]，记得每次累加完要对超大数取余。最终我们需要将 dp[n][i][P] ( 0 &lt;= i &lt;= G ) 累加起来，因为我们不一定要全部使用G个人，只要能产生P的利润，用几个人都没关系，而k是表示最多干的买卖数，可能上并没有干到这么多，所以只需要累加人数这个维度即可，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    int profitableSchemes(int G, int P, vector&lt;int&gt;&amp; group, vector&lt;int&gt;&amp; profit) {
+        int n = group.size(), res = 0, M = 1e9 + 7;
+        vector&lt;vector&lt;vector&lt;int&gt;&gt;&gt; dp(n + 1, vector&lt;vector&lt;int&gt;&gt;(G + 1, vector&lt;int&gt;(P + 1)));
+        dp[0][0][0] = 1;
+        for (int k = 1; k &lt;= n; ++k) {
+            int g = group[k - 1], p = profit[k - 1];
+            for (int i = 0; i &lt;= G; ++i) {
+                for (int j = 0; j &lt;= P; ++j) {
+                    dp[k][i][j] = dp[k - 1][i][j];
+                    if (i &gt;= g) {
+                        dp[k][i][j] = (dp[k][i][j] + dp[k - 1][i - g][max(0, j - p)]) % M;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i &lt;= G; ++i) {
+            res = (res + dp[n][i][P]) % M;
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+我们也可优化一下空间复杂度，因为当前做的第k个任务，只跟前 k-1 个任务的分配方案有关，所以并不需要保存所有的任务个数的分配方式。这样我们就节省了一个维度，但是需要注意的是，更新的时候i和j只能从大到小更新，这个其实也不难理解，因为此时 dp[i][j] 存的是前 k-1 个任务的分配方式，所以更新第k个任务的时候，一定要从后面开始覆盖，因为用到了前面的值，若从前面的值开始更新的话，就不能保证用到的都是前 k-1 个任务的分配方式，有可能用到的是已经更新过的值，就会出错，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    int profitableSchemes(int G, int P, vector&lt;int&gt;&amp; group, vector&lt;int&gt;&amp; profit) {
+        int n = group.size(), res = 0, M = 1e9 + 7;
+        vector&lt;vector&lt;int&gt;&gt; dp(G + 1, vector&lt;int&gt;(P + 1));
+        dp[0][0] = 1;
+        for (int k = 1; k &lt;= n; ++k) {
+            int g = group[k - 1], p = profit[k - 1];
+            for (int i = G; i &gt;= g; --i) {
+                for (int j = P; j &gt;= 0; --j) {
+                    dp[i][j] = (dp[i][j] + dp[i - g][max(0, j - p)]) % M;
+                }
+            }
+        }
+        for (int i = 0; i &lt;= G; ++i) {
+            res = (res + dp[i][P]) % M;
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+我们也可以用递归加记忆数组来做，基本思想跟解法一没有太大的区别，递归的记忆数组其实跟迭代形式的 dp 数组没有太大的区别，作用都是保存中间状态从而减少大量的重复计算。这里稍稍需要注意下的就是递归函数中的 corner case，当 k=0 时，则根据j的值来返回0或1，当j小于等于0，返回1，否则返回0，相当于修改了初始化值（之前都初始化为了整型最小值），然后当j小于0时，则j赋值为0，因为利润不能为负值。然后就看若当前的 memo[k][i][j] 已经计算过了，则直接返回即可，参见代码如下：</p>
+<p><br><br />
+解法三：</p>
+<pre><code>class Solution {
+public:
+    int profitableSchemes(int G, int P, vector&lt;int&gt;&amp; group, vector&lt;int&gt;&amp; profit) {
+        vector&lt;vector&lt;vector&lt;int&gt;&gt;&gt; memo(group.size() + 1, vector&lt;vector&lt;int&gt;&gt;(G + 1, vector&lt;int&gt;(P + 1, INT_MIN)));
+        return helper(group.size(), G, P, group, profit, memo);
+    }
+    int helper(int k, int i, int j, vector&lt;int&gt;&amp; group, vector&lt;int&gt;&amp; profit, vector&lt;vector&lt;vector&lt;int&gt;&gt;&gt;&amp; memo) {
+        if (k == 0) return j &lt;= 0;
+        if (j &lt; 0) j = 0;
+        if (memo[k][i][j] != INT_MIN) return memo[k][i][j];
+        int g = group[k - 1], p = profit[k - 1], M = 1e9 + 7;
+        int res = helper(k - 1, i, j, group, profit, memo);
+        if (i &gt;= group[k - 1]) {
+            res = (res + helper(k - 1, i - g, j - p, group, profit, memo)) % M;
+        }
+        return memo[k][i][j] = res;
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/879" class="uri">https://github.com/grandyang/leetcode/issues/879</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/profitable-schemes/" class="uri">https://leetcode.com/problems/profitable-schemes/</a></p>
+<p><a href="https://leetcode.com/problems/profitable-schemes/discuss/154617/C%2B%2BJavaPython-DP">https://leetcode.com/problems/profitable-schemes/discuss/154617/C%2B%2BJavaPython-DP</a></p>
+<p><a href="https://leetcode.com/problems/profitable-schemes/discuss/157099/Java-original-3d-to-2d-DP-solution" class="uri">https://leetcode.com/problems/profitable-schemes/discuss/157099/Java-original-3d-to-2d-DP-solution</a></p>
+<p><a href="https://leetcode.com/problems/profitable-schemes/discuss/154636/C%2B%2B-O(PGn)-top-down-DP-solution">https://leetcode.com/problems/profitable-schemes/discuss/154636/C%2B%2B-O(PGn)-top-down-DP-solution</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-06-29 22:52</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11108205" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(11108205);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 11108205, cb_entryCreatedDate = '2019-06-29 22:52', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

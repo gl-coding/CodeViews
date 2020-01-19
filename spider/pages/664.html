@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="There is a strange printer with the following two special requirements: The printer can only print a" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Strange Printer 奇怪的打印机 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/8319913.html">[LeetCode] Strange Printer 奇怪的打印机</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<div class="question-description">
+<p>There is a strange printer with the following two special requirements:</p>
+<ol>
+<li>The printer can only print a sequence of the same character each time.</li>
+<li>At each turn, the printer can print new characters starting from and ending at any places, and will cover the original existing characters.</li>
+</ol>
+<p>&nbsp;</p>
+<p>Given a string consists of lower English letters only, your job is to count the minimum number of turns the printer needed in order to print it.</p>
+<p>Example 1:</p>
+<pre>Input: "aaabbb"
+Output: 2
+Explanation: Print "aaa" first and then print "bbb".
+</pre>
+<p>&nbsp;</p>
+<p>Example 2:</p>
+<pre>Input: "aba"
+Output: 2
+Explanation: Print "aaa" first and then print "b" from the second place of the string, which will cover the existing character 'a'.
+</pre>
+<p>&nbsp;</p>
+<p>Hint: Length of the given string will not exceed 100.</p>
+<p>&nbsp;</p>
+<p>这道题说有一种奇怪的打印机每次只能打印一排相同的字符，然后可以在任意起点和终点位置之间打印新的字符，用来覆盖原有的字符。现在给了我们一个新的字符串，问我们需要几次可以正确的打印出来。题目中给了两个非常简单的例子，主要是帮助我们理解的。博主最开始想的方法是一种类似贪婪算法，先是找出出现次数最多的字符，然后算需要多少次变换能将所有其他字符都变成那个出现最多次的字符，结果fail了。然后又试了一种类似剥洋葱的方法，从首尾都分别找连续相同的字符，如果首尾字符相同，则两部分一起移去，否则就移去连续相同个数多的子序列，这种基于贪婪算法的解法还是fail了，所以这道题是典型的只能动态规划Dynamic Programming，而不能用贪婪算法Greedy Algorithm的题。这道题的解题思路跟之前那道<a href="http://www.cnblogs.com/grandyang/p/6850657.html">Remove Boxes</a>很相似，博主在那个帖子中做了详细的讲解，是根据fun4leetcode大神的帖子写的，大神的思路对解这道题也相当有帮助。其实这道题并没有之前那道<a href="http://www.cnblogs.com/grandyang/p/6850657.html">Remove Boxes</a>难，移除盒子的题有隐含的条件需要加到重现关系中，大大地增加了题目的难度，非常地难想出来，这道题没有隐含条件都是个Hard题，那道题妥妥应该是Super Hard。</p>
+<p>好，话不多说，来分析这道题吧。思考的线索和思路很重要，不理解核心精髓，当背题侠是没用的，稍微变个形式又不会了，博主就经常是这样的-.-!!!。既然说了要用DP来做，先整个二维dp数组呗，其中dp[i][j]表示打印出字符串[i, j]范围内字符的最小步数，难点就是找递推公式啦。遇到乍看去没啥思路的题，博主一般会先从简单的例子开始，看能不能分析出规律，从而找到解题的线索。首先如果只有一个字符，比如字符串是"a"的话，那么直接一次打印出来就行了。如果字符串是"ab"的话，那么我们要么先打印出"aa"，再改成"ab"，或者先打印出"bb"，再改成"ab"。同理，如果字符串是"abc"的话，就需要三次打印。那么一个很明显的特征是，如果没有重复的字符，打印的次数就是字符的个数。燃鹅这题的难点就是要处理有相同字符的情况，比如字符串是"aba"的时候，我们先打"aaa"的话，两步就搞定了，如果先打"bbb"的话，就需要三步。我们再来看一个字符串"abcb"，我们知道需要需要三步，我们看如果把这个字符串分成两个部分"a"和"bcb"，它们分别的步数是1和2，加起来的3是整个的步数。而对于字符串"abba"，如果分成"a"和"bba"，它们分别的步数也是1和2，但是总步数却是2。这是因为分出的"a"和"bba"中的最后一个字符相同。对于字符串"abbac"，因为位置0上的a和位置3上的a相同，那么整个字符串的步数相当于"bb"和"ac"的步数之和，为3。那么分析到这，是不是有点眉目了？我们关心的是字符相等的地方，对于[i, j]范围的字符，我们从i+1位置上的字符开始遍历到j，如果和i位置上的字符相等，我们就以此位置为界，将[i+1, j]范围内的字符拆为两个部分，将二者的dp值加起来，和原dp值相比，取较小的那个。所以我们的递推式如下:</p>
+<div class="cnblogs_code">
+<pre>dp[i][j] = min(dp[i][j], dp[i + <span style="color: #800080;">1</span>][k - <span style="color: #800080;">1</span>] + dp[k][j]       (s[k] == s[i] and i + <span style="color: #800080;">1</span> &lt;= k &lt;= j)</pre>
+</div>
+<p>要注意一些初始化的值，dp[i][i]是1，因为一个字符嘛，打印1次，还是就是在遍历k之前，dp[i][j]初始化为 1 + dp[i + 1][j]，为啥呢，可以看成在[i + 1, j]的范围上多加了一个s[i]字符，最坏的情况就是加上的是一个不曾出现过的字符，步数顶多加1步，注意我们的i是从后往前遍历的，当然你可以从前往后遍历，参数对应好就行了，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> strangePrinter(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> s.size();
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; dp(n, vector&lt;<span style="color: #0000ff;">int</span>&gt;(n, <span style="color: #800080;">0</span><span style="color: #000000;">));
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = n - <span style="color: #800080;">1</span>; i &gt;= <span style="color: #800080;">0</span>; --<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = i; j &lt; n; ++<span style="color: #000000;">j) {
+                dp[i][j] </span>= (i == j) ? <span style="color: #800080;">1</span> : (<span style="color: #800080;">1</span> + dp[i + <span style="color: #800080;">1</span><span style="color: #000000;">][j]);
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = i + <span style="color: #800080;">1</span>; k &lt;= j; ++<span style="color: #000000;">k) {
+                    </span><span style="color: #0000ff;">if</span> (s[k] == s[i]) dp[i][j] = min(dp[i][j], dp[i + <span style="color: #800080;">1</span>][k - <span style="color: #800080;">1</span>] +<span style="color: #000000;"> dp[k][j]);
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> (n == <span style="color: #800080;">0</span>) ? <span style="color: #800080;">0</span> : dp[<span style="color: #800080;">0</span>][n - <span style="color: #800080;">1</span><span style="color: #000000;">];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>理解了上面的DP的方法，那么也可以用递归的形式来写，记忆数组memo就相当于dp数组，整个思路完全一样，参见代码如下：&nbsp;</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> strangePrinter(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> s.size();
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; memo(n, vector&lt;<span style="color: #0000ff;">int</span>&gt;(n, <span style="color: #800080;">0</span><span style="color: #000000;">));
+        </span><span style="color: #0000ff;">return</span> helper(s, <span style="color: #800080;">0</span>, n - <span style="color: #800080;">1</span><span style="color: #000000;">, memo);
+    }
+    </span><span style="color: #0000ff;">int</span> helper(<span style="color: #0000ff;">string</span> s, <span style="color: #0000ff;">int</span> i, <span style="color: #0000ff;">int</span> j, vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> memo) {
+        </span><span style="color: #0000ff;">if</span> (i &gt; j) <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (memo[i][j]) <span style="color: #0000ff;">return</span><span style="color: #000000;"> memo[i][j];
+        memo[i][j] </span>= helper(s, i + <span style="color: #800080;">1</span>, j, memo) + <span style="color: #800080;">1</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = i + <span style="color: #800080;">1</span>; k &lt;= j; ++<span style="color: #000000;">k) {
+            </span><span style="color: #0000ff;">if</span> (s[k] ==<span style="color: #000000;"> s[i]) {
+                memo[i][j] </span>= min(memo[i][j], helper(s, i + <span style="color: #800080;">1</span>, k - <span style="color: #800080;">1</span>, memo) +<span style="color: #000000;"> helper(s, k, j, memo));
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> memo[i][j];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/6850657.html">Remove Boxes</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/5006441.html">Burst Balloons</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/6759881.html" target="_blank">Zuma Game</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://discuss.leetcode.com/topic/100137/java-solution-dp">https://discuss.leetcode.com/topic/100137/java-solution-dp</a></p>
+<p><a href="https://discuss.leetcode.com/topic/100212/c-29ms-dp-solution">https://discuss.leetcode.com/topic/100212/c-29ms-dp-solution</a></p>
+<p><a href="https://discuss.leetcode.com/topic/100135/java-o-n-3-short-dp-solution">https://discuss.leetcode.com/topic/100135/java-o-n-3-short-dp-solution</a></p>
+<p>&nbsp;</p>
+</div>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-01-20 09:44</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8319913" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(8319913);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 8319913, cb_entryCreatedDate = '2018-01-20 09:44', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

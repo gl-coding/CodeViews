@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given a non-empty string, encode the string such that its encoded length is the shortest. The encodi" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Encode String with Shortest Length 最短长度编码字符串 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/6194403.html">[LeetCode] Encode String with Shortest Length 最短长度编码字符串</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given a <strong>non-empty</strong> string, encode the string such that its encoded length is the shortest.</p>
+<p>The encoding rule is: <code>k[encoded_string]</code>, where the <em>encoded_string</em> inside the square brackets is being repeated exactly <em>k</em> times.</p>
+<p><strong>Note:</strong><br />
+</p>
+<ol>
+<li><em>k</em> will be a positive integer and encoded string will not be empty or have extra space.</li>
+<li>You may assume that the input string contains only lowercase English letters. The string's length is at most 160.</li>
+<li>If an encoding process does not make the string shorter, then do not
+ encode it. If there are several solutions, return any of them is fine.</li>
+
+
+
+
+
+</ol>
+<p><strong>Example 1:</strong>
+</p>
+<pre>Input: "aaa"
+Output: "aaa"
+Explanation: There is no way to encode it such that it is shorter than the input string, so we do not encode it.
+</pre>
+<p><strong>Example 2:</strong></p>
+<pre>Input: "aaaaa"
+Output: "5[a]"
+Explanation: "5[a]" is shorter than "aaaaa" by 1 character.
+</pre>
+<p><strong>Example 3:</strong></p>
+<pre>Input: "aaaaaaaaaa"
+Output: "10[a]"
+Explanation: "a9[a]" or "9[a]a" are also valid solutions, both of them have the same length = 5, which is the same as "10[a]".
+</pre>
+<p><strong>Example 4:</strong></p>
+<pre>Input: "aabcaabcd"
+Output: "2[aabc]d"
+Explanation: "aabc" occurs twice, so one answer can be "2[aabc]d".
+</pre>
+<p><strong>Example 5:</strong></p>
+<pre>Input: "abbbabbbcabbbabbbc"
+Output: "2[2[abbb]c]"
+Explanation: "abbbabbbc" occurs twice, but "abbbabbbc" can also be encoded to "2[abbb]c", so one answer can be "2[2[abbb]c]".
+</pre>
+<div>&nbsp;</div>
+<div>这道题让我们压缩字符串，把相同的字符串用中括号括起来，然后在前面加上出现的次数，感觉还是一道相当有难度的题呢。参考了网上大神的帖子才弄懂该怎么做，这道题还是应该用DP来做。我们建立一个二维的DP数组，其中dp[i][j]表示s在[i, j]范围内的字符串的缩写形式(如果缩写形式长度大于子字符串，那么还是保留子字符串)，那么如果s字符串的长度是n，最终我们需要的结果就保存在dp[0][n-1]中，然后我们需要遍历s的所有子字符串，对于任意一段子字符串[i, j]，我们\\我们以中间任意位置k来拆分成两段，比较dp[i][k]加上dp[k+1][j]的总长度和dp[i][j]的长度，将长度较小的字符串赋给dp[i][j]，然后我们要做的就是在s中取出[i, j]范围内的子字符串t进行合并。合并的方法是我们在取出的字符串t后面再加上一个t，然后在这里面寻找子字符串t的第二个起始位置，如果第二个起始位置小于t的长度的话，说明t包含重复字符串，举个例子吧，比如 t = "abab", 那么t+t = "abababab"，我们在里面找第二个t出现的位置为2，小于t的长度4，说明t中有重复出现，重复的个数为t.size()/pos = 2个，那么我们就要把重复的地方放入中括号中，注意中括号里不能直接放这个子字符串，而是应该从dp中取出对应位置的字符串，因为重复的部分有可能已经写成缩写形式了，比如题目中的例子5。再看一个例子，如果t = "abc"，那么t+t = "abcabc"，我们在里面找第二个t出现的位置为3，等于t的长度3，说明t中没有重复出现，那么replace就还是t。然后我们比较我们得到的replace和dp[i][j]中的字符串长度，把长度较小的赋给dp[i][j]即可，时间复杂度为O(n<sup>3</sup>)，空间复杂度为O(n<sup>2</sup>)，参见代码如下：</div>
+<div>&nbsp;</div>
+<div>解法一：</div>
+<div>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">string</span> encode(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> s.size();
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">string</span>&gt;&gt; dp(n, vector&lt;<span style="color: #0000ff;">string</span>&gt;(n, <span style="color: #800000;">""</span><span style="color: #000000;">));
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> step = <span style="color: #800080;">1</span>; step &lt;= n; ++<span style="color: #000000;">step) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i + step - <span style="color: #800080;">1</span> &lt; n; ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">int</span> j = i + step - <span style="color: #800080;">1</span><span style="color: #000000;">;
+                dp[i][j] </span>=<span style="color: #000000;"> s.substr(i, step);
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = i; k &lt; j; ++<span style="color: #000000;">k) {
+                    </span><span style="color: #0000ff;">string</span> left = dp[i][k], right = dp[k + <span style="color: #800080;">1</span><span style="color: #000000;">][j];
+                    </span><span style="color: #0000ff;">if</span> (left.size() + right.size() &lt;<span style="color: #000000;"> dp[i][j].size()) {
+                        dp[i][j] </span>= left +<span style="color: #000000;"> right;
+                    }
+                }
+                </span><span style="color: #0000ff;">string</span> t = s.substr(i, j - i + <span style="color: #800080;">1</span>), replace = <span style="color: #800000;">""</span><span style="color: #000000;">;
+                auto pos </span>= (t + t).find(t, <span style="color: #800080;">1</span><span style="color: #000000;">);
+                </span><span style="color: #0000ff;">if</span> (pos &gt;= t.size()) replace =<span style="color: #000000;"> t;
+                </span><span style="color: #0000ff;">else</span> replace = to_string(t.size() / pos) + <span style="color: #800000;">'</span><span style="color: #800000;">[</span><span style="color: #800000;">'</span> + dp[i][i + pos - <span style="color: #800080;">1</span>] + <span style="color: #800000;">'</span><span style="color: #800000;">]</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">if</span> (replace.size() &lt; dp[i][j].size()) dp[i][j] =<span style="color: #000000;"> replace;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> dp[<span style="color: #800080;">0</span>][n - <span style="color: #800080;">1</span><span style="color: #000000;">];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>根据热心网友iffalse的留言，我们可以优化上面的方法。如果t是重复的，是不是就不需要再看left.size() + right.size() &lt; dp[i][j].size()了。例如t是abcabcabcabcabc, 最终肯定是5[abc]，不需要再看3[abc]+abcabc或者abcabc+3[abc]。对于一个本身就重复的字符串，最小的长度肯定是n[REPEATED]，不会是某个left+right。所以应该把k的那个循环放在t和replace那部分代码的后面。这样的确提高了一些运算效率的，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">string</span> encode(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> s.size();
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">string</span>&gt;&gt; dp(n, vector&lt;<span style="color: #0000ff;">string</span>&gt;(n, <span style="color: #800000;">""</span><span style="color: #000000;">));
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> step = <span style="color: #800080;">1</span>; step &lt;= n; ++<span style="color: #000000;">step) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i + step - <span style="color: #800080;">1</span> &lt; n; ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">int</span> j = i + step - <span style="color: #800080;">1</span><span style="color: #000000;">;
+                dp[i][j] </span>=<span style="color: #000000;"> s.substr(i, step);
+                </span><span style="color: #0000ff;">string</span> t = s.substr(i, j - i + <span style="color: #800080;">1</span>), replace = <span style="color: #800000;">""</span><span style="color: #000000;">;
+                auto pos </span>= (t + t).find(t, <span style="color: #800080;">1</span><span style="color: #000000;">);
+                </span><span style="color: #0000ff;">if</span> (pos &lt;<span style="color: #000000;"> t.size()) {
+                    replace </span>= to_string(t.size() / pos) + <span style="color: #800000;">"</span><span style="color: #800000;">[</span><span style="color: #800000;">"</span> + dp[i][i + pos - <span style="color: #800080;">1</span>] + <span style="color: #800000;">"</span><span style="color: #800000;">]</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                    </span><span style="color: #0000ff;">if</span> (replace.size() &lt; dp[i][j].size()) dp[i][j] =<span style="color: #000000;"> replace;
+                    </span><span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                }
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = i; k &lt; j; ++<span style="color: #000000;">k) {
+                    </span><span style="color: #0000ff;">string</span> left = dp[i][k], right = dp[k + <span style="color: #800080;">1</span><span style="color: #000000;">][j];
+                    </span><span style="color: #0000ff;">if</span> (left.size() + right.size() &lt;<span style="color: #000000;"> dp[i][j].size()) {
+                        dp[i][j] </span>= left +<span style="color: #000000;"> right;
+                    }
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> dp[<span style="color: #800080;">0</span>][n - <span style="color: #800080;">1</span><span style="color: #000000;">];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/5849037.html">Decode String</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/8667239.html" target="_blank">Number of Atoms</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/encode-string-with-shortest-length/" target="_blank">https://leetcode.com/problems/encode-string-with-shortest-length/</a></p>
+<p><a href="https://leetcode.com/problems/encode-string-with-shortest-length/discuss/95599/Accepted-Solution-in-Java" target="_blank">https://leetcode.com/problems/encode-string-with-shortest-length/discuss/95599/Accepted-Solution-in-Java</a></p>
+<p><a href="https://leetcode.com/problems/encode-string-with-shortest-length/discuss/95605/Easy-to-understand-C%2B%2B-O(n3)-solution" target="_blank">https://leetcode.com/problems/encode-string-with-shortest-length/discuss/95605/Easy-to-understand-C%2B%2B-O(n3)-solution</a></p>
+<p><a href="https://leetcode.com/problems/encode-string-with-shortest-length/discuss/95619/C%2B%2B-O(N3)-time-O(N2)-space-solution-using-memorized-dynamic-programming-with-detail-explanations" target="_blank">https://leetcode.com/problems/encode-string-with-shortest-length/discuss/95619/C%2B%2B-O(N3)-time-O(N2)-space-solution-using-memorized-dynamic-programming-with-detail-explanations</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a>&nbsp;</p>
+</div>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2016-12-18 14:12</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=6194403" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(6194403);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 6194403, cb_entryCreatedDate = '2016-12-18 14:12', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

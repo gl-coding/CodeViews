@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="We are stacking blocks to form a pyramid. Each block has a color which is a one letter string, like " />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Pyramid Transition Matrix 金字塔转变矩阵 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/8476646.html">[LeetCode] Pyramid Transition Matrix 金字塔转变矩阵</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>We are stacking blocks to form a pyramid. Each block has a color which is a one letter string, like `'Z'`.</p>
+<p>For every block of color `C` we place not in the bottom row, we are placing it on top of a left block of color `A` and right block of color `B`. We are allowed to place the block there only if `(A, B, C)` is an allowed triple.</p>
+<p>We start with a bottom row of&nbsp;<code>bottom</code>, represented as a single string. We also start with a list of allowed triples&nbsp;<code>allowed</code>. Each allowed triple is represented as a string of length 3.</p>
+<p>Return true if we can build the pyramid all the way to the top, otherwise false.</p>
+<p>Example 1:</p>
+<pre>Input: bottom = "XYZ", allowed = ["XYD", "YZE", "DEA", "FFF"]
+Output: true
+Explanation:
+We can stack the pyramid like this:
+    A
+   / \
+  D   E
+ / \ / \
+X   Y   Z
+
+This works because ('X', 'Y', 'D'), ('Y', 'Z', 'E'), and ('D', 'E', 'A') are allowed triples.
+</pre>
+<p>&nbsp;</p>
+<p>Example 2:</p>
+<pre>Input: bottom = "XXYX", allowed = ["XXX", "XXY", "XYX", "XYY", "YXZ"]
+Output: false
+Explanation:
+We can't stack the pyramid to the top.
+Note that there could be allowed triples (A, B, C) and (A, B, D) with C != D.
+</pre>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ol>
+<li><code>bottom</code>&nbsp;will be a string with length in range&nbsp;<code>[2, 8]</code>.</li>
+<li><code>allowed</code>&nbsp;will have length in range&nbsp;<code>[0, 200]</code>.</li>
+<li>Letters in all strings will be chosen from the set&nbsp;<code>{'A', 'B', 'C', 'D', 'E', 'F', 'G'}</code>.</li>
+</ol>
+<p>&nbsp;</p>
+<p>这道题让我们累一个金字塔，用字母来代表每块砖的颜色，给了一个allowed数组，里面都是长度为三的字符串，比如&ldquo;ABC&rdquo;表示C可以放在A和B的上方，注意AB上面也可以放其他的，比如&ldquo;ABD&rdquo;也可以同时出现，不过搭积木的时候只能选择一种。给了我们一个bottom字符串，是金字塔的底层，问我们能不能搭出一个完整的金字塔。那么实际上我们就是从底层开始，一层一层的向上来累加，直到搭出整个金字塔。我们先来看递归的解法，首先由于我们想快速知道两个字母上方可以放的字母，需要建立基座字符串和上方字符集合之间的映射，由于上方字符可以不唯一，所以用个HashSet来放字符。我们的递归函数有三个参数，当前层字符串cur，上层字符串above，还有我们的HashMap。如果cur的大小为2，above的大小为1，那么说明当前已经达到金字塔的顶端了，已经搭出来了，直接返回true。否则看，如果上一层的长度比当前层的长度正好小一个，说明上一层也搭好了，我们现在去搭上上层，于是调用递归函数，将above当作当前层，空字符串为上一层，将调用的递归函数结果直接返回。否则表示我们还需要继续去搭above层，我们先算出above层的长度pos，然后从当前层的pos位置开始取两个字符，就是above层接下来需要搭的字符的基座字符，举个例子如下：</p>
+<pre>  D   
+ / \ / \
+A   B   C</pre>
+<p>我们看到现在above层只有一个D，那么pos为1，在cur层1位置开始取两个字符，得到"BC"，即是D的下一个位置的字符的基座字符串base。取出了base后，如果HashMap中有映射，则我们遍历其映射的字符集合中的所有字符，对每个字符都调用递归函数，此时above字符串需要加上这个遍历到的字符，因为我们在尝试填充这个位置，如果有返回true的，那么当前递归函数就返回true了，否则最终返回false，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> pyramidTransition(<span style="color: #0000ff;">string</span> bottom, vector&lt;<span style="color: #0000ff;">string</span>&gt;&amp;<span style="color: #000000;"> allowed) {   
+        unordered_map</span>&lt;<span style="color: #0000ff;">string</span>, unordered_set&lt;<span style="color: #0000ff;">char</span>&gt;&gt;<span style="color: #000000;"> m;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">string</span><span style="color: #000000;"> str : allowed) {
+            m[str.substr(</span><span style="color: #800080;">0</span>, <span style="color: #800080;">2</span>)].insert(str[<span style="color: #800080;">2</span><span style="color: #000000;">]);
+        }
+        </span><span style="color: #0000ff;">return</span> helper(bottom, <span style="color: #800000;">""</span><span style="color: #000000;">, m);
+    }
+    </span><span style="color: #0000ff;">bool</span> helper(<span style="color: #0000ff;">string</span> cur, <span style="color: #0000ff;">string</span> above, unordered_map&lt;<span style="color: #0000ff;">string</span>, unordered_set&lt;<span style="color: #0000ff;">char</span>&gt;&gt;&amp;<span style="color: #000000;"> m) {
+        </span><span style="color: #0000ff;">if</span> (cur.size() == <span style="color: #800080;">2</span> &amp;&amp; above.size() == <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (above.size() == cur.size() - <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span> helper(above, <span style="color: #800000;">""</span><span style="color: #000000;">, m);
+        </span><span style="color: #0000ff;">int</span> pos =<span style="color: #000000;"> above.size();
+        </span><span style="color: #0000ff;">string</span> <span style="color: #0000ff;">base</span> = cur.substr(pos, <span style="color: #800080;">2</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">if</span> (m.count(<span style="color: #0000ff;">base</span><span style="color: #000000;">)) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">char</span> ch : m[<span style="color: #0000ff;">base</span><span style="color: #000000;">]) {
+                </span><span style="color: #0000ff;">if</span> (helper(cur, above + <span style="color: #0000ff;">string</span>(<span style="color: #800080;">1</span><span style="color: #000000;">, ch), m)) {
+                    </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面来看一种迭代的写法，这是一种DP的解法，建立一个三维的dp数组，其中dp[i][j][ch]表示在金字塔(i, j)位置上是否可以放字符ch，金字塔的宽和高已经确定了，都是n。每个位置对应着nxn的数组的左半边，如下所示：</p>
+<p>F _ _<br />D E _<br />A B C</p>
+<p>除了底层，每个位置可能可以放多个字符，所以这里dp数组是一个三维数组，第三维的长度为7，因为题目中限定了字母只有A到G共7个，如果dp值为true，表示该位置放该字母，我们根据bottom字符串来初始化dp数组的底层。这里还是需要一个HashMap，不过跟上面的解法略有不同的是，我们建立上方字母跟其能放的基座字符串集合的映射，因为一个字母可能可以放多个位置，所以用个集合来表示。然后我们就开始从倒数第二层开始往顶部更新啦，对于金字塔的每个位置，我们都遍历A到G中所有的字母，如果当前字母在HashMap中有映射，则我们遍历对应的基座字符串集合中的所有字符串，基座字符串共有两个字母，左边的字母对应的金字塔中的位置是(i + 1, j)，右边的字母对应的位置是(i + 1, j + 1)，我们只要在这两个位置上分别查询对应的字母的dp值是否为true，是的话，说明当前位置有字母可以放，我们将当前位置的字母对应的dp值赋值为true。这样，当我们整个更新完成了之后，我们只要看金字塔顶端位置(0, 0)是否有字母可以放，有的话，说明可以搭出金字塔，返回true，否则返回false，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> pyramidTransition(<span style="color: #0000ff;">string</span> bottom, vector&lt;<span style="color: #0000ff;">string</span>&gt;&amp;<span style="color: #000000;"> allowed) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> bottom.size();
+        vector</span>&lt;vector&lt;vector&lt;<span style="color: #0000ff;">bool</span>&gt;&gt;&gt; dp(n, vector&lt;vector&lt;<span style="color: #0000ff;">bool</span>&gt;&gt;(n, vector&lt;<span style="color: #0000ff;">bool</span>&gt;(<span style="color: #800080;">7</span>, <span style="color: #0000ff;">false</span><span style="color: #000000;">)));
+        unordered_map</span>&lt;<span style="color: #0000ff;">char</span>, unordered_set&lt;<span style="color: #0000ff;">string</span>&gt;&gt;<span style="color: #000000;"> m;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">string</span><span style="color: #000000;"> str : allowed) {
+            m[str[</span><span style="color: #800080;">2</span>]].insert(str.substr(<span style="color: #800080;">0</span>, <span style="color: #800080;">2</span><span style="color: #000000;">));
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            dp[n </span>- <span style="color: #800080;">1</span>][i][bottom[i] - <span style="color: #800000;">'</span><span style="color: #800000;">A</span><span style="color: #800000;">'</span>] = <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = n - <span style="color: #800080;">2</span>; i &gt;= <span style="color: #800080;">0</span>; --<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = <span style="color: #800080;">0</span>; j &lt;= i; ++<span style="color: #000000;">j) {
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">char</span> ch = <span style="color: #800000;">'</span><span style="color: #800000;">A</span><span style="color: #800000;">'</span>; ch &lt;= <span style="color: #800000;">'</span><span style="color: #800000;">G</span><span style="color: #800000;">'</span>; ++<span style="color: #000000;">ch) {
+                    </span><span style="color: #0000ff;">if</span> (!m.count(ch)) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                    </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">string</span><span style="color: #000000;"> str : m[ch]) {
+                        </span><span style="color: #0000ff;">if</span> (dp[i + <span style="color: #800080;">1</span>][j][str[<span style="color: #800080;">0</span>] - <span style="color: #800000;">'</span><span style="color: #800000;">A</span><span style="color: #800000;">'</span>] &amp;&amp; dp[i + <span style="color: #800080;">1</span>][j + <span style="color: #800080;">1</span>][str[<span style="color: #800080;">1</span>] - <span style="color: #800000;">'</span><span style="color: #800000;">A</span><span style="color: #800000;">'</span><span style="color: #000000;">]) {
+                            dp[i][j][ch </span>- <span style="color: #800000;">'</span><span style="color: #800000;">A</span><span style="color: #800000;">'</span>] = <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+                        }
+                    }
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; <span style="color: #800080;">7</span>; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (dp[<span style="color: #800080;">0</span>][<span style="color: #800080;">0</span>][i]) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/pyramid-transition-matrix/discuss/113075/DP-O(n2-*-m)">https://leetcode.com/problems/pyramid-transition-matrix/discuss/113075/DP-O(n2-*-m)</a></p>
+<p><a href="https://leetcode.com/problems/pyramid-transition-matrix/discuss/113036/A-map-based-solution-based-on-memoization">https://leetcode.com/problems/pyramid-transition-matrix/discuss/113036/A-map-based-solution-based-on-memoization</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-02-26 23:19</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8476646" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(8476646);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 8476646, cb_entryCreatedDate = '2018-02-26 23:19', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

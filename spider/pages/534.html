@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="How would you design a URL shortening service that is similar to&amp;#160;TinyURL? Background:TinyURL is" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Design TinyURL 设计精简URL地址 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/7675140.html">[LeetCode] Design TinyURL 设计精简URL地址</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<blockquote>Note: For the coding companion problem, please see:&nbsp;<a href="https://leetcode.com/problems/encode-and-decode-tinyurl/">Encode and Decode TinyURL</a>.</blockquote>
+<p>How would you design a URL shortening service that is similar to&nbsp;<a href="https://en.wikipedia.org/wiki/TinyURL" target="_blank">TinyURL</a>?</p>
+<p>Background:<br />TinyURL is a URL shortening service where you enter a URL such as&nbsp;<code>https://leetcode.com/problems/design-tinyurl</code>&nbsp;and it returns a short URL such as&nbsp;<code>http://tinyurl.com/4e9iAk</code>.</p>
+<p>Requirements:</p>
+<ol>
+<li>For instance, "http://tinyurl.com/<span class="hilight">4e9iAk" is the tiny url for the page&nbsp;<code>"https://leetcode.com/problems/design-tinyurl"</code>. The&nbsp;identifier&nbsp;(<span class="hilight">the highlighted part) can be any string with 6 alphanumeric characters containing&nbsp;<code>0-9</code>,&nbsp;<code>a-z</code>,&nbsp;<code>A-Z</code>.</span></span></li>
+<li>Each shortened URL must be unique; that is, no two different URLs can be shortened to the same URL.</li>
+
+
+
+
+</ol>
+<p>&nbsp;</p>
+<p>Note about Questions:<br />Below are just a small subset of questions to get you started. In real world, there could be many follow ups and questions possible and the discussion is open-ended (No one true or correct way to solve a problem). If you have more ideas or questions, please ask in Discuss and we may compile it here!</p>
+<p>Questions:</p>
+<ol><ol>
+<li>How many unique identifiers possible? Will you run out of unique URLs?</li>
+<li>Should the identifier be increment or not? Which is easier to design? Pros and cons?</li>
+<li>Mapping an identifier to an URL and its reversal - Does this problem ring a bell to you?</li>
+<li>How do you store the URLs? Does a simple flat file database work?</li>
+<li>What is the bottleneck of the system? Is it&nbsp;read-heavy&nbsp;or&nbsp;write-heavy?</li>
+<li>Estimate the maximum number of URLs a single machine can store.</li>
+<li>Estimate the maximum number of queries per second (QPS) for decoding a shortened URL in a single machine.</li>
+<li>How would you scale the service? For example, a viral link which is shared in social media could result in a peak QPS at a moment's notice.</li>
+<li>How could you handle redundancy? i,e, if a server is down, how could you ensure the service is still operational?</li>
+<li>Keep URLs forever or prune, pros/cons? How we do pruning? (Contributed by @alex_svetkin)</li>
+<li>What API would you provide to a third-party developer? (Contributed by @alex_svetkin)</li>
+<li>If you can enable caching, what would you cache and what's the expiry time? (Contributed by @Humandroid)</li>
+
+
+
+
+</ol></ol>
+<p>&nbsp;</p>
+<p>这道系统设计的题跟之前的算法还是不一样的，代码只是其中的一部分，估计大部分还是要跟面试官侃大山，博主也不太熟悉这类题目，还是照着<span class="username"><a href="https://discuss.leetcode.com/topic/95853/a-complete-solution-for-tinyurl-leetcode-system-design" target="_blank">ztlevi大神的帖子</a>来写吧。</span></p>
+<p>&nbsp;</p>
+<p><strong>S: Scenario 场景</strong></p>
+<p>长URL和短URL的相互转换</p>
+<p>&nbsp;</p>
+<p><strong>N: Need 需求</strong></p>
+<p>- QPS (Queires Per Second) 每秒查询数</p>
+<p>&nbsp; - 日活用户：100M</p>
+<p>&nbsp; - 每日人均使用量：（写）long2short 0.1，（读） short2long 1</p>
+<p>&nbsp; - 每日请求量：写 10M，读 100M</p>
+<p>&nbsp; - QPS：一天共有86400秒，约100K。写 100， 读 1K</p>
+<p>&nbsp; - 峰值QPS：写 200， 读 2K</p>
+<p>（千级的量可以用一个单SSD的MySQL机器来处理）</p>
+<p>- Storage 存储</p>
+<p>&nbsp; - 每天10M个新映射（长URL到短URL）</p>
+<p>&nbsp; - 一个映射大约占100B的大小</p>
+<p>&nbsp; - 每天1GB，1TB大约能扛三年</p>
+<p>&nbsp; 对于这种系统来说，存储不是问题。只有像Netflix那样的系统可能会有存储问题。通过SN分析，我们对系统有了一个大框架印象，这个系统可以使用单SSD机器来实现。</p>
+<p>&nbsp;</p>
+<p><strong>A: API 接口</strong></p>
+<p>只有一种类型的服务：URLService</p>
+<p>- Core (Business Logic) Layer</p>
+<p>- Class: URLService</p>
+<p>- Interface:</p>
+<p>- URLService.encode(string long_url)</p>
+<p>- URLService.decode(stirng short_url)</p>
+<p>- Web Layer</p>
+<p>- REST API:</p>
+<p>- GET: /{short_url}, return a http redirect response (301)</p>
+<p>- POST:&nbsp;<a href="https://goo.gl/" rel="nofollow">goo.gl</a>&nbsp;method -&nbsp;<a href="https://developers.google.com/url-shortener/v1/getting_started#actions" rel="nofollow">google shorten URL</a></p>
+<p>Request Body: {url=longUrl} e.g. {"longUrl": "<a href="https://www.google.com/" rel="nofollow">http://www.google.com/</a>"}<br />Return OK(200), short_url is included in the data</p>
+<p>&nbsp;</p>
+<p><strong>K: Data Access 数据访问</strong></p>
+<p>Step 1: Pick a storage structure 选择一个存储结构</p>
+<p>- SQL VS NoSQL？</p>
+<p>&nbsp; - 需要支持事务Transactions吗？NoSQL不支持事务Transactions。</p>
+<p>&nbsp; - 需要Rich SQL Query吗？ NoSQL不支持SQL那么多的Query。</p>
+<p>&nbsp; - 需要高效开发吗？大多数的网络框架对SQL的支持性非常好，意味着系统不需要太多的代码。</p>
+<p>&nbsp; - 需要AUTO_INCREMENT ID吗？ NoSQL不支持这个，仅有一个全局卫衣的Object_id。</p>
+<p>&nbsp; - 需要高QPS吗？NoSQL有高性能。比如Memcached的QPS可达到百万级，MondoDB可达万级，MySQL只有千级。</p>
+<p>&nbsp; - 系统的可伸缩性Scalability有多高？SQL需要开发者写代码去伸缩Scale，而NoSQL自带该功能（Sharding，replica）。</p>
+<p>- Answer 回答：</p>
+<p>&nbsp; - 不需要 -&gt; NoSQL</p>
+<p>&nbsp; - 不需要 -&gt; NoSQL</p>
+<p>&nbsp; - 无所谓，因为只有很少的代码 -&gt; NoSQL</p>
+<p>&nbsp; - 算法需要AUTO_INCREMENT ID -&gt; SQL</p>
+<p>&nbsp; - 写 200，读 2K，不高 -&gt; SQL</p>
+<p>&nbsp; - 不高 -&gt; SQL</p>
+<p>- System Alogrithm 系统算法</p>
+<p>&nbsp; - Hash 函数</p>
+<p>　 &nbsp;long_url =&gt; md5/sha1</p>
+<p>　 &nbsp;- md5将一个字符串转为128位，通常用16个字节的十六进制来表示：</p>
+<p>　　 &nbsp;<a href="https://site.douban.com/chuan" rel="nofollow">http://site.douban.com/chuan</a>&nbsp;-&gt; c93a360dc7f3eb093ab6e304db516653</p>
+<p>　 &nbsp;- sha1将字符串转为160位，通常用20个字节的十六进制来表示：</p>
+<p>　　 &nbsp;<a href="https://site.douban.com/chuan" rel="nofollow">http://site.douban.com/chuan</a>&nbsp;-&gt; dff85871a72c73c3eae09e39ffe97aea63047094</p>
+<p>　 这两个算法使得哈希值是随机分布的，但是冲突Conflicts无法避免。任何哈希算法都无法避免冲突问题。</p>
+<p>&nbsp; &nbsp; &nbsp;- 优点：简单。我们用转换字符串的前6个字符</p>
+<p>&nbsp; &nbsp; &nbsp;- 缺点：冲突</p>
+<p>　　 &nbsp;解决方法 1. 使用（long_url + timestamp）作为哈希函数的关键字Key。2. 当冲突时，重新生成哈希值（生成的值不同因为时间戳改变了）。</p>
+<p>　　 &nbsp;总之，当urls的个数超过十亿个，可能会有大量的冲突使得系统不高效。</p>
+<p>&nbsp; - base62</p>
+<p>　 &nbsp;将short_url用62 base标记。6位可以表示62^6 57 billion。</p>
+<p>　 &nbsp;每个short_url表示一个十进制数，可以当作SQL数据库中的AUTO_INCREMENT ID。</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> URLService {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    URLService() {
+        COUNTER </span>= <span style="color: #800080;">1</span><span style="color: #000000;">;
+        elements </span>= <span style="color: #800000;">"</span><span style="color: #800000;">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+    }
+
+    </span><span style="color: #0000ff;">string</span> longToShort(<span style="color: #0000ff;">string</span><span style="color: #000000;"> url) {
+        </span><span style="color: #0000ff;">string</span> short_url =<span style="color: #000000;"> base10ToBase62(COUNTER);
+        long2short[url] </span>=<span style="color: #000000;"> COUNTER;
+        short2long[COUNTER] </span>=<span style="color: #000000;"> url;
+        </span>++<span style="color: #000000;">COUNTER;
+        </span><span style="color: #0000ff;">return</span> <span style="color: #800000;">"</span><span style="color: #800000;">http://tiny.url/</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> short_url;
+    }
+
+    </span><span style="color: #0000ff;">string</span> shortToLong(<span style="color: #0000ff;">string</span><span style="color: #000000;"> url) {
+        </span><span style="color: #0000ff;">string</span> prefix = <span style="color: #800000;">"</span><span style="color: #800000;">http://tiny.url/</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+        url </span>=<span style="color: #000000;"> url.substr(prefix.size());
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> base62ToBase10(url);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> short2long[n];
+    }
+
+    </span><span style="color: #0000ff;">int</span> base62ToBase10(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        </span><span style="color: #0000ff;">int</span> n = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; s.size(); ++<span style="color: #000000;">i) {
+            n </span>= n * <span style="color: #800080;">62</span> +<span style="color: #000000;"> convert(s[i]);
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> n;
+    }
+
+    </span><span style="color: #0000ff;">int</span> convert(<span style="color: #0000ff;">char</span><span style="color: #000000;"> c) {
+        </span><span style="color: #0000ff;">if</span> (c &gt;= <span style="color: #800000;">'</span><span style="color: #800000;">0</span><span style="color: #800000;">'</span> &amp;&amp; c &lt;= <span style="color: #800000;">'</span><span style="color: #800000;">9</span><span style="color: #800000;">'</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">return</span> c - <span style="color: #800000;">'</span><span style="color: #800000;">0</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+        } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (c &gt;= <span style="color: #800000;">'</span><span style="color: #800000;">a</span><span style="color: #800000;">'</span> &amp;&amp; c &lt;= <span style="color: #800000;">'</span><span style="color: #800000;">z</span><span style="color: #800000;">'</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">return</span> c - <span style="color: #800000;">'</span><span style="color: #800000;">a</span><span style="color: #800000;">'</span> + <span style="color: #800080;">10</span><span style="color: #000000;">;
+        } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (c &gt;= <span style="color: #800000;">'</span><span style="color: #800000;">A</span><span style="color: #800000;">'</span> &amp;&amp; c &lt;= <span style="color: #800000;">'</span><span style="color: #800000;">Z</span><span style="color: #800000;">'</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">return</span> c - <span style="color: #800000;">'</span><span style="color: #800000;">A</span><span style="color: #800000;">'</span> + <span style="color: #800080;">36</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+    }
+
+    </span><span style="color: #0000ff;">string</span> base10ToBase62(<span style="color: #0000ff;">int</span><span style="color: #000000;"> n) {
+        </span><span style="color: #0000ff;">string</span> str = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">while</span> (n != <span style="color: #800080;">0</span><span style="color: #000000;">) {
+            str.insert(str.begin(), elements[n </span>% <span style="color: #800080;">62</span><span style="color: #000000;">]);
+            n </span>/= <span style="color: #800080;">62</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">while</span> (str.size() != <span style="color: #800080;">6</span><span style="color: #000000;">) {
+            str.insert(str.begin(), </span><span style="color: #800000;">'</span><span style="color: #800000;">0</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> str;
+    }
+
+</span><span style="color: #0000ff;">private</span><span style="color: #000000;">:
+    unordered_map</span>&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> long2short;
+    unordered_map</span>&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;"> short2long;
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> COUNTER;
+    </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> elements;
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Step 2: Database Schema 数据库概要</p>
+<p>一个表（id, long_url）。id是主键，通过long_url排序。基本的系统架构为：</p>
+<p>Browser &lt;-&gt; Web &lt;-&gt; Core &lt;-&gt; DB</p>
+<p>&nbsp;</p>
+<p><strong>O: Optimize 优化</strong></p>
+<p>如何提高响应速度？</p>
+<p>- 在网络服务器和数据库之间提高响应速度</p>
+<p>使用Memcached来提高响应速度。当获得long_url时，先在缓存中搜索。我们可以把90%的读请求放在缓存当中。</p>
+<p>- 在网络服务器和用户浏览器之间提高响应速度</p>
+<p>不同的地区使用不同的网络服务器和缓存服务器。所有的地区共享一个数据库用来匹配用户到最近的网络服务器（通过DNS），当他们不在缓存中的时候。</p>
+<p>如果我们需要多于一台的MySQL机器？</p>
+<p>- 问题：</p>
+<p>&nbsp; - 缓存用完了&nbsp;</p>
+<p>&nbsp; - 越来越多的请求</p>
+<p>&nbsp; - 越来越多的缓存丢失</p>
+<p>- 解决方案：</p>
+<p>&nbsp; - 垂直切分 Vertical Sharding</p>
+<p>&nbsp; - 水平切分 Horizontal Sharding</p>
+<p>&nbsp; 最好的方式是水平切分。当前的表结构是（id, long_url），哪列可以当作切分关键字。</p>
+<p>&nbsp; 一个简单的方法是id模块切分。</p>
+<p>&nbsp; 现在有另一个问题：如何能使多个机器共享一个全局的AUTO_INCREMENT ID？</p>
+<p>&nbsp; 两种方法：1. 多使用一个机器去维护id。2. 使用zookeeper。都很操蛋。</p>
+<p>&nbsp; 所以，我们不适用AUTO_INCREMENT ID</p>
+<p>&nbsp; 好处是将切分关键字当作short_url的第一个字节。</p>
+<p>&nbsp; 另一种方法是用统一的哈希将循环断成62份。有多少份并没有啥关系，因为可能并没有62台机器（可能有360或其他的）。每台机器都是为循环的一部分的服务负责。</p>
+<p>&nbsp;&nbsp;write long_url -&gt; hash(long_url)%62 -&gt; put long_url to the specific machine according to hash value -&gt; generate short_url on this machine -&gt; return short_url</p>
+<p>&nbsp;&nbsp;short_url request -&gt; get the sharding key (first byte of the short_url) -&gt; search in the corresponding machine based on sharding key -&gt; return long_url</p>
+<p>&nbsp; 每当我们增加一台新机器，将最多使用的机器的一半范围放到心的机器中。</p>
+<p>&nbsp;</p>
+<p>更多优化</p>
+<p>将中文服务器放在中国，美国的服务器放在美国。使用地理信息当作切分关键字，例如，0是中国的网站，1是美国的网站。</p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://discuss.leetcode.com/topic/95853/a-complete-solution-for-tinyurl-leetcode-system-design">https://discuss.leetcode.com/topic/95853/a-complete-solution-for-tinyurl-leetcode-system-design</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2017-10-15 23:51</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=7675140" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(7675140);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 7675140, cb_entryCreatedDate = '2017-10-15 23:51', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

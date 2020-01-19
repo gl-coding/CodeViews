@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given a string&amp;#160;s, return all the palindromic permutations (without duplicates) of it. Return an" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Palindrome Permutation II 回文全排列之二 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/5315227.html">[LeetCode] Palindrome Permutation II 回文全排列之二</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given a string&nbsp;<code>s</code>, return all the palindromic permutations (without duplicates) of it. Return an empty list if no palindromic permutation could be form.</p>
+<p>For example:</p>
+<p>Given&nbsp;<code>s = "aabb"</code>, return&nbsp;<code>["abba", "baab"]</code>.</p>
+<p>Given&nbsp;<code>s = "abc"</code>, return&nbsp;<code>[]</code>.</p>
+<p>Hint:</p>
+<ol id="hints">
+<li class="hint animated fadeInLeft">If a palindromic permutation exists, we just need to generate the first half of the string.</li>
+<li class="hint animated fadeInLeft">To generate all distinct permutations of a (half of) string, use a similar approach from:&nbsp;<a href="https://leetcode.com/problems/permutations-ii">Permutations II</a>&nbsp;or&nbsp;<a href="https://leetcode.com/problems/next-permutation">Next Permutation</a>.</li>
+</ol>
+<p>&nbsp;</p>
+<p>这道题是之前那道<a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_27" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/5223238.html">Palindrome Permutation</a>的拓展，那道题只是让判断存不存在回文全排列，而这题让我们返回所有的回文全排列，此题给了我们充分的提示：如果回文全排列存在，我们只需要生成前半段字符串即可，后面的直接根据前半段得到。那么我们再进一步思考，由于回文字符串有奇偶两种情况，偶数回文串例如abba，可以平均分成前后半段，而奇数回文串例如abcba，需要分成前中后三段，需要注意的是中间部分只能是一个字符，那么我们可以分析得出，如果一个字符串的回文字符串要存在，那么奇数个的字符只能有0个或1个，其余的必须是偶数个，所以我们可以用哈希表来记录所有字符的出现个数，然后我们找出出现奇数次数的字符加入mid中，如果有两个或两个以上的奇数个数的字符，那么返回空集，我们对于每个字符，不管其奇偶，都将其个数除以2的个数的字符加入t中，这样做的原因是如果是偶数个，那么将其一般加入t中，如果是奇数，如果有1个，那么除以2是0，不会有字符加入t，如果是3个，那么除以2是1，取一个加入t。等我们获得了t之后，t是就是前半段字符，我们对其做全排列，每得到一个全排列，我们加上mid和该全排列的逆序列就是一种所求的回文字符串，这样我们就可以得到所有的回文全排列了。在全排序的子函数中有一点需要注意的是，如果我们直接用数组来保存结果时，并且t中如果有重复字符的话可能会出现重复项，比如 t = "baa" 的话，那么最终生成的结果会有重复项，不信可以自己尝试一下。这里简单的说明一下，当 start=0，i=1 时，我们交换后得到 aba，在之后当 start=1，i=2 时，交换后可以得到 aab。但是在之后回到第一层当baa后，当 start=0，i=2 时，交换后又得到了 aab，重复就产生了。那么其实最简单当去重复的方法就是将结果res定义成HashSet，利用其去重复的特性，可以保证我们得到的是没有重复的，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">string</span>&gt; generatePalindromes(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        unordered_set</span>&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;"> res;
+        unordered_map</span>&lt;<span style="color: #0000ff;">char</span>, <span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> m;
+        </span><span style="color: #0000ff;">string</span> t = <span style="color: #800000;">""</span>, mid = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (auto a : s) ++<span style="color: #000000;">m[a];
+        </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (auto it : m) {
+            </span><span style="color: #0000ff;">if</span> (it.second % <span style="color: #800080;">2</span> == <span style="color: #800080;">1</span>) mid +=<span style="color: #000000;"> it.first;
+            t </span>+= <span style="color: #0000ff;">string</span>(it.second / <span style="color: #800080;">2</span><span style="color: #000000;">, it.first);
+            </span><span style="color: #0000ff;">if</span> (mid.size() &gt; <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> {};
+        }
+        permute(t, </span><span style="color: #800080;">0</span><span style="color: #000000;">, mid, res);
+        </span><span style="color: #0000ff;">return</span> vector&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;">(res.begin(), res.end());
+    }
+    </span><span style="color: #0000ff;">void</span> permute(<span style="color: #0000ff;">string</span> &amp;t, <span style="color: #0000ff;">int</span> start, <span style="color: #0000ff;">string</span> mid, unordered_set&lt;<span style="color: #0000ff;">string</span>&gt; &amp;<span style="color: #000000;">res) {
+        </span><span style="color: #0000ff;">if</span> (start &gt;=<span style="color: #000000;"> t.size()) {
+            res.insert(t </span>+ mid + <span style="color: #0000ff;">string</span><span style="color: #000000;">(t.rbegin(), t.rend()));
+        } 
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = start; i &lt; t.size(); ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (i != start &amp;&amp; t[i] == t[start]) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+            swap(t[i], t[start]);
+            permute(t, start </span>+ <span style="color: #800080;">1</span><span style="color: #000000;">, mid, res);
+            swap(t[i], t[start]);
+        }
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种方法和上面的方法很相似，不同之处来于求全排列的方法略有不同，上面那种方法是通过交换字符的位置来生成不同的字符串，而下面这种方法是通过加不同的字符来生成全排列字符串，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">string</span>&gt; generatePalindromes(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        vector</span>&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;"> res;
+        unordered_map</span>&lt;<span style="color: #0000ff;">char</span>, <span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> m;
+        </span><span style="color: #0000ff;">string</span> t = <span style="color: #800000;">""</span>, mid = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (auto a : s) ++<span style="color: #000000;">m[a];
+        </span><span style="color: #0000ff;">for</span> (auto &amp;<span style="color: #000000;">it : m) {
+            </span><span style="color: #0000ff;">if</span> (it.second % <span style="color: #800080;">2</span> == <span style="color: #800080;">1</span>) mid +=<span style="color: #000000;"> it.first;
+            it.second </span>/= <span style="color: #800080;">2</span><span style="color: #000000;">;
+            t </span>+= <span style="color: #0000ff;">string</span><span style="color: #000000;">(it.second, it.first);
+            </span><span style="color: #0000ff;">if</span> (mid.size() &gt; <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> {};
+        }
+        permute(t, m, mid, </span><span style="color: #800000;">""</span><span style="color: #000000;">, res);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+    </span><span style="color: #0000ff;">void</span> permute(<span style="color: #0000ff;">string</span> &amp;t, unordered_map&lt;<span style="color: #0000ff;">char</span>, <span style="color: #0000ff;">int</span>&gt; &amp;m, <span style="color: #0000ff;">string</span> mid, <span style="color: #0000ff;">string</span> <span style="color: #0000ff;">out</span>, vector&lt;<span style="color: #0000ff;">string</span>&gt; &amp;<span style="color: #000000;">res) {
+        </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">out</span>.size() &gt;=<span style="color: #000000;"> t.size()) {
+            res.push_back(</span><span style="color: #0000ff;">out</span> + mid + <span style="color: #0000ff;">string</span>(<span style="color: #0000ff;">out</span>.rbegin(), <span style="color: #0000ff;">out</span><span style="color: #000000;">.rend()));
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        } 
+        </span><span style="color: #0000ff;">for</span> (auto &amp;<span style="color: #000000;">it : m) {
+            </span><span style="color: #0000ff;">if</span> (it.second &gt; <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                </span>--<span style="color: #000000;">it.second;
+                permute(t, m, mid, </span><span style="color: #0000ff;">out</span> +<span style="color: #000000;"> it.first, res);
+                </span>++<span style="color: #000000;">it.second;
+            }
+        }
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>在来看一种利用了std提供的<span style="color: #000000;">next_permutation</span>函数来实现的方法，这样就大大减轻了我们的工作量，但是这种方法个人感觉算是有些投机取巧了，不知道面试的时候面试官允不允许这样做，贴上来拓宽一下思路也是好的：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">string</span>&gt; generatePalindromes(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        vector</span>&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;"> res;
+        unordered_map</span>&lt;<span style="color: #0000ff;">char</span>, <span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> m;
+        </span><span style="color: #0000ff;">string</span> t = <span style="color: #800000;">""</span>, mid = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (auto a : s) ++<span style="color: #000000;">m[a];
+        </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (auto it : m) {
+            </span><span style="color: #0000ff;">if</span> (it.second % <span style="color: #800080;">2</span> == <span style="color: #800080;">1</span>) mid +=<span style="color: #000000;"> it.first;
+            t </span>+= <span style="color: #0000ff;">string</span>(it.second / <span style="color: #800080;">2</span><span style="color: #000000;">, it.first);
+            </span><span style="color: #0000ff;">if</span> (mid.size() &gt; <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> {};
+        }
+        sort(t.begin(), t.end());
+        </span><span style="color: #0000ff;">do</span><span style="color: #000000;"> {
+            res.push_back(t </span>+ mid + <span style="color: #0000ff;">string</span><span style="color: #000000;">(t.rbegin(), t.rend()));
+        } </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (next_permutation(t.begin(), t.end()));
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_167" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/4428207.html">Next Permutation</a></p>
+<p><a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_27" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/5223238.html">Palindrome Permutation</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4359825.html" target="_blank">Permutations II</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4358848.html" target="_blank">Permutations</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/palindrome-permutation-ii/" target="_blank">https://leetcode.com/problems/palindrome-permutation-ii/</a></p>
+<p><a href="https://leetcode.com/problems/palindrome-permutation-ii/discuss/69696/AC-Java-solution-with-explanation" target="_blank">https://leetcode.com/problems/palindrome-permutation-ii/discuss/69696/AC-Java-solution-with-explanation</a></p>
+<p><a href="https://leetcode.com/problems/palindrome-permutation-ii/discuss/69698/Short-backtracking-solution-in-Java-(3-ms)" target="_blank">https://leetcode.com/problems/palindrome-permutation-ii/discuss/69698/Short-backtracking-solution-in-Java-(3-ms)</a></p>
+<p><a href="https://leetcode.com/problems/palindrome-permutation-ii/discuss/69767/22-lines-0ms-C%2B%2B-easy-to-understand" target="_blank">https://leetcode.com/problems/palindrome-permutation-ii/discuss/69767/22-lines-0ms-C%2B%2B-easy-to-understand</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2016-03-24 13:51</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=5315227" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(5315227);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 5315227, cb_entryCreatedDate = '2016-03-24 13:51', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

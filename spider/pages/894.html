@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta property="og:description" content="A full binary tree is a binary tree where each node has exactly 0 or 2&#xA0;children. Return a list of al" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 894. All Possible Full Binary Trees 所有可能的满二叉树 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/10952459.html">[LeetCode] 894. All Possible Full Binary Trees 所有可能的满二叉树</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+A <em>full binary tree</em> is a binary tree where each node has exactly 0 or 2 children.</p>
+<p>Return a list of all possible full binary trees with <code>N</code>nodes.  Each element of the answer is the root node of one possible tree.</p>
+<p>Each <code>node</code> of each tree in the answer must have <code>node.val = 0</code>.</p>
+<p>You may return the final list of trees in any order.</p>
+<p>Example 1:</p>
+<pre><code>Input: 7
+Output: [[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]]
+Explanation:</code></pre>
+<p><img src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/22/fivetrees.png" /></p>
+<p>Note:</p>
+<ul>
+<li><code>1 &lt;= N &lt;= 20</code></li>
+</ul>
+<p><br><br />
+这道题给了一个数字N，让我们生成所有包含N个结点的满二叉树。所谓的满二叉树，就是每个结点一定会有0个或2两个子结点，换句话说，子结点必须成对出现，注意跟完全二叉树区分。现在我们有N个结点可以使用，若我们仔细观察，可以发现，所有的满二叉树的结点总数都是奇数，所以只要当N为偶数的时候，一定返回的是空数组，这个可以当作一个剪枝放在开头。下面我们就来考虑当N是奇数时，如何生成不同的满二叉树。先从最简单的开始，当 N=1 时，就只有一个根结点，当 N=3 时，也只有一种情况，根结点和左右子结点，当 N=5 时，就有如下两种情况：</p>
+<pre><code>    0
+   / \
+  0   0
+ / \
+0   0
+
+
+    0
+   / \
+  0   0
+     / \
+    0   0</code></pre>
+<p>我们可以看出来就是在 N=3 的情况下再多加两个结点，这两个结点可以都在左子结点下，或者都在右子结点下。但是当 N=7 的时候就比较 tricky 了，也可以看作是在 N=5 的情况下生成的，我们可以把多余出来的两个结点分别加到上面两棵树的任意一个叶结点下方，但可能你会有疑问，上面的两棵树各自都有三个叶结点，每个都加的话，不就应该有6种情况了么，其实只有5种，因为其中有两种情况是重合的，即在第一棵树的最右叶结点下添加，跟在第二棵树的最左叶结点下添加后得到的完全二叉树是一样的，所以总共只有5种组合。</p>
+<p>讲到这里，身为读者的你可能还是比较迷茫，到底该如何用代码来生成，我们再换一种思维方式，若总共有N个结点可以分配，那么除去根结点，左右子树一共可以分配 N-1 个结点，由于N一定是奇数，那么 N-1 一定就是偶数，所以左右子树需要共同来分配这 N-1 个结点。又因为满二叉树的子树也必须是满二叉树，所以每个子树的结点总数也应该是奇数，由于 N-1 是偶数，所以这 N-1 个结点不可能全部给其中的一个子树，即左右子树至少有一个结点，那么实际上就是把 N-1 这个偶数拆分成任意两个奇数之和，比如p和q，满足 p+q = N-1，且p，q均为奇数，然后对其分别对p和q调用递归函数，得到两个数组，数组里面的就是所有可能情况的左右子树的根结点。之后要做的就是从这两个数组中任意取两个结点，加到一个新建的 cur 结点的左右子结点上，然后将 cur 结点存入结果 res 中。这种处理方法跟之前的那两道题 <a href="http://www.cnblogs.com/grandyang/p/4301096.html">Unique Binary Search Trees II</a>，<a href="http://www.cnblogs.com/grandyang/p/4682458.html">Different Ways to Add Parentheses</a> 一模一样，若大家眼睛够尖的话，可以看出来这其实也是 <a href="https://zh.wikipedia.org/wiki/%E5%8D%A1%E5%A1%94%E5%85%B0%E6%95%B0">卡塔兰数 Catalan Numbe</a>，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    vector&lt;TreeNode*&gt; allPossibleFBT(int N) {
+        if (N % 2 == 0) return {};
+        if (N == 1) return {new TreeNode(0)};
+        vector&lt;TreeNode*&gt; res;
+        for (int i = 1; i &lt; N; i += 2) {
+            vector&lt;TreeNode*&gt; left = allPossibleFBT(i), right = allPossibleFBT(N - i - 1);
+            for (auto a : left) {
+                for (auto b : right) {
+                    TreeNode *cur = new TreeNode(0);
+                    cur-&gt;left = a;
+                    cur-&gt;right = b;
+                    res.push_back(cur);
+                }
+            }
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+我们可以通过使用一个 HashMap 来避免重复计算，从而提升运算速度，建立每个值跟其对应的满二叉树的根结点数组之间的映射，那么在递归函数中，判定完了偶数跟1的情况后，就看当前N值是否已经计算过了，是的话，直接从 HashMap 中取数组，否则就进行和上面一样的运算，最后在返回前要将结果存入 HashMap 中，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    unordered_map&lt;int, vector&lt;TreeNode*&gt;&gt; m;
+    vector&lt;TreeNode*&gt; allPossibleFBT(int N) {
+        if (N % 2 == 0) return {};
+        if (N == 1) return {new TreeNode(0)};
+        if (m.count(N)) return m[N];
+        vector&lt;TreeNode*&gt; res;
+        for (int i = 1; i &lt; N; i += 2) {
+            vector&lt;TreeNode*&gt; left = allPossibleFBT(i), right = allPossibleFBT(N - i - 1);
+            for (auto a : left) {
+                for (auto b : right) {
+                    TreeNode *cur = new TreeNode(0);
+                    cur-&gt;left = a;
+                    cur-&gt;right = b;
+                    res.push_back(cur);
+                }
+            }
+        }
+        return m[N] = res;
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/894" class="uri">https://github.com/grandyang/leetcode/issues/894</a></p>
+<p><br><br />
+类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4301096.html">Unique Binary Search Trees II</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4682458.html">Different Ways to Add Parentheses</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/all-possible-full-binary-trees/" class="uri">https://leetcode.com/problems/all-possible-full-binary-trees/</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-05-30 22:34</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10952459" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(10952459);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 10952459, cb_entryCreatedDate = '2019-05-30 22:34', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

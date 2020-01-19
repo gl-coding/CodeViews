@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given an array of integers , find the sum of , where ranges over&amp;#160;every (contiguous) subarray of" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 907. Sum of Subarray Minimums 子数组最小值之和 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/11273330.html">[LeetCode] 907. Sum of Subarray Minimums 子数组最小值之和</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+Given an array of integers <code>A</code>, find the sum of <code>min(B)</code>, where <code>B</code> ranges over every (contiguous) subarray of <code>A</code>.</p>
+<p>Since the answer may be large, return the answer modulo <code>10^9 + 7</code>.</p>
+<p>Example 1:</p>
+<pre><code>Input: [3,1,2,4]
+Output: 17
+Explanation: Subarrays are [3], [1], [2], [4], [3,1], [1,2], [2,4], [3,1,2], [1,2,4], [3,1,2,4].
+Minimums are 3, 1, 2, 4, 1, 1, 2, 1, 1, 1.  Sum is 17.</code></pre>
+<p>Note:</p>
+<ol>
+<li><code>1 &lt;= A.length &lt;= 30000</code></li>
+<li><code>1 &lt;= A[i] &lt;= 30000</code></li>
+</ol>
+<p><br><br />
+这道题给了一个数组，对于所有的子数组，找到最小值，并返回累加结果，并对一个超大数取余。由于我们只关心子数组中的最小值，所以对于数组中的任意一个数字，需要知道其是多少个子数组的最小值。就拿题目中的例子 [3,1,2,4] 来分析，开始遍历到3的时候，其本身就是一个子数组，最小值也是其本身，累加到结果 res 中，此时 res=3，然后看下个数1，是小于3的，此时新产生了两个子数组 [1] 和 [3,1]，且最小值都是1，此时在结果中就累加了 2，此时 res=5。接下来的数字是2，大于之前的1，此时会新产生三个子数组，其本身单独会产生一个子数组 [2]，可以先把这个2累加到结果 res 中，然后就是 [1,2] 和 [3,1,2]，可以发现新产生的这两个子数组的最小值还是1，跟之前计算数字1的时候一样，可以直接将以1结尾的子数组最小值之和加起来，那么以2结尾的子数组最小值之和就是 2+2=4，此时 res=9。对于最后一个数字4，其单独产生一个子数组 [4]，还会再产生三个子数组 [3,1,2,4], [1,2,4], [2,4]，其并不会对子数组的最小值产生影响，所以直接加上以2结尾的子数组最小值之和，总共就是 4+4=8，最终 res=17。</p>
+<p>分析到这里，就知道我们其实关心的是以某个数字结尾时的子数组最小值之和，可以用一个一维数组 dp，其中 dp[i] 表示以数字 A[i] 结尾的所有子数组最小值之和，将 dp[0] 初始化为 A[0]，结果 res 也初始化为 A[0]。然后从第二个数字开始遍历，若大于等于前一个数字，则当前 dp[i] 赋值为 dp[i-1]+A[i]，前面的分析已经解释了，当前数字 A[i] 组成了新的子数组，同时由于 A[i] 不会影响最小值，所以要把之前的最小值之和再加一遍。假如小于前一个数字，就需要向前遍历，去找到第一个小于 A[i] 的位置j，假如j小于0，表示前面所有的数字都是小于 A[i] 的，那么 A[i] 是前面 i+1 个以 A[i] 结尾的子数组的最小值，累加和为 (i+1) x A[i]，若j大于等于0，则需要分成两部分累加，dp[j] + (i-j)xA[i]，这个也不难理解，前面有 i-j 个以 A[i] 为结尾的子数组的最小值是 A[i]，而再前面的子数组的最小值就不是 A[i] 了，但是还是需要加上一遍其本身的最小值之和，因为每个子数组末尾都加上 A[i] 均可以组成一个新的子数组，最终的结果 res 就是将 dp 数组累加起来即可，别忘了对超大数取余，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    int sumSubarrayMins(vector&lt;int&gt;&amp; A) {
+        int res = A[0], n = A.size(), M = 1e9 + 7;
+        vector&lt;int&gt; dp(n);
+        dp[0] = A[0];
+        for (int i = 1; i &lt; n; ++i) {
+            if (A[i] &gt;= A[i - 1]) dp[i] = dp[i - 1] + A[i];
+            else {
+                int j = i - 1;
+                while (j &gt;= 0 &amp;&amp; A[i] &lt; A[j]) --j;
+                dp[i] = (j &lt; 0) ? (i + 1) * A[i] : (dp[j] + (i - j) * A[i]);
+            }
+            res = (res + dp[i]) % M;
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+上面的方法虽然 work，但不是很高效，原因是在向前找第一个小于当前的数字，每次都要线性遍历一遍，造成了平方级的时间复杂度。而找每个数字的前小数字或是后小数字，正是单调栈擅长的，可以参考博主之前的总结贴 <a href="http://www.cnblogs.com/grandyang/p/8887985.html">LeetCode Monotonous Stack Summary 单调栈小结</a>。这里我们用一个单调栈来保存之前一个小的数字的位置，栈里先提前放一个 -1，作用会在之后讲解。还是需要一个 dp 数组，跟上面的定义基本一样，但是为了避免数组越界，将长度初始化为 n+1，其中 dp[i] 表示以数字 A[i-1] 结尾的所有子数组最小值之和。对数组进行遍历，当栈顶元素不是 -1 且 A[i] 小于等于栈顶元素，则将栈顶元素移除。这样栈顶元素就是前面第一个比 A[i] 小的数字，此时 dp[i+1] 更新还是跟之前一样，分为两个部分，由于知道了前面第一个小于 A[i] 的数字位置，用当前位置减去栈顶元素位置再乘以 A[i]，就是以 A[i] 为结尾且最小值为 A[i] 的子数组的最小值之和，而栈顶元素之前的子数组就不受 A[i] 影响了，直接将其 dp 值加上即可。将当前位置压入栈，并将 dp[i+1] 累加到结果 res，同时对超大值取余，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    int sumSubarrayMins(vector&lt;int&gt;&amp; A) {
+        int res = 0, n = A.size(), M = 1e9 + 7;
+        stack&lt;int&gt; st{{-1}};
+        vector&lt;int&gt; dp(n + 1);
+        for (int i = 0; i &lt; n; ++i) {
+            while (st.top() != -1 &amp;&amp; A[i] &lt;= A[st.top()]) {
+                st.pop();
+            }
+            dp[i + 1] = (dp[st.top() + 1] + (i - st.top()) * A[i]) % M;
+            st.push(i);
+            res = (res + dp[i + 1]) % M;
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+再来看一种解法，由于对于每个数字，只要知道了其前面第一个小于其的数字位置，和后面第一个小于其的数字位置，就能知道当前数字是多少个子数组的最小值，直接相乘累加到结果 res 中即可。这里我们用两个单调栈 st_pre 和 st_next，栈里放一个数对儿，由数字和其在原数组的坐标组成。还需要两个一维数组 left 和 right，其中 left[i] 表示以 A[i] 为结束为止且 A[i] 是最小值的子数组的个数，right[i] 表示以 A[i] 为起点且 A[i] 是最小值的子数组的个数。对数组进行遍历，当 st_pre 不空，且栈顶元素大于 A[i]，移除栈顶元素，这样剩下的栈顶元素就是 A[i] 左边第一个小于其的数字的位置，假如栈为空，说明左边的所有数字都小于 A[i]，则 left[i] 赋值为 i+1，否则赋值为用i减去栈顶元素在原数组中的位置的值，然后将 A[i] 和i组成数对儿压入栈 st_pre。对于 right[i] 的处理也很类似，先将其初始化为 n-i，然后看若 st_next 不为空且栈顶元素大于 A[i]，然后取出栈顶元素t，由于栈顶元素t是大于 A[i]的，所以 right[t.second] 就可以更新为 i-t.second，然后将 A[i] 和i组成数对儿压入栈 st_next，最后再遍历一遍原数组，将每个 A[i] x left[i] x right[i] 算出来累加起来即可，别忘了对超大数取余，参见代码如下：</p>
+<p><br><br />
+解法三：</p>
+<pre><code>class Solution {
+public:
+    int sumSubarrayMins(vector&lt;int&gt;&amp; A) {
+        int res = 0, n = A.size(), M = 1e9 + 7;
+        stack&lt;pair&lt;int, int&gt;&gt; st_pre, st_next;
+        vector&lt;int&gt; left(n), right(n);
+        for (int i = 0; i &lt; n; ++i) {
+            while (!st_pre.empty() &amp;&amp; st_pre.top().first &gt; A[i]) {
+                st_pre.pop();
+            }
+            left[i] = st_pre.empty() ? (i + 1) : (i - st_pre.top().second);
+            st_pre.push({A[i], i});
+            right[i] = n - i;
+            while (!st_next.empty() &amp;&amp; st_next.top().first &gt; A[i]) {
+                auto t = st_next.top(); st_next.pop();
+                right[t.second] = i - t.second;
+            }
+            st_next.push({A[i], i});
+        }
+        for (int i = 0; i &lt; n; ++i) {
+            res = (res + A[i] * left[i] * right[i]) % M;
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+我们也可以对上面的解法进行空间上的优化，只用一个单调栈，用来记录当前数字之前的第一个小的数字的位置，然后遍历每个数字，但是要多遍历一个数字，i从0遍历到n，当 i=n 时，cur 赋值为0，否则赋值为 A[i]。然后判断若栈不为空，且 cur 小于栈顶元素，则取出栈顶元素位置 idx，由于是单调栈，那么新的栈顶元素就是 A[idx] 前面第一个较小数的位置，由于此时栈可能为空，所以再去之前要判断一下，若为空，则返回 -1，否则返回栈顶元素，用 idx 减去栈顶元素就是以 A[idx] 为结尾且最小值为 A[idx] 的子数组的个数，然后用i减去 idx 就是以 A[idx] 为起始且最小值为 A[idx] 的子数组的个数，然后 A[idx] x left x right 就是 A[idx] 这个数字当子数组的最小值之和，累加到结果 res 中并对超大数取余即可，参见代码如下：</p>
+<p><br><br />
+解法四：</p>
+<pre><code>class Solution {
+public:
+    int sumSubarrayMins(vector&lt;int&gt;&amp; A) {
+        int res = 0, n = A.size(), M = 1e9 + 7;
+        stack&lt;int&gt; st;
+        for (int i = 0; i &lt;= n; ++i) {
+            int cur = (i == n) ? 0 : A[i];
+            while (!st.empty() &amp;&amp; cur &lt; A[st.top()]) {
+                int idx = st.top(); st.pop();
+                int left = idx - (st.empty() ? -1 : st.top());
+                int right = i - idx;
+                res = (res + A[idx] * left * right) % M;
+            }
+            st.push(i);
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/907" class="uri">https://github.com/grandyang/leetcode/issues/907</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/sum-of-subarray-minimums/" class="uri">https://leetcode.com/problems/sum-of-subarray-minimums/</a></p>
+<p><a href="https://leetcode.com/problems/sum-of-subarray-minimums/discuss/170857/One-stack-solution" class="uri">https://leetcode.com/problems/sum-of-subarray-minimums/discuss/170857/One-stack-solution</a></p>
+<p><a href="https://leetcode.com/problems/sum-of-subarray-minimums/discuss/222895/Java-No-Stack-solution." class="uri">https://leetcode.com/problems/sum-of-subarray-minimums/discuss/222895/Java-No-Stack-solution.</a></p>
+<p><a href="https://leetcode.com/problems/sum-of-subarray-minimums/discuss/170769/Java-O(n)-monotone-stack-with-DP" class="uri">https://leetcode.com/problems/sum-of-subarray-minimums/discuss/170769/Java-O(n)-monotone-stack-with-DP</a></p>
+<p><a href="https://leetcode.com/problems/sum-of-subarray-minimums/discuss/178876/stack-solution-with-very-detailed-explanation-step-by-step" class="uri">https://leetcode.com/problems/sum-of-subarray-minimums/discuss/178876/stack-solution-with-very-detailed-explanation-step-by-step</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-07-30 22:53</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11273330" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(11273330);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 11273330, cb_entryCreatedDate = '2019-07-30 22:53', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

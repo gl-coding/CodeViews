@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="All DNA is composed of a series of nucleotides abbreviated as A, C, G, and T, for example: &amp;quot;ACG" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 187. Repeated DNA Sequences 求重复的DNA序列 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/4284205.html">[LeetCode] 187. Repeated DNA Sequences 求重复的DNA序列</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>All DNA is composed of a series of nucleotides abbreviated as A, C, G, and T, for example: "ACGAATTCCG". When studying DNA, it is sometimes useful to identify repeated sequences within the DNA.</p>
+<p>Write a function to find all the 10-letter-long sequences (substrings) that occur more than once in a DNA molecule.</p>
+<p>Example:</p>
+<pre>Input: s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
+
+Output: ["AAAAACCCCC", "CCCCCAAAAA"]</pre>
+<p>&nbsp;</p>
+<p>看到这道题想到这应该属于 CS 的一个重要分支生物信息 Bioinformatics 研究的内容，研究 DNA 序列特征的重要意义自然不用多说，但是对于我们广大码农来说，还是专注于算法吧，此题还是用位操作 Bit Manipulation 来求解，计算机由于其二进制存储的特点可以很巧妙的解决一些问题，像之前的&nbsp;<a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_32" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/4130577.html">Single Number</a>&nbsp;和&nbsp;<a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_10" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/4263927.html">Single Number II</a>&nbsp;都是很巧妙利用位操作来求解。此题由于构成输入字符串的字符只有四种，分别是 A, C, G, T，下面来看下它们的 ASCII 码用二进制来表示：</p>
+<p>A: 0100 0<strong>001</strong>　　C: 0100 0<strong>011</strong>　　G: 0100 0<strong>111</strong>　　T: 0101 0<strong>100</strong></p>
+<p>由于目的是利用位来区分字符，当然是越少位越好，通过观察发现，每个字符的后三位都不相同，故而可以用末尾三位来区分这四个字符。而题目要求是 10 个字符长度的串，每个字符用三位来区分，10 个字符需要30位，在 32 位机上也 OK。为了提取出后 30 位，还需要用个 mask，取值为 0x7ffffff，用此 mask 可取出后27位，再向左平移三位即可。算法的思想是，当取出第十个字符时，将其存在 HashMap 里，和该字符串出现频率映射，之后每向左移三位替换一个字符，查找新字符串在 HashMap 里出现次数，如果之前刚好出现过一次，则将当前字符串存入返回值的数组并将其出现次数加一，如果从未出现过，则将其映射到1。为了能更清楚的阐述整个过程，就用题目中给的例子来分析整个过程：</p>
+<p>首先取出前九个字符 AAAAACCCC，根据上面的分析，用三位来表示一个字符，所以这九个字符可以用二进制表示为 001001001001001011011011011，然后继续遍历字符串，下一个进来的是C，则当前字符为 AAAAACCCCC，二进制表示为 001001001001001011011011011011，然后将其存入 HashMap 中，用二进制的好处是可以用一个 int 变量来表示任意十个字符序列，比起直接存入字符串大大的节省了内存空间，然后再读入下一个字符C，则此时字符串为 AAAACCCCCA，还是存入其二进制的表示形式，以此类推，当某个序列之前已经出现过了，将其存入结果 res 中即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">string</span>&gt; findRepeatedDnaSequences(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        vector</span>&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;"> res;
+        </span><span style="color: #0000ff;">if</span> (s.size() &lt;= <span style="color: #800080;">10</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+        </span><span style="color: #0000ff;">int</span> mask = <span style="color: #800080;">0x7ffffff</span>, cur = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        unordered_map</span>&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> m;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; <span style="color: #800080;">9</span>; ++<span style="color: #000000;">i) {
+            cur </span>= (cur &lt;&lt; <span style="color: #800080;">3</span>) | (s[i] &amp; <span style="color: #800080;">7</span><span style="color: #000000;">);
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">9</span>; i &lt; s.size(); ++<span style="color: #000000;">i) {
+            cur </span>= ((cur &amp; mask) &lt;&lt; <span style="color: #800080;">3</span>) | (s[i] &amp; <span style="color: #800080;">7</span><span style="color: #000000;">);
+            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (m.count(cur)) {
+                </span><span style="color: #0000ff;">if</span> (m[cur] == <span style="color: #800080;">1</span>) res.push_back(s.substr(i - <span style="color: #800080;">9</span>, <span style="color: #800080;">10</span><span style="color: #000000;">));
+                </span>++<span style="color: #000000;">m[cur]; 
+            } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                m[cur] </span>= <span style="color: #800080;">1</span><span style="color: #000000;">;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>上面的方法可以写的更简洁一些，这里可以用 HashSet 来代替 HashMap，只要当前的数已经在 HashSet 中存在了，就将其加入 res 中，这里 res 也定义成 HashSet，这样就可以利用 HashSet 的不能有重复项的特点，从而得到正确的答案，最后将 HashSet 转为 vector 即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">string</span>&gt; findRepeatedDnaSequences(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        unordered_set</span>&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;"> res;
+        unordered_set</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> st;
+        </span><span style="color: #0000ff;">int</span> cur = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; <span style="color: #800080;">9</span>; ++i) cur = cur &lt;&lt; <span style="color: #800080;">3</span> | (s[i] &amp; <span style="color: #800080;">7</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">9</span>; i &lt; s.size(); ++<span style="color: #000000;">i) {
+            cur </span>= ((cur &amp; <span style="color: #800080;">0x7ffffff</span>) &lt;&lt; <span style="color: #800080;">3</span>) | (s[i] &amp; <span style="color: #800080;">7</span><span style="color: #000000;">);
+            </span><span style="color: #0000ff;">if</span> (st.count(cur)) res.insert(s.substr(i - <span style="color: #800080;">9</span>, <span style="color: #800080;">10</span><span style="color: #000000;">));
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> st.insert(cur);
+        }
+        </span><span style="color: #0000ff;">return</span> vector&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;">(res.begin(), res.end());
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>上面的方法都是用三位来表示一个字符，这里可以用两位来表示一个字符，00 表示A，01 表示C，10 表示G，11 表示T，那么总共需要 20 位就可以表示十个字符流，其余的思路跟上面的方法完全相同，注意这里的 mask 只需要表示 18 位，所以变成了 0x3ffff，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">string</span>&gt; findRepeatedDnaSequences(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        unordered_set</span>&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;"> res;
+        unordered_set</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> st;
+        unordered_map</span>&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt; m{{<span style="color: #800000;">'</span><span style="color: #800000;">A</span><span style="color: #800000;">'</span>, <span style="color: #800080;">0</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">C</span><span style="color: #800000;">'</span>, <span style="color: #800080;">1</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">G</span><span style="color: #800000;">'</span>, <span style="color: #800080;">2</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">T</span><span style="color: #800000;">'</span>, <span style="color: #800080;">3</span><span style="color: #000000;">}};
+        </span><span style="color: #0000ff;">int</span> cur = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; <span style="color: #800080;">9</span>; ++i) cur = cur &lt;&lt; <span style="color: #800080;">2</span> |<span style="color: #000000;"> m[s[i]];
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">9</span>; i &lt; s.size(); ++<span style="color: #000000;">i) {
+            cur </span>= ((cur &amp; <span style="color: #800080;">0x3ffff</span>) &lt;&lt; <span style="color: #800080;">2</span>) |<span style="color: #000000;"> (m[s[i]]);
+            </span><span style="color: #0000ff;">if</span> (st.count(cur)) res.insert(s.substr(i - <span style="color: #800080;">9</span>, <span style="color: #800080;">10</span><span style="color: #000000;">));
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> st.insert(cur);
+        }
+        </span><span style="color: #0000ff;">return</span> vector&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;">(res.begin(), res.end());
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>如果不需要考虑节省内存空间，那可以直接将 10个 字符组成字符串存入 HashSet 中，那么也就不需要 mask 啥的了，但是思路还是跟上面的方法相同:</p>
+<p>&nbsp;</p>
+<p>解法四：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">string</span>&gt; findRepeatedDnaSequences(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        unordered_set</span>&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;"> res, st;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i + <span style="color: #800080;">9</span> &lt; s.size(); ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">string</span> t = s.substr(i, <span style="color: #800080;">10</span><span style="color: #000000;">);
+            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (st.count(t)) res.insert(t);
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> st.insert(t);
+        }
+        </span><span style="color: #0000ff;">return</span> vector&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;">{res.begin(), res.end()};
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/187">https://github.com/grandyang/leetcode/issues/187</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/repeated-dna-sequences/" target="_blank">https://leetcode.com/problems/repeated-dna-sequences/</a></p>
+<p><a href="https://leetcode.com/problems/repeated-dna-sequences/discuss/53855/7-lines-simple-java-on" target="_blank">https://leetcode.com/problems/repeated-dna-sequences/discuss/53855/7-lines-simple-java-on</a></p>
+<p><a href="https://leetcode.com/problems/repeated-dna-sequences/discuss/53877/i-did-it-in-10-lines-of-c" target="_blank">https://leetcode.com/problems/repeated-dna-sequences/discuss/53877/i-did-it-in-10-lines-of-c</a></p>
+<p><a href="https://leetcode.com/problems/repeated-dna-sequences/discuss/53867/clean-java-solution-hashmap-bits-manipulation" target="_blank">https://leetcode.com/problems/repeated-dna-sequences/discuss/53867/clean-java-solution-hashmap-bits-manipulation</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2015-02-10 16:11</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4284205" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(4284205);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 4284205, cb_entryCreatedDate = '2015-02-10 16:11', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="A virus is spreading rapidly, and your task is to quarantine the infected area by installing walls. " />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Contain Virus 包含病毒 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/8424780.html">[LeetCode] Contain Virus 包含病毒</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>A virus is spreading rapidly, and your task is to quarantine the infected area by installing walls.</p>
+<p>The world is modeled as a 2-D array of cells, where&nbsp;<code>0</code>&nbsp;represents uninfected cells, and&nbsp;<code>1</code>&nbsp;represents cells contaminated with the virus. A wall (and only one wall) can be installed&nbsp;between any two 4-directionally adjacent cells, on the shared boundary.</p>
+<p>Every night, the virus spreads to all neighboring cells in all four directions unless blocked by a wall. Resources are limited. Each day, you can install walls around only one region -- the affected area (continuous block of infected cells) that threatens the most uninfected cells the following night. There will never be a tie.</p>
+<p>Can you save the day? If so, what is the number of walls required? If not, and the world becomes fully infected, return the number of walls used.</p>
+<p>&nbsp;</p>
+<p>Example 1:</p>
+<pre>Input: grid = 
+[[0,1,0,0,0,0,0,1],
+ [0,1,0,0,0,0,0,1],
+ [0,0,0,0,0,0,0,1],
+ [0,0,0,0,0,0,0,0]]
+Output: 10
+Explanation:
+There are 2 contaminated regions.
+On the first day, add 5 walls to quarantine the viral region on the left. The board after the virus spreads is:
+
+[[0,1,0,0,0,0,1,1],
+ [0,1,0,0,0,0,1,1],
+ [0,0,0,0,0,0,1,1],
+ [0,0,0,0,0,0,0,1]]
+
+On the second day, add 5 walls to quarantine the viral region on the right. The virus is fully contained.
+</pre>
+<p>&nbsp;</p>
+<p>Example 2:</p>
+<pre>Input: grid = 
+[[1,1,1],
+ [1,0,1],
+ [1,1,1]]
+Output: 4
+Explanation: Even though there is only one cell saved, there are 4 walls built.
+Notice that walls are only built on the shared boundary of two different cells.
+</pre>
+<p>&nbsp;</p>
+<p>Example 3:</p>
+<pre>Input: grid = 
+[[1,1,1,0,0,0,0,0,0],
+ [1,0,1,0,1,1,1,1,1],
+ [1,1,1,0,0,0,0,0,0]]
+Output: 13
+Explanation: The region on the left only builds two new walls.
+</pre>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ol>
+<li>The number of rows and columns of&nbsp;<code>grid</code>&nbsp;will each be in the range&nbsp;<code>[1, 50]</code>.</li>
+<li>Each&nbsp;<code>grid[i][j]</code>&nbsp;will be either&nbsp;<code>0</code>&nbsp;or&nbsp;<code>1</code>.</li>
+<li>Throughout the described process, there is always a contiguous viral region that will infect&nbsp;strictly moreuncontaminated squares in the next round.</li>
+</ol>
+<p>&nbsp;</p>
+<p>这道题给了我们一个由0和1组成的二维数组，其中0表示健康细胞，而1表示病毒细胞，多个相邻的1组成了病毒细胞群，每天都会向周围扩散一圈，除非我们在其跟健康细胞之间建立隔离墙，这样其才会不会扩散。我们每天只能给一个病毒细胞群来建立隔离墙，其他的细胞群会进行扩散。问最终我们需要多少个隔离墙。这道题真的挺难，博主研究了好久才弄明白题目的意思。首先要明白一点，病毒细胞只会向上下左右四个方向相邻的健康细胞扩散。需要注意的一点是，需要的隔离墙的数量可能大于周围相邻的健康细胞，最明显的就是例子2中，只有一个健康细胞，但是需要四个隔离墙才能保护这个健康细胞不被感染。还有就是，我们需要隔离某个病毒细胞群的判定依据是其能感染的健康细胞的数量，而不是需要建的墙的数量或者病毒细胞的个数，这点很重要，博主之前没有注意这一点，导致fail了一个test case。所以我们要做的就是要求出每个病毒细胞群能感染的健康细胞的数量，其周围能建墙的地方，以及每个病毒细胞的位置。我们再其中选择能感染最多健康细胞的病毒细胞群进行建墙，建完墙后，我们将该群中的所有病毒细胞标记为-1，跟其他细胞区分出来。对于其他所有的病毒细胞群，将其周围能建墙的地方(即健康细胞)都标记为1，表示其现在已经被感染成了病毒细胞。然后再进行新的一轮循环检测，直到无法找出新的病毒细胞为止。</p>
+<p>我们先找值为1的点，找到后，以其作为起点，进行BFS遍历，将和其相连的所有为1的点都找出来，在BFS遍历的过程中，如果我们检测到周围位置值为0，将其加入walls数组，表示这里可以建隔离墙，如果检测到周围位置为1，将其加入virus数组，表示这里是病毒细胞，注意起始位置也要提前加入virus数组。我们这里为了节省维度，将二维的坐标都encode成了一个int数字。BFS遍历结束后，我们根据walls数组来算出能感染的健康细胞的个数，因为我们前面提到过建隔离墙的位置可能大于健康细胞的个数，所以我们只要去除wall数组的重复项即可，利用HashSet的去重复项原理，然后将剩下的个数放入cells数组中。把cells，walls，和virus数组放入一个vector中，表示一个病毒细胞群的信息，再放入一个大数组all中，这样我们收集了所有病毒细胞群的信息后，可以根据可感染的健康细胞个数由多到少来排序，这样我们就把第一个病毒细胞群中所有virus数组的位置值变为-1，并且把可感染的健康细胞个数累加到结果res中。然后把后面所有的病毒细胞群中walls的位置值都变为1即可。当all数组为空时，跳出循环，表示没有检测到病毒细胞群或者全部都被感染了，参见代码如下：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> containVirus(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> grid) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span>, m = grid.size(), n = grid[<span style="color: #800080;">0</span><span style="color: #000000;">].size();
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; dirs{{-<span style="color: #800080;">1</span>,<span style="color: #800080;">0</span>},{<span style="color: #800080;">0</span>,<span style="color: #800080;">1</span>},{<span style="color: #800080;">1</span>,<span style="color: #800080;">0</span>},{<span style="color: #800080;">0</span>,-<span style="color: #800080;">1</span><span style="color: #000000;">}};
+        </span><span style="color: #0000ff;">while</span> (<span style="color: #0000ff;">true</span><span style="color: #000000;">) {
+            unordered_set</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> visited;
+            vector</span>&lt;vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&gt;<span style="color: #000000;"> all;
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; m; ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = <span style="color: #800080;">0</span>; j &lt; n; ++<span style="color: #000000;">j) {
+                    </span><span style="color: #0000ff;">if</span> (grid[i][j] == <span style="color: #800080;">1</span> &amp;&amp; !visited.count(i * n +<span style="color: #000000;"> j)) {
+                        queue</span>&lt;<span style="color: #0000ff;">int</span>&gt; q{{i * n +<span style="color: #000000;"> j}};
+                        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; virus{i * n +<span style="color: #000000;"> j};
+                        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> walls;
+                        visited.insert(i </span>* n +<span style="color: #000000;"> j);
+                        </span><span style="color: #0000ff;">while</span> (!<span style="color: #000000;">q.empty()) {
+                            auto t </span>=<span style="color: #000000;"> q.front(); q.pop();
+                            </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (auto dir : dirs) {
+                                </span><span style="color: #0000ff;">int</span> x = (t / n) + dir[<span style="color: #800080;">0</span>], y = (t % n) + dir[<span style="color: #800080;">1</span><span style="color: #000000;">];
+                                </span><span style="color: #0000ff;">if</span> (x &lt; <span style="color: #800080;">0</span> || x &gt;= m || y &lt; <span style="color: #800080;">0</span> || y &gt;= n || visited.count(x * n + y)) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                                </span><span style="color: #0000ff;">if</span> (grid[x][y] == -<span style="color: #800080;">1</span>) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                                </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (grid[x][y] == <span style="color: #800080;">0</span>) walls.push_back(x * n +<span style="color: #000000;"> y);
+                                </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (grid[x][y] == <span style="color: #800080;">1</span><span style="color: #000000;">) {
+                                    visited.insert(x </span>* n +<span style="color: #000000;"> y);
+                                    virus.push_back(x </span>* n +<span style="color: #000000;"> y);
+                                    q.push(x </span>* n +<span style="color: #000000;"> y);
+                                }
+                            }
+                        }
+                        unordered_set</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> s(walls.begin(), walls.end());
+                        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; cells{(<span style="color: #0000ff;">int</span><span style="color: #000000;">)s.size()};
+                        all.push_back({cells ,walls, virus});
+                    }
+                }
+            }
+            </span><span style="color: #0000ff;">if</span> (all.empty()) <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+            sort(all.begin(), all.end(), [](vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; &amp;a, vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; &amp;b) {<span style="color: #0000ff;">return</span> a[<span style="color: #800080;">0</span>][<span style="color: #800080;">0</span>] &gt; b[<span style="color: #800080;">0</span>][<span style="color: #800080;">0</span><span style="color: #000000;">];});
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; all.size(); ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">if</span> (i == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; virus = all[<span style="color: #800080;">0</span>][<span style="color: #800080;">2</span><span style="color: #000000;">];
+                    </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> idx : virus) grid[idx / n][idx % n] = -<span style="color: #800080;">1</span><span style="color: #000000;">;
+                    res </span>+= all[<span style="color: #800080;">0</span>][<span style="color: #800080;">1</span><span style="color: #000000;">].size();
+                } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; wall = all[i][<span style="color: #800080;">1</span><span style="color: #000000;">];
+                    </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> idx : wall) grid[idx / n][idx % n] = <span style="color: #800080;">1</span><span style="color: #000000;">;
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://discuss.leetcode.com/topic/114208/c-dfs-12ms" target="_blank">https://discuss.leetcode.com/topic/114208/c-dfs-12ms</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-02-06 23:49</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8424780" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(8424780);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 8424780, cb_entryCreatedDate = '2018-02-06 23:49', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

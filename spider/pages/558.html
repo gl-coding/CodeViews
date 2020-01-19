@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="A quadtree is a tree data in which each internal node has exactly four children:&amp;#160;topLeft,&amp;#160;" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Quad Tree Intersection 四叉树相交 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9846991.html">[LeetCode] Quad Tree Intersection 四叉树相交</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>A quadtree is a tree data in which each internal node has exactly four children:&nbsp;<code>topLeft</code>,&nbsp;<code>topRight</code>,&nbsp;<code>bottomLeft</code>&nbsp;and&nbsp;<code>bottomRight</code>. Quad trees are often used to partition a two-dimensional space by recursively subdividing it into four quadrants or regions.</p>
+<p>We want to store True/False information in our quad tree. The quad tree is used to represent a&nbsp;<code>N * N</code>&nbsp;boolean grid. For each node, it will be subdivided into four children nodes&nbsp;until the values in the region it represents are all the same. Each node has another two boolean attributes :&nbsp;<code>isLeaf</code>&nbsp;and&nbsp;<code>val</code>.&nbsp;<code>isLeaf</code>is true if and only if the node is a leaf node. The&nbsp;<code>val</code>&nbsp;attribute for a leaf node contains the value of the region it represents.</p>
+<p>For example, below are two quad trees A and B:</p>
+<pre>A:
++-------+-------+   T: true
+|       |       |   F: false
+|   T   |   T   |
+|       |       |
++-------+-------+
+|       |       |
+|   F   |   F   |
+|       |       |
++-------+-------+
+topLeft: T
+topRight: T
+bottomLeft: F
+bottomRight: F
+
+B:               
++-------+---+---+
+|       | F | F |
+|   T   +---+---+
+|       | T | T |
++-------+---+---+
+|       |       |
+|   T   |   F   |
+|       |       |
++-------+-------+
+topLeft: T
+topRight:
+     topLeft: F
+     topRight: F
+     bottomLeft: T
+     bottomRight: T
+bottomLeft: T
+bottomRight: F
+</pre>
+<p>&nbsp;</p>
+<p>Your task is to implement a function that will take two quadtrees and return a quadtree that represents the logical OR (or union) of the two trees.</p>
+<pre>A:                 B:                 C (A or B):
++-------+-------+  +-------+---+---+  +-------+-------+
+|       |       |  |       | F | F |  |       |       |
+|   T   |   T   |  |   T   +---+---+  |   T   |   T   |
+|       |       |  |       | T | T |  |       |       |
++-------+-------+  +-------+---+---+  +-------+-------+
+|       |       |  |       |       |  |       |       |
+|   F   |   F   |  |   T   |   F   |  |   T   |   F   |
+|       |       |  |       |       |  |       |       |
++-------+-------+  +-------+-------+  +-------+-------+
+</pre>
+<p>Note:</p>
+<ol>
+<li>Both&nbsp;<code>A</code>&nbsp;and&nbsp;<code>B</code>&nbsp;represent grids of size&nbsp;<code>N * N</code>.</li>
+<li><code>N</code>&nbsp;is guaranteed to be a power of 2.</li>
+<li>If you want to know more about the quad tree, you can refer to its&nbsp;<a href="https://en.wikipedia.org/wiki/Quadtree">wiki</a>.</li>
+<li>The logic OR operation is defined as this: "A or B" is true if&nbsp;<code>A is true</code>, or if&nbsp;<code>B is true</code>, or if&nbsp;<code>both A and B are true</code>.</li>
+</ol>
+<p>&nbsp;</p>
+<p>这道题又是一道四叉树的题，说是给了我们两个四叉树，然后让我们将二棵树相交形成了一棵四叉树，相交的机制采用的是或，即每个自区域相&lsquo;或&rsquo;，题目中给的例子很好的说明了一些相&lsquo;或&rsquo;的原则，比如我们看A和B中的右上结点，我们发现A树的右上结点已经是一个值为true的叶结点，而B的右上结点还是一个子树，那么此时不论子树里有啥内容，我们相交后的树的右上结点应该跟A树的右上结点保持一致，假如A树的右上结点值是false的话，相&lsquo;或&rsquo;起不到任何作用，那么相交后的树的右上结点应该跟B树的右上结点保持一致。那么我们可以归纳出，只有某一个结点是叶结点了，我们看其值，如果是true，则相交后的结点和此结点保持一致，否则跟另一个结点保持一致。比较麻烦的情况是当两个结点都不是叶结点的情况，此时我们需要对相对应的四个子结点分别调用递归函数，调用之后还需要进行进一步处理，因为一旦四个子结点的值相同，且都是叶结点的话，那么此时应该合并为一个大的叶结点，参见代码如下：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    Node</span>* intersect(Node* quadTree1, Node*<span style="color: #000000;"> quadTree2) {
+          </span><span style="color: #0000ff;">if</span> (quadTree1-&gt;isLeaf) <span style="color: #0000ff;">return</span> quadTree1-&gt;val ?<span style="color: #000000;"> quadTree1 : quadTree2;
+          </span><span style="color: #0000ff;">if</span> (quadTree2-&gt;isLeaf) <span style="color: #0000ff;">return</span> quadTree2-&gt;val ?<span style="color: #000000;"> quadTree2 : quadTree1;
+          Node </span>*tl = intersect(quadTree1-&gt;topLeft, quadTree2-&gt;<span style="color: #000000;">topLeft);
+          Node </span>*tr = intersect(quadTree1-&gt;topRight, quadTree2-&gt;<span style="color: #000000;">topRight);
+          Node </span>*bl = intersect(quadTree1-&gt;bottomLeft, quadTree2-&gt;<span style="color: #000000;">bottomLeft);
+          Node </span>*br = intersect(quadTree1-&gt;bottomRight, quadTree2-&gt;<span style="color: #000000;">bottomRight);
+          </span><span style="color: #0000ff;">if</span> (tl-&gt;val == tr-&gt;val &amp;&amp; tl-&gt;val == bl-&gt;val &amp;&amp; tl-&gt;val == br-&gt;val &amp;&amp; tl-&gt;isLeaf &amp;&amp; tr-&gt;isLeaf &amp;&amp; bl-&gt;isLeaf &amp;&amp; br-&gt;<span style="color: #000000;">isLeaf) {
+              </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> Node(tl-&gt;val, <span style="color: #0000ff;">true</span><span style="color: #000000;">, NULL, NULL, NULL, NULL);
+          } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+              </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> Node(<span style="color: #0000ff;">false</span>, <span style="color: #0000ff;">false</span><span style="color: #000000;">, tl, tr, bl, br);
+          }
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a id="homepage1_HomePageDays_DaysList_ctl09_DayList_TitleUrl_0" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9649348.html">Construct Quad Tree</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/quad-tree-intersection/" target="_blank">https://leetcode.com/problems/quad-tree-intersection/</a></p>
+<p><a href="https://leetcode.com/problems/quad-tree-intersection/discuss/152730/C%2B%2B-10-line-beat-100" target="_blank">https://leetcode.com/problems/quad-tree-intersection/discuss/152730/C%2B%2B-10-line-beat-100</a></p>
+<p><a href="https://leetcode.com/problems/quad-tree-intersection/discuss/157532/Java-concise-code-beat-100" target="_blank">https://leetcode.com/problems/quad-tree-intersection/discuss/157532/Java-concise-code-beat-100</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-10-24 23:44</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9846991" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(9846991);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 9846991, cb_entryCreatedDate = '2018-10-24 23:44', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

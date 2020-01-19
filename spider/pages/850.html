@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta property="og:description" content="We are given a list of (axis aligned) . Each , where (x1, y1) are the coordinates of the bottom left" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 850. Rectangle Area II 矩形面积之二 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/11371256.html">[LeetCode] 850. Rectangle Area II 矩形面积之二</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+We are given a list of (axis-aligned) <code>rectangles</code>.  Each <code>rectangle[i] = [x1, y1, x2, y2] </code>, where (x1, y1) are the coordinates of the bottom-left corner, and (x2, y2) are the coordinates of the top-right corner of the <code>i</code>th rectangle.</p>
+<p>Find the total area covered by all <code>rectangles</code> in the plane.  Since the answer may be too large, return it modulo 10^9 + 7.</p>
+<p><img src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/06/06/rectangle_area_ii_pic.png" /></p>
+<p>Example 1:</p>
+<pre><code>Input: [[0,0,2,2],[1,0,2,3],[1,0,3,1]]
+Output: 6
+Explanation: As illustrated in the picture.</code></pre>
+<p>Example 2:</p>
+<pre><code>Input: [[0,0,1000000000,1000000000]]
+Output: 49
+Explanation: The answer is 10^18 modulo (10^9 + 7), which is (10^9)^2 = (-7)^2 = 49.</code></pre>
+<p>Note:</p>
+<ul>
+<li><code>1 &lt;= rectangles.length &lt;= 200</code></li>
+<li><code>rectanges[i].length = 4</code></li>
+<li><code>0 &lt;= rectangles[i][j] &lt;= 10^9</code></li>
+<li>The total area covered by all rectangles will never exceed <code>2^63 - 1</code> and thus will fit in a 64-bit signed integer.</li>
+</ul>
+<p><br><br />
+这道题是之前那道 <a href="http://www.cnblogs.com/grandyang/p/4563153.html">Rectangle Area</a> 的拓展，那道题只有两个矩形重叠，而这道题有多个矩形可能同时重叠，整体难度一下就上来了，那么通过将所有矩形面积加起来再减去重叠区域的方法这里就不太适用了，因为多个矩形在同一区域重叠的话，都减去重叠面积是会错的，还得把多减的补回来，相当的麻烦。这里我们需要换一种解题的思路，不能一股脑儿的把所有的矩形都加起来，而是应该利用微积分的思想，将重叠在一起的区域拆分成一个个的小矩形，分别累加面积，因为这里的矩形是不会旋转的，所以是可以正常拆分的。思路有了，新建一个二维数组 all 来保存所有的矩形，然后遍历给定的矩形数组，对于每个遍历到的数组，调用一个子函数，将当前的矩形加入 all 中。下面主要来看一下这个子函数 helper 该如何实现？首先要明白这个函数的作用是将当前矩形加入 all 数组中，而且用的是递归的思路，所以要传入一个 start 变量，表示当前和 all 数组中正在比较的矩形的 index，这样在开始的时候，检查一下若 start 大于等于 all 数组长度，表示已经检测完 all 中所有的矩形了，将当前矩形加入 all 数组，并返回即可。否则的话则取出 start 位置上的矩形 rec，此时就要判断当前要加入的矩形和这个 rec 矩形是否有重叠，这在 LeetCode 中有专门一道题是考察这个的 <a href="https://www.cnblogs.com/grandyang/p/10367583.html">Rectangle Overlap</a>，这里用的就是那道题的判断方法，假如判断出当前矩形 cur 和矩形 rec 没有交集，就直接对 all 数组中下一个矩形调用递归函数，并返回即可。假如有重叠的话，就稍微麻烦一点，由于重叠的部位不同，所以需要分情况讨论一下，参见下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/grandyang/leetcode/master/img/850_showcases.png" /></p>
+<p>对于一个矩形 Rectangle，若有另外一个矩形跟它有重叠的话，可以将重叠区域分为四个部分，如上图的 Case1，Case2，Case3，Case4 所示，非重叠部分一定会落在一个或多个区域中，则可以把这些拆开的小矩形全部加入到矩形数组 all 中。仔细观察上图可以发现，对于将矩形 cur 拆分的情况可以分为下面四种：</p>
+<ul>
+<li>落入区间1，条件为 cur[0] &lt; rec[0]，产生的新矩形的两个顶点为 {cur[0], cur[1], rec[0], cur[3]}。</li>
+<li>落入区间2，条件为 cur[2] &gt; rec[2]，产生的新矩形的两个顶点为 {rec[2], cur[1], cur[2], cur[3]}。</li>
+<li>落入区间3，条件为 cur[1] &lt; rec[1]，产生的新矩形的两个顶点为 {max(rec[0], cur[0]), cur[1], min(rec[2], cur[2]), rec[1]}。</li>
+<li>落入区间4，条件为 cur[3] &gt; rec[3]，产生的新矩形的两个顶点为 {max(rec[0], cur[0]), rec[3], min(rec[2], cur[2]), cur[3]}。</li>
+</ul>
+<p>这样操作下来的话，整个所有的区域都被拆分成了很多个小矩形，每个矩形之间都不会有重复，最后只要分别计算每个小矩形的面积，并累加起来就是最终的结果了，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    int rectangleArea(vector&lt;vector&lt;int&gt;&gt;&amp; rectangles) {
+        long res = 0, M = 1e9 + 7;
+        vector&lt;vector&lt;int&gt;&gt; all;
+        for (auto rectangle : rectangles) {
+            helper(all, rectangle, 0);
+        }
+        for (auto &amp;a : all) {
+            res = (res + (long)(a[2] - a[0]) * (long)(a[3] - a[1])) % M;
+        }
+        return res;
+    }
+    void helper(vector&lt;vector&lt;int&gt;&gt;&amp; all, vector&lt;int&gt; cur, int start) {
+        if (start &gt;= all.size()) {
+            all.push_back(cur); return;
+        }
+        auto rec = all[start];
+        if (cur[2] &lt;= rec[0] || cur[3] &lt;= rec[1] || cur[0] &gt;= rec[2] || cur[1] &gt;= rec[3]) {
+            helper(all, cur, start + 1); return;
+        }
+        if (cur[0] &lt; rec[0]) {
+            helper(all, {cur[0], cur[1], rec[0], cur[3]}, start + 1);
+        }
+        if (cur[2] &gt; rec[2]) {
+            helper(all, {rec[2], cur[1], cur[2], cur[3]}, start + 1);
+        }
+        if (cur[1] &lt; rec[1]) {
+            helper(all, {max(rec[0], cur[0]), cur[1], min(rec[2], cur[2]), rec[1]}, start + 1);
+        }
+        if (cur[3] &gt; rec[3]) {
+            helper(all, {max(rec[0], cur[0]), rec[3], min(rec[2], cur[2]), cur[3]}, start + 1);
+        }
+    }
+};</code></pre>
+<p><br><br />
+下面这种解法更是利用了微积分的原理，把x轴长度为1当作一个步长，然后计算每一列有多少个连续的区间，每个连续区间又有多少个小正方形，题目中给的例子每一个列都只有一个连续区间，但事实上是可以有很多个的，只要算出了每一列 1x1 小正方形的个数，将所有列都累加起来，就是整个区域的面积。这里求每列上小正方形个数的方法非常的 tricky，博主也不知道该怎么讲解，大致就是要求同一列上每个连续区间中的小正方形个数，再累加起来。对于每个矩形起始的横坐标，映射较低的y值到1，较高的y值到 -1，对于结束位置的横坐标，刚好反过来一下，映射较低的y值到 -1，较高的y值到1。这种机制跟之前那道 <a href="http://www.cnblogs.com/grandyang/p/4534586.html">The Skyline Problem</a> 有些异曲同工之妙，都还是为了计算高度差服务的。要搞清楚这道题的核心思想，不是一件容易的事，博主的建议是就拿题目中给的例子带入到下面的代码中，一步一步执行，并分析结果，是能够初步的了解解题思路的，若实在有理解上的问题，博主可以进一步写些讲解，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    int rectangleArea(vector&lt;vector&lt;int&gt;&gt;&amp; rectangles) {
+        long res = 0, pre_x = 0, height = 0, start = 0, cnt = 0, M = 1e9 + 7;
+        map&lt;int, vector&lt;pair&lt;int, int&gt;&gt;&gt; groupMap;
+        map&lt;int, int&gt; cntMap;
+        for (auto &amp;a : rectangles) {
+            groupMap[a[0]].push_back({a[1], 1});
+            groupMap[a[0]].push_back({a[3], -1});
+            groupMap[a[2]].push_back({a[1], -1});
+            groupMap[a[2]].push_back({a[3], 1});
+        }
+        for (auto &amp;group : groupMap) {
+            res = (res + (group.first - pre_x) * height) % M;
+            for (auto &amp;a : group.second) {
+                cntMap[a.first] += a.second;
+            }
+            height = 0, start = 0, cnt = 0;
+            for (auto &amp;a : cntMap) {
+                if (cnt == 0) start = a.first;
+                cnt += a.second;
+                if (cnt == 0) height += a.first - start;
+            }
+            pre_x = group.first;
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/850" class="uri">https://github.com/grandyang/leetcode/issues/850</a></p>
+<p><br><br />
+类似题目：</p>
+<p><a href="https://www.cnblogs.com/grandyang/p/10367583.html">Rectangle Overlap</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4563153.html">Rectangle Area</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4534586.html">The Skyline Problem</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/rectangle-area-ii/" class="uri">https://leetcode.com/problems/rectangle-area-ii/</a></p>
+<p><a href="https://leetcode.com/problems/rectangle-area-ii/discuss/138028/Clean-Recursive-Solution-Java" class="uri">https://leetcode.com/problems/rectangle-area-ii/discuss/138028/Clean-Recursive-Solution-Java</a></p>
+<p><a href="https://leetcode.com/problems/rectangle-area-ii/discuss/214365/Short-C%2B%2B-solution.-EZ-to-understand.-Beat-99.">https://leetcode.com/problems/rectangle-area-ii/discuss/214365/Short-C%2B%2B-solution.-EZ-to-understand.-Beat-99.</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-08-18 02:56</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11371256" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(11371256);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 11371256, cb_entryCreatedDate = '2019-08-18 02:56', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

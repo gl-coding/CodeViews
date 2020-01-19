@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="A move consists of taking a point&amp;#160;(x, y)&amp;#160;and transforming it to either&amp;#160;(x, x&#x2B;y)&amp;#160;" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 780. Reaching Points 到达指定点 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9033955.html">[LeetCode] 780. Reaching Points 到达指定点</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>A move consists of taking a point&nbsp;<code>(x, y)</code>&nbsp;and transforming it to either&nbsp;<code>(x, x+y)</code>&nbsp;or&nbsp;<code>(x+y, y)</code>.</p>
+<p>Given a starting point&nbsp;<code>(sx, sy)</code>&nbsp;and a target point&nbsp;<code>(tx, ty)</code>, return&nbsp;<code>True</code>&nbsp;if and only if a sequence of moves exists to transform the point&nbsp;<code>(sx, sy)</code>&nbsp;to&nbsp;<code>(tx, ty)</code>. Otherwise, return&nbsp;<code>False</code>.</p>
+<pre>Examples:
+Input: sx = 1, sy = 1, tx = 3, ty = 5
+Output: True
+Explanation:
+One series of moves that transforms the starting point to the target is:
+(1, 1) -&gt; (1, 2)
+(1, 2) -&gt; (3, 2)
+(3, 2) -&gt; (3, 5)
+
+Input: sx = 1, sy = 1, tx = 2, ty = 2
+Output: False
+
+Input: sx = 1, sy = 1, tx = 1, ty = 1
+Output: True
+
+</pre>
+<p>Note:</p>
+<ul>
+<li><code>sx, sy, tx, ty</code>&nbsp;will all be integers in the range&nbsp;<code>[1, 10^9]</code>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>这道题说有一个点的变换方式，就是可以将 (x, y) 变成&nbsp;(x + y, y) 或&nbsp;(x, x + y)，然后给了我们两个坐标点，一个是起始点 (sx, sy)，一个是目标点 (tx, ty)，问利用这种转换方式能否将起始点转换为目标点。这题给了一个很大的限定条件，就是所有坐标的数字都是正数，即所有的点都在第一象限里。这是个很大的限定条件，因为这样的话，坐标数字变换的过程中总是在不断的变大，因为没有负数的存在，就不会缩小。这样的话，只要发现只要起始点中的横纵坐标有任意一个大于了目标点的横纵坐标，那么直接返回 false 就可以了。首先，可以先来想想 brute force 怎么做，非常的直截了当，先判断之前说的返回 false 的两种情况，再判断如果起始点等于了目标点，返回 true，然后就是调用两个递归函数了，毫无悬念的 TLE 了，可以参见<a href="https://leetcode.com/problems/reaching-points/solution/" target="_blank">官方解法贴</a>中的代码。令博主感到意外的是，这道题的时间要求很苛刻啊，官方解题贴中的前三种解法全都 TLE 了，但是经过分析后发现，前三种方法 TLE 是必然的，因为没用使用到此题想考察的核心要点。这道题的标签是 Math，对于博主来说，标记为 Math 的题跟脑筋急转弯 brainteaser 没啥区别，因为都很难想出来。再想想为啥 brute force 的解法会超时，如果起始点的数字很小的话，而目标点的数字特别的巨大，那么仅仅通过加法来慢慢的累加到的一个巨大的数，怎么可能不超时。快速累加的高效方法是乘法，但要知道需要累加的个数，就需要用除法来计算，其实我们对累加的个数也不那么感兴趣，而是对余数感兴趣，那么求余运算就是很高效的方法。求余运算是将数字变小的操作，可以将目标数字缩小，看能否缩小到起始位置，也是符合题意的，只不过此时的变换方式由加法变为了减法而已。</p>
+<p>我们的目标是将 tx 和 ty 分别缩小到 sx 和 sy，不可能一步就缩小到位，那么这肯定是一个循环，终止条件是 tx 和 ty 中任意一个小于了 sx 和 sy，在循环内部，想要缩小 tx 或 ty，先缩小两者中较大的那个，若 tx 大于 ty，可以尝试缩小 tx，但是如果此时 ty 等于 sy 了话，可以迅速判断出结果，通过计算此时 tx 和 sx 的差值是否是 ty 的倍数，因为此时 ty 不能改变了，只能缩小 tx，若能通过减去整数倍数个 ty 得到 sx 的，就表示可以到达。如果 ty 不等于 sy 的话，那么直接 tx 对 ty 取余即可。同理，若 ty 大于 tx，我们可以尝试缩小 ty，但是如果此时 tx 等于 sx 了话，我们可以迅速判断出结果，通过计算此时 ty 和 sy 的差值是否是 tx 的倍数，如果 tx 不等于 sx 的话，那么直接 ty 对 tx 取余即可。循环退出后检测起始点和目标点是否相等，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> reachingPoints(<span style="color: #0000ff;">int</span> sx, <span style="color: #0000ff;">int</span> sy, <span style="color: #0000ff;">int</span> tx, <span style="color: #0000ff;">int</span><span style="color: #000000;"> ty) {
+        </span><span style="color: #0000ff;">while</span> (tx &gt;= sx &amp;&amp; ty &gt;=<span style="color: #000000;"> sy) {
+            </span><span style="color: #0000ff;">if</span> (tx &gt;<span style="color: #000000;"> ty) {
+                </span><span style="color: #0000ff;">if</span> (ty == sy) <span style="color: #0000ff;">return</span> (tx - sx) % ty == <span style="color: #800080;">0</span><span style="color: #000000;">;
+                tx </span>%=<span style="color: #000000;"> ty;
+            } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                </span><span style="color: #0000ff;">if</span> (tx == sx) <span style="color: #0000ff;">return</span> (ty - sy) % tx == <span style="color: #800080;">0</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">else</span> ty %=<span style="color: #000000;"> tx;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> tx == sx &amp;&amp; ty ==<span style="color: #000000;"> sy;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种解法将没有在循环内部处理相等的情况，而是无脑缩小 tx 和 ty，最后循环退出后，再来判断 tx 和 ty 的关系，然后快速的判断，由于取余运算缩小的太快了，所以博主不认为二者的运行效率能差多少，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> reachingPoints(<span style="color: #0000ff;">int</span> sx, <span style="color: #0000ff;">int</span> sy, <span style="color: #0000ff;">int</span> tx, <span style="color: #0000ff;">int</span><span style="color: #000000;"> ty) {
+        </span><span style="color: #0000ff;">while</span> (tx &gt;= sx &amp;&amp; ty &gt;=<span style="color: #000000;"> sy) {
+            </span><span style="color: #0000ff;">if</span> (tx &gt; ty) tx %=<span style="color: #000000;"> ty;
+            </span><span style="color: #0000ff;">else</span> ty %=<span style="color: #000000;"> tx;
+        }
+        </span><span style="color: #0000ff;">if</span> (tx &gt; ty) <span style="color: #0000ff;">return</span> tx == sx &amp;&amp; ty == sy %<span style="color: #000000;"> sx;
+        </span><span style="color: #0000ff;">return</span> ty == sy &amp;&amp; tx == sx %<span style="color: #000000;"> sy;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种写法跟上面的没有太大的区别，就看起来更加整齐一些，博主有强迫症吗？？？不过需要注意的是，需要在最前面加一个判定条件，目标点的横纵坐标都必须大于等于起始点的横纵坐标，因为坐标点横纵坐标都是正数，变换方式是加法，所以只能越加越大，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> reachingPoints(<span style="color: #0000ff;">int</span> sx, <span style="color: #0000ff;">int</span> sy, <span style="color: #0000ff;">int</span> tx, <span style="color: #0000ff;">int</span><span style="color: #000000;"> ty) {
+        </span><span style="color: #0000ff;">if</span> (tx &lt; sx || ty &lt; sy) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">while</span> (tx &gt;= sx &amp;&amp; ty &gt;=<span style="color: #000000;"> sy) {
+            </span><span style="color: #0000ff;">if</span> (tx &gt; ty) tx %=<span style="color: #000000;"> ty;
+            </span><span style="color: #0000ff;">else</span> ty %=<span style="color: #000000;"> tx;
+        }
+        </span><span style="color: #0000ff;">if</span> (tx == sx) <span style="color: #0000ff;">return</span> (ty - sy) % sx == <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (ty == sy) <span style="color: #0000ff;">return</span> (tx - sx) % sy == <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>再来看一种递归的写法，就四行啊，其实就是用取余运算代替加法优化了 brute force 的解法，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法四：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> reachingPoints(<span style="color: #0000ff;">int</span> sx, <span style="color: #0000ff;">int</span> sy, <span style="color: #0000ff;">int</span> tx, <span style="color: #0000ff;">int</span><span style="color: #000000;"> ty) {
+        </span><span style="color: #0000ff;">if</span> (tx &lt; sx || ty &lt; sy) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (tx == sx &amp;&amp; (ty - sy) % sx == <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (ty == sy &amp;&amp; (tx - sx) % sy == <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span> reachingPoints(sx, sy, tx % ty, ty %<span style="color: #000000;"> tx);
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/780">https://github.com/grandyang/leetcode/issues/780</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/reaching-points/solution/">https://leetcode.com/problems/reaching-points/solution/</a></p>
+<p><a href="https://leetcode.com/problems/reaching-points/discuss/114726/C++-Simple-iterative.">https://leetcode.com/problems/reaching-points/discuss/114726/C++-Simple-iterative.</a></p>
+<p><a href="https://leetcode.com/problems/reaching-points/discuss/122916/concise-c++-solution">https://leetcode.com/problems/reaching-points/discuss/122916/concise-c++-solution</a></p>
+<p><a href="https://leetcode.com/problems/reaching-points/discuss/116110/C++-iterative-solution">https://leetcode.com/problems/reaching-points/discuss/116110/C++-iterative-solution</a></p>
+<p><a href="https://leetcode.com/problems/reaching-points/discuss/114732/Java-Simple-solution-with-explanation">https://leetcode.com/problems/reaching-points/discuss/114732/Java-Simple-solution-with-explanation</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-05-13 23:22</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9033955" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(9033955);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 9033955, cb_entryCreatedDate = '2018-05-13 23:22', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given a binary tree, find the largest subtree which is a Binary Search Tree (BST), where largest mea" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 333. Largest BST Subtree 最大的二分搜索子树 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/5188938.html">[LeetCode] 333. Largest BST Subtree 最大的二分搜索子树</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given a binary tree, find the largest subtree which is a Binary Search Tree (BST), where largest means subtree with largest number of nodes in it.</p>
+<p>Note:<br />A subtree must include all of its descendants.</p>
+<p>Example:</p>
+<pre>Input: [10,5,15,1,8,null,7]
+
+   10 
+   / \ 
+<span style="color: red;">  5</span>  15 
+<span style="color: red;"> / \</span>   \ 
+<span style="color: red;">1   8</span>   7
+
+Output: 3
+Explanation: The Largest BST Subtree in this case is the highlighted one.
+             The return value is the subtree's size, which is 3.
+</pre>
+<p>Follow up:<br />Can you figure out ways to solve it with O(n) time complexity?</p>
+<p>Hint:</p>
+<ol id="hints">
+<li class="hint animated fadeInLeft">You can recursively use algorithm similar to&nbsp;<a href="https://leetcode.com/problems/validate-binary-search-tree/">98. Validate Binary Search Tree</a>&nbsp;at each node of the tree, which will result in O(nlogn) time complexity.</li>
+</ol>
+<p>&nbsp;</p>
+<p>这道题让我们求一棵二分树的最大二分搜索子树，所谓二分搜索树就是满足左&lt;根&lt;右的二分树，需要返回这个二分搜索子树的节点个数。题目中给的提示说可以用之前那道&nbsp;<a href="http://www.cnblogs.com/grandyang/p/4298435.html" target="_blank">Validate Binary Search Tree</a>&nbsp;的方法来做，时间复杂度为 O(n<sup>2</sup>)，这种方法是把每个节点都当做根节点，来验证其是否是二叉搜索数，并记录节点的个数，若是二叉搜索树，就更新最终结果，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> largestBSTSubtree(TreeNode*<span style="color: #000000;"> root) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        dfs(root, res);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+    </span><span style="color: #0000ff;">void</span> dfs(TreeNode *root, <span style="color: #0000ff;">int</span> &amp;<span style="color: #000000;">res) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> d =<span style="color: #000000;"> countBFS(root, INT_MIN, INT_MAX);
+        </span><span style="color: #0000ff;">if</span> (d != -<span style="color: #800080;">1</span><span style="color: #000000;">) {
+            res </span>=<span style="color: #000000;"> max(res, d);
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        }
+        dfs(root</span>-&gt;<span style="color: #000000;">left, res);
+        dfs(root</span>-&gt;<span style="color: #000000;">right, res);
+    }
+    </span><span style="color: #0000ff;">int</span> countBFS(TreeNode *root, <span style="color: #0000ff;">int</span> mn, <span style="color: #0000ff;">int</span><span style="color: #000000;"> mx) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (root-&gt;val &lt;= mn || root-&gt;val &gt;= mx) <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> left = countBFS(root-&gt;left, mn, root-&gt;<span style="color: #000000;">val);
+        </span><span style="color: #0000ff;">if</span> (left == -<span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> right = countBFS(root-&gt;right, root-&gt;<span style="color: #000000;">val, mx);
+        </span><span style="color: #0000ff;">if</span> (right == -<span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span> left + right + <span style="color: #800080;">1</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面我们来看一种更简洁的写法，对于每一个节点，都来验证其是否是 BST，如果是的话，就统计节点的个数即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> largestBSTSubtree(TreeNode*<span style="color: #000000;"> root) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (isValid(root, INT_MIN, INT_MAX)) <span style="color: #0000ff;">return</span><span style="color: #000000;"> count(root);
+        </span><span style="color: #0000ff;">return</span> max(largestBSTSubtree(root-&gt;left), largestBSTSubtree(root-&gt;<span style="color: #000000;">right));
+    }
+    </span><span style="color: #0000ff;">bool</span> isValid(TreeNode* root, <span style="color: #0000ff;">int</span> mn, <span style="color: #0000ff;">int</span><span style="color: #000000;"> mx) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (root-&gt;val &lt;= mn || root-&gt;val &gt;= mx) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span> isValid(root-&gt;left, mn, root-&gt;val) &amp;&amp; isValid(root-&gt;right, root-&gt;<span style="color: #000000;">val, mx);
+    }
+    </span><span style="color: #0000ff;">int</span> count(TreeNode*<span style="color: #000000;"> root) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span> count(root-&gt;left) + count(root-&gt;right) + <span style="color: #800080;">1</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>题目中的 Follow up 让用 O(n) 的时间复杂度来解决问题，还是采用 DFS 的思想来解题，由于时间复杂度的限制，只允许遍历一次整个二叉树，由于满足题目要求的二叉搜索子树必定是有叶节点的，所以思路就是先递归到最左子节点，然后逐层往上递归，对于每一个节点，都记录当前最大的 BST 的节点数，当做为左子树的最大值，和做为右子树的最小值，当每次遇到左子节点不存在或者当前节点值大于左子树的最大值，且右子树不存在或者当前节点值小于右子树的最小数时，说明 BST 的节点数又增加了一个，更新结果及其参数，如果当前节点不是 BST 的节点，那么更新 BST 的节点数 res 为左右子节点的各自的 BST 的节点数的较大值，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> largestBSTSubtree(TreeNode*<span style="color: #000000;"> root) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span>, mn = INT_MIN, mx =<span style="color: #000000;"> INT_MAX;
+        isValidBST(root, mn, mx, res);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+    </span><span style="color: #0000ff;">void</span> isValidBST(TreeNode* root, <span style="color: #0000ff;">int</span>&amp; mn, <span style="color: #0000ff;">int</span>&amp; mx, <span style="color: #0000ff;">int</span>&amp;<span style="color: #000000;"> res) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> left_cnt = <span style="color: #800080;">0</span>, right_cnt = <span style="color: #800080;">0</span>, left_mn =<span style="color: #000000;"> INT_MIN;
+        </span><span style="color: #0000ff;">int</span> right_mn = INT_MIN, left_mx = INT_MAX, right_mx =<span style="color: #000000;"> INT_MAX;
+        isValidBST(root</span>-&gt;<span style="color: #000000;">left, left_mn, left_mx, left_cnt);
+        isValidBST(root</span>-&gt;<span style="color: #000000;">right, right_mn, right_mx, right_cnt);
+        </span><span style="color: #0000ff;">if</span> ((!root-&gt;left || root-&gt;val &gt; left_mx) &amp;&amp; (!root-&gt;right || root-&gt;val &lt;<span style="color: #000000;"> right_mn)) {
+            res </span>= left_cnt + right_cnt + <span style="color: #800080;">1</span><span style="color: #000000;">;
+            mn </span>= root-&gt;left ? left_mn : root-&gt;<span style="color: #000000;">val;
+            mx </span>= root-&gt;right ? right_mx : root-&gt;<span style="color: #000000;">val;
+        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+            res </span>=<span style="color: #000000;"> max(left_cnt, right_cnt);    
+        }
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>上面的解法在递归函数中定义了大量的变量，难免让人看的眼花缭乱，我们可以稍稍精简一下，将这些变量都放到递归函数的返回值中，此时的helper函数返回了一个一维数组，里面有三个数字，分别是以当前结点为根结点的数的最小值，最大值，以及最大的 BST 子树的结点个数。那么就可以在边验证 BST 的过程中边统计个数，首先判空，若空，则返回一个默认三元组，整型最大值，最小值，和0。那你可能有疑问，定义的不是说第一个值是最小值么？没错，后面再解释。若当前结点 node 存在，分别对其左右子结点调用递归函数，那么左子树和右子树的信息都保存到了 left 和 right 数组中，就算左右子结点不存在也没关系，由于第一句的判空，还是会得到一个默认的三元组。接下来就是根据左右子树的信息来更新结果 res 了，由于 BST 的定义，当前结点值肯定是大于左子树的最大值，小于右子树的最小值的。左子树的最大值保存在 left[1] 中，右子树的最小值保存在 right[0] 中，如果这两个条件满足了，说明左右子树都是 BST，那么返回的三元组的最小值就是当前结点值和左子树最小值中的较小者，最大值就是当前结点值和右子树最大值中的较大值，返回的 BST 结点个数就是左右子树的结点个数加上1，即算上了当前结点。好，现在解释下为空时返回的三元组为何顺序是整型最大值，整型最小值。如果当前是叶结点，其也算是 BST，那么肯定希望能进入 if 从句，从而使得三元组的第三项能加1，但是 if 的条件是当前结点值要大于左子树中的最大值，现在左子结点是空的，为了保证条件能通过，我们将空的左子树的最大值设置为整型最小值，这样一定能通过，同理，将空的右子树的最小值设置为整型最大值，这就是空结点的三元组的作用。好，继续看 else 中的内容，如果破坏了 BST 的规则，则返回的三元组的最小值就是整型最小值，最大值是整型最大值，BST 结点个数并不是0，因为其左右子树中有可能还有 BST，所以是左右子树中的 BST 结点个数中的较大值，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法四：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> largestBSTSubtree(TreeNode*<span style="color: #000000;"> root) {
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; res =<span style="color: #000000;"> helper(root);
+        </span><span style="color: #0000ff;">return</span> res[<span style="color: #800080;">2</span><span style="color: #000000;">];
+    }
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; helper(TreeNode*<span style="color: #000000;"> node) {
+        </span><span style="color: #0000ff;">if</span> (!node) <span style="color: #0000ff;">return</span> {INT_MAX, INT_MIN, <span style="color: #800080;">0</span><span style="color: #000000;">};
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; left = helper(node-&gt;left), right = helper(node-&gt;<span style="color: #000000;">right);
+        </span><span style="color: #0000ff;">if</span> (node-&gt;val &gt; left[<span style="color: #800080;">1</span>] &amp;&amp; node-&gt;val &lt; right[<span style="color: #800080;">0</span><span style="color: #000000;">]) {
+            </span><span style="color: #0000ff;">return</span> {min(node-&gt;val, left[<span style="color: #800080;">0</span>]), max(node-&gt;val, right[<span style="color: #800080;">1</span>]), left[<span style="color: #800080;">2</span>] + right[<span style="color: #800080;">2</span>] + <span style="color: #800080;">1</span><span style="color: #000000;">};
+        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+            </span><span style="color: #0000ff;">return</span> {INT_MIN, INT_MAX, max(left[<span style="color: #800080;">2</span>], right[<span style="color: #800080;">2</span><span style="color: #000000;">])};
+        }
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/333">https://github.com/grandyang/leetcode/issues/333</a></p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4298435.html" target="_blank">Validate Binary Search Tree</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/largest-bst-subtree/" target="_blank">https://leetcode.com/problems/largest-bst-subtree/</a></p>
+<p><a href="https://leetcode.com/problems/largest-bst-subtree/discuss/78892/12ms-C%2B%2B-solution" target="_blank">https://leetcode.com/problems/largest-bst-subtree/discuss/78892/12ms-C%2B%2B-solution</a></p>
+<p><a href="https://leetcode.com/problems/largest-bst-subtree/discuss/78899/Very-Short-Simple-Java-O(N)-Solution" target="_blank">https://leetcode.com/problems/largest-bst-subtree/discuss/78899/Very-Short-Simple-Java-O(N)-Solution</a></p>
+<p><a href="https://leetcode.com/problems/largest-bst-subtree/discuss/78896/Clean-and-easy-to-understand-Java-Solution" target="_blank">https://leetcode.com/problems/largest-bst-subtree/discuss/78896/Clean-and-easy-to-understand-Java-Solution</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2016-02-14 13:01</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=5188938" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(5188938);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 5188938, cb_entryCreatedDate = '2016-02-14 13:01', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

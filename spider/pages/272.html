@@ -1,0 +1,503 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given a non-empty binary search tree and a target value, find&amp;#160;k&amp;#160;values in the BST that are" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 272. Closest Binary Search Tree Value II 最近的二分搜索树的值之二 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/5247398.html">[LeetCode] 272. Closest Binary Search Tree Value II 最近的二分搜索树的值之二</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given a non-empty binary search tree and a target value, find&nbsp;<em>k</em>&nbsp;values in the BST that are closest to the target.</p>
+<p>Note:</p>
+<ul>
+<li>Given target value is a floating point.</li>
+<li>You may assume&nbsp;<em>k</em>&nbsp;is always valid, that is:&nbsp;<em>k</em>&le; total nodes.</li>
+<li>You are guaranteed to have only one unique set of&nbsp;<em>k</em>&nbsp;values in the BST that are closest to the target.</li>
+</ul>
+<p>Example:</p>
+<pre>Input: root = [4,2,5,1,3], target = 3.714286, and <em>k</em> = 2
+
+    4
+   / \
+  2   5
+ / \
+1   3
+
+Output: [4,3]</pre>
+<p>Follow up:<br />Assume that the BST is balanced, could you solve it in less than&nbsp;<em>O</em>(<em>n</em>) runtime (where&nbsp;<em>n</em>&nbsp;= total nodes)?</p>
+<p>&nbsp;</p>
+<p>这道题是之前那道&nbsp;<a id="homepage1_HomePageDays_DaysList_ctl02_DayList_TitleUrl_0" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/5237170.html">Closest Binary Search Tree Value</a>&nbsp;的拓展，那道题只让我们找出离目标值最近的一个节点值，而这道题让我们找出离目标值最近的k个节点值，难度瞬间增加了不少，我最先想到的方法是用中序遍历将所有节点值存入到一个一维数组中，由于二分搜索树的性质，这个一维数组是有序的，然后我们再在有序数组中需要和目标值最近的k个值就简单的多，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; closestKValues(TreeNode* root, <span style="color: #0000ff;">double</span> target, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> res, v;
+        inorder(root, v);
+        </span><span style="color: #0000ff;">int</span> idx = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">double</span> diff = numeric_limits&lt;<span style="color: #0000ff;">double</span>&gt;<span style="color: #000000;">::max();
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; v.size(); ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (diff &gt;= abs(target -<span style="color: #000000;"> v[i])) {
+                diff </span>= abs(target -<span style="color: #000000;"> v[i]);
+                idx </span>=<span style="color: #000000;"> i;
+            }
+        }
+        </span><span style="color: #0000ff;">int</span> left = idx - <span style="color: #800080;">1</span>, right = idx + <span style="color: #800080;">1</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; k; ++<span style="color: #000000;">i) {
+            res.push_back(v[idx]);
+            </span><span style="color: #0000ff;">if</span> (left &gt;= <span style="color: #800080;">0</span> &amp;&amp; right &lt;<span style="color: #000000;"> v.size()) {
+                </span><span style="color: #0000ff;">if</span> (abs(v[left] - target) &gt; abs(v[right] -<span style="color: #000000;"> target)) {
+                    idx </span>=<span style="color: #000000;"> right;
+                    </span>++<span style="color: #000000;">right;
+                } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                    idx </span>=<span style="color: #000000;"> left;
+                    </span>--<span style="color: #000000;">left;
+                }
+            } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (left &gt;= <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                idx </span>=<span style="color: #000000;"> left;
+                </span>--<span style="color: #000000;">left;
+            } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (right &lt;<span style="color: #000000;"> v.size()) {
+                idx </span>=<span style="color: #000000;"> right;
+                </span>++<span style="color: #000000;">right;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+    </span><span style="color: #0000ff;">void</span> inorder(TreeNode *root, vector&lt;<span style="color: #0000ff;">int</span>&gt; &amp;<span style="color: #000000;">v) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        inorder(root</span>-&gt;<span style="color: #000000;">left, v);
+        v.push_back(root</span>-&gt;<span style="color: #000000;">val);
+        inorder(root</span>-&gt;<span style="color: #000000;">right, v);
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>还有一种解法是直接在中序遍历的过程中完成比较，当遍历到一个节点时，如果此时结果数组不到k个，我们直接将此节点值加入结果 res 中，如果该节点值和目标值的差值的绝对值小于结果 res 的首元素和目标值差值的绝对值，说明当前值更靠近目标值，则将首元素删除，末尾加上当前节点值，反之的话说明当前值比结果 res 中所有的值都更偏离目标值，由于中序遍历的特性，之后的值会更加的遍历，所以此时直接返回最终结果即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; closestKValues(TreeNode* root, <span style="color: #0000ff;">double</span> target, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> res;
+        inorder(root, target, k, res);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+    </span><span style="color: #0000ff;">void</span> inorder(TreeNode *root, <span style="color: #0000ff;">double</span> target, <span style="color: #0000ff;">int</span> k, vector&lt;<span style="color: #0000ff;">int</span>&gt; &amp;<span style="color: #000000;">res) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        inorder(root</span>-&gt;<span style="color: #000000;">left, target, k, res);
+        </span><span style="color: #0000ff;">if</span> (res.size() &lt; k) res.push_back(root-&gt;<span style="color: #000000;">val);
+        </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (abs(root-&gt;val - target) &lt; abs(res[<span style="color: #800080;">0</span>] -<span style="color: #000000;"> target)) {
+            res.erase(res.begin());
+            res.push_back(root</span>-&gt;<span style="color: #000000;">val);
+        } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        inorder(root</span>-&gt;<span style="color: #000000;">right, target, k, res);
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种方法是上面那种方法的迭代写法，原理一模一样，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; closestKValues(TreeNode* root, <span style="color: #0000ff;">double</span> target, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> res;
+        stack</span>&lt;TreeNode*&gt;<span style="color: #000000;"> s;
+        TreeNode </span>*p =<span style="color: #000000;"> root;
+        </span><span style="color: #0000ff;">while</span> (p || !<span style="color: #000000;">s.empty()) {
+            </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (p) {
+                s.push(p);
+                p </span>= p-&gt;<span style="color: #000000;">left;
+            }
+            p </span>=<span style="color: #000000;"> s.top(); s.pop();
+            </span><span style="color: #0000ff;">if</span> (res.size() &lt; k) res.push_back(p-&gt;<span style="color: #000000;">val);
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (abs(p-&gt;val - target) &lt; abs(res[<span style="color: #800080;">0</span>] -<span style="color: #000000;"> target)) {
+                res.erase(res.begin());
+                res.push_back(p</span>-&gt;<span style="color: #000000;">val);
+            } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+            p </span>= p-&gt;<span style="color: #000000;">right;
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>在来看一种利用最大堆来解题的方法，堆里保存的一个差值 diff 和节点值的 pair，我们中序遍历二叉树(也可以用其他遍历方法)，然后对于每个节点值都计算一下和目标值之差的绝对值，由于最大堆的性质，diff大的自动拍到最前面，我们维护k个 pair，如果超过了k个，就把堆前面大的pair删掉，最后留下的k个 pair，我们将 pair 中的节点值取出存入结果 res 中返回即可，参见代码如下：&nbsp;</p>
+<p>&nbsp;</p>
+<p>解法四：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; closestKValues(TreeNode* root, <span style="color: #0000ff;">double</span> target, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> res;
+        priority_queue</span>&lt;pair&lt;<span style="color: #0000ff;">double</span>, <span style="color: #0000ff;">int</span>&gt;&gt;<span style="color: #000000;"> q;
+        inorder(root, target, k, q);
+        </span><span style="color: #0000ff;">while</span> (!<span style="color: #000000;">q.empty()) {
+            res.push_back(q.top().second);
+            q.pop();
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+    </span><span style="color: #0000ff;">void</span> inorder(TreeNode *root, <span style="color: #0000ff;">double</span> target, <span style="color: #0000ff;">int</span> k, priority_queue&lt;pair&lt;<span style="color: #0000ff;">double</span>, <span style="color: #0000ff;">int</span>&gt;&gt; &amp;<span style="color: #000000;">q) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        inorder(root</span>-&gt;<span style="color: #000000;">left, target, k, q);
+        q.push({abs(root</span>-&gt;val - target), root-&gt;<span style="color: #000000;">val});
+        </span><span style="color: #0000ff;">if</span> (q.size() &gt;<span style="color: #000000;"> k) q.pop();
+        inorder(root</span>-&gt;<span style="color: #000000;">right, target, k, q);
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面的这种方法用了两个栈，pre 和 suc，其中 pre 存小于目标值的数，suc 存大于目标值的数，开始初始化 pre 和 suc 的时候，要分别将最接近目标值的稍小值和稍大值压入 pre 和 suc，然后我们循环k次，每次比较 pre 和 suc 的栈顶元素，看谁更接近目标值，将其存入结果 res 中，然后更新取出元素的栈，依次类推直至取完k个数返回即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法五：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; closestKValues(TreeNode* root, <span style="color: #0000ff;">double</span> target, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> res;
+        stack</span>&lt;TreeNode*&gt;<span style="color: #000000;"> pre, suc;
+        </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (root) {
+            </span><span style="color: #0000ff;">if</span> (root-&gt;val &lt;=<span style="color: #000000;"> target) {
+                pre.push(root);
+                root </span>= root-&gt;<span style="color: #000000;">right;
+            } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                suc.push(root);
+                root </span>= root-&gt;<span style="color: #000000;">left;
+            }
+        }
+        </span><span style="color: #0000ff;">while</span> (k-- &gt; <span style="color: #800080;">0</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">if</span> (suc.empty() || !pre.empty() &amp;&amp; target - pre.top()-&gt;val &lt; suc.top()-&gt;val -<span style="color: #000000;"> target) {
+                res.push_back(pre.top()</span>-&gt;<span style="color: #000000;">val);
+                getPredecessor(pre);
+            } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                res.push_back(suc.top()</span>-&gt;<span style="color: #000000;">val);
+                getSuccessor(suc);
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+    </span><span style="color: #0000ff;">void</span> getPredecessor(stack&lt;TreeNode*&gt; &amp;<span style="color: #000000;">pre) {
+        TreeNode </span>*t =<span style="color: #000000;"> pre.top(); pre.pop();
+        </span><span style="color: #0000ff;">if</span> (t-&gt;<span style="color: #000000;">left) {
+            pre.push(t</span>-&gt;<span style="color: #000000;">left);
+            </span><span style="color: #0000ff;">while</span> (pre.top()-&gt;right) pre.push(pre.top()-&gt;<span style="color: #000000;">right);
+        }
+    }
+    </span><span style="color: #0000ff;">void</span> getSuccessor(stack&lt;TreeNode*&gt; &amp;<span style="color: #000000;">suc) {
+        TreeNode </span>*t =<span style="color: #000000;"> suc.top(); suc.pop();
+        </span><span style="color: #0000ff;">if</span> (t-&gt;<span style="color: #000000;">right) {
+            suc.push(t</span>-&gt;<span style="color: #000000;">right);
+            </span><span style="color: #0000ff;">while</span> (suc.top()-&gt;left) suc.push(suc.top()-&gt;<span style="color: #000000;">left);
+        }
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/272">https://github.com/grandyang/leetcode/issues/272</a></p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a id="homepage1_HomePageDays_DaysList_ctl02_DayList_TitleUrl_0" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/5237170.html">Closest Binary Search Tree Value</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4297300.html" target="_blank">Binary Tree Inorder Traversal</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/closest-binary-search-tree-value-ii/">https://leetcode.com/problems/closest-binary-search-tree-value-ii/</a></p>
+<p><a href="https://leetcode.com/problems/closest-binary-search-tree-value-ii/discuss/70515/Java-in-order-traversal-1ms-solution">https://leetcode.com/problems/closest-binary-search-tree-value-ii/discuss/70515/Java-in-order-traversal-1ms-solution</a></p>
+<p><a href="https://leetcode.com/problems/closest-binary-search-tree-value-ii/discuss/70511/AC-clean-Java-solution-using-two-stacks">https://leetcode.com/problems/closest-binary-search-tree-value-ii/discuss/70511/AC-clean-Java-solution-using-two-stacks</a></p>
+<p><a href="https://leetcode.com/problems/closest-binary-search-tree-value-ii/discuss/70549/Clear-Java-Solution-with-one-stack-one-linkedlist">https://leetcode.com/problems/closest-binary-search-tree-value-ii/discuss/70549/Clear-Java-Solution-with-one-stack-one-linkedlist</a></p>
+<p><a href="https://leetcode.com/problems/closest-binary-search-tree-value-ii/discuss/70503/O(logN)-Java-Solution-with-two-stacks-following-hint">https://leetcode.com/problems/closest-binary-search-tree-value-ii/discuss/70503/O(logN)-Java-Solution-with-two-stacks-following-hint</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2016-03-06 14:32</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=5247398" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(5247398);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 5247398, cb_entryCreatedDate = '2016-03-06 14:32', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

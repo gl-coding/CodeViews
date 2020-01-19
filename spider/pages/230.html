@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given a binary search tree, write a function&amp;#160;kthSmallest&amp;#160;to find the&amp;#160;kth smallest ele" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 230. Kth Smallest Element in a BST 二叉搜索树中的第K小的元素 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/4620012.html">[LeetCode] 230. Kth Smallest Element in a BST 二叉搜索树中的第K小的元素</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given a binary search tree, write a function&nbsp;<code>kthSmallest</code>&nbsp;to find the&nbsp;kth smallest element in it.</p>
+<p>Note:&nbsp;<br />You may assume k is always valid, 1 &le; k &le; BST's total elements.</p>
+<p>Example 1:</p>
+<pre>Input: root = [3,1,4,null,2], k = 1
+   3
+  / \
+ 1   4
+  \
+&nbsp;  2
+Output: 1</pre>
+<p>Example 2:</p>
+<pre>Input: root = [5,3,6,2,4,null,null,1], k = 3
+       5
+      / \
+     3   6
+    / \
+   2   4
+  /
+ 1
+Output: 3
+</pre>
+<p>Follow up:<br />What if the BST is modified (insert/delete operations) often and you need to find the kth smallest frequently? How would you optimize the kthSmallest routine?</p>
+<ol id="hints">
+
+
+
+
+
+
+</ol>
+<p><strong>Credits:</strong><br />Special thanks to <a href="https://leetcode.com/discuss/user/ts">@ts</a> for adding this problem and creating all test cases.</p>
+<p>&nbsp;</p>
+<p>这又是一道关于<a href="http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9" target="_blank">二叉搜索树</a> Binary Search Tree 的题， LeetCode 中关于 BST 的题有&nbsp;<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4298435.html">Validate Binary Search Tree</a>， <a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4298069.html">Recover Binary Search Tree</a>， <a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4231455.html">Binary Search Tree Iterator</a>， <a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4299608.html">Unique Binary Search Trees</a>， <a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4301096.html">Unique Binary Search Trees II</a>，<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4295245.html">Convert Sorted Array to Binary Search Tree</a>&nbsp;和 <a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4295618.html">Convert Sorted List to Binary Search Tree</a>。那么这道题给的提示是让我们用 BST 的性质来解题，最重要的性质是就是左&lt;根&lt;右，如果用中序遍历所有的节点就会得到一个有序数组。所以解题的关键还是中序遍历啊。关于二叉树的中序遍历可以参见我之前的博客&nbsp;<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4297300.html">Binary Tree Inorder Traversal</a>，里面有很多种方法可以用，先来看一种非递归的方法，中序遍历最先遍历到的是最小的结点，只要用一个计数器，每遍历一个结点，计数器自增1，当计数器到达k时，返回当前结点值即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> kthSmallest(TreeNode* root, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        </span><span style="color: #0000ff;">int</span> cnt = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        stack</span>&lt;TreeNode*&gt;<span style="color: #000000;"> s;
+        TreeNode </span>*p =<span style="color: #000000;"> root;
+        </span><span style="color: #0000ff;">while</span> (p || !<span style="color: #000000;">s.empty()) {
+            </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (p) {
+                s.push(p);
+                p </span>= p-&gt;<span style="color: #000000;">left;
+            }
+            p </span>=<span style="color: #000000;"> s.top(); s.pop();
+            </span>++<span style="color: #000000;">cnt;
+            </span><span style="color: #0000ff;">if</span> (cnt == k) <span style="color: #0000ff;">return</span> p-&gt;<span style="color: #000000;">val;
+            p </span>= p-&gt;<span style="color: #000000;">right;
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>当然，此题我们也可以用递归来解，还是利用中序遍历来解，代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> kthSmallest(TreeNode* root, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> kthSmallestDFS(root, k);
+    }
+    </span><span style="color: #0000ff;">int</span> kthSmallestDFS(TreeNode* root, <span style="color: #0000ff;">int</span> &amp;<span style="color: #000000;">k) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> val = kthSmallestDFS(root-&gt;<span style="color: #000000;">left, k);
+        </span><span style="color: #0000ff;">if</span> (k == <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> val;
+        </span><span style="color: #0000ff;">if</span> (--k == <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span> root-&gt;<span style="color: #000000;">val;
+        </span><span style="color: #0000ff;">return</span> kthSmallestDFS(root-&gt;<span style="color: #000000;">right, k);
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>再来看一种分治法的思路，由于 BST 的性质，可以快速定位出第k小的元素是在左子树还是右子树，首先计算出左子树的结点个数总和 cnt，如果k小于等于左子树结点总和 cnt，说明第k小的元素在左子树中，直接对左子结点调用递归即可。如果k大于 cnt+1，说明目标值在右子树中，对右子结点调用递归函数，注意此时的k应为 k-cnt-1，应为已经减少了 cnt+1 个结点。如果k正好等于 cnt+1，说明当前结点即为所求，返回当前结点值即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> kthSmallest(TreeNode* root, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        </span><span style="color: #0000ff;">int</span> cnt = count(root-&gt;<span style="color: #000000;">left);
+        </span><span style="color: #0000ff;">if</span> (k &lt;=<span style="color: #000000;"> cnt) {
+            </span><span style="color: #0000ff;">return</span> kthSmallest(root-&gt;<span style="color: #000000;">left, k);
+        } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (k &gt; cnt + <span style="color: #800080;">1</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">return</span> kthSmallest(root-&gt;right, k - cnt - <span style="color: #800080;">1</span><span style="color: #000000;">);
+        }
+        </span><span style="color: #0000ff;">return</span> root-&gt;<span style="color: #000000;">val;
+    }
+    </span><span style="color: #0000ff;">int</span> count(TreeNode*<span style="color: #000000;"> node) {
+        </span><span style="color: #0000ff;">if</span> (!node) <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span> + count(node-&gt;left) + count(node-&gt;<span style="color: #000000;">right);
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>这道题的 Follow up 中说假设该 BST 被修改的很频繁，而且查找第k小元素的操作也很频繁，问我们如何优化。其实最好的方法还是像上面的解法那样利用分治法来快速定位目标所在的位置，但是每个递归都遍历左子树所有结点来计算个数的操作并不高效，所以应该修改原树结点的结构，使其保存包括当前结点和其左右子树所有结点的个数，这样就可以快速得到任何左子树结点总数来快速定位目标值了。定义了新结点结构体，然后就要生成新树，还是用递归的方法生成新树，注意生成的结点的 count 值要累加其左右子结点的 count 值。然后在求第k小元素的函数中，先生成新的树，然后调用递归函数。在递归函数中，不能直接访问左子结点的 count 值，因为左子节结点不一定存在，所以要先判断，如果左子结点存在的话，那么跟上面解法的操作相同。如果不存在的话，当此时k为1的时候，直接返回当前结点值，否则就对右子结点调用递归函数，k自减1，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法四：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> Follow up</span>
+<span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">struct</span><span style="color: #000000;"> MyTreeNode {
+        </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> val;
+        </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> count;
+        MyTreeNode </span>*<span style="color: #000000;">left;
+        MyTreeNode </span>*<span style="color: #000000;">right;
+        MyTreeNode(</span><span style="color: #0000ff;">int</span> x) : val(x), count(<span style="color: #800080;">1</span><span style="color: #000000;">), left(NULL), right(NULL) {}
+    };
+    
+    MyTreeNode</span>* build(TreeNode*<span style="color: #000000;"> root) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span><span style="color: #000000;"> NULL;
+        MyTreeNode </span>*node = <span style="color: #0000ff;">new</span> MyTreeNode(root-&gt;<span style="color: #000000;">val);
+        node</span>-&gt;left = build(root-&gt;<span style="color: #000000;">left);
+        node</span>-&gt;right = build(root-&gt;<span style="color: #000000;">right);
+        </span><span style="color: #0000ff;">if</span> (node-&gt;left) node-&gt;count += node-&gt;left-&gt;<span style="color: #000000;">count;
+        </span><span style="color: #0000ff;">if</span> (node-&gt;right) node-&gt;count += node-&gt;right-&gt;<span style="color: #000000;">count;
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> node;
+    }
+    
+    </span><span style="color: #0000ff;">int</span> kthSmallest(TreeNode* root, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        MyTreeNode </span>*node =<span style="color: #000000;"> build(root);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> helper(node, k);
+    }
+    
+    </span><span style="color: #0000ff;">int</span> helper(MyTreeNode* node, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        </span><span style="color: #0000ff;">if</span> (node-&gt;<span style="color: #000000;">left) {
+            </span><span style="color: #0000ff;">int</span> cnt = node-&gt;left-&gt;<span style="color: #000000;">count;
+            </span><span style="color: #0000ff;">if</span> (k &lt;=<span style="color: #000000;"> cnt) {
+                </span><span style="color: #0000ff;">return</span> helper(node-&gt;<span style="color: #000000;">left, k);
+            } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (k &gt; cnt + <span style="color: #800080;">1</span><span style="color: #000000;">) {
+                </span><span style="color: #0000ff;">return</span> helper(node-&gt;right, k - <span style="color: #800080;">1</span> -<span style="color: #000000;"> cnt);
+            }
+            </span><span style="color: #0000ff;">return</span> node-&gt;<span style="color: #000000;">val;
+        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+            </span><span style="color: #0000ff;">if</span> (k == <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span> node-&gt;<span style="color: #000000;">val;
+            </span><span style="color: #0000ff;">return</span> helper(node-&gt;right, k - <span style="color: #800080;">1</span><span style="color: #000000;">);
+        }
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/230">https://github.com/grandyang/leetcode/issues/230</a></p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4297300.html" target="_blank">Binary Tree Inorder Traversal</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/7590156.html">Second Minimum Node In a Binary Tree</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/">https://leetcode.com/problems/kth-smallest-element-in-a-bst/</a></p>
+<p><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/discuss/63659/what-if-you-could-modify-the-bst-nodes-structure">https://leetcode.com/problems/kth-smallest-element-in-a-bst/discuss/63659/what-if-you-could-modify-the-bst-nodes-structure</a></p>
+<p><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/discuss/63660/3-ways-implemented-in-JAVA-(Python)%3A-Binary-Search-in-order-iterative-and-recursive">https://leetcode.com/problems/kth-smallest-element-in-a-bst/discuss/63660/3-ways-implemented-in-JAVA-(Python)%3A-Binary-Search-in-order-iterative-and-recursive</a></p>
+<p><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/discuss/63743/Java-divide-and-conquer-solution-considering-augmenting-tree-structure-for-the-follow-up">https://leetcode.com/problems/kth-smallest-element-in-a-bst/discuss/63743/Java-divide-and-conquer-solution-considering-augmenting-tree-structure-for-the-follow-up</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2015-07-03 23:53</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4620012" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(4620012);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 4620012, cb_entryCreatedDate = '2015-07-03 23:53', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

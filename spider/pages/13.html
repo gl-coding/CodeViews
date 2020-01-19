@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Roman numerals are represented by seven different symbols:&amp;#160;I,&amp;#160;V,&amp;#160;X,&amp;#160;L,&amp;#160;C,&amp;#" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 13. Roman to Integer 罗马数字转化成整数 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/4120857.html">[LeetCode] 13. Roman to Integer 罗马数字转化成整数</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Roman numerals are represented by seven different symbols:&nbsp;<code>I</code>,&nbsp;<code>V</code>,&nbsp;<code>X</code>,&nbsp;<code>L</code>,&nbsp;<code>C</code>,&nbsp;<code>D</code>&nbsp;and&nbsp;<code>M</code>.</p>
+<pre>Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000</pre>
+<p>For example,&nbsp;two is written as&nbsp;<code>II</code>&nbsp;in Roman numeral, just two one's added together. Twelve is written as,&nbsp;<code>XII</code>, which is simply&nbsp;<code>X</code>+&nbsp;<code>II</code>. The number twenty seven is written as&nbsp;<code>XXVII</code>, which is&nbsp;<code>XX</code>&nbsp;+&nbsp;<code>V</code>&nbsp;+&nbsp;<code>II</code>.</p>
+<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not&nbsp;<code>IIII</code>. Instead, the number four is written as&nbsp;<code>IV</code>. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as&nbsp;<code>IX</code>. There are six instances where subtraction is used:</p>
+<ul>
+<li><code>I</code>&nbsp;can be placed before&nbsp;<code>V</code>&nbsp;(5) and&nbsp;<code>X</code>(10) to make 4 and 9.&nbsp;</li>
+<li><code>X</code>&nbsp;can be placed before&nbsp;<code>L</code>&nbsp;(50) and&nbsp;<code>C</code>&nbsp;(100) to make 40 and 90.&nbsp;</li>
+<li><code>C</code>&nbsp;can be placed before&nbsp;<code>D</code>&nbsp;(500) and&nbsp;<code>M</code>&nbsp;(1000) to make 400 and 900.</li>
+</ul>
+<p>Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.</p>
+<p>Example 1:</p>
+<pre>Input:&nbsp;"III"
+Output: 3</pre>
+<p>Example 2:</p>
+<pre>Input:&nbsp;"IV"
+Output: 4</pre>
+<p>Example 3:</p>
+<pre>Input:&nbsp;"IX"
+Output: 9</pre>
+<p>Example 4:</p>
+<pre>Input:&nbsp;"LVIII"
+Output: 58
+Explanation: L = 50, V= 5, III = 3.
+</pre>
+<p>Example 5:</p>
+<pre>Input:&nbsp;"MCMXCIV"
+Output: 1994
+Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</pre>
+<p>&nbsp;</p>
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97" target="_blank">罗马数</a></strong>转化成数字问题，我们需要对于<strong><a href="http://baike.baidu.com/view/42061.htm?fr=aladdin" target="_blank">罗马数字</a></strong>很熟悉才能完成转换。以下截自百度百科：</p>
+<div class="para"><a href="http://baike.baidu.com/view/2245.htm" target="_blank"><strong>罗马</strong></a><strong>数字是最早的数字表示方式，比阿拉伯数字早2000多年，起源于罗马。</strong></div>
+<div class="para">如今我们最常见的罗马数字就是钟表的表盘符号：<strong>Ⅰ，Ⅱ，Ⅲ，Ⅳ（IIII），Ⅴ，Ⅵ，Ⅶ，Ⅷ，Ⅸ，Ⅹ，Ⅺ，Ⅻ&hellip;&hellip;</strong></div>
+<div class="para">对应阿拉伯数字（就是现在国际通用的数字），就是1，2，3，4，5，6，7，8，9，10，11，12。（注：<strong>阿拉伯数字</strong>其实是古代<a href="http://baike.baidu.com/view/2174.htm" target="_blank">印度</a>人发明的，后来由阿拉伯人传入<a href="http://baike.baidu.com/view/3622.htm" target="_blank">欧洲</a>，被欧洲人误称为阿拉伯数字。）</div>
+<div class="para">
+<div class="para">
+<p>I - 1</p>
+<p>V - 5</p>
+<p>X - 10</p>
+<p>L - 50</p>
+<p>C - 100&nbsp;</p>
+<p>D - 500</p>
+<p>M - 1000</p>
+</div>
+<div class="para">1、相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3；</div>
+<div class="para">2、小的数字在大的数字的右边，所表示的数等于这些数字相加得到的数， 如：Ⅷ = 8；Ⅻ = 12；</div>
+<div class="para">3、小的数字，（限于Ⅰ、X 和C）在大的数字的左边，所表示的数等于大数减小数得到的数，如：Ⅳ= 4；Ⅸ= 9；</div>
+<div class="para">4、正常使用时，连写的数字重复不得超过三次。（表盘上的四点钟&ldquo;IIII&rdquo;例外）</div>
+<div class="para">5、在一个数的上面画一条横线，表示这个数扩大1000倍。</div>
+<div class="para">&nbsp;</div>
+<div class="para">
+<div class="para"><strong>有几条须注意掌握：</strong></div>
+<div class="para">1、基本数字Ⅰ、X 、C 中的任何一个，自身连用构成数目，或者放在大数的右边连用构成数目，都不能超过三个；放在大数的左边只能用一个。</div>
+<div class="para">2、不能把基本数字V 、L 、D 中的任何一个作为小数放在大数的左边采用相减的方法构成数目；放在大数的右边采用相加的方式构成数目，只能使用一个。</div>
+<div class="para">3、V 和X 左边的小数字只能用Ⅰ。</div>
+<div class="para">4、L 和C 左边的小数字只能用X。</div>
+<div class="para">5、D 和M 左边的小数字只能用C。</div>
+<div class="para">&nbsp;</div>
+<div class="para">而这道题好就好在没有让我们来验证输入字符串是不是罗马数字，这样省掉不少功夫。需要用到 HashMap 数据结构，来将罗马数字的字母转化为对应的整数值，因为输入的一定是罗马数字，那么只要考虑两种情况即可：</div>
+<div class="para">第一，如果当前数字是最后一个数字，或者之后的数字比它小的话，则加上当前数字。</div>
+<div class="para">第二，其他情况则减去这个数字。</div>
+<p class="para">&nbsp;</p>
+<div class="para">解法一：</div>
+<div class="para">
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> romanToInt(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        unordered_map</span>&lt;<span style="color: #0000ff;">char</span>, <span style="color: #0000ff;">int</span>&gt; m{{<span style="color: #800000;">'</span><span style="color: #800000;">I</span><span style="color: #800000;">'</span>, <span style="color: #800080;">1</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">V</span><span style="color: #800000;">'</span>, <span style="color: #800080;">5</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">X</span><span style="color: #800000;">'</span>, <span style="color: #800080;">10</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">L</span><span style="color: #800000;">'</span>, <span style="color: #800080;">50</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">C</span><span style="color: #800000;">'</span>, <span style="color: #800080;">100</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">D</span><span style="color: #800000;">'</span>, <span style="color: #800080;">500</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">M</span><span style="color: #800000;">'</span>, <span style="color: #800080;">1000</span><span style="color: #000000;">}};
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; s.size(); ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">int</span> val =<span style="color: #000000;"> m[s[i]];
+            </span><span style="color: #0000ff;">if</span> (i == s.size() - <span style="color: #800080;">1</span> || m[s[i+<span style="color: #800080;">1</span>]] &lt;= m[s[i]]) res +=<span style="color: #000000;"> val;
+            </span><span style="color: #0000ff;">else</span> res -=<span style="color: #000000;"> val;
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们也可以每次跟前面的数字比较，如果小于等于前面的数字，先加上当前的数字，比如 "VI"，第二个字母 'I' 小于第一个字母 'V'，所以要加1。如果大于的前面的数字，加上当前的数字减去二倍前面的数字，这样可以把在上一个循环多加数减掉，比如 "IX"，我们在 i=0 时，加上了第一个字母 'I' 的值，此时结果 res 为1。当 i=1 时，字母 'X' 大于前一个字母 'I'，这说明前面的1是要减去的，而由于前一步不但没减，还多加了个1，所以此时要减去2倍的1，就是减2，所以才能得到9，整个过程是 res = 1 + 10 - 2 = 9，参见代码如下:</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> romanToInt(<span style="color: #0000ff;">string</span><span style="color: #000000;"> s) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        unordered_map</span>&lt;<span style="color: #0000ff;">char</span>, <span style="color: #0000ff;">int</span>&gt; m{{<span style="color: #800000;">'</span><span style="color: #800000;">I</span><span style="color: #800000;">'</span>, <span style="color: #800080;">1</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">V</span><span style="color: #800000;">'</span>, <span style="color: #800080;">5</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">X</span><span style="color: #800000;">'</span>, <span style="color: #800080;">10</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">L</span><span style="color: #800000;">'</span>, <span style="color: #800080;">50</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">C</span><span style="color: #800000;">'</span>, <span style="color: #800080;">100</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">D</span><span style="color: #800000;">'</span>, <span style="color: #800080;">500</span>}, {<span style="color: #800000;">'</span><span style="color: #800000;">M</span><span style="color: #800000;">'</span>, <span style="color: #800080;">1000</span><span style="color: #000000;">}};
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; s.size(); ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (i == <span style="color: #800080;">0</span> || m[s[i]] &lt;= m[s[i - <span style="color: #800080;">1</span>]]) res +=<span style="color: #000000;"> m[s[i]];
+            </span><span style="color: #0000ff;">else</span> res += m[s[i]] - <span style="color: #800080;">2</span> * m[s[i - <span style="color: #800080;">1</span><span style="color: #000000;">]];
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/13">https://github.com/grandyang/leetcode/issues/13</a></p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4123374.html" target="_blank">Integer to Roman</a></p>
+<p><span style="line-height: 1.5;">&nbsp;</span></p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/roman-to-integer/" target="_blank">https://leetcode.com/problems/roman-to-integer/</a></p>
+<p><a href="https://leetcode.com/problems/roman-to-integer/discuss/6547/Clean-O(n)-c%2B%2B-solution" target="_blank">https://leetcode.com/problems/roman-to-integer/discuss/6547/Clean-O(n)-c%2B%2B-solution</a></p>
+<p><a href="https://leetcode.com/problems/roman-to-integer/discuss/6529/My-solution-for-this-question-but-I-don't-know-is-there-any-easier-way" target="_blank">https://leetcode.com/problems/roman-to-integer/discuss/6529/My-solution-for-this-question-but-I-don't-know-is-there-any-easier-way</a></p>
+<p>&nbsp;</p>
+</div>
+<div class="para">
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2014-11-25 13:56</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4120857" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(4120857);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 4120857, cb_entryCreatedDate = '2014-11-25 13:56', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

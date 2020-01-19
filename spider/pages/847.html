@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="An undirected, connected graph of N nodes (labeled ) is given as . , and is in the list exactly once" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 847. Shortest Path Visiting All Nodes 访问所有结点的最短路径 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/11410007.html">[LeetCode] 847. Shortest Path Visiting All Nodes 访问所有结点的最短路径</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+An undirected, connected graph of N nodes (labeled <code>0, 1, 2, ..., N-1</code>) is given as <code>graph</code>.</p>
+<p><code>graph.length = N</code>, and <code>j != i</code> is in the list <code>graph[i]</code> exactly once, if and only if nodes <code>i</code> and <code>j</code> are connected.</p>
+<p>Return the length of the shortest path that visits every node. You may start and stop at any node, you may revisit nodes multiple times, and you may reuse edges.</p>
+<p>Example 1:</p>
+<pre><code>Input: [[1,2,3],[0],[0],[0]]
+Output: 4
+Explanation: One possible path is [1,0,2,0,3]</code></pre>
+<p>Example 2:</p>
+<pre><code>Input: [[1],[0,2,4],[1,3,4],[2],[1,2]]
+Output: 4
+Explanation: One possible path is [0,1,4,2,3]</code></pre>
+<p>Note:</p>
+<ol>
+<li><code>1 &lt;= graph.length &lt;= 12</code></li>
+<li><code>0 &lt;= graph[i].length &lt; graph.length</code></li>
+</ol>
+<p><br><br />
+这道题说是给了一个无向图，里面有N个结点，让我们找到一条可以经过所有结点的路径，该路径的起点和终点任意选，只要能经过所有结点即可，这里的每个结点和边都可以重复经过，问这样一条路径的最短长度是多少，注意这里的长度不是路径结点的个数，而是结点中的边的个数。先来想一下，假如这些结点是一字排开的，则最短经过所有结点的路径就类似于遍历链表一样的，但假如这些结点是围绕着一个中心结点的话，比如本题中的例子1，则中心结点会被经过多次，感觉不太好整啊。博主之前说过求极值的问题有两大神器，动态规划 Dynamic Programming 和广度优先搜索 Breadth First Search，这里碰巧两种方法都能解。先来看看 BFS 的解法吧，这种解法最经典的应用是在迷宫问题中，找到起点和终点之间的最短距离，假如把每个位置都看作一个状态的话，BFS 可以推广到更一般的情况。在迷宫中每一步可能会有上下左右四个方向可以选，每走一步其实可以看作是一个状态转移到另一个状态，当到达终点状态时，就可以得到最少步数了。这里也是类似，首先要定义起始状态和终止状态，本题关心的是要经过所有的结点，终止状态就是经过所有结点，起始状态就是只经过了起始结点，那该如何编码这些状态呢？最直接的方法就是把经过的结点放到数组或者 HashSet 中，但是这样的话每次检验是否到达终止状态的时候，都要检测数组或者 HashSet 中是否包含了所有的结点，这会很费时，因为在 BFS 的每一层遍历中都会检测是否到达终止状态。还有就是每个状态是由当前遍历的结点跟当前结点标号组成的，假如把遍历过的结点放到数组或集合中，再跟当前结点标号一起组成 pair 对儿放入队列 queue 中，将会占用大量的空间。</p>
+<p>基于以上分析，貌似必须想一种更好的方法来编码遍历过的结点，这里用到了位操作 Bit Manipulation 的技巧，对没使用过的童鞋来说会比较 tricky。对于任意结点i，假如遍历过了，则将其对应位上变为1，即 ‘或’ 上 <code>1&lt;&lt;i</code>，这样每个结点都可以被分别编码进对应位，则遍历过n个结点的十进制数就是 2^n-1 了，只要某个状态的十进制数等于 2^n-1，则表示到达了终止状态。另外，由于最短路径的起点不定，那么这里的 BFS 的起点就应该是所有的结点，将每个结点都当作起始结点，并将结点编号编码到十进制数中，和当前位置一起组成 pair 对儿放进队列中。将n个起点都放入队列之后，就可以开始遍历了，它们都属于同一层，这里进行的是 BFS 的层序遍历的形式。对于每个取出的元素，首先判断取出的状态的 pair 对儿的第一个编码十进制数是否等于最终结果值 target，是的话直接返回结果 res。然后再根据第二个位置值去 graph 数组中查找所有与其相邻的结点，对于每个相邻的结点 next，由于在之前的基础上又加上了结点 next，这也要编码进去，所以要 ‘或’ 上 <code>1&lt;&lt;next</code>，然后在 visted 集合中查找该新状态是否存在，不存在的话加入 visited 集合，并把编码成的十进制数 path 和当前结点编号 next 组成新的 pair 对儿加入队列进行下次遍历。每层遍历结束后记得结果 res 要自增1，while 循环退出后返回 -1，其实根本不会返回 -1，因为题目中是无向连通图，一定会有经过所有结点的路径存在，这里只是怕不写返回值会报错而已，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    int shortestPathLength(vector&lt;vector&lt;int&gt;&gt;&amp; graph) {
+        int n = graph.size(), target = 0, res = 0;
+        unordered_set&lt;string&gt; visited;
+        queue&lt;pair&lt;int, int&gt;&gt; q;
+        for (int i = 0; i &lt; n; ++i) {
+            int mask = (1 &lt;&lt; i);
+            target |= mask;
+            visited.insert(to_string(mask) + &quot;-&quot; + to_string(i));
+            q.push({mask, i});
+        }
+        while (!q.empty()) {
+            for (int i = q.size(); i &gt; 0; --i) {
+                auto cur = q.front(); q.pop();
+                if (cur.first == target) return res;
+                for (int next : graph[cur.second]) {
+                    int path = cur.first | (1 &lt;&lt; next);
+                    string str = to_string(path) + &quot;-&quot; + to_string(next);
+                    if (visited.count(str)) continue;
+                    visited.insert(str);
+                    q.push({path, next});
+                }
+            }
+            ++res;
+        }
+        return -1;
+    }
+};</code></pre>
+<p><br><br />
+再来看一种 DP 的解法，这种解法的核心思想跟上面的 BFS 方法很类似，我们用一个二维的 dp 数组，其中 dp[i][j] 表示的某个状态时经过的结点编码成的十进制数i，且当前位置为结点j时的路径长度。这样的话只要当i到达 2^n-1 的时候，此时所有的 dp[2^n-1][j] 中的最小值即为所求，这种定义状态的方式可以说和上面的解法完全一样。就像上面解法中将n个结点都当作起始点，并将其状态存入队列中的操作一样，这里要将所有的 dp[1&lt;&lt;i][i] 初始化为0，然后遍历所有可能的十进制编码值 cur，从0到 2^n-1，新建一个 boolean 型变量 repeat，进行 repeat 为 true 的循环。在循环中，先将 repeat 赋值为 false，然后遍历所有结点，对于遍历到的结点i，取出其编码值为 cur 的 dp 值 dist，然后遍历与其相连的所有结点，对于每个遍历到的结点 next，还是先用 cur ‘或’ 上 <code>1&lt;&lt;next</code> 得到新的编码值，然后进行松弛操作 Relaxation，即若 dp[path][next] 值大于 dist+1，则用 dist+1 来更新 dp[path][next]。同时判断若 path 和 cur 相等，将 repeat 赋值为 true，从而需要再次进行循环。因为若 path 等于 cur，说明该相邻结点 next 在之前已经被编码进 cur 了，但依然能进行松弛操作的话，就需要再次遍历一遍所有结点，以保证在当前编码 cur 的情况下，将所有的松弛操作都进行完。最后用 dp 数组的最后一行来更新结果 res，其中的最小值即为所求，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    int shortestPathLength(vector&lt;vector&lt;int&gt;&gt;&amp; graph) {
+        int n = graph.size(), res = n * n;
+        vector&lt;vector&lt;int&gt;&gt; dp(1 &lt;&lt; n, vector&lt;int&gt;(n, n * n));
+        for (int i = 0; i &lt; n; ++i) dp[1 &lt;&lt; i][i] = 0;
+        for (int cur = 0; cur &lt; (1 &lt;&lt; n); ++cur) {
+            bool repeat = true;
+            while (repeat) {
+                repeat = false;
+                for (int i = 0; i &lt; n; ++i) {
+                    int dist = dp[cur][i];
+                    for (int next : graph[i]) {
+                        int path = cur | (1 &lt;&lt; next);
+                        if (dist + 1 &lt; dp[path][next]) {
+                            dp[path][next] = dist + 1;
+                            if (path == cur) repeat = true;
+                        }
+                    }
+                }
+            }
+        }
+        for (int num : dp.back()) {
+            res = min(res, num);
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/847" class="uri">https://github.com/grandyang/leetcode/issues/847</a></p>
+<p><br><br />
+类似题目：</p>
+<p><a href="https://www.cnblogs.com/grandyang/p/11219780.html">Shortest Path to Get All Keys</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/shortest-path-visiting-all-nodes/" class="uri">https://leetcode.com/problems/shortest-path-visiting-all-nodes/</a></p>
+<p><a href="https://leetcode.com/problems/shortest-path-visiting-all-nodes/discuss/135712/Java-BFS" class="uri">https://leetcode.com/problems/shortest-path-visiting-all-nodes/discuss/135712/Java-BFS</a></p>
+<p><a href="https://leetcode.com/problems/shortest-path-visiting-all-nodes/discuss/152679/Short-Java-Solution-BFS-with-a-Set" class="uri">https://leetcode.com/problems/shortest-path-visiting-all-nodes/discuss/152679/Short-Java-Solution-BFS-with-a-Set</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-08-25 23:37</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11410007" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(11410007);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 11410007, cb_entryCreatedDate = '2019-08-25 23:37', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

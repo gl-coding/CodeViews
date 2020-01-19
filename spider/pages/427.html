@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta property="og:description" content="We want to use quad trees to store an&amp;#160;N x N&amp;#160;boolean grid. Each cell in the grid can only b" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Construct Quad Tree 建立四叉树 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9649348.html">[LeetCode] Construct Quad Tree 建立四叉树</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>We want to use quad trees to store an&nbsp;<code>N x N</code>&nbsp;boolean grid. Each cell in the grid can only be true or false. The root node represents the whole grid. For each node, it will be subdivided into four children nodes&nbsp;until the values in the region it represents are all the same.</p>
+<p>Each node has another two boolean attributes :&nbsp;<code>isLeaf</code>&nbsp;and&nbsp;<code>val</code>.&nbsp;<code>isLeaf</code>&nbsp;is true if and only if the node is a leaf node. The&nbsp;<code>val</code>&nbsp;attribute for a leaf node contains the value of the region it represents.</p>
+<p>Your task is to use a quad tree to represent a given grid. The following example may help you understand the problem better:</p>
+<p>Given the&nbsp;<code>8 x 8</code>&nbsp;grid below, we want to construct the corresponding quad tree:</p>
+<p><img src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/02/01/962_grid.png" alt="" width="199" height="200" /></p>
+<p>It can be divided according to the definition above:</p>
+<p><img src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/02/01/962_grid_divided.png" alt="" width="734" height="199" /></p>
+<p>&nbsp;</p>
+<p>The corresponding quad tree should be as following, where each node is represented as a&nbsp;<code>(isLeaf, val)</code>pair.</p>
+<p>For the non-leaf&nbsp;nodes,&nbsp;<code>val</code>&nbsp;can be arbitrary, so it is represented as&nbsp;<code>*</code>.</p>
+<p><img src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/02/01/962_quad_tree.png" alt="" width="745" height="267" /></p>
+<p>Note:</p>
+<ol>
+<li><code>N</code>&nbsp;is less than&nbsp;<code>1000</code>&nbsp;and guaranteened to be a power of 2.</li>
+<li>If you want to know more about the quad tree, you can refer to its&nbsp;<a href="https://en.wikipedia.org/wiki/Quadtree">wiki</a>.</li>
+</ol>
+<p>&nbsp;</p>
+<p>这道题让我们根据一个二维数组来建立一棵四叉树，关于四叉树的介绍题目中也了给了<a href="https://zh.wikipedia.org/wiki/%E5%9B%9B%E5%8F%89%E6%A0%91" target="_blank">wiki百科的链接</a>。但是博主开始看到题目中给的那个例子，没怎么看懂。后来分析大神们的代码，才略微弄明白了一些。原来叶结点表示的是值相同的一片区域，比如我们看二维数组图示那行的第三个图，首先整个数组被分成了四等份，左上，左下，和右下部分内的值均相同，那么他们都是一个叶结点，而右上只有再四等分一下，才能使各自部分内的值相同，所以其就不是叶结点，而四等分后的每个区间才是叶结点。题目中限定了N的值一定是2的指数，就是说其如果可分的话，一定可以四等分，而之前说了，只有区间内的值不同时，才需要四等分，否则整体就当作一个叶结点。所以我们需要check四等分区间内的值是否相同，当然，我们可以将二维数组拆分为四个二维数组，但是那样可能不太高效，而且还占用额外空间，一个比较好的选择是用坐标变量来控制等分数组的范围，我们只需要一个起始点坐标，和区间的长度，就可以精确定位一个区间了。比如说对于例子中的整个二维数组数组来说，知道起始点坐标 (0, 0)，还有长度8，就知道表示的是哪个区间。我们可以遍历这个区间上的其他所有的点，跟起点对比，只要有任何点跟起点不相同，则说明该区间是可分的，因为我们前面说了，只有一个区间上所有的值均相同，才能当作一个叶结点。只要有不同，就表示可以四分，那么我们就新建一个结点，这里的左上，左下，右上，和右下四个子结点就需要用过调用递归函数来实现了，实现原理都一样，重要的地方就是确定每个四分区间的起点和长度，长度好确定，都是当前长度的一半，然后就是把各个区间的起点确定好，这个也不难，就是细心一点，不要写错了就可以了，另外，对于非叶结点，结点值可以是true或者false都没问题。如果某个区间上所有值均相同，那么就生成一个叶结点，结点值就跟区间值相同，isLeaf是true，四个子结点均为NULL即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    Node</span>* construct(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> grid) {
+        </span><span style="color: #0000ff;">return</span> build(grid, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span><span style="color: #000000;">, grid.size());
+    }
+    Node</span>* build(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp; grid, <span style="color: #0000ff;">int</span> x, <span style="color: #0000ff;">int</span> y, <span style="color: #0000ff;">int</span><span style="color: #000000;"> len) {
+        </span><span style="color: #0000ff;">if</span> (len &lt;= <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> NULL;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = x; i &lt; x + len; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = y; j &lt; y + len; ++<span style="color: #000000;">j) {
+                </span><span style="color: #0000ff;">if</span> (grid[i][j] !=<span style="color: #000000;"> grid[x][y]) {
+                    </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> Node(<span style="color: #0000ff;">true</span>, <span style="color: #0000ff;">false</span><span style="color: #000000;">,
+                           build(grid, x, y, len </span>/ <span style="color: #800080;">2</span><span style="color: #000000;">),
+                           build(grid, x, y </span>+ len / <span style="color: #800080;">2</span>, len / <span style="color: #800080;">2</span><span style="color: #000000;">),
+                           build(grid, x </span>+ len/ <span style="color: #800080;">2</span>, y, len / <span style="color: #800080;">2</span><span style="color: #000000;">),
+                           build(grid, x </span>+ len / <span style="color: #800080;">2</span>, y + len / <span style="color: #800080;">2</span>, len / <span style="color: #800080;">2</span><span style="color: #000000;">));
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> Node(grid[x][y] == <span style="color: #800080;">1</span>, <span style="color: #0000ff;">true</span><span style="color: #000000;">, NULL, NULL, NULL, NULL);
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>还有一种写法，记录了区间的左上点和右下点，知道这两个点也可以确定一个区间的位置，整体思路和上面的方法并没有什么太大的区别，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    Node</span>* construct(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> grid) {
+        </span><span style="color: #0000ff;">return</span> build(grid, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span>, grid.size() - <span style="color: #800080;">1</span>, grid.size() - <span style="color: #800080;">1</span><span style="color: #000000;">);
+    }
+    Node</span>* build(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp; grid, <span style="color: #0000ff;">int</span> r1, <span style="color: #0000ff;">int</span> c1, <span style="color: #0000ff;">int</span> r2, <span style="color: #0000ff;">int</span><span style="color: #000000;"> c2) {
+        </span><span style="color: #0000ff;">if</span> (r1 &gt; r2 || c1 &gt; c2) <span style="color: #0000ff;">return</span><span style="color: #000000;"> NULL;
+        </span><span style="color: #0000ff;">bool</span> isLeaf = <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> val = grid[r1][c1], rowMid = (r1 + r2) / <span style="color: #800080;">2</span>, colMid = (c1 + c2) / <span style="color: #800080;">2</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = r1; i &lt;= r2; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = c1; j &lt;= c2; ++<span style="color: #000000;">j) {
+                </span><span style="color: #0000ff;">if</span> (grid[i][j] !=<span style="color: #000000;"> val) {
+                    isLeaf </span>= <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">if</span> (isLeaf) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> Node(val == <span style="color: #800080;">1</span>, <span style="color: #0000ff;">true</span><span style="color: #000000;">, NULL, NULL, NULL, NULL);
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> Node(<span style="color: #0000ff;">false</span>, <span style="color: #0000ff;">false</span><span style="color: #000000;">, 
+               build(grid, r1, c1, rowMid, colMid),
+               build(grid, r1, colMid </span>+ <span style="color: #800080;">1</span><span style="color: #000000;">, rowMid, c2),
+               build(grid, rowMid </span>+ <span style="color: #800080;">1</span><span style="color: #000000;">, c1, r2, colMid),
+               build(grid, rowMid </span>+ <span style="color: #800080;">1</span>, colMid + <span style="color: #800080;">1</span><span style="color: #000000;">, r2, c2));
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/construct-quad-tree/" target="_blank">https://leetcode.com/problems/construct-quad-tree/</a></p>
+<p><a href="https://leetcode.com/problems/construct-quad-tree/discuss/151j684/Recursive-Java-Solution" target="_blank">https://leetcode.com/problems/construct-quad-tree/discuss/151j684/Recursive-Java-Solution</a></p>
+<p><a href="https://leetcode.com/problems/construct-quad-tree/discuss/154420/My-Java-Recursive-Solution" target="_blank">https://leetcode.com/problems/construct-quad-tree/discuss/154420/My-Java-Recursive-Solution</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4606334.html" target="_blank">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-09-14 22:46</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9649348" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(9649348);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 9649348, cb_entryCreatedDate = '2018-09-14 22:46', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

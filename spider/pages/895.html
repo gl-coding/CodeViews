@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Implement , a class which simulates the operation of a stack like data structure. has two functions:" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 895. Maximum Frequency Stack 最大频率栈 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/10989417.html">[LeetCode] 895. Maximum Frequency Stack 最大频率栈</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+Implement <code>FreqStack</code>, a class which simulates the operation of a stack-like data structure.</p>
+<p><code>FreqStack</code> has two functions:</p>
+<ul>
+<li><code>push(int x)</code>, which pushes an integer <code>x</code>onto the stack.</li>
+<li><code>pop()</code>, which removes and returns the most frequent element in the stack.
+<ul>
+<li>If there is a tie for most frequent element, the element closest to the top of the stack is removed and returned.</li>
+</ul></li>
+</ul>
+<p>Example 1:</p>
+<pre><code>Input:
+[&quot;FreqStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;pop&quot;,&quot;pop&quot;,&quot;pop&quot;,&quot;pop&quot;],
+[[],[5],[7],[5],[7],[4],[5],[],[],[],[]]
+Output: [null,null,null,null,null,null,null,5,7,5,4]
+Explanation:
+After making six .push operations, the stack is [5,7,5,7,4,5] from bottom to top.  Then:
+
+pop() -&gt; returns 5, as 5 is the most frequent.
+The stack becomes [5,7,5,7,4].
+
+pop() -&gt; returns 7, as 5 and 7 is the most frequent, but 7 is closest to the top.
+The stack becomes [5,7,5,4].
+
+pop() -&gt; returns 5.
+The stack becomes [5,7,4].
+
+pop() -&gt; returns 4.
+The stack becomes [5,7].</code></pre>
+<p>Note:</p>
+<ul>
+<li>Calls to <code>FreqStack.push(int x)</code> will be such that <code>0 &lt;= x &lt;= 10^9</code>.</li>
+<li>It is guaranteed that <code>FreqStack.pop()</code> won't be called if the stack has zero elements.</li>
+<li>The total number of <code>FreqStack.push</code> calls will not exceed <code>10000</code> in a single test case.</li>
+<li>The total number of <code>FreqStack.pop</code> calls will not exceed <code>10000</code> in a single test case.</li>
+<li>The total number of <code>FreqStack.push</code> and <code>FreqStack.pop</code> calls will not exceed <code>150000</code>across all test cases.</li>
+</ul>
+<p><br><br />
+这道题让我们实现一种最大频率栈，有入栈和出栈功能，需要每次出栈的都是栈中出现频率最大的数字，若有多个数字的频率相同，那么离栈顶最近的元素先出栈。刚开始看到这道题的时候，博主立马联想到了 <a href="http://www.cnblogs.com/grandyang/p/4587511.html">LRU Cache</a> 和 <a href="http://www.cnblogs.com/grandyang/p/6258459.html">LFU Cache</a>，想着会不会也需要在迭代器上做文章，但实际是我想多了，虽然同为 Hard 的题目，这道题的解法却要比之前那两道要简单的多。这里只跟数字出现的频率有关，只有在频率相等的情况下才会考虑栈的后入先出的特性，所以一定是需要统计栈中每个数字出现的频率的，我们使用一个 HashMap 来建立每个数字跟其出现次数之间的映射。由于频率相等的数字可能有多个，所以我们必须知道某个特性频率下都有哪些数字，再用一个 HashMap 来建立频率和该频率下所有的数字之间的映射，可以将这些数组放到一个数组或者一个栈中，这里为了简便起见，就使用一个数组了。另外，我们还需要维护一个当前最大频率的变量，可以通过这个值到 HashMap 中快速定位数组的位置。好，一切准备就绪之后就开始解题吧，对于入栈函数 push()，首先需要将x对应的映射值加1，并更新最大频率 mxFreq，然后就是要把x加入当前频率对应的数组中，注意若某个数字出现了3次，那么数字会分别加入频率为 1，2，3 的映射数组中。接下来看出栈函数 pop() 如何实现，由于我们知道当前最大频率 mxFreq，就可以直接去 HashMap 中取出该频率下的所有数字的数组，题目说了若频率相等，取离栈顶最近的元素，这里就是数组末尾的数组，取到之后，要将该数字从数组末尾移除。移除之后，我们要检测一下，若数组此时为空了，说明当前最大频率下之后一个数字，取出之后，最大频率就要自减1，还有不要忘记的就是取出数字的自身的频率值也要自减1，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class FreqStack {
+public:
+    FreqStack() {}
+    
+    void push(int x) {
+        mxFreq = max(mxFreq, ++freq[x]);
+        m[freq[x]].push_back(x);
+    }
+    
+    int pop() {
+        int x = m[mxFreq].back(); 
+        m[mxFreq].pop_back();
+        if (m[freq[x]--].empty()) --mxFreq;
+        return x;
+    }
+    
+private:
+    int mxFreq;
+    unordered_map&lt;int, int&gt; freq;
+    unordered_map&lt;int, vector&lt;int&gt;&gt; m;
+};</code></pre>
+<p><br><br />
+我们还可以使用 multimap 来建立频率和数字之间的映射，利用其可重复的特性，那么同一个频率就可以映射多个数字了。同时，由于 multimap 默认是按从小到大排序的，而我们希望按频率从大到小排序，所以加上一个参数使其改变排序方式。在入栈函数中，将x的频率自增1，然后跟x组成 pair 对儿加入 multimap 中。在出栈函数中，由于其是按从大到小排序的，而且后进的排在前面，那么第一个映射对儿就是频率最大且最后加入的数字，将其取出并从 multimap 中移除，并同时将该数字的映射频率值减1即可，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class FreqStack {
+public:
+    FreqStack() {}
+    
+    void push(int x) {
+        m.insert({++freq[x], x});
+    }
+    
+    int pop() {
+        int x = m.begin()-&gt;second;
+        m.erase(m.begin());
+        --freq[x];
+        return x;
+    }
+    
+private:
+    unordered_map&lt;int, int&gt; freq;
+    multimap&lt;int, int, greater_equal&lt;int&gt;&gt; m;
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/895" class="uri">https://github.com/grandyang/leetcode/issues/895</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/maximum-frequency-stack/" class="uri">https://leetcode.com/problems/maximum-frequency-stack/</a></p>
+<p><a href="https://leetcode.com/problems/maximum-frequency-stack/discuss/163410/C%2B%2BJavaPython-O(1)">https://leetcode.com/problems/maximum-frequency-stack/discuss/163410/C%2B%2BJavaPython-O(1)</a></p>
+<p><a href="https://leetcode.com/problems/maximum-frequency-stack/discuss/229638/C%2B%2B-multimap-solution-132-ms">https://leetcode.com/problems/maximum-frequency-stack/discuss/229638/C%2B%2B-multimap-solution-132-ms</a></p>
+<p><a href="https://leetcode.com/problems/maximum-frequency-stack/discuss/163453/JAVA-O(1)-solution-easy-understand-using-bucket-sort" class="uri">https://leetcode.com/problems/maximum-frequency-stack/discuss/163453/JAVA-O(1)-solution-easy-understand-using-bucket-sort</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-06-07 22:34</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10989417" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(10989417);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 10989417, cb_entryCreatedDate = '2019-06-07 22:34', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

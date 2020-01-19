@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="On an N x N&amp;#160;grid, each square&amp;#160;grid[i][j]&amp;#160;represents the elevation at that point&amp;#160;" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Swim in Rising Water 在上升的水中游泳 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9017300.html">[LeetCode] Swim in Rising Water 在上升的水中游泳</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>On an N x N&nbsp;<code>grid</code>, each square&nbsp;<code>grid[i][j]</code>&nbsp;represents the elevation at that point&nbsp;<code>(i,j)</code>.</p>
+<p>Now rain starts to fall. At time&nbsp;<code>t</code>, the depth of the water everywhere is&nbsp;<code>t</code>. You can swim from a square to another 4-directionally adjacent square if and only if the elevation of both squares individually are&nbsp;at most&nbsp;<code>t</code>. You can swim infinite distance in zero time. Of course, you must stay within the boundaries of the grid during your swim.</p>
+<p>You start at the top left square&nbsp;<code>(0, 0)</code>. What is the least time until you can reach the bottom right square&nbsp;<code>(N-1, N-1)</code>?</p>
+<p>Example 1:</p>
+<pre>Input: [[0,2],[1,3]]
+Output: 3
+Explanation:
+At time <code>0</code>, you are in grid location <code>(0, 0)</code>.
+You cannot go anywhere else because 4-directionally adjacent neighbors have a higher elevation than t = 0.
+
+You cannot reach point <code>(1, 1)</code> until time <code>3</code>.
+When the depth of water is <code>3</code>, we can swim anywhere inside the grid.
+</pre>
+<p>Example 2:</p>
+<pre>Input: [[0,1,2,3,4],[24,23,22,21,5],[12,13,14,15,16],[11,17,18,19,20],[10,9,8,7,6]]
+Output: 16
+Explanation:
+<strong> 0  1  2  3  4</strong>
+24 23 22 21  <strong>5</strong>
+<strong>12 13 14 15 16</strong>
+<strong>11</strong> 17 18 19 20
+<strong>10  9  8  7  6</strong>
+
+The final route is marked in bold.
+We need to wait until time 16 so that (0, 0) and (4, 4) are connected.
+</pre>
+<p>Note:</p>
+<ol>
+<li><code>2 &lt;= N &lt;= 50</code>.</li>
+<li>grid[i][j] is a permutation of [0, ..., N*N - 1].</li>
+</ol>
+<p>&nbsp;</p>
+<p>这道题给了我们一个二维数组，可以看作一个水池，这里不同数字的高度可以看作台阶的高度，只有当水面升高到台阶的高度时，我们才能到达该台阶，起始点在左上角位置，问我们水面最低升到啥高度就可以到达右下角的位置。这是一道蛮有意思的题目。对于这种类似迷宫遍历的题，一般都是DFS或者BFS。而如果有极值问题存在的时候，一般都是优先考虑BFS的，但是这道题比较特别，有一个上升水面的设定，我们可以想象一下，比如洪水爆发了，大坝垮了，那么愤怒汹涌的水流冲了出来，地势低洼处就会被淹没，而地势高的地方，比如山峰啥的，就会绕道而过。这里也是一样，随着水面不断的上升，低于水平面的地方就可以到达，直到水流到了右下角的位置停止。因为水流要向周围低洼处蔓延，所以BFS仍是一个不错的选择，由于水是向低洼处蔓延的，而低洼处的位置又是不定的，所以我们希望每次取出最低位置进行遍历，那么使用最小堆就是一个很好的选择，这样高度低的就会被先处理。在每次取出高度最小的数字时，我们用此高度来更新结果res，如果当前位置已经是右下角了，则我们直接返回结果res，否则就遍历当前位置的周围位置，如果未越界且未被访问过，则标记已经访问过，并且加入队列，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> swimInWater(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> grid) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span>, n =<span style="color: #000000;"> grid.size();
+        unordered_set</span>&lt;<span style="color: #0000ff;">int</span>&gt; visited{<span style="color: #800080;">0</span><span style="color: #000000;">};
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; dirs{{<span style="color: #800080;">0</span>, -<span style="color: #800080;">1</span>}, {-<span style="color: #800080;">1</span>, <span style="color: #800080;">0</span>}, {<span style="color: #800080;">0</span>, <span style="color: #800080;">1</span>}, {<span style="color: #800080;">1</span>, <span style="color: #800080;">0</span><span style="color: #000000;">}};
+        auto cmp </span>= [](pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&amp; a, pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&amp; b) {<span style="color: #0000ff;">return</span> a.first &gt;<span style="color: #000000;"> b.first;};
+        priority_queue</span>&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;, vector&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;, decltype(cmp) &gt;<span style="color: #000000;"> q(cmp);
+        q.push({grid[</span><span style="color: #800080;">0</span>][<span style="color: #800080;">0</span>], <span style="color: #800080;">0</span><span style="color: #000000;">});
+        </span><span style="color: #0000ff;">while</span> (!<span style="color: #000000;">q.empty()) {
+            </span><span style="color: #0000ff;">int</span> i = q.top().second / n, j = q.top().second %<span style="color: #000000;"> n; q.pop();
+            res </span>=<span style="color: #000000;"> max(res, grid[i][j]);
+            </span><span style="color: #0000ff;">if</span> (i == n - <span style="color: #800080;">1</span> &amp;&amp; j == n - <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+            </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (auto dir : dirs) {
+                </span><span style="color: #0000ff;">int</span> x = i + dir[<span style="color: #800080;">0</span>], y = j + dir[<span style="color: #800080;">1</span><span style="color: #000000;">];
+                </span><span style="color: #0000ff;">if</span> (x &lt; <span style="color: #800080;">0</span> || x &gt;= n || y &lt; <span style="color: #800080;">0</span> || y &gt;= n || visited.count(x * n + y)) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                visited.insert(x </span>* n +<span style="color: #000000;"> y);
+                q.push({grid[x][y], x </span>* n +<span style="color: #000000;"> y});
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们也可以使用DP+DFS来做，这里使用一个二维dp数组，其中 dp[i][j] 表示到达 (i, j) 位置所需要的最低水面高度，均初始化为整型数最大值，我们的递归函数函数需要知道当前的位置 (x, y)，还有当前的水高cur，同时传入grid数组和需要不停更新的dp数组，如果当前位置越界了，或者是当前水高和 grid[x][y] 中的较大值大于等于 dp[x][y] 了，直接跳过，因为此时的dp值更小，不需要被更新了。否则 dp[x][y] 更新为较大值，然后对周围四个位置调用递归函数继续更新dp数组，最终返回右下位置的dp值即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; dirs{{<span style="color: #800080;">0</span>, -<span style="color: #800080;">1</span>}, {-<span style="color: #800080;">1</span>, <span style="color: #800080;">0</span>}, {<span style="color: #800080;">0</span>, <span style="color: #800080;">1</span>}, {<span style="color: #800080;">1</span>, <span style="color: #800080;">0</span><span style="color: #000000;">}};
+    </span><span style="color: #0000ff;">int</span> swimInWater(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> grid) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> grid.size();
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; dp(n, vector&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;">(n, INT_MAX));
+        helper(grid, </span><span style="color: #800080;">0</span>, <span style="color: #800080;">0</span>, grid[<span style="color: #800080;">0</span>][<span style="color: #800080;">0</span><span style="color: #000000;">], dp);
+        </span><span style="color: #0000ff;">return</span> dp[n - <span style="color: #800080;">1</span>][n - <span style="color: #800080;">1</span><span style="color: #000000;">];
+    }
+    </span><span style="color: #0000ff;">void</span> helper(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp; grid, <span style="color: #0000ff;">int</span> x, <span style="color: #0000ff;">int</span> y, <span style="color: #0000ff;">int</span> cur, vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> dp) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> grid.size();
+        </span><span style="color: #0000ff;">if</span> (x &lt; <span style="color: #800080;">0</span> || x &gt;= n || y &lt; <span style="color: #800080;">0</span> || y &gt;= n || max(cur, grid[x][y]) &gt;= dp[x][y]) <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        dp[x][y] </span>=<span style="color: #000000;"> max(cur, grid[x][y]);
+        </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (auto dir : dirs) {
+            helper(grid, x </span>+ dir[<span style="color: #800080;">0</span>], y + dir[<span style="color: #800080;">1</span><span style="color: #000000;">], dp[x][y], dp);
+        }
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>其实这道题还可以使用二分搜索法来做，属于博主的总结帖中<a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_1" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/6854825.html">LeetCode Binary Search Summary 二分搜索法小结</a>的第四类，用子函数当作判断关系。由于题目中给定了数字的范围，那么二分搜索法的左右边界就有了，然后我们计算一个中间值mid，调用子函数来看这个水面高度下能否到达右下角，如果不能的话，说明水面高度不够，则 left = mid+1，如果能到达的话，有可能水面高度过高了，则right = mid，最终会到达的临界点就是能到达右下角的最低水面高度。那么来看子函数怎么写，其实就是个迷宫遍历问题，我们可以使用BFS或者DFS，这里使用了stack辅助的迭代形式的DFS来遍历，当然我们也可以使用queue辅助的迭代形式的BFS来遍历，都一样，如果在mid的水面高度下，遍历到了右下角，则返回true，否则返回false，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> swimInWater(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> grid) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> grid.size();
+        </span><span style="color: #0000ff;">int</span> left = grid[<span style="color: #800080;">0</span>][<span style="color: #800080;">0</span>], right = n *<span style="color: #000000;"> n;
+        </span><span style="color: #0000ff;">while</span> (left &lt;<span style="color: #000000;"> right) {
+            </span><span style="color: #0000ff;">int</span> mid = left + (right - left) / <span style="color: #800080;">2</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">if</span> (!helper(grid, mid)) left = mid + <span style="color: #800080;">1</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">else</span> right =<span style="color: #000000;"> mid;
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> left;
+    }
+    </span><span style="color: #0000ff;">bool</span> helper(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp; grid, <span style="color: #0000ff;">int</span><span style="color: #000000;"> mid) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> grid.size();
+        unordered_set</span>&lt;<span style="color: #0000ff;">int</span>&gt; visited{<span style="color: #800080;">0</span><span style="color: #000000;">};
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; dirs{{<span style="color: #800080;">0</span>, -<span style="color: #800080;">1</span>}, {-<span style="color: #800080;">1</span>, <span style="color: #800080;">0</span>}, {<span style="color: #800080;">0</span>, <span style="color: #800080;">1</span>}, {<span style="color: #800080;">1</span>, <span style="color: #800080;">0</span><span style="color: #000000;">}};
+        stack</span>&lt;<span style="color: #0000ff;">int</span>&gt; st{{<span style="color: #800080;">0</span><span style="color: #000000;">}};
+        </span><span style="color: #0000ff;">while</span> (!<span style="color: #000000;">st.empty()) {
+            </span><span style="color: #0000ff;">int</span> i = st.top() / n, j = st.top() %<span style="color: #000000;"> n; st.pop();
+            </span><span style="color: #0000ff;">if</span> (i == n - <span style="color: #800080;">1</span> &amp;&amp; j == n - <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (auto dir : dirs) {
+                </span><span style="color: #0000ff;">int</span> x = i + dir[<span style="color: #800080;">0</span>], y = j + dir[<span style="color: #800080;">1</span><span style="color: #000000;">];
+                </span><span style="color: #0000ff;">if</span> (x &lt; <span style="color: #800080;">0</span> || x &gt;= n || y &lt; <span style="color: #800080;">0</span> || y &gt;= n || visited.count(x * n + y) || grid[x][y] &gt; mid) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                st.push(x </span>* n +<span style="color: #000000;"> y);
+                visited.insert(x </span>* n +<span style="color: #000000;"> y);
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/swim-in-rising-water/solution/#" target="_blank">https://leetcode.com/problems/swim-in-rising-water/solution/#</a></p>
+<p><a href="https://leetcode.com/problems/swim-in-rising-water/discuss/113743/JAVA-DP-+-DFS" target="_blank">https://leetcode.com/problems/swim-in-rising-water/discuss/113743/JAVA-DP-+-DFS</a></p>
+<p><a href="https://leetcode.com/problems/swim-in-rising-water/discuss/113765/Easy-and-Concise-Solution-using-Binary-Search-PythonC++" target="_blank">https://leetcode.com/problems/swim-in-rising-water/discuss/113765/Easy-and-Concise-Solution-using-Binary-Search-PythonC++</a></p>
+<p><a href="https://leetcode.com/problems/swim-in-rising-water/discuss/113758/C++-two-solutions-Binary-Search+DFS-and-Dijkstra+BFS-O(n2logn)-11ms" target="_blank">https://leetcode.com/problems/swim-in-rising-water/discuss/113758/C++-two-solutions-Binary-Search+DFS-and-Dijkstra+BFS-O(n2logn)-11ms</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-05-09 23:26</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9017300" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(9017300);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 9017300, cb_entryCreatedDate = '2018-05-09 23:26', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

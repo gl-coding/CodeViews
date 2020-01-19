@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="We have jobs:&amp;#160;difficulty[i]&amp;#160;is the difficulty of the&amp;#160;ith job, and&amp;#160;profit[i]&amp;#160" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Most Profit Assigning Work 安排最大利润的工作 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/10264877.html">[LeetCode] Most Profit Assigning Work 安排最大利润的工作</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>We have jobs:&nbsp;<code>difficulty[i]</code>&nbsp;is the difficulty of the&nbsp;<code>i</code>th job, and&nbsp;<code>profit[i]</code>&nbsp;is the profit of the&nbsp;<code>i</code>th job.&nbsp;</p>
+<p>Now we have some workers.&nbsp;<code>worker[i]</code>&nbsp;is the ability of the&nbsp;<code>i</code>th worker, which means that this worker can only complete a job with difficulty at most&nbsp;<code>worker[i]</code>.&nbsp;</p>
+<p>Every worker can be assigned at most one job, but one job&nbsp;can be completed multiple times.</p>
+<p>For example, if 3 people attempt the same job that pays $1, then the total profit will be $3.&nbsp; If a worker cannot complete any job, his profit is $0.</p>
+<p>What is the most profit we can make?</p>
+<p>Example 1:</p>
+<pre>Input: difficulty = [2,4,6,8,10], profit = [10,20,30,40,50], worker = [4,5,6,7]
+Output: 100 
+Explanation: Workers are assigned jobs of difficulty [4,4,6,6] and they get profit of [20,20,30,30] seperately.</pre>
+<p>Notes:</p>
+<ul>
+<li><code>1 &lt;= difficulty.length = profit.length &lt;= 10000</code></li>
+<li><code>1 &lt;= worker.length &lt;= 10000</code></li>
+<li><code>difficulty[i], profit[i], worker[i]</code>&nbsp; are in range&nbsp;<code>[1, 10^5]</code></li>
+</ul>
+<p>&nbsp;</p>
+<p>这道题给了我们一堆工作，每个工作有不同的难度，且对应着不同的利润。现在还有一些工人，每个人能胜任工作的难度不同，题目说了没人最多只能干一项工作，但是每个工作可以被多个人做。现在问我们这些工人能产生的最大利润。题目中给了一个例子，但是这个例子会给我们一些错觉，实际上difficulty数组不一定是有序的，而且可能有相同难度的工作对应不同的利润。还有就是，难度大的工作不一定利润就大，忽略了这些隐藏条件，很容易做错。为了快速的知道每个工作的难度和其对应的利润，我们可以建立难度和利润的之间映射，由于前面说了，相同的难度可能有不同的利润，所以我们希望难度映射到最高的利润，所以每次都跟自身的映射值比较一下，保留较大值即可。同时，我们还希望工作的难度能排个序，这样就可以根据工人的能力值来快速搜索能做的工作了，所以可以使用TreeMap。但是，还有个问题，前面说了难度大的工作不一定利润就大，所以我们希望难度映射的利润，是不大于其难度的工作的利润中的最大值，所以我们还要遍历一遍所有的映射，维护一个当前最大值cur，然后不断的更新每个工作的利润，同时也更新当前最大值。这些都建立好了后，之后就简单了，我们遍历每个工人，根据其能力值，来二分查第一个难度值大于该能力值的工作，可以用内置的 upper_bound 函数，如果结果第一个数字，那么我们将其前面一个难度的工作的利润加入结果res即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> maxProfitAssignment(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; difficulty, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; profit, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> worker) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span>, cur = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        map</span>&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> m;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; difficulty.size(); ++<span style="color: #000000;">i) {
+            m[difficulty[i]] </span>=<span style="color: #000000;"> max(m[difficulty[i]], profit[i]);
+        }
+        </span><span style="color: #0000ff;">for</span> (auto &amp;<span style="color: #000000;">a : m) {
+            a.second </span>=<span style="color: #000000;"> max(a.second, cur);
+            cur </span>=<span style="color: #000000;"> a.second;
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; worker.size(); ++<span style="color: #000000;">i) {
+            auto it </span>=<span style="color: #000000;"> m.upper_bound(worker[i]);
+            </span><span style="color: #0000ff;">if</span> (it !=<span style="color: #000000;"> m.begin()) {
+                res </span>+= (--it)-&gt;<span style="color: #000000;">second;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们也可以不用TreeMap，而是将难度和利润组成pair，加入到一个数组中，那么就算相同的难度对应不同的利润，也不会丢失数据。我们还是根据难度给所有的工作排个序，同时，我们按能力也给工人排个序，从能力低的工人开始分配工作，这样我们只需要遍历一次所有的工作，因为当能力低的工人分配了某个工作时，后面能力高的工人不需要再考虑之前的工作，因为工作已经按难度排好序了，只需要从当前位置继续往后面匹配工作，我们可以使用一个全局变量i，当工人的能力值大于等于某个工作的难度时，我们用其来更新curMax，这里的curMax记录当前工人能做的工作的最大利润，这样当工作遍历完了，或者当前工作难度已经大于工人的能力值了时就停止，这样curMax就是该工人能获得的利润，加入结果res，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> maxProfitAssignment(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; difficulty, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; profit, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> worker) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span>, n = profit.size(), curMax = <span style="color: #800080;">0</span>, i = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        vector</span>&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;<span style="color: #000000;"> jobs;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = <span style="color: #800080;">0</span>; j &lt; n; ++<span style="color: #000000;">j) {
+            jobs.push_back({difficulty[j], profit[j]});
+        }
+        sort(jobs.begin(), jobs.end());
+        sort(worker.begin(), worker.end());
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span><span style="color: #000000;"> ability : worker) {
+            </span><span style="color: #0000ff;">while</span> (i &lt; n &amp;&amp; ability &gt;=<span style="color: #000000;"> jobs[i].first) {
+                curMax </span>= max(curMax, jobs[i++<span style="color: #000000;">].second);
+            }
+            res </span>+=<span style="color: #000000;"> curMax;
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们还可以使用动态规划Dynamic Programming来做，建立一个一维的dp数组，这里的dp[i]表示能力为i的工人所能获得的最大的利润。dp数组大小初始化为100001，这是题目中给定的范围，然后我们用给定的工作的难度和利润来更新dp数组，跟解法一中的更新TreeMap有些像，要考虑相同的难度可能有不同的利润，所以每次更新的时候要跟本身比较。之后就是从1开始更新dp本身，dp[i]跟前面一个dp值比较，取较大值更新dp[i]，这个操作跟解法一中的那个更新TreeMap的映射值的操作是一样的，都是为了避免难度高的工作利润低。这里的dp数组cover了所有的能力值的范围，这样对于任何一个工人，我们可以根据其能力值马上找出其可以获得的最大利润，而不用像解法一中要使用二分查找，我们牺牲了空间，换来了常数级的查找速度，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> maxProfitAssignment(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; difficulty, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; profit, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> worker) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span>, n =<span style="color: #000000;"> profit.size();
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; dp(<span style="color: #800080;">100001</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            dp[difficulty[i]] </span>=<span style="color: #000000;"> max(dp[difficulty[i]], profit[i]);
+        }   
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt; dp.size(); ++<span style="color: #000000;">i) {
+            dp[i] </span>= max(dp[i], dp[i - <span style="color: #800080;">1</span><span style="color: #000000;">]);
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span><span style="color: #000000;"> ability : worker) {
+            res </span>+=<span style="color: #000000;"> dp[ability];
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/most-profit-assigning-work/" target="_blank">https://leetcode.com/problems/most-profit-assigning-work/</a></p>
+<p><a href="https://leetcode.com/problems/most-profit-assigning-work/discuss/127133/Java-Solution-with-TreeMap" target="_blank">https://leetcode.com/problems/most-profit-assigning-work/discuss/127133/Java-Solution-with-TreeMap</a></p>
+<p><a href="https://leetcode.com/problems/most-profit-assigning-work/discuss/127031/C%2B%2BJavaPython-Sort-and-Two-pointer" target="_blank">https://leetcode.com/problems/most-profit-assigning-work/discuss/127031/C%2B%2BJavaPython-Sort-and-Two-pointer</a></p>
+<p><a href="https://leetcode.com/problems/most-profit-assigning-work/discuss/126988/O(M-%2B-N)-solution-based-on-preprocessing" target="_blank">https://leetcode.com/problems/most-profit-assigning-work/discuss/126988/O(M-%2B-N)-solution-based-on-preprocessing</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-01-14 00:00</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10264877" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(10264877);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 10264877, cb_entryCreatedDate = '2019-01-14 00:00', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

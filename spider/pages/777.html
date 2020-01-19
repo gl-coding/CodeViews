@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="In a string composed of&amp;#160;&amp;#39;L&amp;#39;,&amp;#160;&amp;#39;R&amp;#39;, and&amp;#160;&amp;#39;X&amp;#39;&amp;#160;characters, li" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Swap Adjacent in LR String 交换LR字符串中的相邻项 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9001474.html">[LeetCode] Swap Adjacent in LR String 交换LR字符串中的相邻项</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>In a string composed of&nbsp;<code>'L'</code>,&nbsp;<code>'R'</code>, and&nbsp;<code>'X'</code>&nbsp;characters, like&nbsp;<code>"RXXLRXRXL"</code>, a move consists of either replacing one occurrence of&nbsp;<code>"XL"</code>&nbsp;with&nbsp;<code>"LX"</code>, or replacing one occurrence of&nbsp;<code>"RX"</code>&nbsp;with&nbsp;<code>"XR"</code>. Given the starting string&nbsp;<code>start</code>&nbsp;and the ending string&nbsp;<code>end</code>, return&nbsp;<code>True</code>&nbsp;if and only if there exists a sequence of moves to transform one string to the other.</p>
+<p>Example:</p>
+<pre>Input: start = "RXXLRXRXL", end = "XRLXXRRLX"
+Output: True
+Explanation:
+We can transform start to end following these steps:
+RXXLRXRXL -&gt;
+XRXLRXRXL -&gt;
+XRLXRXRXL -&gt;
+XRLXXRRXL -&gt;
+XRLXXRRLX
+</pre>
+<p>Note:</p>
+<ol>
+<li><code>1 &lt;= len(start) = len(end) &lt;= 10000</code>.</li>
+<li>Both start and end will only consist of characters in&nbsp;<code>{'L', 'R', 'X'}</code>.</li>
+</ol>
+<p>&nbsp;</p>
+<p>这道题给了我们一个只含有L，R，X三个字符的字符串，然后说有两种操作，一种是把 "XL" 变成 "LX"，另一种是把 "RX" 变成 "XR"。博主刚开始没有读题意，以为二者是可以互换的，错误的认为认为&nbsp;"LX" 也能变成&nbsp;"XL"，其实题目这种变换是单向，这种单向关系就是解题的关键，具体来说，就是要把start字符串变成end字符串的话，L只能往前移动，因为是把 "XL" 变成 "LX"，同样，R只能往后移动，因为是把 "RX" 变成 "XR"。题目给的那个例子并不能很好的说明问题，博主之前那种双向变换的错误认知会跪在这个例子：</p>
+<p>start = "XX<span style="color: #ff0000;">R</span>XX<span style="color: #339966;">L</span>XXXX"<br />end &nbsp;= "XXXX<span style="color: #ff0000;">R</span>XX<span style="color: #339966;">L</span>XX"</p>
+<p>我们观察这个test case，可以发现start中的R可以往后移动，没有问题，但是start中的L永远无法变到end中L的位置，因为L只能往前移。这道题被归类为brainteaser，估计就是因为要观察出这个规律吧。那么搞明白这个以后，我们其实可以用双指针来解题，思路是，我们每次分别找到start和end中非X的字符，如果二者不相同的话，直接返回false，想想问什么？这是因为不论是L还是R，其只能跟X交换位置，L和R之间是不能改变相对顺序的，所以如果分别将start和end中所有的X去掉后的字符串不相等的话，那么就永远无法让start和end相等了。这个判断完之后，就来验证L只能前移，R只能后移这个限制条件吧，当i指向start中的L时，那么j指向end中的L必须要在前面，所以如果i小于j的话，就不对了，同理，当i指向start中的R，那么j指向end中的R必须在后面，所以i大于j就是错的，最后别忘了i和j同时要自增1，不然死循环了，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> canTransform(<span style="color: #0000ff;">string</span> start, <span style="color: #0000ff;">string</span><span style="color: #000000;"> end) {
+        </span><span style="color: #0000ff;">int</span> n = start.size(), i = <span style="color: #800080;">0</span>, j = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">while</span> (i &lt; n &amp;&amp; j &lt;<span style="color: #000000;"> n) {
+            </span><span style="color: #0000ff;">while</span> (i &lt; n &amp;&amp; start[i] == <span style="color: #800000;">'</span><span style="color: #800000;">X</span><span style="color: #800000;">'</span>) ++<span style="color: #000000;">i;
+            </span><span style="color: #0000ff;">while</span> (j &lt; n &amp;&amp; end[j] == <span style="color: #800000;">'</span><span style="color: #800000;">X</span><span style="color: #800000;">'</span>) ++<span style="color: #000000;">j;
+            </span><span style="color: #0000ff;">if</span> (start[i] != end[j]) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">if</span> ((start[i] == <span style="color: #800000;">'</span><span style="color: #800000;">L</span><span style="color: #800000;">'</span> &amp;&amp; i &lt; j) || (start[i] == <span style="color: #800000;">'</span><span style="color: #800000;">R</span><span style="color: #800000;">'</span> &amp;&amp; i &gt; j)) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+            </span>++i; ++<span style="color: #000000;">j;
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种解法也挺巧妙的，这里我们使用两个计数器cntL和cntR，分别来统计L和R出现的次数，统计方法时，start中出现了L或R，计数器自增1，end中出现了L或R，计数器自减1。注意我们检测的顺序很重要，由于start中的R必须在end中的R前面，所以我们要先检测start中的R，同理，由于end中的L必须要在start中的L前面，所以我们要先检测end中的L，那么四个if写完后，如果cntL或者cntR中有任何一个小于0了，说明限制条件被打破了，返回false，或者当二者都大于0的时候，说明此时不匹配了，参见上面解法中对于去掉所有的X的解释，一个道理，说明L和R的相对顺序不同了，那么也是false。最终for循环退出后，如果cntL和cntR均为0的时候，才返回true，否则就是false，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> canTransform(<span style="color: #0000ff;">string</span> start, <span style="color: #0000ff;">string</span><span style="color: #000000;"> end) {
+        </span><span style="color: #0000ff;">int</span> n = start.size(), cntL = <span style="color: #800080;">0</span>, cntR = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (start[i] == <span style="color: #800000;">'</span><span style="color: #800000;">R</span><span style="color: #800000;">'</span>) ++<span style="color: #000000;">cntR;
+            </span><span style="color: #0000ff;">if</span> (end[i] == <span style="color: #800000;">'</span><span style="color: #800000;">L</span><span style="color: #800000;">'</span>) ++<span style="color: #000000;">cntL;
+            </span><span style="color: #0000ff;">if</span> (start[i] == <span style="color: #800000;">'</span><span style="color: #800000;">L</span><span style="color: #800000;">'</span>) --<span style="color: #000000;">cntL;
+            </span><span style="color: #0000ff;">if</span> (end[i] == <span style="color: #800000;">'</span><span style="color: #800000;">R</span><span style="color: #800000;">'</span>) --<span style="color: #000000;">cntR;
+            </span><span style="color: #0000ff;">if</span> (cntL &lt; <span style="color: #800080;">0</span> || cntR &lt; <span style="color: #800080;">0</span> || cntL * cntR != <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span> cntL == <span style="color: #800080;">0</span> &amp;&amp; cntR == <span style="color: #800080;">0</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/swap-adjacent-in-lr-string/solution/">https://leetcode.com/problems/swap-adjacent-in-lr-string/solution/</a></p>
+<p><a href="https://leetcode.com/problems/swap-adjacent-in-lr-string/discuss/126397/Simple-C++-solution-12ms-O(N)-time-and-O(1)-space">https://leetcode.com/problems/swap-adjacent-in-lr-string/discuss/126397/Simple-C++-solution-12ms-O(N)-time-and-O(1)-space</a></p>
+<p><a href="https://leetcode.com/problems/swap-adjacent-in-lr-string/discuss/113789/Simple-Java-one-pass-O(n)-solution-with-explaination">https://leetcode.com/problems/swap-adjacent-in-lr-string/discuss/113789/Simple-Java-one-pass-O(n)-solution-with-explaination</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-05-07 10:54</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9001474" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(9001474);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 9001474, cb_entryCreatedDate = '2018-05-07 10:54', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

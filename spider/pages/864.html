@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="We are given a 2 dimensional . is an empty cell, is&amp;#160;a wall, is the starting point, ( , , ...) a" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 864. Shortest Path to Get All Keys 获得所有钥匙的最短路径 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/11219780.html">[LeetCode] 864. Shortest Path to Get All Keys 获得所有钥匙的最短路径</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+We are given a 2-dimensional <code>grid</code>. <code>&quot;.&quot;</code> is an empty cell, <code>&quot;#&quot;</code> is a wall, <code>&quot;@&quot;</code> is the starting point, (<code>&quot;a&quot;</code>, <code>&quot;b&quot;</code>, ...) are keys, and (<code>&quot;A&quot;</code>, <code>&quot;B&quot;</code>, ...) are locks.</p>
+<p>We start at the starting point, and one move consists of walking one space in one of the 4 cardinal directions.  We cannot walk outside the grid, or walk into a wall.  If we walk over a key, we pick it up.  We can't walk over a lock unless we have the corresponding key.</p>
+<p>For some 1 &lt;= K &lt;= 6, there is exactly one lowercase and one uppercase letter of the first <code>K</code>letters of the English alphabet in the grid.  This means that there is exactly one key for each lock, and one lock for each key; and also that the letters used to represent the keys and locks were chosen in the same order as the English alphabet.</p>
+<p>Return the lowest number of moves to acquire all keys.  If it's impossible, return <code>-1</code>.</p>
+<p>Example 1:</p>
+<pre><code>Input: [&quot;@.a.#&quot;,&quot;###.#&quot;,&quot;b.A.B&quot;]
+Output: 8</code></pre>
+<p>Example 2:</p>
+<pre><code>Input: [&quot;@..aA&quot;,&quot;..B#.&quot;,&quot;....b&quot;]
+Output: 6</code></pre>
+<p>Note:</p>
+<ol>
+<li><code>1 &lt;= grid.length &lt;= 30</code></li>
+<li><code>1 &lt;= grid[0].length &lt;= 30</code></li>
+<li><code>grid[i][j]</code> contains only<code> '.'</code>, <code>'#'</code>, <code>'@'</code>, <code>'a'-``'f``'</code> and <code>'A'-'F'</code></li>
+<li>The number of keys is in <code>[1, 6]</code>.  Each key has a different letter and opens exactly one lock.</li>
+</ol>
+<p><br><br />
+这道题给了我们一个迷宫，其中的点表示可通过的位置，井号表示墙，不能通过。小写字母表示钥匙，大写字母表示门，只有拿到了对应的钥匙才能通过门的地方，有点红白机游戏的感觉。问我们收集到所有的钥匙需要的最小步数，当无法收到所有钥匙的时候，返回 -1。对于迷宫遍历找最小步数的题，应该并不陌生，基本都是用 BFS 来解的。这里虽然没有一个固定的终点位置，但也是有终止条件的，那就是收集到所有的钥匙。这道题好就好在对钥匙进行了一些限定，最多有6把，最少有1把，而且都是按字母顺序出现的，就是说只有一把钥匙的时候，一定是a，两把的话一定是a和b。我们需要保存所有当前已经获得的钥匙，并且还要随时查询是否已经获得了某个特定的钥匙，还需要查询是否已经获得了所有的钥匙。由于之前说了知道了钥匙的个数，就能确定是哪些钥匙，这样就可以对钥匙进行编号，钥匙a编为0，同理，b，c，d，e，f 分别编为 1，2，3，4，5。最简单的实现就是用一个长度为k的 boolean 数组，获得了某个钥匙就标记为 true，查询某个钥匙是否存在就直接在数组中对应位置查询即可，判断是否获得所有钥匙就线性遍历一下数组即可，由于最多就6把钥匙，所以遍历也很快。当然，若我们想秀一波技巧，也可以将钥匙编码成二进制数，对应位上的0和1表示该钥匙是存在，比如二进制数 111111 就表示六把钥匙都有了，而 100111 就表示有钥匙 a，d，e 和f，这样查询某个钥匙或查询所有钥匙的时间复杂度都是常数级了，既省了空间又省了时间，岂不美哉？！</p>
+<p>分析到这里，基本上难点都 cover 了，可以准备写代码了。整体框架还是经典的 BFS 写法，再稍加改动即可。这里的队列 queue 不能只放位置信息，还需要放当前的钥匙信息，因为到达不同的位置获得的钥匙个数可能是不同的，二维的位置信息编码成一个整数，再加上钥匙的整数，组成一个 pair 对儿放到队列中。由于参数中没有事先告诉我们起点的位置，所以需要先遍历一遍整个迷宫，找到@符号，将位置和当前钥匙信息加入到 queue 中。为了避免死循环，BFS 遍历是需要记录已经访问过的位置的，这里的状态当然也要加入当前钥匙的信息，为了简单起见，将其编码成一个字符串，前半部分放位置编码成的整数，中间加个下划线，后面放钥匙信息的整数，组成的字符串放到 HashSet 中即可。遍历的过程中同时还要统计钥匙的个数，有了总个数 keyCnt，就能知道拿到所有钥匙后编码成的整数。在 while 循环，采用层序遍历的机制，对于同一层的结点，分别取出位置信息和钥匙信息，此时先判断下是否已经拿到所有钥匙了，是的话直接返回当前步数 res。否则就要检测其四个相邻位置，需要注意的是，对于每个相邻位置，一定要重新取出之前的钥匙信息，否则一旦钥匙信息修改了而没有重置的话，直接到同一层的其他结点可能会引起错误。取出的邻居结点的位置要先判断是否越界，还要判断是否为墙，是的话就直接跳过。若是门的话，要看当前是否有该门对应的钥匙，有的话才能通过。若遇到了钥匙，则需要修改钥匙信息。这些都完成了之后，将当前的位置和钥匙信息编码成一个字符串，看 HashSet 是否已经有了这个状态，没有的话，则加入 HashSet，并同时加入 queue，每当一层结点遍历完成后，结果 res 自增1即可，参见代码如下：</p>
+<p><br></p>
+<pre><code>class Solution {
+public:
+    int shortestPathAllKeys(vector&lt;string&gt;&amp; grid) {
+        int m = grid.size(), n = grid[0].size(), keyCnt = 0, res = 0;
+        queue&lt;pair&lt;int, int&gt;&gt; q;
+        unordered_set&lt;string&gt; visited;
+        vector&lt;int&gt; dirX{-1, 0, 1, 0}, dirY{0, 1, 0, -1};
+        for (int i = 0; i &lt; m; ++i) {
+            for (int j = 0; j &lt; n; ++j) {
+                if (grid[i][j] == &#39;@&#39;) {
+                    q.push({i * n + j, 0});
+                    visited.insert(to_string(i * n + j) + &quot;_0&quot;);
+                }
+                if (grid[i][j] &gt;= &#39;a&#39; &amp;&amp; grid[i][j] &lt;= &#39;f&#39;) ++keyCnt;
+            }
+        }
+        while (!q.empty()) {
+            for (int i = q.size(); i &gt; 0; --i) {
+                int t = q.front().first, curKeys = q.front().second; q.pop();
+                if (curKeys == (1 &lt;&lt; keyCnt) - 1) return res;
+                for (int k = 0; k &lt; 4; ++k) {
+                    int x = t / n + dirX[k], y = t % n + dirY[k], keys = curKeys;
+                    if (x &lt; 0 || x &gt;= m || y &lt; 0 || y &gt;= n) continue;
+                    char c = grid[x][y];
+                    if (c == &#39;#&#39;) continue;
+                    if (c &gt;= &#39;A&#39; &amp;&amp; c &lt;= &#39;F&#39; &amp;&amp; ((keys &gt;&gt; (c - &#39;A&#39;)) &amp; 1) == 0) continue;
+                    if (c &gt;= &#39;a&#39; &amp;&amp; c &lt;= &#39;f&#39;) keys |= 1 &lt;&lt; (c - &#39;a&#39;);
+                    string str = to_string(x * n + y) + &quot;_&quot; + to_string(keys);
+                    if (!visited.count(str)) {
+                        visited.insert(str);
+                        q.push({x * n + y, keys});
+                    }
+                }
+            }
+            ++res;
+        }
+        return -1;
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/864" class="uri">https://github.com/grandyang/leetcode/issues/864</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/shortest-path-to-get-all-keys/" class="uri">https://leetcode.com/problems/shortest-path-to-get-all-keys/</a></p>
+<p><a href="https://leetcode.com/problems/shortest-path-to-get-all-keys/discuss/146878/Java-BFS-Solution" class="uri">https://leetcode.com/problems/shortest-path-to-get-all-keys/discuss/146878/Java-BFS-Solution</a></p>
+<p><a href="https://leetcode.com/problems/shortest-path-to-get-all-keys/discuss/146941/C%2B%2B-BFS-with-current-key-recorded-visited-map-(12ms)">https://leetcode.com/problems/shortest-path-to-get-all-keys/discuss/146941/C%2B%2B-BFS-with-current-key-recorded-visited-map-(12ms)</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-07-20 23:27</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11219780" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(11219780);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 11219780, cb_entryCreatedDate = '2019-07-20 23:27', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

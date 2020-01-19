@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given an array&amp;#160;A&amp;#160;(index starts at&amp;#160;1) consisting of N integers: A1, A2, ..., AN&amp;#160;a" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Coin Path 硬币路径 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/8183477.html">[LeetCode] Coin Path 硬币路径</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given an array&nbsp;<code>A</code>&nbsp;(index starts at&nbsp;<code>1</code>) consisting of N integers: A1, A2, ..., AN&nbsp;and an integer&nbsp;<code>B</code>. The integer&nbsp;<code>B</code>denotes that from any place (suppose the index is&nbsp;<code>i</code>) in the array&nbsp;<code>A</code>, you can jump to any one of the place in the array&nbsp;<code>A</code>&nbsp;indexed&nbsp;<code>i+1</code>,&nbsp;<code>i+2</code>, &hellip;,&nbsp;<code>i+B</code>&nbsp;if this place can be jumped to. Also, if you step on the index&nbsp;<code>i</code>, you have to pay Ai&nbsp;coins. If Ai&nbsp;is -1, it means you can&rsquo;t jump to the place indexed&nbsp;<code>i</code>&nbsp;in the array.</p>
+<p>Now, you start from the place indexed&nbsp;<code>1</code>&nbsp;in the array&nbsp;<code>A</code>, and your aim is to reach the place indexed&nbsp;<code>N</code>&nbsp;using the minimum coins. You need to return the path of indexes (starting from 1 to N) in the array you should take to get to the place indexed&nbsp;<code>N</code>&nbsp;using minimum coins.</p>
+<p>If there are multiple paths with the same cost, return the lexicographically smallest such path.</p>
+<p>If it's not possible to reach the place indexed N then you need to return an empty array.</p>
+<p>Example 1:</p>
+<pre>Input: [1,2,4,-1,2], 2
+Output: [1,3,5]
+</pre>
+<p>&nbsp;</p>
+<p>Example 2:</p>
+<pre>Input: [1,2,4,-1,2], 1
+Output: []
+</pre>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ol>
+<li>Path Pa1, Pa2, ..., Pan&nbsp;is lexicographically smaller than Pb1, Pb2, ..., Pbm, if and only if at the first&nbsp;<code>i</code>&nbsp;where Pai&nbsp;and Pbi&nbsp;differ, Pai&nbsp;&lt; Pbi; when no such&nbsp;<code>i</code>&nbsp;exists, then&nbsp;<code>n</code>&nbsp;&lt;&nbsp;<code>m</code>.</li>
+<li>A1&nbsp;&gt;= 0. A2, ..., AN&nbsp;(if exist) will in the range of [-1, 100].</li>
+<li>Length of A is in the range of [1, 1000].</li>
+<li>B is in the range of [1, 100].</li>
+</ol>
+<p>&nbsp;</p>
+<p>这道题给了我们一个数组A，又给了我们一个整数B，表示能走的最大步数，数组上的每个数字都是cost值，如果到达某个位置，就要加上该位置上的数字，其实位置是在第一个数字上，目标是到达末尾位置，我们需要让总cost值最小，并输入路径，如果cos相同的话，输出字母顺序小的那个路径。还有就是如果数组上的某个位置为-1的话，表示到达该位置后不能再去下一个位置，而且数组末位置不能为-1。博主最开始写了一个递归的解法，结果MLE了，看来这道题对内存使用的管控极为苛刻。所以我们不能将所有的候选路径都存在内存中，而是应该建立祖先数组，即数组上每个位置放其父结点的位置，有点像联合查找Union Find中的root数组，再最后根据这个祖先数组来找出正确的路径。由于需要找出cost最小的路径，所以我们可以考虑用dp数组，其中dp[i]表示从开头到位置i的最小cost值，但是如果我们从后往前跳，那么dp[i]就是从末尾到位置i的最小cost值。</p>
+<p>我们首先判断数组A的末尾数字是否为-1，是的话直接返回空集。否则就新建结果res数组，dp数组，和pos数组，其中dp数组都初始化为整型最大值，pos数组都初始化为-1。然后将dp数组的最后一个数字赋值为数组A的尾元素。因为我们要从后往前跳，那我们从后往前遍历，如果遇到数字-1，说明不能往前跳了，直接continue继续循环，然后对于每个遍历到的数字，我们都要遍历其上一步可能的位置的dp[j]值来更新当前dp[i]值，由于限制了步数B，所以最多能到i+B，为了防止越界，要取i+B和n-1中的较小值为界限，如果上一步dp[j]值为INT_MAX，说明上一个位置无法跳过来，直接continue，否则看上一个位置dp[j]值加上当前cost值A[i]，如果小于dp[i]，说明dp[i]需要更新，并且建立祖先数组的映射pos[i] = j。最后在循环结束后，我们判断dp[0]的值，如果是INT_MAX，说明没有跳到首位置，直接返回空集，否则我们就通过pos数组来取路径。我们从前往后遍历pos数组来取位置，直到遇到-1停止。另外要说明的就是，这种从后往前遍历的模式得到的路径一定是字母顺序最小的，<span class="username"><a href="https://discuss.leetcode.com/topic/98399/c-dp-o-nb-time-o-n-space" target="_blank"> zestypanda大神的帖子</a>中有证明，不过博主没太看懂-.-|||，可以带这个例子尝试：</span></p>
+<p><span class="username">A = [0, 0, 0], B = 2</span></p>
+<p><span class="username">上面这个例子得到的结果是[1, 2, 3]，是字母顺序最小的路径，而相同的cost路径[1, 3]，就不是字母顺序最小的路径，参见代码如下：</span></p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+   vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; cheapestJump(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; A, <span style="color: #0000ff;">int</span><span style="color: #000000;"> B) {
+       </span><span style="color: #0000ff;">if</span> (A.back() == -<span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> {};
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> A.size();
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; res, dp(n, INT_MAX), pos(n, -<span style="color: #800080;">1</span><span style="color: #000000;">);
+        dp[n </span>- <span style="color: #800080;">1</span>] = A[n - <span style="color: #800080;">1</span><span style="color: #000000;">];
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = n - <span style="color: #800080;">2</span>; i &gt;= <span style="color: #800080;">0</span>; --<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (A[i] == -<span style="color: #800080;">1</span>) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = i + <span style="color: #800080;">1</span>; j &lt;= min(i + B, n - <span style="color: #800080;">1</span>); ++<span style="color: #000000;">j) {
+                </span><span style="color: #0000ff;">if</span> (dp[j] == INT_MAX) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">if</span> (A[i] + dp[j] &lt;<span style="color: #000000;"> dp[i]) {
+                    dp[i] </span>= A[i] +<span style="color: #000000;"> dp[j];
+                    pos[i] </span>=<span style="color: #000000;"> j;
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">if</span> (dp[<span style="color: #800080;">0</span>] == INT_MAX) <span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> cur = <span style="color: #800080;">0</span>; cur != -<span style="color: #800080;">1</span>; cur =<span style="color: #000000;"> pos[cur]) {
+            res.push_back(cur </span>+ <span style="color: #800080;">1</span><span style="color: #000000;">);
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+   }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种方法是正向遍历的解法，正向跳的话就需要另一个数组len，len[i]表示从开头到达位置i的路径的长度，如果两个路径的cost相同，那么一定是路径长度大的字母顺序小，可以参见例子 <span class="username">A = [0, 0, 0], B = 2</span>。</p>
+<p>具体的写法就不讲了，跟上面十分类似，参考上面的讲解，需要注意的就是更新的判定条件中多了一个t == dp[i] &amp;&amp; len[i] &lt; len[j] + 1，就是判断当cost相同时，我们取长度大路径当作结果保存。还有就是最后查找路径时要从末尾往前遍历，只要遇到-1时停止，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; cheapestJump(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; A, <span style="color: #0000ff;">int</span><span style="color: #000000;"> B) {
+        </span><span style="color: #0000ff;">if</span> (A.back() == -<span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> {};
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> A.size();
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; res, dp(n, INT_MAX), pos(n, -<span style="color: #800080;">1</span>), len(n, <span style="color: #800080;">0</span><span style="color: #000000;">);
+        dp[</span><span style="color: #800080;">0</span>] = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (A[i] == -<span style="color: #800080;">1</span>) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = max(<span style="color: #800080;">0</span>, i - B); j &lt; i; ++<span style="color: #000000;">j) {
+                </span><span style="color: #0000ff;">if</span> (dp[j] == INT_MAX) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">int</span> t = A[i] +<span style="color: #000000;"> dp[j];
+                </span><span style="color: #0000ff;">if</span> (t &lt; dp[i] || (t == dp[i] &amp;&amp; len[i] &lt; len[j] + <span style="color: #800080;">1</span><span style="color: #000000;">)) {
+                    dp[i] </span>=<span style="color: #000000;"> t;
+                    pos[i] </span>=<span style="color: #000000;"> j;
+                    len[i] </span>= len[j] + <span style="color: #800080;">1</span><span style="color: #000000;">;
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">if</span> (dp[n - <span style="color: #800080;">1</span>] == INT_MAX) <span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> cur = n - <span style="color: #800080;">1</span>; cur != -<span style="color: #800080;">1</span>; cur =<span style="color: #000000;"> pos[cur]) {
+            res.insert(res.begin(), cur </span>+ <span style="color: #800080;">1</span><span style="color: #000000;">);
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4518674.html" target="_blank">House Robber II</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4383632.html" target="_blank">House Robber</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/5888439.html">Frog Jump</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4371526.html" target="_blank">Jump Game</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4373533.html" target="_blank">Jump Game II</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://discuss.leetcode.com/topic/98399/c-dp-o-nb-time-o-n-space" target="_blank">https://discuss.leetcode.com/topic/98399/c-dp-o-nb-time-o-n-space</a></p>
+<p><a href="https://discuss.leetcode.com/topic/98491/java-22-lines-solution-with-proof" target="_blank">https://discuss.leetcode.com/topic/98491/java-22-lines-solution-with-proof</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-01-03 14:03</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8183477" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(8183477);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 8183477, cb_entryCreatedDate = '2018-01-03 14:03', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

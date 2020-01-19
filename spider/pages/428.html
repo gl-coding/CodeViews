@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta property="og:description" content="Serialization is the process of converting a data structure or object into a sequence of bits so tha" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Serialize and Deserialize N-ary Tree N叉搜索树的序列化和去序列化 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9945453.html">[LeetCode] Serialize and Deserialize N-ary Tree N叉搜索树的序列化和去序列化</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<div class="content__eAC7">
+<div>
+<p>Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.</p>
+<p>Design an algorithm to serialize and deserialize an N-ary tree. An N-ary tree is a rooted tree in which each node has no more than N children. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that an N-ary tree can be serialized to a string and this string can be deserialized to the original tree structure.</p>
+<p>For example, you may serialize the following&nbsp;<code>3-ary</code>&nbsp;tree</p>
+<p>&nbsp;</p>
+<p><img src="https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png" alt="" width="359" height="231" /></p>
+<p>&nbsp;</p>
+<p>as&nbsp;<code>[1 [3[5 6] 2 4]]</code>. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.</p>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ol>
+<li><code>N</code>&nbsp;is in the range of&nbsp;<code>[1, 1000]</code></li>
+<li>Do not use class member/global/static variables to store states. Your serialize and deserialize algorithms should be stateless.</li>
+</ol></div>
+</div>
+<div class="css-12aggky">&nbsp;</div>
+<p>这道题让我们对N叉树进行序列化和去序列化，<a href="https://zh.wikipedia.org/wiki/%E5%BA%8F%E5%88%97%E5%8C%96" target="_blank">序列化</a>就是将一个数据结构或物体转化为一个位序列，可以存进一个文件或者内存缓冲器中，然后通过网络连接在相同的或者另一个电脑环境中被还原，还原的过程叫做去序列化。现在让我们来序列化和去序列化一个二叉树，并给了我们例子。由于我们有了之前那道<a href="http://www.cnblogs.com/grandyang/p/4913869.html">Serialize and Deserialize Binary Tree</a>对二叉树的序列化和去序列化的基础，那么这道N叉树的方法也是大同小异了。首先使用先序遍历的递归解法，递归的写法就十分的简洁了，对于序列化，我们需要一个helper函数，里面首先判断结点，若为空，则结果res加上一个井字符，否则加上当前结点值，跟一个空格，再加上子结点的个数值，再跟一个空格。之后就是遍历子结点了，对每个子结点都调用递归函数即可。去序列函数需要用一个字符串流类来帮助读字符，这个类是按空格来断开字符串的，所以我们在序列化的时候中间都是用的空格。我们同样需要一个helper函数，首先读出结点值，如果读出了井字号，直接返回空。否则继续读出子结点的个数，有了结点值我们就可以新建一个结点了，同时知道了子结点的个数，那么我们就循环调用递归函数相同的次数，将返回的子结点加入子结点数组即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Codec {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> Encodes a tree to a single string.</span>
+    <span style="color: #0000ff;">string</span> serialize(Node*<span style="color: #000000;"> root) {
+        </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> res;
+        serializeHelper(root, res);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+    
+    </span><span style="color: #0000ff;">void</span> serializeHelper(Node* node, <span style="color: #0000ff;">string</span>&amp;<span style="color: #000000;"> res) {
+        </span><span style="color: #0000ff;">if</span> (!node) res += <span style="color: #800000;">"</span><span style="color: #800000;">#</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+            res </span>+= to_string(node-&gt;val) + <span style="color: #800000;">"</span> <span style="color: #800000;">"</span> + to_string(node-&gt;children.size()) + <span style="color: #800000;">"</span> <span style="color: #800000;">"</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">for</span> (auto child : node-&gt;<span style="color: #000000;">children) {
+                serializeHelper(child, res);
+            }
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> Decodes your encoded data to tree.</span>
+    Node* deserialize(<span style="color: #0000ff;">string</span><span style="color: #000000;"> data) {
+        istringstream iss(data);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> deserializeHelper(iss);
+    }
+    
+    Node</span>* deserializeHelper(istringstream&amp;<span style="color: #000000;"> iss) {
+        </span><span style="color: #0000ff;">string</span> val = <span style="color: #800000;">""</span>, size = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        iss </span>&gt;&gt;<span style="color: #000000;"> val;
+        </span><span style="color: #0000ff;">if</span> (val == <span style="color: #800000;">"</span><span style="color: #800000;">#</span><span style="color: #800000;">"</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> NULL;
+        iss </span>&gt;&gt;<span style="color: #000000;"> size;
+        Node </span>*node = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Node(stoi(val), {});
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; stoi(size); ++<span style="color: #000000;">i) {
+            node</span>-&gt;<span style="color: #000000;">children.push_back(deserializeHelper(iss));
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> node;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们还可以使用层序遍历的迭代写法，序列化的函数相对来说好一点，还是先判空，若为空，直接返回井字号。否则就使用队列，加入根结点，然后就进行while循环，先取出队首结点，然后res加入结点值，再加入空格，加入子结点个数，再加上空格。之后再把每一个子结点都加入队列中即可。去序列化函数稍稍复杂一些，还是要用字符流类来读取字符，需要用两个队列，分别来保存结点，和子结点个数。首先我们先取出结点值，如果是井字号，直接返回空。否则再取出子结点个数，我们先根据之前取出的结点值新建一个结点，然后加入结点队列，把子结点个数加入个数队列。然后就开始遍历了，首先分别取出结点队列和个数队列的队首元素，然后循环子结点个数次，再取出结点值，和子结点个数，如果其中某个值没取出来，就break掉。根据取出的结点值新建一个结点，然后将结点值加入结点队列，子结点个数加入个数队列，然后将子结点加入子结点数组，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Codec {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> Encodes a tree to a single string.</span>
+    <span style="color: #0000ff;">string</span> serialize(Node*<span style="color: #000000;"> root) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span> <span style="color: #800000;">"</span><span style="color: #800000;">#</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> res;
+        queue</span>&lt;Node*&gt;<span style="color: #000000;"> q{{root}};
+        </span><span style="color: #0000ff;">while</span> (!<span style="color: #000000;">q.empty()) {
+            Node </span>*t =<span style="color: #000000;"> q.front(); q.pop();
+            res </span>+= to_string(t-&gt;val) + <span style="color: #800000;">"</span> <span style="color: #800000;">"</span> + to_string(t-&gt;children.size()) + <span style="color: #800000;">"</span> <span style="color: #800000;">"</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">for</span> (Node *child : t-&gt;<span style="color: #000000;">children) {
+                q.push(child);
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> Decodes your encoded data to tree.</span>
+    Node* deserialize(<span style="color: #0000ff;">string</span><span style="color: #000000;"> data) {
+        istringstream iss(data);
+        queue</span>&lt;Node*&gt;<span style="color: #000000;"> qNode;
+        queue</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> qSize;
+        </span><span style="color: #0000ff;">string</span> val = <span style="color: #800000;">""</span>, size = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        iss </span>&gt;&gt;<span style="color: #000000;"> val;
+        </span><span style="color: #0000ff;">if</span> (val == <span style="color: #800000;">"</span><span style="color: #800000;">#</span><span style="color: #800000;">"</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> NULL;
+        iss </span>&gt;&gt;<span style="color: #000000;"> size;
+        Node </span>*res = <span style="color: #0000ff;">new</span> Node(stoi(val), {}), *cur =<span style="color: #000000;"> res;
+        qNode.push(cur);
+        qSize.push(stoi(size));
+        </span><span style="color: #0000ff;">while</span> (!<span style="color: #000000;">qNode.empty()) {
+            Node </span>*t =<span style="color: #000000;"> qNode.front(); qNode.pop();
+            </span><span style="color: #0000ff;">int</span> len =<span style="color: #000000;"> qSize.front(); qSize.pop();
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; len; ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">if</span> (!(iss &gt;&gt; val)) <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">if</span> (!(iss &gt;&gt; size)) <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                cur </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Node(stoi(val), {});
+                qNode.push(cur);
+                qSize.push(stoi(size));
+                t</span>-&gt;<span style="color: #000000;">children.push_back(cur);
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/6224510.html">Serialize and Deserialize BST</a>&nbsp;</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4913869.html">Serialize and Deserialize Binary Tree</a></p>
+<p><a id="link_post_title" class="link-post-title" href="https://www.cnblogs.com/grandyang/p/9945345.html">Encode N-ary Tree to Binary Tree</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/serialize-and-deserialize-n-ary-tree" target="_blank">https://leetcode.com/problems/serialize-and-deserialize-n-ary-tree</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-11-12 11:21</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9945453" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(9945453);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 9945453, cb_entryCreatedDate = '2018-11-12 11:21', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

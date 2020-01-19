@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given a non-empty 2D array&amp;#160;grid&amp;#160;of 0&amp;#39;s and 1&amp;#39;s, an&amp;#160;island&amp;#160;is a group of&amp;" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 711. Number of Distinct Islands II 不同岛屿的个数之二 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/8542820.html">[LeetCode] 711. Number of Distinct Islands II 不同岛屿的个数之二</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given a non-empty 2D array&nbsp;<code>grid</code>&nbsp;of 0's and 1's, an&nbsp;island&nbsp;is a group of&nbsp;<code>1</code>'s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</p>
+<p>Count the number of&nbsp;distinct&nbsp;islands. An island is considered to be the same as another if they have the same shape, or have the same shape after&nbsp;rotation&nbsp;(90, 180, or 270 degrees only) or&nbsp;reflection&nbsp;(left/right direction or up/down direction).</p>
+<p>Example 1:</p>
+<pre>11000
+10000
+00001
+00011
+</pre>
+<p>Given the above grid map, return&nbsp;<code>1</code>.&nbsp;<br /><br />Notice that:</p>
+<pre>11
+1
+</pre>
+<p>and</p>
+<pre> 1
+11
+</pre>
+<p>are considered&nbsp;same&nbsp;island shapes. Because if we make a 180 degrees clockwise rotation on the first island, then two islands will have the same shapes.</p>
+<p>&nbsp;</p>
+<p>Example 2:</p>
+<pre>11100
+10001
+01001
+01110</pre>
+<p>Given the above grid map, return&nbsp;<code>2</code>.<br /><br />Here are the two distinct islands:</p>
+<pre>111
+1
+</pre>
+<p>and</p>
+<pre>1
+1
+</pre>
+<p><br />Notice that:</p>
+<pre>111
+1
+</pre>
+<p>and</p>
+<pre>1
+111
+</pre>
+<p>are considered&nbsp;same&nbsp;island shapes. Because if we flip the first array in the up/down direction, then they have the same shapes.</p>
+<p>&nbsp;</p>
+<p>Note:&nbsp;The length of each dimension in the given&nbsp;<code>grid</code>&nbsp;does not exceed 50.</p>
+<p>&nbsp;</p>
+<p>这道题是之前那道&nbsp;<a href="http://www.cnblogs.com/grandyang/p/7698778.html">Number of Distinct Islands</a>&nbsp;的拓展，之前那道题定义的相同的岛屿必须是形状完全相同的，而这里岛屿则可以进行 90 度旋转，或者是水平竖直方向的镜面对称，这样就极大的增加了难度，因为在判断两个形状是否属于一个岛屿的时候，要考虑各种各样的情况，十分的复杂。这道题最大的难点也就是在于如何对同一种岛屿形状进行建模，使得其所有翻转或者对称的岛屿形状可以归属到同一类中。在之前那道&nbsp;<a href="http://www.cnblogs.com/grandyang/p/7698778.html">Number of Distinct Islands</a>&nbsp;中，由于是有平移操作，使用的 trick 是利用相对位移保持不变的特性来确定同一种同一种岛屿形状的，在这道题中显然不适用了，因为这里各种变换会破坏相对位移。那该怎么办呢？比如现在有几个长度相同的数组，是乱序的，怎么才能知道这些数组是否可以通过排序变成相同的数组，则最简单的方法就是对所有的数组进行排序，排序后若相同，则表示属于同一类，那么这个排序后的数组其实就可以代表所有同一种数组。借鉴这种思路，其实要做的就是找到一种建模方式，将所有属于同一类的岛屿形状都转为其唯一的结构，然后放到一个有去处重复功能的集合中，最后集合中元素的个数即为不同岛屿的个数。</p>
+<p>大体思路有了，再来看具体该如何实施。首先还是要找出每个单独的小岛，即找出所有相连的1，这跟之前的题目的做法相同，可以使用 DFS 或者 BFS 来找，这里先使用 DFS 来做。方法是遍历 grid 数组，当遇到为1的位置，说明遇到小岛了，对该位置调用递归函数，将和其相连的所有位置都存入到 shape 数组中。递归数组结束后，就有了该小岛所有位置的坐标，现在就要对其进行转换，或者叫 normalize，目的是变换成同一种岛屿形状的唯一表示。对于每一个坐标位置，其实总共有8种变换可能，x和y都可以分别变为相反数，且也可以同时变为相反数，再加上其本身，这就4种了。同时，上面的每一种情况都可以交换x和y的位置，这样总共就有8中变换方法，每一种情况都要考虑，所以使用8个大小相同的数组来保存各自所有的点。对于每一种形状，都对其所有的点进行排序，然后将每个点的绝对坐标变为相对坐标，即每个点都减去排序后第一个点的坐标，最后再对这8个形状排个序。这样一顿操作猛如虎之后，只要是属于同一个岛屿的形状，最后都会得到一模一样的8个形状数组，为了简单起见，只选取第一个形状形状当作这同一种岛屿的模型代表，并将其加入那个可以去重复的集合中即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> numDistinctIslands2(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> grid) {
+        </span><span style="color: #0000ff;">int</span> m = grid.size(), n = grid[<span style="color: #800080;">0</span><span style="color: #000000;">].size();
+        </span><span style="color: #0000ff;">set</span>&lt;vector&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;&gt;<span style="color: #000000;"> st;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; m; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = <span style="color: #800080;">0</span>; j &lt; n; ++<span style="color: #000000;">j) {
+                </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (grid[i][j]) {
+                    vector</span>&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;<span style="color: #000000;"> shape;
+                    helper(grid, i, j, shape);
+                    st.insert(normalize(shape));
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> st.size();
+    }
+    </span><span style="color: #0000ff;">void</span> helper(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp; grid, <span style="color: #0000ff;">int</span> x, <span style="color: #0000ff;">int</span> y, vector&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> shape) {
+        </span><span style="color: #0000ff;">if</span> (x &lt; <span style="color: #800080;">0</span> || x &gt;= grid.size() || y &lt; <span style="color: #800080;">0</span> || y &gt;= grid[<span style="color: #800080;">0</span>].size()) <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (grid[x][y] == <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        grid[x][y] </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+        shape.push_back({x, y});
+        helper(grid, x </span>+ <span style="color: #800080;">1</span><span style="color: #000000;">, y, shape);
+        helper(grid, x </span>- <span style="color: #800080;">1</span><span style="color: #000000;">, y, shape);
+        helper(grid, x, y </span>+ <span style="color: #800080;">1</span><span style="color: #000000;">, shape);
+        helper(grid, x, y </span>- <span style="color: #800080;">1</span><span style="color: #000000;">, shape);
+    }
+    vector</span>&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt; normalize(vector&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> shape) {
+        vector</span>&lt;vector&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;&gt; shapes(<span style="color: #800080;">8</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (auto &amp;<span style="color: #000000;">a : shape) {
+            </span><span style="color: #0000ff;">int</span> x = a.first, y =<span style="color: #000000;"> a.second;
+            shapes[</span><span style="color: #800080;">0</span><span style="color: #000000;">].push_back({x, y});
+            shapes[</span><span style="color: #800080;">1</span>].push_back({x, -<span style="color: #000000;">y});
+            shapes[</span><span style="color: #800080;">2</span>].push_back({-<span style="color: #000000;">x, y});
+            shapes[</span><span style="color: #800080;">3</span>].push_back({-x, -<span style="color: #000000;">y});
+            shapes[</span><span style="color: #800080;">4</span><span style="color: #000000;">].push_back({y, x});
+            shapes[</span><span style="color: #800080;">5</span>].push_back({y, -<span style="color: #000000;">x});
+            shapes[</span><span style="color: #800080;">6</span>].push_back({-<span style="color: #000000;">y, x});
+            shapes[</span><span style="color: #800080;">7</span>].push_back({-y, -<span style="color: #000000;">x});
+        }
+        </span><span style="color: #0000ff;">for</span> (auto &amp;<span style="color: #000000;">a : shapes) {
+            sort(a.begin(), a.end());
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = (<span style="color: #0000ff;">int</span>)shape.size() - <span style="color: #800080;">1</span>; i &gt;= <span style="color: #800080;">0</span>; --<span style="color: #000000;">i) {
+                a[i].first </span>-= a[<span style="color: #800080;">0</span><span style="color: #000000;">].first;
+                a[i].second </span>-= a[<span style="color: #800080;">0</span><span style="color: #000000;">].second;
+            }
+        }
+        sort(shapes.begin(), shapes.end());
+        </span><span style="color: #0000ff;">return</span> shapes[<span style="color: #800080;">0</span><span style="color: #000000;">];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种写法是 BFS 形式的，大体思路相同，就是在找每个岛屿的时候使用的是迭代的写法，找出了每个岛屿位置集合 shape 之后，进行 normalize 操作跟上面完全相同，最后还是看去重复集合中元素的个数即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> numDistinctIslands2(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> grid) {
+        </span><span style="color: #0000ff;">int</span> m = grid.size(), n = grid[<span style="color: #800080;">0</span><span style="color: #000000;">].size();
+        </span><span style="color: #0000ff;">set</span>&lt;vector&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;&gt;<span style="color: #000000;"> st;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; m; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = <span style="color: #800080;">0</span>; j &lt; n; ++<span style="color: #000000;">j) {
+                </span><span style="color: #0000ff;">if</span> (grid[i][j] == <span style="color: #800080;">0</span>) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                grid[i][j] </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+                vector</span>&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;<span style="color: #000000;"> shape{{i, j}};
+                </span><span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">while</span> (i &lt;<span style="color: #000000;"> shape.size()) {
+                    auto t </span>= shape[i++<span style="color: #000000;">];
+                    </span><span style="color: #0000ff;">int</span> x = t.first, y =<span style="color: #000000;"> t.second;
+                    </span><span style="color: #0000ff;">if</span> (x &gt; <span style="color: #800080;">0</span> &amp;&amp; grid[x - <span style="color: #800080;">1</span>][y] != <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                        grid[x </span>- <span style="color: #800080;">1</span>][y] = <span style="color: #800080;">0</span><span style="color: #000000;">;
+                        shape.push_back({x </span>- <span style="color: #800080;">1</span><span style="color: #000000;">, y});
+                    }
+                    </span><span style="color: #0000ff;">if</span> (x + <span style="color: #800080;">1</span> &lt; m &amp;&amp; grid[x + <span style="color: #800080;">1</span>][y] != <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                        grid[x </span>+ <span style="color: #800080;">1</span>][y] = <span style="color: #800080;">0</span><span style="color: #000000;">;
+                        shape.push_back({x </span>+ <span style="color: #800080;">1</span><span style="color: #000000;">, y});
+                    }
+                    </span><span style="color: #0000ff;">if</span> (y &gt; <span style="color: #800080;">0</span> &amp;&amp; grid[x][y - <span style="color: #800080;">1</span>] != <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                        grid[x][y </span>- <span style="color: #800080;">1</span>] = <span style="color: #800080;">0</span><span style="color: #000000;">;
+                        shape.push_back({x, y </span>- <span style="color: #800080;">1</span><span style="color: #000000;">});
+                    }
+                    </span><span style="color: #0000ff;">if</span> (y + <span style="color: #800080;">1</span> &lt; n &amp;&amp; grid[x][y + <span style="color: #800080;">1</span>] != <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                        grid[x][y </span>+ <span style="color: #800080;">1</span>] = <span style="color: #800080;">0</span><span style="color: #000000;">;
+                        shape.push_back({x, y </span>+ <span style="color: #800080;">1</span><span style="color: #000000;">});
+                    }
+                }
+                st.insert(normalize(shape));
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> st.size();
+    }
+    vector</span>&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt; normalize(vector&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> shape) {
+        vector</span>&lt;vector&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;&gt; shapes(<span style="color: #800080;">8</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (auto &amp;<span style="color: #000000;">a : shape) {
+            </span><span style="color: #0000ff;">int</span> x = a.first, y =<span style="color: #000000;"> a.second;
+            shapes[</span><span style="color: #800080;">0</span><span style="color: #000000;">].push_back({x, y});
+            shapes[</span><span style="color: #800080;">1</span>].push_back({x, -<span style="color: #000000;">y});
+            shapes[</span><span style="color: #800080;">2</span>].push_back({-<span style="color: #000000;">x, y});
+            shapes[</span><span style="color: #800080;">3</span>].push_back({-x, -<span style="color: #000000;">y});
+            shapes[</span><span style="color: #800080;">4</span><span style="color: #000000;">].push_back({y, x});
+            shapes[</span><span style="color: #800080;">5</span>].push_back({y, -<span style="color: #000000;">x});
+            shapes[</span><span style="color: #800080;">6</span>].push_back({-<span style="color: #000000;">y, x});
+            shapes[</span><span style="color: #800080;">7</span>].push_back({-y, -<span style="color: #000000;">x});
+        }
+        </span><span style="color: #0000ff;">for</span> (auto &amp;<span style="color: #000000;">a : shapes) {
+            sort(a.begin(), a.end());
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = (<span style="color: #0000ff;">int</span>)shape.size() - <span style="color: #800080;">1</span>; i &gt;= <span style="color: #800080;">0</span>; --<span style="color: #000000;">i) {
+                a[i].first </span>-= a[<span style="color: #800080;">0</span><span style="color: #000000;">].first;
+                a[i].second </span>-= a[<span style="color: #800080;">0</span><span style="color: #000000;">].second;
+            }
+        }
+        sort(shapes.begin(), shapes.end());
+        </span><span style="color: #0000ff;">return</span> shapes[<span style="color: #800080;">0</span><span style="color: #000000;">];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/711">https://github.com/grandyang/leetcode/issues/711</a></p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/7698778.html">Number of Distinct Islands</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/number-of-distinct-islands-ii/">https://leetcode.com/problems/number-of-distinct-islands-ii/</a></p>
+<p><a href="https://leetcode.com/problems/number-of-distinct-islands-ii/discuss/231300/C%2B%2B-BFSDFS">https://leetcode.com/problems/number-of-distinct-islands-ii/discuss/231300/C%2B%2B-BFSDFS</a></p>
+<p><a href="https://leetcode.com/problems/number-of-distinct-islands-ii/discuss/108794/Consise-C%2B%2B-solution-using-DFS-%2Bsorting-to-find-canonical-representation-for-each-island">https://leetcode.com/problems/number-of-distinct-islands-ii/discuss/108794/Consise-C%2B%2B-solution-using-DFS-%2Bsorting-to-find-canonical-representation-for-each-island</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-03-10 23:55</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8542820" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(8542820);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 8542820, cb_entryCreatedDate = '2018-03-10 23:55', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

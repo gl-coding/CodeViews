@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given a string S, find the number of different non-empty palindromic subsequences in S, and&amp;#160;ret" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 730. Count Different Palindromic Subsequences 计数不同的回文子序列的个数 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/7942040.html">[LeetCode] 730. Count Different Palindromic Subsequences 计数不同的回文子序列的个数</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given a string S, find the number of different non-empty palindromic subsequences in S, and&nbsp;return that number modulo&nbsp;<code>10^9 + 7</code>.</p>
+<p>A subsequence of a string S is obtained by deleting 0 or more characters from S.</p>
+<p>A sequence is palindromic if it is equal to the sequence reversed.</p>
+<p>Two sequences&nbsp;<code>A_1, A_2, ...</code>&nbsp;and&nbsp;<code>B_1, B_2, ...</code>&nbsp;are different if there is some&nbsp;<code>i</code>&nbsp;for which&nbsp;<code>A_i != B_i</code>.</p>
+<p>Example 1:</p>
+<pre>Input: 
+S = 'bccb'
+Output: 6
+Explanation: 
+The 6 different non-empty palindromic subsequences are 'b', 'c', 'bb', 'cc', 'bcb', 'bccb'.
+Note that 'bcb' is counted only once, even though it occurs twice.
+</pre>
+<p>&nbsp;</p>
+<p>Example 2:</p>
+<pre>Input: 
+S = 'abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba'
+Output: 104860361
+Explanation: 
+There are 3104860382 different non-empty palindromic subsequences, which is 104860361 modulo 10^9 + 7.
+</pre>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ul>
+<li>The length of&nbsp;<code>S</code>&nbsp;will be in the range&nbsp;<code>[1, 1000]</code>.</li>
+<li>Each character&nbsp;<code>S[i]</code>&nbsp;will be in the set&nbsp;<code>{'a', 'b', 'c', 'd'}</code>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>这道题给了给了我们一个字符串，让求出所有的非空回文子序列的个数，虽然这题限制了字符只有四种，但还是按一般的情况来解吧，可以有 26 个字母。说最终结果要对一个很大的数字取余，这就暗示了结果会是一个很大的值，对于这种问题一般都是用动态规划 Dynamic Programming 或者是带记忆数组 memo 的递归来解，二者的本质其实是一样的。先来看带记忆数组 memo 的递归解法，这种解法的思路是一层一层剥洋葱，比如 "bccb"，按照字母来剥，先剥字母b，确定最外层 "b _ _ b"，这会产生两个回文子序列 "b" 和 "bb"，然后递归进中间的部分，把中间的回文子序列个数算出来加到结果 res 中，中间的 "cc" 调用递归会返回2，两边都加上b，会得到 "bcb", "bccb"，此时结果 res 为4。然后开始剥字母c，找到最外层 "cc"，此时会产生两个回文子序列 "c" 和 "cc"，由于中间没有字符串了，所以递归返回0，最终结果 res 为6，按照这种方法就可以算出所有的回文子序列了。</p>
+<p>建立一个二维数组 chars，外层长度为 26，里面放一个空数组。这是为了统计每个字母在原字符串中出现的位置，然后定义一个二维记忆数组 memo，其中 memo[i][j] 表示第i个字符到第j个字符之间的子字符串中的回文子序列的个数，初始化均为0。然后遍历字符串S，将每个字符的位置加入其对应的数组中，比如对于 "bccb"，那么有：</p>
+<p>b -&gt; {0, 3}</p>
+<p>c -&gt; {1, 2}</p>
+<p>然后在 [0, n] 的范围内调用递归函数，在递归函数中，首先判断如果 start 大于等于 end，返回0。如果当前位置在 memo 的值大于0，说明当前情况已经计算过了，直接返回 memo 数组中的值。否则进行所有字母的遍历，如果某个字母对应的数组中没有值，说明该字母不曾在字符串中出现，跳过。然后在字母数组中查找第一个不小于 start 的位置，查找第一个小于 end 的位置，当前循环中，start 为0，end 为4，当前处理字母b，new_start 指向0，new_end 指向3，如果当前 new_start 指向了 end()，或者其指向的位置大于 end，说明当前范围内没有字母b，直接跳过，否则结果 res 自增1，因为此时 new_start 存在，至少有个单个的字母b，也可以当作回文子序列，然后看 new_start 和 new_end 如果不相同，说明两者各指向了不同的b，此时 res 应自增1，因为又增加了一个新的回文子序列 "bb"，下面就是对中间部分调用递归函数了，把返回值加到结果 res 中。此时字母b就处理完了，现在处理字母c，此时的 start 还是0，end 还是4，new_start 指向1，new_end 指向2，跟上面的分析相同，new_start 在范围内，结果自增1，因为加上了 "c"，然后 new_start 和 new_end 不同，结果 res 再自增1，因为加上了 "cc"，其中间没有字符了，调用递归的结果是0，for 循环结束，将 memo[start][end] 的值对超大数取余，并将该值返回即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> countPalindromicSubsequences(<span style="color: #0000ff;">string</span><span style="color: #000000;"> S) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> S.size();
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; chars(<span style="color: #800080;">26</span>, vector&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;">());
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; memo(n + <span style="color: #800080;">1</span>, vector&lt;<span style="color: #0000ff;">int</span>&gt;(n + <span style="color: #800080;">1</span>, <span style="color: #800080;">0</span><span style="color: #000000;">));
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            chars[S[i] </span>- <span style="color: #800000;">'</span><span style="color: #800000;">a</span><span style="color: #800000;">'</span><span style="color: #000000;">].push_back(i);
+        }
+        </span><span style="color: #0000ff;">return</span> helper(S, chars, <span style="color: #800080;">0</span><span style="color: #000000;">, n, memo);
+    }
+    </span><span style="color: #0000ff;">int</span> helper(<span style="color: #0000ff;">string</span> S, vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp; chars, <span style="color: #0000ff;">int</span> start, <span style="color: #0000ff;">int</span> end, vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> memo) {
+        </span><span style="color: #0000ff;">if</span> (start &gt;= end) <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (memo[start][end] &gt; <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> memo[start][end];
+        </span><span style="color: #0000ff;">long</span> res = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; <span style="color: #800080;">26</span>; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (chars[i].empty()) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+            auto new_start </span>=<span style="color: #000000;"> lower_bound(chars[i].begin(), chars[i].end(), start);
+            auto new_end </span>= lower_bound(chars[i].begin(), chars[i].end(), end) - <span style="color: #800080;">1</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">if</span> (new_start == chars[i].end() || *new_start &gt;= end) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+            </span>++<span style="color: #000000;">res;
+            </span><span style="color: #0000ff;">if</span> (new_start != new_end) ++<span style="color: #000000;">res;
+            res </span>+= helper(S, chars, *new_start + <span style="color: #800080;">1</span>, *<span style="color: #000000;">new_end, memo);
+        }
+        memo[start][end] </span>= res % <span style="color: #0000ff;">int</span>(1e9 + <span style="color: #800080;">7</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> memo[start][end];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们再来看一种迭代的写法，使用一个二维的 dp 数组，其中 dp[i][j] 表示子字符串 [i, j] 中的不同回文子序列的个数，初始化 dp[i][i] 为1，因为任意一个单个字符就是一个回文子序列，其余均为0。这里的更新顺序不是正向，也不是逆向，而是斜着更新，对于 "bccb" 的例子，其最终 dp 数组如下，可以看到其更新顺序分别是红-绿-蓝-橙。</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #ff0000;"><span style="color: #000000;">  b c c b</span><br /><span style="color: #000000;">b</span> 1</span> <span style="color: #008000;">2</span> <span style="color: #0000ff;">3</span> <span style="color: #ff9900;">6</span>
+<span style="color: #000000;">c 0</span> <span style="color: #ff0000;">1</span> <span style="color: #008000;">2</span> <span style="color: #0000ff;">3</span>
+<span style="color: #000000;">c 0</span> <span style="color: #000000;">0</span> <span style="color: #ff0000;">1</span> <span style="color: #008000;">2</span>
+<span style="color: #000000;">b 0 0 0</span> <span style="color: #ff0000;">1</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>这样更新的好处是，更新当前位置时，其左，下，和左下位置的 dp 值均已存在，而当前位置的 dp 值需要用到这三个位置的 dp 值。观察上面的 dp 数组，可以发现当 S[i] 不等于 S[j] 的时候，dp[i][j] = dp[i][j - 1] + dp[i + 1][j] - dp[i + 1][j - 1]，即当前的 dp 值等于左边值加下边值减去左下值，因为算左边值的时候包括了左下的所有情况，而算下边值的时候也包括了左下值的所有情况，那么左下值就多算了一遍，所以要减去。而当 S[i] 等于 S[j] 的时候，情况就比较复杂了，需要分情况讨论，因为不知道中间还有几个和 S[i] 相等的值。举个简单的例子，比如 "aba" 和 "aaa"，当 i = 0, j = 2 的时候，两个字符串均有 S[i] == S[j]，此时二者都新增两个子序列 "a" 和 "aa"，但是 "aba" 中间的 "b" 就可以加到结果 res 中，而 "aaa" 中的 "a" 就不能加了，因为和外层的单独 "a" 重复了。我们的目标就要找到中间重复的 "a"。所以让 left = i + 1, right = j - 1，然后对 left 进行 while 循环，如果 left &lt;= right, 且 S[left] != S[i] 的时候，left 向右移动一个；同理，对 right 进行 while 循环，如果 left &lt;= right, 且 S[right] != S[i] 的时候，left 向左移动一个。这样最终 left 和 right 值就有三种情况：</p>
+<p>1. 当 left &gt; righ 时，说明中间没有和 S[i] 相同的字母了，就是 "aba" 这种情况，那么就有 dp[i][j] = dp[i + 1][j - 1] * 2 + 2，其中 dp[i + 1][j - 1] 是中间部分的回文子序列个数，为啥要乘2呢，因为中间的所有子序列可以单独存在，也可以再外面包裹上字母a，所以是成对出现的，要乘2。加2的原因是外层的 "a" 和 "aa" 也要统计上。</p>
+<p>2. 当 left = right 时，说明中间只有一个和 S[i] 相同的字母，就是 "aaa" 这种情况，那么有 dp[i][j] = dp[i + 1][j - 1] * 2 + 1，其中乘2的部分跟上面的原因相同，加1的原因是单个字母 "a" 的情况已经在中间部分算过了，外层就只能再加上个 "aa" 了。</p>
+<p>3. 当 left &lt; right 时，说明中间至少有两个和 S[i] 相同的字母，就是 "aabaa" 这种情况，那么有 dp[i][j] = dp[i + 1][j - 1] * 2 - dp[left + 1][right - 1]，其中乘2的部分跟上面的原因相同，要减去 left 和 right 中间部分的子序列个数的原因是其被计算了两遍，要将多余的减掉。比如说对于&nbsp;&nbsp;"aabaa"，当检测到 S[0] == S[4] 时，是要根据中间的 "aba" 的回文序列个数来计算，共有四种，分别是 "a", "b", "aa", "aba"，将其分别在左右两边加上a的话，可以得到 "aaa", "aba", "aaaa", "aabaa"，我们发现 "aba" 出现了两次了，这就是要将 dp[2][2] (left = 1, right = 3) 减去的原因。</p>
+<p>参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> countPalindromicSubsequences(<span style="color: #0000ff;">string</span><span style="color: #000000;"> S) {
+        </span><span style="color: #0000ff;">int</span> n = S.size(), M = 1e9 + <span style="color: #800080;">7</span><span style="color: #000000;">;
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; dp(n, vector&lt;<span style="color: #0000ff;">int</span>&gt;(n, <span style="color: #800080;">0</span><span style="color: #000000;">));
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++i) dp[i][i] = <span style="color: #800080;">1</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> len = <span style="color: #800080;">1</span>; len &lt; n; ++<span style="color: #000000;">len) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n - len; ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">int</span> j = i +<span style="color: #000000;"> len;
+                </span><span style="color: #0000ff;">if</span> (S[i] ==<span style="color: #000000;"> S[j]) {
+                    </span><span style="color: #0000ff;">int</span> left = i + <span style="color: #800080;">1</span>, right = j - <span style="color: #800080;">1</span><span style="color: #000000;">;
+                    </span><span style="color: #0000ff;">while</span> (left &lt;= right &amp;&amp; S[left] != S[i]) ++<span style="color: #000000;">left;
+                    </span><span style="color: #0000ff;">while</span> (left &lt;= right &amp;&amp; S[right] != S[i]) --<span style="color: #000000;">right;
+                    </span><span style="color: #0000ff;">if</span> (left &gt;<span style="color: #000000;"> right) {
+                        dp[i][j] </span>= dp[i + <span style="color: #800080;">1</span>][j - <span style="color: #800080;">1</span>] * <span style="color: #800080;">2</span> + <span style="color: #800080;">2</span><span style="color: #000000;">;
+                    } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (left ==<span style="color: #000000;"> right) {
+                        dp[i][j] </span>= dp[i + <span style="color: #800080;">1</span>][j - <span style="color: #800080;">1</span>] * <span style="color: #800080;">2</span> + <span style="color: #800080;">1</span><span style="color: #000000;">;
+                    } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                        dp[i][j] </span>= dp[i + <span style="color: #800080;">1</span>][j - <span style="color: #800080;">1</span>] * <span style="color: #800080;">2</span> - dp[left + <span style="color: #800080;">1</span>][right - <span style="color: #800080;">1</span><span style="color: #000000;">];
+                    }
+                } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                    dp[i][j] </span>= dp[i][j - <span style="color: #800080;">1</span>] + dp[i + <span style="color: #800080;">1</span>][j] - dp[i + <span style="color: #800080;">1</span>][j - <span style="color: #800080;">1</span><span style="color: #000000;">];
+                }
+                dp[i][j] </span>= (dp[i][j] &lt; <span style="color: #800080;">0</span>) ? dp[i][j] + M : dp[i][j] %<span style="color: #000000;"> M;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> dp[<span style="color: #800080;">0</span>][n - <span style="color: #800080;">1</span><span style="color: #000000;">];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>讨论：这道题确实是一道很难的题，和它类似的题目还有几道，虽然那些题有的还有非 DP 解法，但是 DP 解法始终是核心的，也是我们最应该掌握的方法。首先要分清子串和子序列的题，个人感觉子序列要更难一些。在之前那道&nbsp;<a href="http://www.cnblogs.com/grandyang/p/6493182.html">Longest Palindromic Subsequence</a>&nbsp;中要求最长的回文子序列，需要逆向遍历 dp 数组，当 s[i] 和 s[j] 相同时，长度为中间部分的 dp 值加2，否则就是左边值和下边值中的较大值，因为是子序列，不匹配就可以忽略当前字符。而对于回文子串的问题，比如&nbsp;<a href="http://www.cnblogs.com/grandyang/p/4464476.html" target="_blank">Longest Palindromic Substring</a>&nbsp;和&nbsp;<a href="http://www.cnblogs.com/grandyang/p/7404777.html">Palindromic Substrings</a>，一个是求最长的回文子串，一个是求所有的回文子串个数，他们的 dp 定义是看子串 [i, j] 是否是回文串，求最长回文子串就是维护一个最大值，不停用当前回文子串的长度更新这个最大值，同时更新最大值的左右边界。而求所有回文子串的个数就是如果当前 dp[i][j] 判断是回文串，计数器就自增1。而判断当前 dp[i][j] 是否是回文串的核心就是 s[i]==s[j]，且 i，j 中间没有字符了，或者中间的 dp 值为 true。</p>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/730">https://github.com/grandyang/leetcode/issues/730</a></p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/6493182.html">Longest Palindromic Subsequence</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4464476.html" target="_blank">Longest Palindromic Substring</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/7404777.html">Palindromic Substrings</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/count-different-palindromic-subsequences/">https://leetcode.com/problems/count-different-palindromic-subsequences/</a></p>
+<p><a href="https://leetcode.com/problems/count-different-palindromic-subsequences/discuss/109509/Accepted-Java-Solution-using-memoization">https://leetcode.com/problems/count-different-palindromic-subsequences/discuss/109509/Accepted-Java-Solution-using-memoization</a></p>
+<p><a href="https://leetcode.com/problems/count-different-palindromic-subsequences/discuss/109507/Java-96ms-DP-Solution-with-Detailed-Explanation">https://leetcode.com/problems/count-different-palindromic-subsequences/discuss/109507/Java-96ms-DP-Solution-with-Detailed-Explanation</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2017-12-01 14:13</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=7942040" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(7942040);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 7942040, cb_entryCreatedDate = '2017-12-01 14:13', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

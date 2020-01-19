@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given an array with n integers, you need to find if there are triplets (i, j, k) which satisfies fol" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Split Array with Equal Sum 分割数组成和相同的子数组 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/6854492.html">[LeetCode] Split Array with Equal Sum 分割数组成和相同的子数组</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given an array with n integers, you need to find if there are triplets (i, j, k) which satisfies following conditions:</p>
+<ol>
+<li>0 &lt; i, i + 1 &lt; j, j + 1 &lt; k &lt; n - 1</li>
+<li>Sum of subarrays (0, i - 1), (i + 1, j - 1), (j + 1, k - 1) and (k + 1, n - 1) should be equal.</li>
+</ol>
+<p>where we define that subarray (L, R) represents a slice of the original array starting from the element indexed L to the element indexed R.</p>
+<p><strong>Example:</strong><br />
+</p>
+<pre><strong>Input:</strong> [1,2,1,2,1,2,1]
+<strong>Output:</strong> True
+<strong>Explanation:</strong>
+i = 1, j = 3, k = 5. 
+sum(0, i - 1) = sum(0, 0) = 1
+sum(i + 1, j - 1) = sum(2, 2) = 1
+sum(j + 1, k - 1) = sum(4, 4) = 1
+sum(k + 1, n - 1) = sum(6, 6) = 1
+</pre>
+<p><strong>Note:</strong></p>
+<ol>
+<li>1 &lt;= n &lt;= 2000.</li>
+<li>Elements in the given array will be in range [-1,000,000, 1,000,000].</li>
+</ol>
+<div>&nbsp;</div>
+<div>这道题给了我们一个数组，让我们找出三个位置，使得数组被分为四段，使得每段之和相等，问存不存在这样的三个位置，注意三个位置上的数字不属于任何一段。刚开始博主觉得这题貌似跟之前那道&nbsp;<a href="http://www.cnblogs.com/grandyang/p/5951422.html">Partition Equal Subset Sum</a>&nbsp;很像，所以在想能不能用DP来做，可是想了半天不知道DP该如何定义，更别说推导状态转移方程了。于是就尝试了建立累加和数组，并搜索所有的可能组合，进行暴力破解，结果却TLE了。说明OJ不接受时间复杂度为三次方的解法，那么就要想办法来优化了，博主只好上网学习大神们的解法，发现大神们的解法果然巧妙，只是改变了一个查找顺序，就轻易的将时间复杂度降到了平方级，碉堡了有木有。思路是这样的，因为我们需要找三个位置i，j，k，如果我们按正常的顺序来暴力搜索，那么就会遍历所有的情况，其实大部分的情况都是不符合题意的，会有大量的无用的运算。而如果我们换一个角度，先搜索j的位置，那么i和k的位置就可以固定在一个小的范围内了，而且可以在j的循环里面同时进行，这样就少嵌套了一个循环，所以时间复杂度会降一维度。确定j的范围应该左右各留3个数字，因为四段均不能为空，而且分割位上的数字不能算入四段。再确定了j的位置后，i和k的位置就能分别确定了，我们要做的是先遍历i的所有可能位置，然后遍历所有的拆分情况，如果拆出的两段和相等，则把这个相等的值加入一个集合中，然后再遍历k的所有情况，同样遍历所有的拆分情况，如果拆出两段和相等，再看这个相等的和是否在集合中，如果存在，说明拆出的四段和都可以相同，那么返回true即可，否则当遍历结束了，返回false。唉，为啥自己就想不到呢，估计这就是和大神的差距吧，泪目中。。</div>
+<div>&nbsp;</div>
+<div>解法一：</div>
+<div>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> splitArray(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> nums) {
+        </span><span style="color: #0000ff;">if</span> (nums.size() &lt; <span style="color: #800080;">7</span>) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> nums.size();
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; sums =<span style="color: #000000;"> nums;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            sums[i] </span>= sums[i - <span style="color: #800080;">1</span>] +<span style="color: #000000;"> nums[i];
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = <span style="color: #800080;">3</span>; j &lt; n - <span style="color: #800080;">3</span>; ++<span style="color: #000000;">j) {
+            unordered_set</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> s;
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt; j - <span style="color: #800080;">1</span>; ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">if</span> (sums[i - <span style="color: #800080;">1</span>] == (sums[j - <span style="color: #800080;">1</span>] -<span style="color: #000000;"> sums[i])) {
+                    s.insert(sums[i </span>- <span style="color: #800080;">1</span><span style="color: #000000;">]);
+                }
+            }
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = j + <span style="color: #800080;">1</span>; k &lt; n - <span style="color: #800080;">1</span>; ++<span style="color: #000000;">k) {
+                </span><span style="color: #0000ff;">int</span> s3 = sums[k - <span style="color: #800080;">1</span>] - sums[j], s4 = sums[n - <span style="color: #800080;">1</span>] -<span style="color: #000000;"> sums[k];
+                </span><span style="color: #0000ff;">if</span> (s3 == s4 &amp;&amp; s.count(s3)) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种解法是递归的暴力破解写法，刚开始博主还纳闷了，为啥博主之前写的迭代形式的暴力破解过不了OJ，而这个递归版本的确能通过呢，仔细研究了一下，发现这种解法有两个地方做了优化。第一个优化是在for循环里面，如果i不等于1，且当前数字和之前数字均为0，那么跳过这个位置，因为加上0也不会对target有任何影响，那为什么要加上i不等于1的判断呢，因为输入数组如果是七个0，那么实际上应该返回true的，而如果没有i != 1这个条件限制，后面的代码均不会得到执行，那么就直接返回false了，是不对的。第二个优化的地方是在递归函数里面，只有当curSum等于target了，才进一步调用递归函数，这样就相当于做了剪枝处理，减少了大量的不必要的运算，这可能就是其可以通过OJ的原因吧。</p>
+<p>再来说下子函数for循环的终止条件 i &lt; n - 5 + 2*cnt 是怎么得来的，是的，这块的确是个优化，因为i的位置是题目中三个分割点i，j，k的位置，所以其分别有自己可以取值的范围，由于只有三个分割点，所以cnt的取值可以是0，1，2。<br />-&gt; 当cnt=0时，说明是第一个分割点，那么i &lt; n - 5，表示后面必须最少要留5个数字，因为分割点本身的数字不记入子数组之和，那么所留的五个数字为：数字，第二个分割点，数字，第三个分割点，数字。<br />-&gt; 当cnt=1时，说明是第二个分割点，那么i &lt; n - 3，表示后面必须最少要留3个数字，因为分割点本身的数字不记入子数组之和，那么所留的三个数字为：数字，第三个分割点，数字。<br />-&gt; 当cnt=2时，说明是第三个分割点，那么i &lt; n - 1，表示后面必须最少要留1个数字，因为分割点本身的数字不记入子数组之和，那么所留的一个数字为：数字。</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> splitArray(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> nums) {
+        </span><span style="color: #0000ff;">if</span> (nums.size() &lt; <span style="color: #800080;">7</span>) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> n = nums.size(), target = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> sum = accumulate(nums.begin(), nums.end(), <span style="color: #800080;">0</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt; n - <span style="color: #800080;">5</span>; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (i != <span style="color: #800080;">1</span> &amp;&amp; nums[i] == <span style="color: #800080;">0</span> &amp;&amp; nums[i - <span style="color: #800080;">1</span>] == <span style="color: #800080;">0</span>) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+            target </span>+= nums[i - <span style="color: #800080;">1</span><span style="color: #000000;">];
+            </span><span style="color: #0000ff;">if</span> (helper(nums, target, sum - target - nums[i], i + <span style="color: #800080;">1</span>, <span style="color: #800080;">1</span><span style="color: #000000;">)) {
+                </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">bool</span> helper(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; nums, <span style="color: #0000ff;">int</span> target, <span style="color: #0000ff;">int</span> sum, <span style="color: #0000ff;">int</span> start, <span style="color: #0000ff;">int</span><span style="color: #000000;"> cnt) {
+        </span><span style="color: #0000ff;">if</span> (cnt == <span style="color: #800080;">3</span>) <span style="color: #0000ff;">return</span> sum ==<span style="color: #000000;"> target;
+        </span><span style="color: #0000ff;">int</span> curSum = <span style="color: #800080;">0</span>, n =<span style="color: #000000;"> nums.size();
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = start + <span style="color: #800080;">1</span>; i &lt; n - <span style="color: #800080;">5</span> + <span style="color: #800080;">2</span> * cnt; ++<span style="color: #000000;">i) {
+            curSum </span>+= nums[i - <span style="color: #800080;">1</span><span style="color: #000000;">];
+            </span><span style="color: #0000ff;">if</span> (curSum == target &amp;&amp; helper(nums, target, sum - curSum - nums[i], i + <span style="color: #800080;">1</span>, cnt + <span style="color: #800080;">1</span><span style="color: #000000;">)) {
+                </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>基于上面递归的优化方法的启发，博主将两个优化方法加到了之前写的迭代的暴力破解解法上，就能通过OJ了，perfect!</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> splitArray(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> nums) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> nums.size();
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; sums =<span style="color: #000000;"> nums;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            sums[i] </span>= sums[i - <span style="color: #800080;">1</span>] +<span style="color: #000000;"> nums[i];
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt;= n - <span style="color: #800080;">5</span>; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (i != <span style="color: #800080;">1</span> &amp;&amp; nums[i] == <span style="color: #800080;">0</span> &amp;&amp; nums[i - <span style="color: #800080;">1</span>] == <span style="color: #800080;">0</span>) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = i + <span style="color: #800080;">2</span>; j &lt;= n - <span style="color: #800080;">3</span>; ++<span style="color: #000000;">j) {
+                </span><span style="color: #0000ff;">if</span> (sums[i - <span style="color: #800080;">1</span>] != (sums[j - <span style="color: #800080;">1</span>] - sums[i])) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = j + <span style="color: #800080;">2</span>; k &lt;= n - <span style="color: #800080;">1</span>; ++<span style="color: #000000;">k) {
+                    </span><span style="color: #0000ff;">int</span> sum3 = sums[k - <span style="color: #800080;">1</span>] -<span style="color: #000000;"> sums[j];
+                    </span><span style="color: #0000ff;">int</span> sum4 = sums[n - <span style="color: #800080;">1</span>] -<span style="color: #000000;"> sums[k];
+                    </span><span style="color: #0000ff;">if</span> (sum3 == sum4 &amp;&amp; sum3 == sums[i - <span style="color: #800080;">1</span><span style="color: #000000;">]) {
+                        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+                    }
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/split-array-with-equal-sum/" target="_blank">https://leetcode.com/problems/split-array-with-equal-sum/</a></p>
+<p><a href="https://leetcode.com/problems/split-array-with-equal-sum/discuss/101484/java-solution-dfs" target="_blank">https://leetcode.com/problems/split-array-with-equal-sum/discuss/101484/java-solution-dfs</a></p>
+<p><a href="https://leetcode.com/problems/split-array-with-equal-sum/discuss/101481/simple-java-solution-on2" target="_blank">https://leetcode.com/problems/split-array-with-equal-sum/discuss/101481/simple-java-solution-on2</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2017-05-14 23:43</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=6854492" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(6854492);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 6854492, cb_entryCreatedDate = '2017-05-14 23:43', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

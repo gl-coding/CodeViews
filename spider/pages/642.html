@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Design a search autocomplete system for a search engine. Users may input a sentence (at least one wo" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 642. Design Search Autocomplete System 设计搜索自动补全系统 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/7897166.html">[LeetCode] 642. Design Search Autocomplete System 设计搜索自动补全系统</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Design a search autocomplete system for a search engine. Users may input a sentence (at least one word and end with a special character&nbsp;<code>'#'</code>). For&nbsp;each character&nbsp;they type&nbsp;except '#', you need to return the&nbsp;top 3historical hot sentences that have prefix the same as the part of sentence already typed. Here are the specific rules:</p>
+<ol>
+<li>The hot degree for a sentence is defined as the number of times a user typed the exactly same sentence before.</li>
+<li>The returned top 3 hot sentences should be sorted by hot degree (The first is the hottest one). If several sentences have the same degree of hot, you need to use ASCII-code order (smaller one appears first).</li>
+<li>If less than 3 hot sentences exist, then just return as many as you can.</li>
+<li>When the input is a special character, it means the sentence ends, and in this case, you need to return an empty list.</li>
+</ol>
+<p>Your job is to implement the following functions:</p>
+<p>The constructor function:</p>
+<p><code>AutocompleteSystem(String[] sentences, int[] times):</code>&nbsp;This is the constructor. The input is&nbsp;historical data.&nbsp;<code>Sentences</code>&nbsp;is a string array consists of previously typed sentences.&nbsp;<code>Times</code>&nbsp;is the corresponding times a sentence has been typed. Your system should record these historical data.</p>
+<p>Now, the user wants to input a new sentence. The following function will provide the next character the user types:</p>
+<p><code>List&lt;String&gt; input(char c):</code>&nbsp;The input&nbsp;<code>c</code>&nbsp;is the next character typed by the user. The character will only be lower-case letters (<code>'a'</code>&nbsp;to&nbsp;<code>'z'</code>), blank space (<code>' '</code>) or a special character (<code>'#'</code>). Also, the previously typed sentence should be recorded in your system. The output will be the&nbsp;top 3&nbsp;historical hot sentences that have prefix the same as the part of sentence already typed.</p>
+<p>&nbsp;</p>
+<p>Example:<br />Operation:&nbsp;AutocompleteSystem(["i love you", "island","ironman", "i love leetcode"], [5,3,2,2])&nbsp;<br />The system have already tracked down the following sentences and their corresponding times:&nbsp;<br /><code>"i love you"</code>&nbsp;:&nbsp;<code>5</code>&nbsp;times&nbsp;<br /><code>"island"</code>&nbsp;:&nbsp;<code>3</code>&nbsp;times&nbsp;<br /><code>"ironman"</code>&nbsp;:&nbsp;<code>2</code>&nbsp;times&nbsp;<br /><code>"i love leetcode"</code>&nbsp;:&nbsp;<code>2</code>&nbsp;times&nbsp;<br />Now, the user begins another search:&nbsp;<br /><br />Operation:&nbsp;input('i')&nbsp;<br />Output:&nbsp;["i love you", "island","i love leetcode"]&nbsp;<br />Explanation:&nbsp;<br />There are four sentences that have prefix&nbsp;<code>"i"</code>. Among them, "ironman" and "i love leetcode" have same hot degree. Since&nbsp;<code>' '</code>&nbsp;has ASCII code 32 and&nbsp;<code>'r'</code>&nbsp;has ASCII code 114, "i love leetcode" should be in front of "ironman". Also we only need to output top 3 hot sentences, so "ironman" will be ignored.&nbsp;<br /><br />Operation:&nbsp;input(' ')&nbsp;<br />Output:&nbsp;["i love you","i love leetcode"]&nbsp;<br />Explanation:&nbsp;<br />There are only two sentences that have prefix&nbsp;<code>"i "</code>.&nbsp;<br /><br />Operation:&nbsp;input('a')&nbsp;<br />Output:&nbsp;[]&nbsp;<br />Explanation:&nbsp;<br />There are no sentences that have prefix&nbsp;<code>"i a"</code>.&nbsp;<br /><br />Operation:&nbsp;input('#')&nbsp;<br />Output:&nbsp;[]&nbsp;<br />Explanation:&nbsp;<br />The user finished the input, the sentence&nbsp;<code>"i a"</code>&nbsp;should be saved as a historical sentence in system. And the following input will be counted as a new search.&nbsp;</p>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ol><ol>
+<li>The input sentence will always start with a letter and end with '#', and only one blank space will exist between two words.</li>
+<li>The number of&nbsp;complete sentences&nbsp;that to be searched won't exceed 100. The length of each sentence including those in the historical data won't exceed 100.</li>
+<li>Please use double-quote instead of single-quote when you write test cases even for a character input.</li>
+<li>Please remember to&nbsp;RESET&nbsp;your class variables declared in class AutocompleteSystem, as static/class variables are&nbsp;persisted across multiple test cases. Please see&nbsp;<a href="https://leetcode.com/faq/#different-output">here</a>&nbsp;for more details.</li>
+
+
+
+
+
+</ol></ol>
+<p>&nbsp;</p>
+<p>这道题让实现一个简单的搜索自动补全系统，当我们用谷歌或者百度进行搜索时，会有这样的体验，输入些单词，搜索框会弹出一些以你输入为开头的一些完整的句子供你选择，这就是一种搜索自动补全系统。根据题目的要求，补全的句子是按之前出现的频率排列的，高频率的出现在最上面，如果频率相同，就按字母顺序来显示。输入规则是每次输入一个字符，然后返回自动补全的句子，如果遇到井字符，表示完整句子结束。那么肯定需要一个 HashMap，建立句子和其出现频率的映射，还需要一个字符串 data，用来保存之前输入过的字符。在构造函数中，给了一些句子，和其出现的次数，直接将其加入 HashMap，然后 data 初始化为空字符串。在 input 函数中，首先判读输入字符是否为井字符，如果是的话，那么表明当前的 data 字符串已经是一个完整的句子，在 HashMap 中次数加1，并且 data 清空，返回空集。否则的话将当前字符加入 data 字符串中，现在就要找出包含 data 前缀的前三高频句子了，使用优先队列来做，设计的思路是，始终用优先队列保存频率最高的三个句子，应该把频率低的或者是字母顺序大的放在队首，以便随时可以移出队列，所以应该是个最小堆，队列里放句子和其出现频率的 pair 对儿，并且根据其频率大小进行排序，要重写优先队列的 comparator。然后遍历 HashMap 中的所有句子，首先要验证当前 data 字符串是否是其前缀，没啥好的方法，就逐个字符比较，用标识符 matched，初始化为 true，如果发现不匹配，则 matched 标记为 false，并 break 掉。然后判断如果 matched 为 true 的话，说明 data 字符串是前缀，那么就把这个 pair 加入优先队列中，如果此时队列中的元素大于三个，那把队首元素移除，因为是最小堆，所以频率小的句子会被先移除。然后就是将优先队列的元素加到结果 res 中，由于先出队列的是频率小的句子，所以要加到结果 res 的末尾，参见代码如下：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> AutocompleteSystem {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    AutocompleteSystem(vector</span>&lt;<span style="color: #0000ff;">string</span>&gt; sentences, vector&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> times) {
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; sentences.size(); ++<span style="color: #000000;">i) {
+            freq[sentences[i]] </span>+=<span style="color: #000000;"> times[i]; 
+        }
+        data </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+    }    
+    vector</span>&lt;<span style="color: #0000ff;">string</span>&gt; input(<span style="color: #0000ff;">char</span><span style="color: #000000;"> c) {
+        </span><span style="color: #0000ff;">if</span> (c == <span style="color: #800000;">'</span><span style="color: #800000;">#</span><span style="color: #800000;">'</span><span style="color: #000000;">) {
+            </span>++<span style="color: #000000;">freq[data];
+            data </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> {};
+        }
+        data.push_back(c);
+        auto cmp </span>= [](pair&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">int</span>&gt;&amp; a, pair&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> b) {
+            </span><span style="color: #0000ff;">return</span> a.second &gt; b.second || (a.second == b.second &amp;&amp; a.first &lt;<span style="color: #000000;"> b.first);
+        };
+        priority_queue</span>&lt;pair&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">int</span>&gt;, vector&lt;pair&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">int</span>&gt;&gt;, decltype(cmp) &gt;<span style="color: #000000;"> q(cmp);
+        </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (auto f : freq) {
+            </span><span style="color: #0000ff;">bool</span> matched = <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; data.size(); ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">if</span> (data[i] !=<span style="color: #000000;"> f.first[i]) {
+                    matched </span>= <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                }
+            }
+            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (matched) {
+                q.push(f);
+                </span><span style="color: #0000ff;">if</span> (q.size() &gt; <span style="color: #800080;">3</span><span style="color: #000000;">) q.pop();
+            }
+        }
+        vector</span>&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;"> res(q.size());
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = q.size() - <span style="color: #800080;">1</span>; i &gt;= <span style="color: #800080;">0</span>; --<span style="color: #000000;">i) {
+            res[i] </span>=<span style="color: #000000;"> q.top().first; q.pop();
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+    
+</span><span style="color: #0000ff;">private</span><span style="color: #000000;">:
+    unordered_map</span>&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> freq;
+    </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> data;
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/642">https://github.com/grandyang/leetcode/issues/642</a></p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4491665.html" target="_blank">Implement Trie (Prefix Tree)</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/7689927.html">Top K Frequent Words</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/design-search-autocomplete-system/">https://leetcode.com/problems/design-search-autocomplete-system/</a></p>
+<p><a href="https://leetcode.com/problems/design-search-autocomplete-system/discuss/176550/Java-simple-solution-without-using-Trie-(only-use-HashMap-and-PriorityQueue)">https://leetcode.com/problems/design-search-autocomplete-system/discuss/176550/Java-simple-solution-without-using-Trie-(only-use-HashMap-and-PriorityQueue)</a></p>
+<p><a href="https://leetcode.com/problems/design-search-autocomplete-system/discuss/105379/Straight-forward-hash-table-%2B-priority-queue-solution-in-c%2B%2B-no-trie">https://leetcode.com/problems/design-search-autocomplete-system/discuss/105379/Straight-forward-hash-table-%2B-priority-queue-solution-in-c%2B%2B-no-trie</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2017-11-25 23:56</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=7897166" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(7897166);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 7897166, cb_entryCreatedDate = '2017-11-25 23:56', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given a set of&amp;#160;N&amp;#160;people (numbered&amp;#160;1, 2, ..., N), we would like to split everyone into" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 886. Possible Bipartition 可能的二分图 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/10317141.html">[LeetCode] 886. Possible Bipartition 可能的二分图</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <div>&nbsp;</div>
+<div>
+<p>Given a set of&nbsp;<code>N</code>&nbsp;people (numbered&nbsp;<code>1, 2, ..., N</code>), we would like to split everyone into two groups of&nbsp;any&nbsp;size.</p>
+<p>Each person may dislike some other people, and they should not go into the same group.&nbsp;</p>
+<p>Formally, if&nbsp;<code>dislikes[i] = [a, b]</code>, it means it is not allowed to put the people numbered&nbsp;<code>a</code>&nbsp;and&nbsp;<code>b</code>&nbsp;into the same group.</p>
+<p>Return&nbsp;<code>true</code>&nbsp;if and only if it is possible to split everyone into two groups in this way.</p>
+<p>&nbsp;&nbsp;</p>
+<div>
+<p>Example 1:</p>
+<pre>Input: N = <span id="example-input-1-1">4, dislikes = <span id="example-input-1-2">[[1,2],[1,3],[2,4]]
+Output: <span id="example-output-1">true
+Explanation: group1 [1,4], group2 [2,3]
+</span></span></span></pre>
+<div>
+<p>Example 2:</p>
+<pre>Input: N = <span id="example-input-2-1">3, dislikes = <span id="example-input-2-2">[[1,2],[1,3],[2,3]]
+Output: <span id="example-output-2">false
+</span></span></span></pre>
+<div>
+<p>Example 3:</p>
+<pre>Input: N = <span id="example-input-3-1">5, dislikes = <span id="example-input-3-2">[[1,2],[2,3],[3,4],[4,5],[1,5]]
+Output: <span id="example-output-3">false
+</span></span></span></pre>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ol>
+<li><code>1 &lt;= N &lt;= 2000</code></li>
+<li><code>0 &lt;= dislikes.length &lt;= 10000</code></li>
+<li><code>1 &lt;= dislikes[i][j] &lt;= N</code></li>
+<li><code>dislikes[i][0] &lt; dislikes[i][1]</code></li>
+<li>There does not exist&nbsp;<code>i != j</code>&nbsp;for which&nbsp;<code>dislikes[i] == dislikes[j]</code>.</li>
+</ol>
+<p>&nbsp;</p>
+<div>这道题又是关于二分图的题，第一次接触的时候是 <a href="http://www.cnblogs.com/grandyang/p/8519566.html">Is Graph Bipartite?</a>，那道题给的是建好的邻接链表（虽然是用数组实现的），但是本质上和这道题是一样的，同一条边上的两点是不能在同一个集合中的，那么这就相当于本题中的 dislike 的关系，也可以把每个 dislike 看作是一条边，那么两端的两个人不能在同一个集合中。看透了题目的本质后，就不难做了，跟之前的题相比，这里唯一不同的就是邻接链表没有给我们建好，需要自己去建。不管是建邻接链表，还是邻接矩阵都行，反正是要先把图建起来才能遍历。那么这里我们先建立一个邻接矩阵好了，建一个大小为 (N+1) x (N+1) 的二维数组g，其中若 g[i][j] 为1，说明i和j互相不鸟。那么先根据 dislikes 的情况，把二维数组先赋上值，注意这里 g[i][j] 和 g[j][i] 都要更新，因为是互相不鸟，而并不是某一方热脸贴冷屁股。下面就要开始遍历了，还是使用染色法，使用一个一维的 colors 数组，大小为 N+1，初始化是0，由于只有两组，可以用1和 -1 来区分。那么开始遍历图中的结点，对于每个遍历到的结点，如果其还未被染色，还是一张白纸的时候，调用递归函数对其用颜色1进行尝试染色。在递归函数中，现将该结点染色，然后就要遍历所有跟其合不来的人，这里就发现邻接矩阵的好处了吧，不然每次还得遍历 dislikes 数组。由于这里是邻接矩阵，所以只有在其值为1的时候才处理，当找到一个跟其合不来的人，首先检测其染色情况，如果此时两个人颜色相同了，说明已经在一个组里了，这就矛盾了，直接返回 false。如果那个人还是白纸一张，我们尝试用相反的颜色去染他，如果无法成功染色，则返回 false。循环顺序退出后，返回 true，参见代码如下：</div>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> possibleBipartition(<span style="color: #0000ff;">int</span> N, vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> dislikes) {
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; g(N + <span style="color: #800080;">1</span>, vector&lt;<span style="color: #0000ff;">int</span>&gt;(N + <span style="color: #800080;">1</span><span style="color: #000000;">));
+        </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (auto dislike : dislikes) {
+            g[dislike[</span><span style="color: #800080;">0</span>]][dislike[<span style="color: #800080;">1</span>]] = <span style="color: #800080;">1</span><span style="color: #000000;">;
+            g[dislike[</span><span style="color: #800080;">1</span>]][dislike[<span style="color: #800080;">0</span>]] = <span style="color: #800080;">1</span><span style="color: #000000;">;
+        }
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; colors(N + <span style="color: #800080;">1</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt;= N; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (colors[i] == <span style="color: #800080;">0</span> &amp;&amp; !helper(g, i, <span style="color: #800080;">1</span>, colors)) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">bool</span> helper(vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp; g, <span style="color: #0000ff;">int</span> cur, <span style="color: #0000ff;">int</span> color, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> colors) {
+        colors[cur] </span>=<span style="color: #000000;"> color;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; g.size(); ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (g[cur][i] == <span style="color: #800080;">1</span><span style="color: #000000;">) {
+                </span><span style="color: #0000ff;">if</span> (colors[i] == color) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">if</span> (colors[i] == <span style="color: #800080;">0</span> &amp;&amp; !helper(g, i, -color, colors)) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<div>我们还可以用迭代的写法，不实用递归函数，但是整个思路还是完全一样的。这里建立邻接链表，比邻接矩阵能省一些空间，只把跟其相邻的结点存入对应的数组内。还是要建立一个一维 colors 数组，并开始遍历结点，若某个结点已经染过色了，跳过，否则就先给其染为1。然后借助 queue 来进行 BFS 遍历，现将当前结点排入队列，然后开始循环队列，取出队首结点，然后遍历其所有相邻结点，如果两个颜色相同，直接返回 false，否则若其为白纸，则赋相反颜色，并且排入队列。最终若顺序完成遍历，返回true，参见代码如下：</div>
+<p>&nbsp;</p>
+<div>解法二：</div>
+<div>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> possibleBipartition(<span style="color: #0000ff;">int</span> N, vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> dislikes) {
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; g(N + <span style="color: #800080;">1</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (auto dislike : dislikes) {
+            g[dislike[</span><span style="color: #800080;">0</span>]].push_back(dislike[<span style="color: #800080;">1</span><span style="color: #000000;">]);
+            g[dislike[</span><span style="color: #800080;">1</span>]].push_back(dislike[<span style="color: #800080;">0</span><span style="color: #000000;">]);
+        }
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; colors(N + <span style="color: #800080;">1</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt;= N; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (colors[i] != <span style="color: #800080;">0</span>) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+            colors[i] </span>= <span style="color: #800080;">1</span><span style="color: #000000;">;
+            queue</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> q{{i}};
+            </span><span style="color: #0000ff;">while</span> (!<span style="color: #000000;">q.empty()) {
+                </span><span style="color: #0000ff;">int</span> t =<span style="color: #000000;"> q.front(); q.pop();
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span><span style="color: #000000;"> cur : g[t]) {
+                    </span><span style="color: #0000ff;">if</span> (colors[cur] == colors[t]) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+                    </span><span style="color: #0000ff;">if</span> (colors[cur] == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                        colors[cur] </span>= -<span style="color: #000000;">colors[t];
+                        q.push(cur);
+                    }
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<div>其实这道题还可以使用并查集 Union Find 来做，所谓的并查集，简单来说，就是归类，将同一集合的元素放在一起。那么如何在能验证两个元素是否属于同一个集合呢，这里就要使用一个 root 数组（有时候是使用 HashMap），如果两个元素是同一个组的话，那么最终调用find函数返回的值应该是相同的，可以理解为老祖宗相同就是同一个组，两个点的 root 值不同，也可能是同一个组，因为 find 函数的运作机制是一直追根溯源到最原始的值。可以看到，这里博主的 find() 函数写的是递归形式，一行搞定碉堡了，当然也有 while 循环式的迭代写法。好，回过头来继续说这道题，这里还是首先建图，这里建立邻接链表，跟上面的使用二维数组的方法不同，这里使用来 HashMap，更加的节省空间。现在不需要用 colors 数组了，而是要使用并查集需要的 root 数组，给每个点都初始化为不同的值，因为在初始时将每个点都看作一个不同的组。然后开始遍历所有结点，若当前结点没有邻接结点，直接跳过。否则就要开始进行处理了，并查集方法的核心就两步，合并跟查询。我们首先进行查询操作，对当前结点和其第一个邻接结点分别调用find函数，如果其返回值相同，则意味着其属于同一个集合了，这是不合题意的，直接返回 false。否则继续遍历其他的邻接结点，对于每一个新的邻接结点，都调用 find() 函数，还是判断若返回值跟原结点的相同，return false。否则就要进行合并操作了，根据敌人的敌人就是朋友的原则，所有的邻接结点之间应该属于同一个组，因为就两个组，我所有不爽的人都不能跟我在一个组，那么他们所有人只能都在另一个组，所以需要将他们都合并起来，合并的时候不管是用 root[parent] = y 还是 root[g[i][j]] = y 都是可以，因为不管直接跟某个结点合并，或者跟其祖宗合并，最终经过 find() 函数追踪溯源都会返回相同的值，参见代码如下：</div>
+<p>&nbsp;</p>
+<div>解法三：</div>
+</div>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> possibleBipartition(<span style="color: #0000ff;">int</span> N, vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> dislikes) {
+        unordered_map</span>&lt;<span style="color: #0000ff;">int</span>, vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;<span style="color: #000000;"> g;
+        </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (auto dislike : dislikes) {
+            g[dislike[</span><span style="color: #800080;">0</span>]].push_back(dislike[<span style="color: #800080;">1</span><span style="color: #000000;">]);
+            g[dislike[</span><span style="color: #800080;">1</span>]].push_back(dislike[<span style="color: #800080;">0</span><span style="color: #000000;">]);
+        }
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; root(N + <span style="color: #800080;">1</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt;= N; ++i) root[i] =<span style="color: #000000;"> i;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt;= N; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (!g.count(i)) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">int</span> x = find(root, i), y = find(root, g[i][<span style="color: #800080;">0</span><span style="color: #000000;">]);
+            </span><span style="color: #0000ff;">if</span> (x == y) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = <span style="color: #800080;">1</span>; j &lt; g[i].size(); ++<span style="color: #000000;">j) {
+                </span><span style="color: #0000ff;">int</span> parent =<span style="color: #000000;"> find(root, g[i][j]);
+                </span><span style="color: #0000ff;">if</span> (x == parent) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+                root[parent] </span>=<span style="color: #000000;"> y;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">int</span> find(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; root, <span style="color: #0000ff;">int</span><span style="color: #000000;"> i) {
+        </span><span style="color: #0000ff;">return</span> root[i] == i ?<span style="color: #000000;"> i : find(root, root[i]);
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<div>讨论：可以看到本文中的三种解法在建立图的时候，使用的数据结构都不同，解法一使用二维数组建立了邻接矩阵，解法二使用二维数组建立了邻接链表，解法三使用了 HashMap 建立了邻接链表。刻意使用不同的方法就是为了大家可以对比区别一下，这三种方法都比较常用，在不同的题目中选择最适合的方法即可。</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<div><a href="https://github.com/grandyang/leetcode/issues/886" target="_blank">https://github.com/grandyang/leetcode/issues/886</a></div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<div><a href="http://www.cnblogs.com/grandyang/p/8519566.html">Is Graph Bipartite?</a></div>
+<p>&nbsp;</p>
+<div>参考资料：</div>
+<p><a href="https://leetcode.com/problems/possible-bipartition/">https://leetcode.com/problems/possible-bipartition/</a></p>
+<p><a href="https://leetcode.com/problems/possible-bipartition/discuss/159085/java-graph">https://leetcode.com/problems/possible-bipartition/discuss/159085/java-graph</a></p>
+<p><a href="https://leetcode.com/problems/possible-bipartition/discuss/195303/Java-Union-Find">https://leetcode.com/problems/possible-bipartition/discuss/195303/Java-Union-Find</a></p>
+<p><a href="https://leetcode.com/problems/possible-bipartition/discuss/158957/Java-DFS-solution">https://leetcode.com/problems/possible-bipartition/discuss/158957/Java-DFS-solution</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-01-24 22:08</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10317141" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(10317141);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 10317141, cb_entryCreatedDate = '2019-01-24 22:08', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

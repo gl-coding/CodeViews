@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given an integer array&amp;#160;nums, return the number of range sums that lie in&amp;#160;[lower, upper]&amp;#1" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 327. Count of Range Sum 区间和计数 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/5162678.html">[LeetCode] 327. Count of Range Sum 区间和计数</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given an integer array&nbsp;<code>nums</code>, return the number of range sums that lie in&nbsp;<code>[lower, upper]</code>&nbsp;inclusive.<br />Range sum&nbsp;<code>S(i, j)</code>&nbsp;is defined as the sum of the elements in&nbsp;<code>nums</code>&nbsp;between indices&nbsp;<code>i</code>&nbsp;and&nbsp;<code>j</code>&nbsp;(<code>i</code>&nbsp;&le;&nbsp;<code>j</code>), inclusive.</p>
+<p>Note:<br />A naive algorithm of&nbsp;<em>O</em>(<em>n</em>2) is trivial. You MUST do better than that.</p>
+<p>Example:</p>
+<pre>Input: <em>nums</em> = <code>[-2,5,-1]</code>, <em>lower</em> = <code>-2</code>, <em>upper</em> = <code>2</code>,
+Output: 3 
+Explanation: The three ranges are : <code>[0,0]</code>, <code>[2,2]</code>, <code>[0,2]</code> and their respective sums are: <code>-2, -1, 2</code>.</pre>
+<p>Credits:<br />Special thanks to&nbsp;<a href="https://leetcode.com/discuss/user/dietpepsi">@dietpepsi</a>&nbsp;for adding this problem and creating all test cases.</p>
+<p>&nbsp;</p>
+<p>这道题给了我们一个数组，又给了一个下限和一个上限，让求有多少个不同的区间使得每个区间的和在给定的上下限之间。这道题的难度系数给的是 Hard，的确是一道难度不小的题，题目中也说了 Brute Force 的方法太 Naive 了，只能另想方法了。To be honest，这题超出了博主的能力范围，所以博主也没挣扎了，直接上网搜大神们的解法啦。首先根据前面的那几道类似题&nbsp;<a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_14" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/4985506.html">Range Sum Query - Mutable</a>，<a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_16" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/4958789.html">Range Sum Query 2D - Immutable</a>&nbsp;和&nbsp;<a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_17" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/4952464.html">Range Sum Query - Immutable</a>&nbsp;的解法可知类似的区间和的问题一定是要计算累积和数组 sums 的，其中 sum[i] = nums[0] + nums[1] + ... + nums[i]，对于某个i来说，只有那些满足 lower &lt;= sum[i] - sum[j] &lt;= upper 的j能形成一个区间 [j, i] 满足题意，目标就是来找到有多少个这样的 j (0 =&lt; j &lt; i) 满足 sum[i] - upper =&lt; sum[j] &lt;= sum[i] - lower，可以用 C++ 中由红黑树实现的 multiset 数据结构可以对其中数据排序，然后用 upperbound 和 lowerbound 来找临界值。lower_bound 是找数组中第一个不小于给定值的数(包括等于情况)，而 upper_bound 是找数组中第一个大于给定值的数，那么两者相减，就是j的个数，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> countRangeSum(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; nums, <span style="color: #0000ff;">int</span> lower, <span style="color: #0000ff;">int</span><span style="color: #000000;"> upper) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">long</span> <span style="color: #0000ff;">long</span> sum = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        multiset</span>&lt;<span style="color: #0000ff;">long</span> <span style="color: #0000ff;">long</span>&gt;<span style="color: #000000;"> sums;
+        sums.insert(</span><span style="color: #800080;">0</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; nums.size(); ++<span style="color: #000000;">i) {
+            sum </span>+=<span style="color: #000000;"> nums[i];
+            res </span>+= distance(sums.lower_bound(sum - upper), sums.upper_bound(sum -<span style="color: #000000;"> lower));
+            sums.insert(sum);
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }        
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们再来看一种方法，这种方法的思路和前一种一样，只是没有 STL 的 multiset 和 lower_bound 和 upper_bound 函数，而是使用了 Merge Sort 来解，在混合的过程中，已经给左半边 [start, mid) 和右半边 [mid, end) 排序了。当遍历左半边，对于每个i，需要在右半边找出k和j，使其满足：</p>
+<p>j是第一个满足 sums[j] - sums[i] &gt; upper 的下标</p>
+<p>k是第一个满足 sums[k] - sums[i] &gt;= lower 的下标&nbsp;</p>
+<p>那么在 [lower, upper] 之间的区间的个数是 j - k，同时也需要另一个下标t，用来拷贝所有满足 sums[t] &lt; sums[i] 到一个寄存器 Cache 中以完成混合排序的过程，这个步骤是混合排序的精髓所在，实际上这个寄存器的作用就是将 [start, end) 范围内的数字排好序先存到寄存器中，然后再覆盖原数组对应的位置即可，(注意这里 sums 可能会整型溢出，使用长整型 long 代替)，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> countRangeSum(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; nums, <span style="color: #0000ff;">int</span> lower, <span style="color: #0000ff;">int</span><span style="color: #000000;"> upper) {
+        vector</span>&lt;<span style="color: #0000ff;">long</span>&gt; sums(nums.size() + <span style="color: #800080;">1</span>, <span style="color: #800080;">0</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; nums.size(); ++<span style="color: #000000;">i) {
+            sums[i </span>+ <span style="color: #800080;">1</span>] = sums[i] +<span style="color: #000000;"> nums[i];
+        }
+        </span><span style="color: #0000ff;">return</span> countAndMergeSort(sums, <span style="color: #800080;">0</span><span style="color: #000000;">, sums.size(), lower, upper);
+    }
+    </span><span style="color: #0000ff;">int</span> countAndMergeSort(vector&lt;<span style="color: #0000ff;">long</span>&gt;&amp; sums, <span style="color: #0000ff;">int</span> start, <span style="color: #0000ff;">int</span> end, <span style="color: #0000ff;">int</span> lower, <span style="color: #0000ff;">int</span><span style="color: #000000;"> upper) {
+        </span><span style="color: #0000ff;">if</span> (end - start &lt;= <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> mid = start + (end - start) / <span style="color: #800080;">2</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> cnt = countAndMergeSort(sums, start, mid, lower, upper) +<span style="color: #000000;"> countAndMergeSort(sums, mid, end, lower, upper);
+        </span><span style="color: #0000ff;">int</span> j = mid, k = mid, t =<span style="color: #000000;"> mid;
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; cache(end - start, <span style="color: #800080;">0</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = start, r = <span style="color: #800080;">0</span>; i &lt; mid; ++i, ++<span style="color: #000000;">r) {
+            </span><span style="color: #0000ff;">while</span> (k &lt; end &amp;&amp; sums[k] - sums[i] &lt; lower) ++<span style="color: #000000;">k;
+            </span><span style="color: #0000ff;">while</span> (j &lt; end &amp;&amp; sums[j] - sums[i] &lt;= upper) ++<span style="color: #000000;">j;
+            </span><span style="color: #0000ff;">while</span> (t &lt; end &amp;&amp; sums[t] &lt; sums[i]) cache[r++] = sums[t++<span style="color: #000000;">];
+            cache[r] </span>=<span style="color: #000000;"> sums[i];
+            cnt </span>+= j -<span style="color: #000000;"> k;
+        }
+        copy(cache.begin(), cache.begin() </span>+ t - start, sums.begin() +<span style="color: #000000;"> start);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> cnt;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/327">https://github.com/grandyang/leetcode/issues/327</a></p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4985506.html">Range Sum Query - Mutable</a>&nbsp;</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4958789.html">Range Sum Query 2D - Immutable</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4952464.html">Range Sum Query - Immutable</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/6657956.html" target="_blank">Reverse Pairs</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/5078490.html">Count of Smaller Numbers After Self</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/count-of-range-sum/">https://leetcode.com/problems/count-of-range-sum/</a></p>
+<p><a href="https://leetcode.com/problems/count-of-range-sum/discuss/77990/Share-my-solution">https://leetcode.com/problems/count-of-range-sum/discuss/77990/Share-my-solution</a></p>
+<p><a href="https://leetcode.com/problems/count-of-range-sum/discuss/78006/Summary-of-the-Divide-and-Conquer-based-and-Binary-Indexed-Tree-based-solutions">https://leetcode.com/problems/count-of-range-sum/discuss/78006/Summary-of-the-Divide-and-Conquer-based-and-Binary-Indexed-Tree-based-solutions</a></p>
+<p><a href="https://leetcode.com/problems/count-of-range-sum/discuss/78030/8-line-multiset-C%2B%2B-solution-(100ms)-also-binary-search-tree-(180ms)-%2B-mergesort(52ms)">https://leetcode.com/problems/count-of-range-sum/discuss/78030/8-line-multiset-C%2B%2B-solution-(100ms)-also-binary-search-tree-(180ms)-%2B-mergesort(52ms)</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2016-01-27 11:33</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=5162678" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(5162678);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 5162678, cb_entryCreatedDate = '2016-01-27 11:33', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

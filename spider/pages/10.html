@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given an input string (s) and a pattern (p), implement regular expression matching with support for&amp;" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 10. Regular Expression Matching 正则表达式匹配 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/4461713.html">[LeetCode] 10. Regular Expression Matching 正则表达式匹配</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given an input string (<code>s</code>) and a pattern (<code>p</code>), implement regular expression matching with support for&nbsp;<code>'.'</code>&nbsp;and&nbsp;<code>'*'</code>.</p>
+<pre>'.' Matches any single character.
+'*' Matches zero or more of the preceding element.
+</pre>
+<p>The matching should cover the&nbsp;entire&nbsp;input string (not partial).</p>
+<p>Note:</p>
+<ul>
+<li><code>s</code>&nbsp;could be empty and contains only lowercase letters&nbsp;<code>a-z</code>.</li>
+<li><code>p</code>&nbsp;could be empty and contains only lowercase letters&nbsp;<code>a-z</code>, and characters like&nbsp;<code>.</code>&nbsp;or&nbsp;<code>*</code>.</li>
+</ul>
+<p>Example 1:</p>
+<pre>Input:
+s = "aa"
+p = "a"
+Output: false
+Explanation: "a" does not match the entire string "aa".
+</pre>
+<p>Example 2:</p>
+<pre>Input:
+s = "aa"
+p = "a*"
+Output: true
+Explanation:&nbsp;'*' means zero or more of the precedeng&nbsp;element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
+</pre>
+<p>Example 3:</p>
+<pre>Input:
+s = "ab"
+p = ".*"
+Output: true
+Explanation:&nbsp;".*" means "zero or more (*) of any character (.)".
+</pre>
+<p>Example 4:</p>
+<pre>Input:
+s = "aab"
+p = "c*a*b"
+Output: true
+Explanation:&nbsp;c can be repeated 0 times, a can be repeated 1 time. Therefore it matches "aab".
+</pre>
+<p>Example 5:</p>
+<pre>Input:
+s = "mississippi"
+p = "mis*is*p*."
+Output: false</pre>
+<p>&nbsp;</p>
+<p>这道求正则表达式匹配的题和那道&nbsp;<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4401196.html">Wildcard Matching</a>&nbsp;的题很类似，不同点在于*的意义不同，在之前那道题中，*表示可以代替任意个数的字符，而这道题中的*表示之前那个字符可以有0个，1个或是多个，就是说，字符串 a*b，可以表示b或是 aaab，即a的个数任意，这道题的难度要相对之前那一道大一些，分的情况的要复杂一些，需要用递归 Recursion 来解，大概思路如下：</p>
+<p>- 若p为空，若s也为空，返回 true，反之返回 false。</p>
+<p>- 若p的长度为1，若s长度也为1，且相同或是p为 '.' 则返回 true，反之返回 false。</p>
+<p>- 若p的第二个字符不为*，若此时s为空返回 false，否则判断首字符是否匹配，且从各自的第二个字符开始调用递归函数匹配。</p>
+<p>- 若p的第二个字符为*，进行下列循环，条件是若s不为空且首字符匹配（包括 p[0] 为点），调用递归函数匹配s和去掉前两个字符的p（这样做的原因是假设此时的星号的作用是让前面的字符出现0次，验证是否匹配），若匹配返回 true，否则s去掉首字母（因为此时首字母匹配了，我们可以去掉s的首字母，而p由于星号的作用，可以有任意个首字母，所以不需要去掉），继续进行循环。</p>
+<p>- 返回调用递归函数匹配s和去掉前两个字符的p的结果（这么做的原因是处理星号无法匹配的内容，比如 s="ab", p="a*b"，直接进入 while 循环后，我们发现 "ab" 和 "b" 不匹配，所以s变成 "b"，那么此时跳出循环后，就到最后的 return 来比较 "b" 和 "b" 了，返回 true。再举个例子，比如 s="", p="a*"，由于s为空，不会进入任何的 if 和 while，只能到最后的 return 来比较了，返回 true，正确）。</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> isMatch(<span style="color: #0000ff;">string</span> s, <span style="color: #0000ff;">string</span><span style="color: #000000;"> p) {
+        </span><span style="color: #0000ff;">if</span> (p.empty()) <span style="color: #0000ff;">return</span><span style="color: #000000;"> s.empty();
+        </span><span style="color: #0000ff;">if</span> (p.size() == <span style="color: #800080;">1</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">return</span> (s.size() == <span style="color: #800080;">1</span> &amp;&amp; (s[<span style="color: #800080;">0</span>] == p[<span style="color: #800080;">0</span>] || p[<span style="color: #800080;">0</span>] == <span style="color: #800000;">'</span><span style="color: #800000;">.</span><span style="color: #800000;">'</span><span style="color: #000000;">));
+        }
+        </span><span style="color: #0000ff;">if</span> (p[<span style="color: #800080;">1</span>] != <span style="color: #800000;">'</span><span style="color: #800000;">*</span><span style="color: #800000;">'</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">if</span> (s.empty()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">return</span> (s[<span style="color: #800080;">0</span>] == p[<span style="color: #800080;">0</span>] || p[<span style="color: #800080;">0</span>] == <span style="color: #800000;">'</span><span style="color: #800000;">.</span><span style="color: #800000;">'</span>) &amp;&amp; isMatch(s.substr(<span style="color: #800080;">1</span>), p.substr(<span style="color: #800080;">1</span><span style="color: #000000;">));
+        }
+        </span><span style="color: #0000ff;">while</span> (!s.empty() &amp;&amp; (s[<span style="color: #800080;">0</span>] == p[<span style="color: #800080;">0</span>] || p[<span style="color: #800080;">0</span>] == <span style="color: #800000;">'</span><span style="color: #800000;">.</span><span style="color: #800000;">'</span><span style="color: #000000;">)) {
+            </span><span style="color: #0000ff;">if</span> (isMatch(s, p.substr(<span style="color: #800080;">2</span>))) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            s </span>= s.substr(<span style="color: #800080;">1</span><span style="color: #000000;">);
+        }
+        </span><span style="color: #0000ff;">return</span> isMatch(s, p.substr(<span style="color: #800080;">2</span><span style="color: #000000;">));
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>上面的方法可以写的更加简洁一些，但是整个思路还是一样的，先来判断p是否为空，若为空则根据s的为空的情况返回结果。当p的第二个字符为*号时，由于*号前面的字符的个数可以任意，可以为0，那么我们先用递归来调用为0的情况，就是直接把这两个字符去掉再比较，或者当s不为空，且第一个字符和p的第一个字符相同时，再对去掉首字符的s和p调用递归，注意p不能去掉首字符，因为*号前面的字符可以有无限个；如果第二个字符不为*号，那么就老老实实的比较第一个字符，然后对后面的字符串调用递归，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> isMatch(<span style="color: #0000ff;">string</span> s, <span style="color: #0000ff;">string</span><span style="color: #000000;"> p) {
+        </span><span style="color: #0000ff;">if</span> (p.empty()) <span style="color: #0000ff;">return</span><span style="color: #000000;"> s.empty();
+        </span><span style="color: #0000ff;">if</span> (p.size() &gt; <span style="color: #800080;">1</span> &amp;&amp; p[<span style="color: #800080;">1</span>] == <span style="color: #800000;">'</span><span style="color: #800000;">*</span><span style="color: #800000;">'</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">return</span> isMatch(s, p.substr(<span style="color: #800080;">2</span>)) || (!s.empty() &amp;&amp; (s[<span style="color: #800080;">0</span>] == p[<span style="color: #800080;">0</span>] || p[<span style="color: #800080;">0</span>] == <span style="color: #800000;">'</span><span style="color: #800000;">.</span><span style="color: #800000;">'</span>) &amp;&amp; isMatch(s.substr(<span style="color: #800080;">1</span><span style="color: #000000;">), p));
+        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+            </span><span style="color: #0000ff;">return</span> !s.empty() &amp;&amp; (s[<span style="color: #800080;">0</span>] == p[<span style="color: #800080;">0</span>] || p[<span style="color: #800080;">0</span>] == <span style="color: #800000;">'</span><span style="color: #800000;">.</span><span style="color: #800000;">'</span>) &amp;&amp; isMatch(s.substr(<span style="color: #800080;">1</span>), p.substr(<span style="color: #800080;">1</span><span style="color: #000000;">));
+        }
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们也可以用 DP 来解，定义一个二维的 DP 数组，其中 dp[i][j] 表示 s[0,i) 和 p[0,j) 是否 match，然后有下面三种情况(下面部分摘自<a href="https://discuss.leetcode.com/topic/17852/9-lines-16ms-c-dp-solutions-with-explanations" target="_blank">这个帖子</a>)：</p>
+<p>1.&nbsp; P[i][j] = P[i - 1][j - 1], if p[j - 1] != '*' &amp;&amp; (s[i - 1] == p[j - 1] || p[j - 1] == '.');<br />2.&nbsp; P[i][j] = P[i][j - 2], if p[j - 1] == '*' and the pattern repeats for 0 times;<br />3.&nbsp; P[i][j] = P[i - 1][j] &amp;&amp; (s[i - 1] == p[j - 2] || p[j - 2] == '.'), if p[j - 1] == '*' and the pattern repeats for at least 1 times.</p>
+<p><br />解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> isMatch(<span style="color: #0000ff;">string</span> s, <span style="color: #0000ff;">string</span><span style="color: #000000;"> p) {
+        </span><span style="color: #0000ff;">int</span> m = s.size(), n =<span style="color: #000000;"> p.size();
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">bool</span>&gt;&gt; dp(m + <span style="color: #800080;">1</span>, vector&lt;<span style="color: #0000ff;">bool</span>&gt;(n + <span style="color: #800080;">1</span>, <span style="color: #0000ff;">false</span><span style="color: #000000;">));
+        dp[</span><span style="color: #800080;">0</span>][<span style="color: #800080;">0</span>] = <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt;= m; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = <span style="color: #800080;">1</span>; j &lt;= n; ++<span style="color: #000000;">j) {
+                </span><span style="color: #0000ff;">if</span> (j &gt; <span style="color: #800080;">1</span> &amp;&amp; p[j - <span style="color: #800080;">1</span>] == <span style="color: #800000;">'</span><span style="color: #800000;">*</span><span style="color: #800000;">'</span><span style="color: #000000;">) {
+                    dp[i][j] </span>= dp[i][j - <span style="color: #800080;">2</span>] || (i &gt; <span style="color: #800080;">0</span> &amp;&amp; (s[i - <span style="color: #800080;">1</span>] == p[j - <span style="color: #800080;">2</span>] || p[j - <span style="color: #800080;">2</span>] == <span style="color: #800000;">'</span><span style="color: #800000;">.</span><span style="color: #800000;">'</span>) &amp;&amp; dp[i - <span style="color: #800080;">1</span><span style="color: #000000;">][j]);
+                } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                    dp[i][j] </span>= i &gt; <span style="color: #800080;">0</span> &amp;&amp; dp[i - <span style="color: #800080;">1</span>][j - <span style="color: #800080;">1</span>] &amp;&amp; (s[i - <span style="color: #800080;">1</span>] == p[j - <span style="color: #800080;">1</span>] || p[j - <span style="color: #800080;">1</span>] == <span style="color: #800000;">'</span><span style="color: #800000;">.</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> dp[m][n];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>GitHub 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/10">https://github.com/grandyang/leetcode/issues/10</a></p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4401196.html" target="_blank">Wildcard Matching</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/regular-expression-matching/" target="_blank">https://leetcode.com/problems/regular-expression-matching/</a></p>
+<p><a href="https://leetcode.com/problems/regular-expression-matching/discuss/5684/9-lines-16ms-c-dp-solutions-with-explanations" target="_blank">https://leetcode.com/problems/regular-expression-matching/discuss/5684/9-lines-16ms-c-dp-solutions-with-explanations</a></p>
+<p><a href="https://leetcode.com/problems/regular-expression-matching/discuss/5665/my-concise-recursive-and-dp-solutions-with-full-explanation-in-c" target="_blank">https://leetcode.com/problems/regular-expression-matching/discuss/5665/my-concise-recursive-and-dp-solutions-with-full-explanation-in-c</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2015-04-27 23:05</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4461713" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(4461713);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 4461713, cb_entryCreatedDate = '2015-04-27 23:05', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

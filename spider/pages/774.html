@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="On a horizontal number line, we have gas stations at positions&amp;#160;stations[0], stations[1], ..., s" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Minimize Max Distance to Gas Station 最小化去加油站的最大距离 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/8970057.html">[LeetCode] Minimize Max Distance to Gas Station 最小化去加油站的最大距离</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<div class="question-description">
+<div>
+<p>On a horizontal number line, we have gas stations at positions&nbsp;<code>stations[0], stations[1], ..., stations[N-1]</code>, where&nbsp;<code>N = stations.length</code>.</p>
+<p>Now, we add&nbsp;<code>K</code>&nbsp;more gas stations so that&nbsp;D, the maximum distance between adjacent gas stations, is minimized.</p>
+<p>Return the smallest possible value of&nbsp;D.</p>
+<p>Example:</p>
+<pre>Input: stations = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], K = 9
+Output: 0.500000
+</pre>
+<p>Note:</p>
+<ol>
+<li><code>stations.length</code>&nbsp;will be an integer in range&nbsp;<code>[10, 2000]</code>.</li>
+<li><code>stations[i]</code>&nbsp;will be an integer in range&nbsp;<code>[0, 10^8]</code>.</li>
+<li><code>K</code>&nbsp;will be an integer in range&nbsp;<code>[1, 10^6]</code>.</li>
+<li>Answers within&nbsp;<code>10^-6</code>&nbsp;of the true value will be accepted as correct.</li>
+</ol></div>
+</div>
+<p>&nbsp;</p>
+<p>这道题说给了我们n个加油站，两两之间相距不同的距离，然后我们可以在任意地方新加K个加油站，问能使得任意两个加油站之间的最大距离的最小值是多少。乍眼一看，感觉很绕，一会儿最大，一会儿最小的。其实我们可以换个场景，比如n个人站一队，每两个人之间距离不同，有的人之间距离可能很大，有的人可能挨得很近。我们现在需要再加入K个人到队列中，我们希望人与人之间的距离尽可能小，所以新人就应该加入到距离大的地方，然后问我们加入K个人后，求人与人之间的最大距离。这么一说，是不是清晰一点了呢。博主最开始看到这个加油站的题，以为跟之前那道<a href="http://www.cnblogs.com/grandyang/p/4266812.html" target="_blank">Gas Station</a>有关联，结果发现二者并没有什么关系，只不过公用了加油站这个场景而已。对于这道题，我们还是抽离出本质，就是数组插数问题。博主最先考虑的是用贪婪算法，就是先算出每两个数字之间的距离，然后我们每次往距离最大的那两个数字之间插入一个数字，这种想法看似正确，但是会跪在这样一个test case：</p>
+<p>[10, 19, 25, 27, 56, 63, 70, 87, 96, 97]，K = 3</p>
+<p>其两两之间的距离为：</p>
+<p>9，6，2，29，7，7，17，9，1</p>
+<p>如果按照博主前面所说的方法，会先将29分开，变成两个14.5，然后会将17分开，变成两个8.5，还剩一个加油站，会将其中一个14.5分开，变成两个7.25。但是这样弄下来，最大的距离还是14.5，而实际上我们有更好的办法，我们用两个加油站将29三等分，会变成三个9.67，然后用剩下的一个去分17，得到两个8.5，此时最大距离就变成了9.67，这才是最优的解法。这说明了博主那种图样图森破的贪婪算法并不work，缺乏对Hard题目的尊重。</p>
+<p>后来看了<a href="https://leetcode.com/problems/minimize-max-distance-to-gas-station/solution/" target="_blank">官方解答贴</a>中的解法，发现用DP会内存超标MLE，用堆会时间超标TLE。其实这道题的正确解法是用二分搜索法，博主第一反应是，还有这种操作！！？？就是有这种操作！！！这道题使用的二分搜索法是博主归纳总结帖<a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_1" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/6854825.html">LeetCode Binary Search Summary 二分搜索法小结</a>中的第四种，即二分法的判定条件不是简单的大小关系，而是可以抽离出子函数的情况，下面我们来看具体怎么弄。如果光说要用二分法来做，那么首先就要明确的是二分法用来查找什么，难道是用来查找要插入加油站的位置吗？很显然不是，其实是用来查找那个最小的任意两个加油站间的最大距离。这其实跟之前那道<a href="http://www.cnblogs.com/grandyang/p/5727892.html">Kth Smallest Element in a Sorted Matrix</a>非常的类似，那道题的二分搜索也是直接去折半定位所求的数，然后再来验证其是否真的符合题意。这道题也是类似的思路，题目中给了数字的范围[0, 10^8]，那么二分查找的左右边界值就有了，又给了误差范围10^-6，那么只要right和left差值大于这个阈值，就继续循环。我们折半计算出来的mid就是一个candidate，我们要去验证个candidate是否符合题意。验证的方法其实也不难，我们计算每两个加油站之间的距离，如果此距离大于candidate，则计数器累加1，如果大于candidate距离的个数小于等于k，则说明我们的candidate偏大了，那么right赋值为mid；反之若大于candidate距离的个数大于k，则说明我们的candidate偏小了，那么left赋值为mid。最后left和right都会收敛为所要求的最小的任意两个加油站间的最大距离，是不是很神奇呀！！Amazing！！参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">double</span> minmaxGasDist(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; stations, <span style="color: #0000ff;">int</span><span style="color: #000000;"> K) {
+        </span><span style="color: #0000ff;">double</span> left = <span style="color: #800080;">0</span>, right =<span style="color: #000000;"> 1e8;
+        </span><span style="color: #0000ff;">while</span> (right - left &gt; 1e-<span style="color: #800080;">6</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">double</span> mid = left + (right - left) / <span style="color: #800080;">2</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">if</span> (helper(stations, K, mid)) right =<span style="color: #000000;"> mid;
+            </span><span style="color: #0000ff;">else</span> left =<span style="color: #000000;"> mid;
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> left;
+    }
+    </span><span style="color: #0000ff;">bool</span> helper(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; stations, <span style="color: #0000ff;">int</span> K, <span style="color: #0000ff;">double</span><span style="color: #000000;"> mid) {
+        </span><span style="color: #0000ff;">int</span> cnt = <span style="color: #800080;">0</span>, n =<span style="color: #000000;"> stations.size();
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n - <span style="color: #800080;">1</span>; ++<span style="color: #000000;">i) {
+            cnt </span>+= (stations[i + <span style="color: #800080;">1</span>] - stations[i]) /<span style="color: #000000;"> mid;
+        }
+        </span><span style="color: #0000ff;">return</span> cnt &lt;=<span style="color: #000000;"> K;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们也可以把上面解法中的子函数揉到主函数里面，这样可以是的代码更加的简洁，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">double</span> minmaxGasDist(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; stations, <span style="color: #0000ff;">int</span><span style="color: #000000;"> K) {
+        </span><span style="color: #0000ff;">double</span> left = <span style="color: #800080;">0</span>, right =<span style="color: #000000;"> 1e8;
+        </span><span style="color: #0000ff;">while</span> (right - left &gt; 1e-<span style="color: #800080;">6</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">double</span> mid = left + (right - left) / <span style="color: #800080;">2</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">int</span> cnt = <span style="color: #800080;">0</span>, n =<span style="color: #000000;"> stations.size();
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n - <span style="color: #800080;">1</span>; ++<span style="color: #000000;">i) {
+                cnt </span>+= (stations[i + <span style="color: #800080;">1</span>] - stations[i]) /<span style="color: #000000;"> mid;
+            }
+            </span><span style="color: #0000ff;">if</span> (cnt &lt;= K) right =<span style="color: #000000;"> mid;
+            </span><span style="color: #0000ff;">else</span> left =<span style="color: #000000;"> mid;
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> left;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/8627783.html" target="_blank">Find K-th Smallest Pair Distance</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/8367505.html" target="_blank">Kth Smallest Number in Multiplication Table</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/8021421.html" target="_blank">Maximum Average Subarray II</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/5727892.html">Kth Smallest Element in a Sorted Matrix</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/minimize-max-distance-to-gas-station/solution/">https://leetcode.com/problems/minimize-max-distance-to-gas-station/solution/</a></p>
+<p><a href="https://leetcode.com/problems/minimize-max-distance-to-gas-station/discuss/113629/Approach-the-problem-using-the-%22trial-and-error%22-algorithm">https://leetcode.com/problems/minimize-max-distance-to-gas-station/discuss/113629/Approach-the-problem-using-the-%22trial-and-error%22-algorithm</a></p>
+<p><a href="https://leetcode.com/problems/minimize-max-distance-to-gas-station/discuss/113633/Easy-and-Concise-Solution-using-Binary-Search-C++JavaPython">https://leetcode.com/problems/minimize-max-distance-to-gas-station/discuss/113633/Easy-and-Concise-Solution-using-Binary-Search-C++JavaPython</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-04-28 23:59</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8970057" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(8970057);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 8970057, cb_entryCreatedDate = '2018-04-28 23:59', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

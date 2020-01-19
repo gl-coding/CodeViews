@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta property="og:description" content="Starting with an&#xA0;undirected&#xA0;graph (the &#x27;original graph&#x27;) with nodes from to , subdivisions are made " />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 882. Reachable Nodes In Subdivided Graph 细分图中的可到达结点 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/11074953.html">[LeetCode] 882. Reachable Nodes In Subdivided Graph 细分图中的可到达结点</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+Starting with an undirected graph (the &quot;original graph&quot;) with nodes from <code>0</code> to <code>N-1</code>, subdivisions are made to some of the edges.</p>
+<p>The graph is given as follows: <code>edges[k]</code> is a list of integer pairs <code>(i, j, n)</code> such that <code>(i, j)</code> is an edge of the original graph,</p>
+<p>and <code>n</code> is the total number of new nodes on that edge. </p>
+<p>Then, the edge <code>(i, j)</code> is deleted from the original graph, <code>n</code> new nodes <code>(x_1, x_2, ..., x_n)</code> are added to the original graph,</p>
+<p>and <code>n+1</code> new edges <code>(i, x_1), (x_1, x_2), (x_2, x_3), ..., (x_{n-1}, x_n), (x_n, j)</code> are added to the original graph.</p>
+<p>Now, you start at node <code>0</code> from the original graph, and in each move, you travel along one edge. </p>
+<p>Return how many nodes you can reach in at most <code>M</code>moves.</p>
+<p>Example 1:</p>
+<pre><code>Input: `edges` = [[0,1,10],[0,2,1],[1,2,2]], M = 6, N = 3
+Output: 13
+Explanation:
+The nodes that are reachable in the final graph after M = 6 moves are indicated below.</code></pre>
+<p><img src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/01/origfinal.png" /></p>
+<p>Example 2:</p>
+<pre><code>Input: `edges` = [[0,1,4],[1,2,6],[0,2,8],[1,3,1]], M = 10, N = 4
+Output: 23</code></pre>
+<p>Note:</p>
+<ol>
+<li><code>0 &lt;= edges.length &lt;= 10000</code></li>
+<li><code>0 &lt;= edges[i][0] &lt; edges[i][1] &lt; N</code></li>
+<li>There does not exist any <code>i != j</code> for which <code>edges[i][0] == edges[j][0]</code> and <code>edges[i][1] == edges[j][1]</code>.</li>
+<li>The original graph has no parallel edges.</li>
+<li><code>0 &lt;= edges[i][2] &lt;= 10000</code></li>
+<li><code>0 &lt;= M &lt;= 10^9</code></li>
+<li><code>1 &lt;= N &lt;= 3000</code></li>
+<li>A reachable node is a node that can be travelled to using at most M moves starting from node 0.</li>
+</ol>
+<p><br><br />
+这道题给了我们一个无向图，里面有N个结点，但是每两个结点中间可能有多个不同的结点，假设每到达下一个相邻的结点需要消耗一步，现在我们有M步可以走，问我们在M步内最多可以到达多少个不同的结点。这里虽然有N个有编号的大结点，中间还有若干个没有编号的小结点，但是最后在统计的时候不分大小结点，全都算不同的结点。为了更好的理解这道题，实际上可以把N个有编号的结点当作N个大城市，比如省会城市，每两个省会城市中间有多个小城市，假设我们每次坐飞机只能飞到相邻的下一个城市，现在我们最多能坐M次飞机，问从省会大城市0出发的话，最多能到达多少个城市。由于省会城市是大型中转站，所以只有在这里才能有多个选择去往不同的城市，而在两个省会城市中的每个小城市，只有前后两种选择，所以这道题实际上还是一种图的遍历，只不过不保证每次都能到有编号的结点，只有到达了有编号的结点，才可以继续遍历下去。当到达了有编号的结点时，还要计算此时的剩余步数，就是用前一个有编号结点的剩余步数，减去当前路径上的所有小结点的个数。假如当前的剩余步数不够到达下一个大结点时，此时我们要想办法标记出来我们走过了多少个小结点，不然下次我们通过另一条路径到达相同的下一个大结点时，再往回走就有可能重复统计小结点的个数。由于小结点并没有标号，没法直接标记，只能通过离最近的大结点的个数来标记，所以虽然这道题是一道无向图的题，但是我们需要将其当作有向图来处理，比如两个大结点A和B，中间有10个小结点，此时在A结点时只有6步能走，那么我们走了中间的6个结点，此时就要标记从B出发往A方向的话只有4个小结点能走了。</p>
+<p>再进一步来分析，其实上对于每个结点来说（不论有没有编号），若我们能算出该结点离起始结点的最短距离，且该距离小于等于M的话，那这个结点就一定可以到达。这样来说，其实本质就是求单源点的最短距离，此时就要祭出神器迪杰斯特拉算法 Dijkstra Algorithm 了，LeetCode 中使用了该算法的题目还有 <a href="https://www.cnblogs.com/grandyang/p/8278115.html">Network Delay Time</a> 和 <a href="http://www.cnblogs.com/grandyang/p/6725380.html">The Maze II</a>。该算法的一般形式是用一个最小堆来保存到源点的最小距离，这里我们直接统计到源点的最小距离不是很方便，可以使用一个小 trick，即用一个最大堆来统计当前结点所剩的最大步数，因为剩的步数越多，说明距离源点距离越小。由于 Dijkstra 算法是以起点为中心，向外层层扩展，直到扩展到终点为止。根据这特性，用 BFS 来实现时再好不过了，首先来建立邻接链表，这里可以使用一个 NxN 的二维数组 graph，其中 graph[i][j] 表示从大结点i往大结点j方向会经过的小结点个数，建立邻接链表的时候对于每个 edge，要把两个方向都赋值，前面解释过了这里要当作有向图来做。然后使用一个最大堆，里面放剩余步数和结点编号组成的数对儿，把剩余步数放前面就可以默认按步数从大到小排序了，初始化时把 {M,0} 存入最大堆。还需要一个一维数组 visited 来记录某个结点是否访问过。在 while 循环中，首先取出堆顶元素数对儿，分别取出步数 move，和当前结点编号 cur，此时检查若该结点已经访问过了，直接跳过，否则就在 visited 数组中标记为 true。此时结果 res 自增1，因为当前大结点也是新遍历到的，需要累加个数。然后我们需要遍历所有跟 cur 相连的大结点，对于二维数组形式的邻接链表，我们只需要将i从0遍历到N，假如 graph[cur][i] 为 -1，表示结点 cur 和结点i不相连，直接跳过。否则相连的话，两个大结点中小结点的个数为 graph[cur][i]，此时要跟当前 cur 结点时剩余步数 move 比较，假如 move 较大，说明可以到达结点i，将此时到达结点i的剩余步数 move-graph[cur][i]-1（最后的减1是到达结点i需要的额外步数）和i一起组成数对儿，加入最大堆中。由于之前的分析，结点 cur 往结点i走过的所有结点，从结点i就不能再往结点 cur 走了，否则就累加了重复结点，所以 graph[i][cur] 要减去 move 和 graph[cur][i] 中的较小值，同时结果 res 要累加该较小值即可，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    int reachableNodes(vector&lt;vector&lt;int&gt;&gt;&amp; edges, int M, int N) {
+        int res = 0;
+        vector&lt;vector&lt;int&gt;&gt; graph(N, vector&lt;int&gt;(N, -1));
+        vector&lt;bool&gt; visited(N);
+        priority_queue&lt;pair&lt;int, int&gt;&gt; pq;
+        pq.push({M, 0});
+        for (auto &amp;edge : edges) {
+            graph[edge[0]][edge[1]] = edge[2];
+            graph[edge[1]][edge[0]] = edge[2];
+        }
+        while (!pq.empty()) {
+            auto t= pq.top(); pq.pop();
+            int move = t.first, cur = t.second;
+            if (visited[cur]) continue;
+            visited[cur] = true;
+            ++res;
+            for (int i = 0; i &lt; N; ++i) {
+                if (graph[cur][i] == -1) continue;
+                if (move &gt; graph[cur][i] &amp;&amp; !visited[i]) {
+                    pq.push({move - graph[cur][i] - 1, i});
+                }
+                graph[i][cur] -= min(move, graph[cur][i]);
+                res += min(move, graph[cur][i]);
+            }
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+我们也可以使用 HashMap 来建立邻接链表，最后的运行速度果然要比二维数组形式的邻接链表要快一些，其他的地方都不变，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    int reachableNodes(vector&lt;vector&lt;int&gt;&gt;&amp; edges, int M, int N) {
+        int res = 0;
+        unordered_map&lt;int, unordered_map&lt;int, int&gt;&gt; graph;
+        vector&lt;bool&gt; visited(N);
+        priority_queue&lt;pair&lt;int, int&gt;&gt; pq;
+        pq.push({M, 0});
+        for (auto &amp;edge : edges) {
+            graph[edge[0]][edge[1]] = edge[2];
+            graph[edge[1]][edge[0]] = edge[2];
+        }
+        while (!pq.empty()) {
+            auto t= pq.top(); pq.pop();
+            int move = t.first, cur = t.second;
+            if (visited[cur]) continue;
+            visited[cur] = true;
+            ++res;
+            for (auto &amp;a : graph[cur]) {
+                if (move &gt; a.second &amp;&amp; !visited[a.first]) {
+                    pq.push({move - a.second - 1, a.first});
+                }
+                graph[a.first][cur] -= min(move, a.second);
+                res += min(move, a.second);
+            }
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/882" class="uri">https://github.com/grandyang/leetcode/issues/882</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/reachable-nodes-in-subdivided-graph/" class="uri">https://leetcode.com/problems/reachable-nodes-in-subdivided-graph/</a></p>
+<p><a href="https://leetcode.com/problems/reachable-nodes-in-subdivided-graph/discuss/156777/Java-Dijkstra-Solution" class="uri">https://leetcode.com/problems/reachable-nodes-in-subdivided-graph/discuss/156777/Java-Dijkstra-Solution</a></p>
+<p><a href="https://leetcode.com/problems/reachable-nodes-in-subdivided-graph/discuss/156739/C%2B%2BJavaPython-Dijkstra-%2B-Priority-Queue">https://leetcode.com/problems/reachable-nodes-in-subdivided-graph/discuss/156739/C%2B%2BJavaPython-Dijkstra-%2B-Priority-Queue</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-06-23 23:49</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11074953" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(11074953);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 11074953, cb_entryCreatedDate = '2019-06-23 23:49', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

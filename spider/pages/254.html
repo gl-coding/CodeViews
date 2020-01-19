@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Numbers can be regarded as product of its factors. For example, Write a function that takes an integ" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Factor Combinations 因子组合 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/5332722.html">[LeetCode] Factor Combinations 因子组合</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Numbers can be regarded as product of its factors. For example,</p>
+<pre>8 = 2 x 2 x 2;
+  = 2 x 4.
+</pre>
+<p>Write a function that takes an integer&nbsp;<em>n</em>&nbsp;and return all possible combinations of its factors.</p>
+<p>Note:&nbsp;</p>
+<ol>
+<li>Each combination's factors must be sorted ascending, for example: The factors of 2 and 6 is&nbsp;<code>[2, 6]</code>, not&nbsp;<code>[6, 2]</code>.</li>
+<li>You may assume that&nbsp;<em>n</em>&nbsp;is always positive.</li>
+<li>Factors should be greater than 1 and less than&nbsp;<em>n</em>.</li>
+</ol>
+<p>&nbsp;</p>
+<p>Examples:&nbsp;<br />input:&nbsp;<code>1</code><br />output:&nbsp;</p>
+<pre>[]
+</pre>
+<p>input:&nbsp;<code>37</code><br />output:&nbsp;</p>
+<pre>[]
+</pre>
+<p>input:&nbsp;<code>12</code><br />output:</p>
+<pre>[
+  [2, 6],
+  [2, 2, 3],
+  [3, 4]
+]
+</pre>
+<p>input:&nbsp;<code>32</code><br />output:</p>
+<pre>[
+  [2, 16],
+  [2, 2, 8],
+  [2, 2, 2, 4],
+  [2, 2, 2, 2, 2],
+  [2, 4, 4],
+  [4, 8]
+]</pre>
+<p>&nbsp;</p>
+<p>这道题给了我们一个正整数n，让我们写出所有的因子相乘的形式，而且规定了因子从小到大的顺序排列，那么对于这种需要列出所有的情况的题目，通常都是用回溯法来求解的，由于题目中说明了1和n本身不能算其因子，那么我们可以从2开始遍历到n，如果当前的数i可以被n整除，说明i是n的一个因子，我们将其存入一位数组out中，然后递归调用n/i，此时不从2开始遍历，而是从i遍历到n/i，停止的条件是当n等于1时，如果此时out中有因子，我们将这个组合存入结果res中，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; getFactors(<span style="color: #0000ff;">int</span><span style="color: #000000;"> n) {
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;<span style="color: #000000;"> res;
+        helper(n, </span><span style="color: #800080;">2</span><span style="color: #000000;">, {}, res);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+    </span><span style="color: #0000ff;">void</span> helper(<span style="color: #0000ff;">int</span> n, <span style="color: #0000ff;">int</span> start, vector&lt;<span style="color: #0000ff;">int</span>&gt; <span style="color: #0000ff;">out</span>, vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; &amp;<span style="color: #000000;">res) {
+        </span><span style="color: #0000ff;">if</span> (n == <span style="color: #800080;">1</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">out</span>.size() &gt; <span style="color: #800080;">1</span>) res.push_back(<span style="color: #0000ff;">out</span><span style="color: #000000;">);
+        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = start; i &lt;= n; ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">if</span> (n % i == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                    </span><span style="color: #0000ff;">out</span><span style="color: #000000;">.push_back(i);
+                    helper(n </span>/ i, i, <span style="color: #0000ff;">out</span><span style="color: #000000;">, res);
+                    </span><span style="color: #0000ff;">out</span><span style="color: #000000;">.pop_back();
+                }
+            }
+        }
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种方法用了个小trick，我们仔细观察题目中给的两个例子的结果，可以发现每个组合的第一个数字都没有超过n的平方根，这个也很好理解，由于要求序列是从小到大排列的，那么如果第一个数字大于了n的平方根，而且n本身又不算因子，那么后面那个因子也必然要与n的平方根，这样乘起来就必然会超过n，所以不会出现这种情况。那么我们刚开始在2到n的平方根之间进行遍历，如果遇到因子，先复制原来的一位数组out为一个新的一位数组new_out，然后把此因子i加入new_out，然后再递归调用n/i，并且从i遍历到n/i的平方根，之后再把n/i放入new_out，并且存入结果res，由于层层迭代的调用，凡是本身能继续拆分成更小因数的都能在之后的迭代中拆分出来，并且加上之前结果，最终都会存res中，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; getFactors(<span style="color: #0000ff;">int</span><span style="color: #000000;"> n) {
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;<span style="color: #000000;"> res;
+        helper(n, </span><span style="color: #800080;">2</span><span style="color: #000000;">, {}, res);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+    </span><span style="color: #0000ff;">void</span> helper(<span style="color: #0000ff;">int</span> n, <span style="color: #0000ff;">int</span> start, vector&lt;<span style="color: #0000ff;">int</span>&gt; <span style="color: #0000ff;">out</span>, vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; &amp;<span style="color: #000000;">res) {
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = start; i &lt;= sqrt(n); ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (n % i == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; new_out = <span style="color: #0000ff;">out</span><span style="color: #000000;">;
+                new_out.push_back(i);
+                helper(n </span>/<span style="color: #000000;"> i, i, new_out, res);
+                new_out.push_back(n </span>/<span style="color: #000000;"> i);
+                res.push_back(new_out);
+            }
+        }
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>上面两种解法虽有些小不同，但是构成结果的顺序都是相同，对于题目中给的两个例子n = 12和n = 32，结果如下：</p>
+<div class="cnblogs_code">
+<pre>n = <span style="color: #800080;">12</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">3</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">6</span>
+<span style="color: #800080;">3</span> <span style="color: #800080;">4</span><span style="color: #000000;">
+
+n </span>= <span style="color: #800080;">32</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">2</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">4</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">8</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">4</span> <span style="color: #800080;">4</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">16</span>
+<span style="color: #800080;">4</span> <span style="color: #800080;">8</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>上面两种方法得到的结果跟题目中给的答案的顺序不同，虽然顺序不同，但是并不影响其通过OJ。我们下面就给出生成题目中的顺序的解法，这种方法也不难理解，还是从2遍历到n的平方根，如果i是因子，那么我们递归调用n/i，结果用v来保存，然后我们新建一个包含i和n/i两个因子的序列out，然后将其存入结果res, 然后我们再遍历之前递归n/i的所得到的序列，如果i小于等于某个序列的第一个数字，那么我们将其插入该序列的首位置，然后将序列存入结果res中，我们举个例子，比n = 12，那么刚开始i = 2，是因子，然后对6调用递归，得到{2, 3}，然后此时将{2, 6}先存入结果中，然后发现i(此时为2)小于等于{2, 3}中的第一个数字2，那么将2插入首位置得到{2, 2, 3}加入结果，然后此时i变成3，还是因子，对4调用递归，得到{2, 2}，此时先把{3, 4}存入结果，然后发现i(此时为3)大于{2, 2}中的第一个数字2，不做任何处理直接返回，这样我们就得到正确的结果了：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; getFactors(<span style="color: #0000ff;">int</span><span style="color: #000000;"> n) {
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;<span style="color: #000000;"> res;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">2</span>; i * i &lt;= n; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (n % i == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; v = getFactors(n /<span style="color: #000000;"> i);
+                vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; <span style="color: #0000ff;">out</span>{i, n /<span style="color: #000000;"> i};
+                res.push_back(</span><span style="color: #0000ff;">out</span><span style="color: #000000;">);
+                </span><span style="color: #0000ff;">for</span> (auto <span style="color: #000000;">a : v) {
+                    </span><span style="color: #0000ff;">if</span> (i &lt;= a[<span style="color: #800080;">0</span><span style="color: #000000;">]) {
+                        a.insert(a.begin(), i);
+                        res.push_back(a);
+                    }
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>这种方法对于对于题目中给的两个例子n = 12和n = 32，结果和题目中给的相同：</p>
+<div class="cnblogs_code">
+<pre>n = <span style="color: #800080;">12</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">6</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">3</span>
+<span style="color: #800080;">3</span> <span style="color: #800080;">4</span><span style="color: #000000;">
+
+n </span>= <span style="color: #800080;">32</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">16</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">8</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">4</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">2</span>
+<span style="color: #800080;">2</span> <span style="color: #800080;">4</span> <span style="color: #800080;">4</span>
+<span style="color: #800080;">4</span> <span style="color: #800080;">8</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a id="link_post_title" class="link-post-title" href="http://www.cnblogs.com/grandyang/p/4537983.html">Combination Sum III</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4419386.html" target="_blank">Combination Sum II</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4419259.html" target="_blank">Combination Sum</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/discuss/62457/concise-and-straightforward-java-solution" target="_blank">https://leetcode.com/discuss/62457/concise-and-straightforward-java-solution</a></p>
+<p><a href="https://leetcode.com/discuss/65106/share-clean-and-simple-0ms-c-solution-with-explanation" target="_blank">https://leetcode.com/discuss/65106/share-clean-and-simple-0ms-c-solution-with-explanation</a></p>
+<p><a href="https://leetcode.com/discuss/87331/17-lines-concise-and-easy-understand-solution-backtracking" target="_blank">https://leetcode.com/discuss/87331/17-lines-concise-and-easy-understand-solution-backtracking</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2016-03-29 13:55</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=5332722" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(5332722);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 5332722, cb_entryCreatedDate = '2016-03-29 13:55', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

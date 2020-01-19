@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given the radius and x-y positions of the center of a circle, write a function&amp;#160;randPoint&amp;#160;w" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 478. Generate Random Point in a Circle 生成圆中的随机点 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9741220.html">[LeetCode] 478. Generate Random Point in a Circle 生成圆中的随机点</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given the radius and x-y positions of the center of a circle, write a function&nbsp;<code>randPoint</code>&nbsp;which&nbsp;generates a uniform random&nbsp;point in the circle.</p>
+<p>Note:</p>
+<ol>
+<li>input and output values are&nbsp;in&nbsp;<a href="https://www.webopedia.com/TERM/F/floating_point_number.html" target="_blank">floating-point</a>.</li>
+<li>radius and x-y position of the center of the circle is passed into the class constructor.</li>
+<li>a point on the circumference of the circle is considered to be&nbsp;in the circle.</li>
+<li><code>randPoint</code>&nbsp;returns&nbsp;a size 2 array containing x-position and y-position of the random point, in that order.</li>
+</ol>
+<div>
+<p>Example 1:</p>
+<pre>Input: 
+<span id="example-input-1-1">["Solution","randPoint","randPoint","randPoint"]
+<span id="example-input-1-2">[[1,0,0],[],[],[]]
+Output: <span id="example-output-1">[null,[-0.72939,-0.65505],[-0.78502,-0.28626],[-0.83119,-0.19803]]
+</span></span></span></pre>
+<div>
+<p>Example 2:</p>
+<pre>Input: 
+<span id="example-input-2-1">["Solution","randPoint","randPoint","randPoint"]
+<span id="example-input-2-2">[[10,5,-7.5],[],[],[]]
+Output: <span id="example-output-2">[null,[11.52438,-8.33273],[2.46992,-16.21705],[11.13430,-12.42337]]</span></span></span></pre>
+</div>
+<p>Explanation of Input Syntax:</p>
+<p>The input is two lists:&nbsp;the subroutines called&nbsp;and their&nbsp;arguments.&nbsp;<code>Solution</code>'s&nbsp;constructor has three arguments, the radius, x-position of the center, and y-position of the center of the circle.&nbsp;<code>randPoint</code>&nbsp;has no arguments.&nbsp;Arguments&nbsp;are&nbsp;always wrapped with a list, even if there aren't any.</p>
+</div>
+<p>&nbsp;</p>
+<p>这道题给了我们一个圆，包括中点位置和半径，让随机生成圆中的任意一个点。这里说明了圆上也当作是圆中，而且这里的随机意味着要等概率。思绪飘回了高中时代，努力搜索着那一丝丝残留的记忆，终于，博主把还给老师的知识又要了回来，圆的方程表示为 (x - a) ^ 2 + (y - b) ^ 2 = r ^ 2，这里的 (a, b) 是圆心位置，r为半径。那么如何生成圆中的任意位置呢，如果用这种方式来生成，先随机出一个x，随机出y的时候还要考虑其是否在圆中间，比较麻烦。继续回到高中时代，模糊的记忆中飘来了三个字，极坐标。是的，圆还可以用极坐标的形式来表示，只需随机出一个角度 theta，再随机出一个小于半径的长度，这样就可以得到圆中的坐标位置了，哦耶～ 先来生成 theta吧，由于一圈是 360 度，即 2pi，所以随机出一个 [0, 1] 中的小数，再乘以 2pi，就可以了。然后就是随机小于半径的长度，这里有个问题需要注意一下，这里并不是直接随机出一个&nbsp;[0, 1] 中的小数再乘以半径r，而是要对随机出的 [0, 1] 中的小数取个平方根再乘以半径r。这是为啥呢，简单来说，是为了保证等概率。如果不用平方根的话，那么表示圆的时候 (len * cos(theta)) ^ 2 + (len * sin(theta) ^ 2，这里就相当于对随机出的 [0, 1] 中的小数平方了，那么其就不是等概率的了，因为两个小于1的小数相乘了，其会更加靠近0，这就是为啥要平方一下的原因。最后在求点位置的时候要加上圆心的偏移即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    Solution(</span><span style="color: #0000ff;">double</span> radius, <span style="color: #0000ff;">double</span> x_center, <span style="color: #0000ff;">double</span><span style="color: #000000;"> y_center) {
+        r </span>= radius; centerX = x_center; centerY =<span style="color: #000000;"> y_center;
+    }
+    
+    vector</span>&lt;<span style="color: #0000ff;">double</span>&gt;<span style="color: #000000;"> randPoint() {
+        </span><span style="color: #0000ff;">double</span> theta = <span style="color: #800080;">2</span> * M_PI * ((<span style="color: #0000ff;">double</span>)rand() /<span style="color: #000000;"> RAND_MAX);
+        </span><span style="color: #0000ff;">double</span> len = sqrt((<span style="color: #0000ff;">double</span>)rand() / RAND_MAX) *<span style="color: #000000;"> r;
+        </span><span style="color: #0000ff;">return</span> {centerX + len * cos(theta), centerY + len *<span style="color: #000000;"> sin(theta)};
+    }
+
+</span><span style="color: #0000ff;">private</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">double</span><span style="color: #000000;"> r, centerX, centerY;
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们也可以不用极坐标来做，由于之前刚做过&nbsp;<a id="link_post_title" class="link-post-title" href="https://www.cnblogs.com/grandyang/p/9727206.html">Implement Rand10() Using Rand7()</a>，对其中的拒绝采样 Rejection Sampling 还有印象，所以也可以用其来做。这其实就是拒绝采样的经典应用，在一个正方形中有均匀分布的点，随机出其内切圆中的一个点，那么就是随机出x和y之后，然后算其平方和，如果小于等于r平方，说明其在圆内，可以返回其坐标，记得加上圆心偏移，否则重新进行采样。关于拒绝采样的方法可以参见博主之前那篇博客&nbsp;<a id="link_post_title" class="link-post-title" href="https://www.cnblogs.com/grandyang/p/9727206.html">Implement Rand10() Using Rand7()</a>，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    Solution(</span><span style="color: #0000ff;">double</span> radius, <span style="color: #0000ff;">double</span> x_center, <span style="color: #0000ff;">double</span><span style="color: #000000;"> y_center) {
+        r </span>= radius; centerX = x_center; centerY =<span style="color: #000000;"> y_center;
+    }
+    
+    vector</span>&lt;<span style="color: #0000ff;">double</span>&gt;<span style="color: #000000;"> randPoint() {
+        </span><span style="color: #0000ff;">while</span> (<span style="color: #0000ff;">true</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">double</span> x = (<span style="color: #800080;">2</span> * (<span style="color: #0000ff;">double</span>)rand() / RAND_MAX - <span style="color: #800080;">1.0</span>) *<span style="color: #000000;"> r;
+            </span><span style="color: #0000ff;">double</span> y = (<span style="color: #800080;">2</span> * (<span style="color: #0000ff;">double</span>)rand() / RAND_MAX - <span style="color: #800080;">1.0</span>) *<span style="color: #000000;"> r;
+            </span><span style="color: #0000ff;">if</span> (x * x + y * y &lt;= r * r) <span style="color: #0000ff;">return</span> {centerX + x, centerY +<span style="color: #000000;"> y};
+        }
+    }
+
+</span><span style="color: #0000ff;">private</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">double</span><span style="color: #000000;"> r, centerX, centerY;
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/478">https://github.com/grandyang/leetcode/issues/478</a></p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a id="link_post_title" class="link-post-title" href="https://www.cnblogs.com/grandyang/p/9727206.html">Implement Rand10() Using Rand7()</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/generate-random-point-in-a-circle/" target="_blank">https://leetcode.com/problems/generate-random-point-in-a-circle/</a></p>
+<p><a href="https://leetcode.com/problems/generate-random-point-in-a-circle/discuss/154405/C%2B%2B-solution-polar-coordinates" target="_blank">https://leetcode.com/problems/generate-random-point-in-a-circle/discuss/154405/C%2B%2B-solution-polar-coordinates</a></p>
+<p><a href="https://leetcode.com/problems/generate-random-point-in-a-circle/discuss/169518/C%2B%2B-AC-solution-using-rejection-sampling" target="_blank">https://leetcode.com/problems/generate-random-point-in-a-circle/discuss/169518/C%2B%2B-AC-solution-using-rejection-sampling</a></p>
+<p><a href="https://leetcode.com/problems/generate-random-point-in-a-circle/discuss/155650/Explanation-with-Graphs-why-using-Math.sqrt()" target="_blank">https://leetcode.com/problems/generate-random-point-in-a-circle/discuss/155650/Explanation-with-Graphs-why-using-Math.sqrt()</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4606334.html" target="_blank">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-10-03 23:09</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9741220" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(9741220);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 9741220, cb_entryCreatedDate = '2018-10-03 23:09', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

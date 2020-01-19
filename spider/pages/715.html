@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="A Range Module is a module that tracks ranges of numbers. Your task is to design and implement the f" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Range Module 范围模块 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/8586531.html">[LeetCode] Range Module 范围模块</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>A Range Module is a module that tracks ranges of numbers. Your task is to design and implement the following interfaces in an efficient manner.</p>
+<p>&nbsp;</p>
+<ul>
+<li><code>addRange(int left, int right)</code>&nbsp;Adds the half-open interval&nbsp;<code>[left, right)</code>, tracking every real number in that interval. Adding an interval that partially overlaps with currently tracked numbers should add any numbers in the interval&nbsp;<code>[left, right)</code>&nbsp;that are not already tracked.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li><code>queryRange(int left, int right)</code>&nbsp;Returns true if and only if every real number in the interval&nbsp;<code>[left, right)</code>&nbsp;is currently being tracked.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li><code>removeRange(int left, int right)</code>&nbsp;Stops tracking every real number currently being tracked in the interval&nbsp;<code>[left, right)</code>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Example 1:</p>
+<pre>addRange(10, 20): null
+removeRange(14, 16): null
+queryRange(10, 14): true (Every number in [10, 14) is being tracked)
+queryRange(13, 15): false (Numbers like 14, 14.03, 14.17 in [13, 15) are not being tracked)
+queryRange(16, 17): true (The number 16 in [16, 17) is still being tracked, despite the remove operation)
+</pre>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ul>
+<li>A half open interval&nbsp;<code>[left, right)</code>&nbsp;denotes all real numbers&nbsp;<code>left &lt;= x &lt; right</code>.</li>
+<li><code>0 &lt; left &lt; right &lt; 10^9</code>&nbsp;in all calls to&nbsp;<code>addRange, queryRange, removeRange</code>.</li>
+<li>The total number of calls to&nbsp;<code>addRange</code>&nbsp;in a single test case is at most&nbsp;<code>1000</code>.</li>
+<li>The total number of calls to&nbsp;<code>queryRange</code>&nbsp;in a single test case is at most&nbsp;<code>5000</code>.</li>
+<li>The total number of calls to&nbsp;<code>removeRange</code>&nbsp;in a single test case is at most&nbsp;<code>1000</code>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>这道题让我们实现一个RangeModule的类，里面有三个功能函数，分别好似插入范围，查找范围，删除范围，题目中的例子给的也很明确，基本不会引起什么歧义。其实不管范围也好，区间也好，都是一回事，跟之前的区间的题目<a href="http://www.cnblogs.com/grandyang/p/4367569.html" target="_blank">Insert Interval</a>和<a href="http://www.cnblogs.com/grandyang/p/4370601.html" target="_blank">Merge Intervals</a>没有什么不同。这里的插入范围函数的实现方法跟之前那道<a href="http://www.cnblogs.com/grandyang/p/4367569.html" target="_blank">Insert Interval</a>的解法一样，直接抄过来就好。然后对于查找范围函数，由于题目中说只要有数字未被包括，就返回false。那么我们反过来想，只有当某个范围完全覆盖了这个要查找的范围才会返回true，所以我们可以遍历所有的范围，然后看是否有一个范围完全覆盖了要查找的范围，有的话返回true，循环结束后返回false。最后来看删除范围函数，其实现方法跟插入范围函数很类似，但又有少许不同。首先我们还是新建一个数组res存结果，然后遍历已有的范围，如果当前范围的结束位置小于等于要删除的范围的起始位置，由于题目中的范围定义是左开右闭，那么说明没有重叠，加入结果res，并且用变量cur自增1来记录当前位置。如果当前范围的起始位置大于等于要删除的范围的结束位置，说明咩有重叠，加入结果res。否则就是有重叠的情况，这里跟插入范围有所不同的是，插入范围只需要加入一个范围，而删除范围操作有可能将原来的大范围break成为两个小的范围，所以我们用一个临时数组t来存break掉后的小范围。如果当前范围的起始位置小于要删除的范围的起始位置left，说明此时一定有一段范围留下来了，即从当前范围的起始位置到要删除的范围的起始位置left，将这段范围加入临时数组t，同理，如果当前范围的结束位置大于要删除的范围的结束位置right，将这段范围加入临时数组t。最后将数组t加入结果res中的cur位置即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> RangeModule {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    RangeModule() {}
+    
+    </span><span style="color: #0000ff;">void</span> addRange(<span style="color: #0000ff;">int</span> left, <span style="color: #0000ff;">int</span><span style="color: #000000;"> right) {
+        vector</span>&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;<span style="color: #000000;"> res;
+        </span><span style="color: #0000ff;">int</span> n = v.size(), cur = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (v[i].second &lt;<span style="color: #000000;"> left) {
+                res.push_back(v[i]);
+                </span>++<span style="color: #000000;">cur;
+            } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (v[i].first &gt;<span style="color: #000000;"> right) {
+                res.push_back(v[i]);
+            } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                left </span>=<span style="color: #000000;"> min(left, v[i].first);
+                right </span>=<span style="color: #000000;"> max(right, v[i].second);
+            }
+        }
+        res.insert(res.begin() </span>+<span style="color: #000000;"> cur, {left, right});
+        v </span>=<span style="color: #000000;"> res;
+    }
+    
+    </span><span style="color: #0000ff;">bool</span> queryRange(<span style="color: #0000ff;">int</span> left, <span style="color: #0000ff;">int</span><span style="color: #000000;"> right) {
+        </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (auto a : v) {
+            </span><span style="color: #0000ff;">if</span> (a.first &lt;= left &amp;&amp; a.second &gt;= right) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+    
+    </span><span style="color: #0000ff;">void</span> removeRange(<span style="color: #0000ff;">int</span> left, <span style="color: #0000ff;">int</span><span style="color: #000000;"> right) {
+        vector</span>&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;<span style="color: #000000;"> res, t;
+        </span><span style="color: #0000ff;">int</span> n = v.size(), cur = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (v[i].second &lt;=<span style="color: #000000;"> left) {
+                res.push_back(v[i]);
+                </span>++<span style="color: #000000;">cur;
+            } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (v[i].first &gt;=<span style="color: #000000;"> right) {
+                res.push_back(v[i]);
+            } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                </span><span style="color: #0000ff;">if</span> (v[i].first &lt;<span style="color: #000000;"> left) {
+                    t.push_back({v[i].first, left});
+                }
+                </span><span style="color: #0000ff;">if</span> (v[i].second &gt;<span style="color: #000000;"> right) {
+                    t.push_back({right, v[i].second});
+                }
+            }
+        }
+        res.insert(res.begin() </span>+<span style="color: #000000;"> cur, t.begin(), t.end());
+        v </span>=<span style="color: #000000;"> res;
+    }
+
+</span><span style="color: #0000ff;">private</span><span style="color: #000000;">:
+    vector</span>&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;<span style="color: #000000;"> v;
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面来看一种优化了时间复杂度的解法，我们使用TreeMap来建立范围的起始位置和结束位置之间的映射，利用了TreeMap的自动排序功能，其会根据起始位置从小到大进行排序。既然是有序的，我们就可以利用二分法来快速进行查找了。</p>
+<p>在加入范围函数中，我们首先用upper_bound函数来查找第一个大于left的位置，标记为l，再用upper_bound函数来查找第一个大于right的位置，标记为r。我们其实是想找第一个不大于left和right的位置的，由于C++没有floorKey这个函数，所以我们只能用upper_bound找大于left和right的位置，然后再往前移一个。如果l不是TreeMap中的第一个位置，且前面一个范围的结束位置小于left，说明和前一个范围没有交集，那么还是回到当前这个范围吧。如果此时l和r指向同一个位置，说明当前要加入的范围没有跟其他任何一个范围有交集，所以我们直接返回即可，不需要其他任何操作。否则的话我们将left和l指向范围的起始位置中的较小值赋给i，将right和r指向的前一个位置的结束位置的较大值赋给j，然后将l和r之间的范围都删除掉（注意这里r自增了1，是因为之前先自减了1），然后将i和j返回即可。返回后我们建立起这个映射即可。</p>
+<p>在查找范围函数中，我们先用upper_bound找出第一个大于left位置的范围it，然后看如果it不是第一个范围，并且如果其前面的一个范围的结束位置大于等于right，说明已经完全包括这个要查找的范围，因为前一个范围的起始位置小于left，且结束位置大于等于right，直接返回true。</p>
+<p>在删除范围函数中，查找重叠范围的方法跟加入范围函数中的操作一样，所以抽出来放到了find函数中，由于删除的范围有可能完全覆盖了原有范围，也有可能只是部分覆盖，将一个大的范围拆成了一个或者两个范围。所以我们判断，如果left大于覆盖范围的起始位置，那么将这段建立映射，同理，如果覆盖范围的结束位置大于right，同样建立这段的映射，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> RangeModule {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    RangeModule() {}
+    
+    </span><span style="color: #0000ff;">void</span> addRange(<span style="color: #0000ff;">int</span> left, <span style="color: #0000ff;">int</span><span style="color: #000000;"> right) {
+        auto x </span>=<span style="color: #000000;"> find(left, right);
+        m[x.first] </span>=<span style="color: #000000;"> x.second;
+    }
+    
+    </span><span style="color: #0000ff;">bool</span> queryRange(<span style="color: #0000ff;">int</span> left, <span style="color: #0000ff;">int</span><span style="color: #000000;"> right) {
+        auto it </span>=<span style="color: #000000;"> m.upper_bound(left);
+        </span><span style="color: #0000ff;">return</span> it != m.begin() &amp;&amp; (--it)-&gt;second &gt;=<span style="color: #000000;"> right;
+    }
+    
+    </span><span style="color: #0000ff;">void</span> removeRange(<span style="color: #0000ff;">int</span> left, <span style="color: #0000ff;">int</span><span style="color: #000000;"> right) {
+        auto x </span>=<span style="color: #000000;"> find(left, right);
+        </span><span style="color: #0000ff;">if</span> (left &gt; x.first) m[x.first] =<span style="color: #000000;"> left;
+        </span><span style="color: #0000ff;">if</span> (x.second &gt; right) m[right] =<span style="color: #000000;"> x.second;
+    }
+
+</span><span style="color: #0000ff;">private</span><span style="color: #000000;">:
+    map</span>&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> m;
+    
+    pair</span>&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt; find(<span style="color: #0000ff;">int</span> left, <span style="color: #0000ff;">int</span><span style="color: #000000;"> right) {
+        auto l </span>= m.upper_bound(left), r =<span style="color: #000000;"> m.upper_bound(right);
+        </span><span style="color: #0000ff;">if</span> (l != m.begin() &amp;&amp; (--l)-&gt;second &lt; left) ++<span style="color: #000000;">l;
+        </span><span style="color: #0000ff;">if</span> (l == r) <span style="color: #0000ff;">return</span><span style="color: #000000;"> {left, right};
+        </span><span style="color: #0000ff;">int</span> i = min(left, l-&gt;first), j = max(right, (--r)-&gt;<span style="color: #000000;">second);
+        m.erase(l, </span>++<span style="color: #000000;">r);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> {i, j};
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/5548284.html">Data Stream as Disjoint Intervals</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4367569.html" target="_blank">Insert Interval</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4370601.html" target="_blank">Merge Intervals</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/range-module/discuss/108914/c++-code">https://leetcode.com/problems/range-module/discuss/108914/c++-code</a></p>
+<p><a href="https://leetcode.com/problems/range-module/discuss/108912/C++-vector-O(n)-and-map-O(logn)-compare-two-solutions">https://leetcode.com/problems/range-module/discuss/108912/C++-vector-O(n)-and-map-O(logn)-compare-two-solutions</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-03-16 23:53</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8586531" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(8586531);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 8586531, cb_entryCreatedDate = '2018-03-16 23:53', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

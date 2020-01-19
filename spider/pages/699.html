@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="On an infinite number line (x-axis), we drop given squares in the order they are given. The&amp;#160;i-t" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Falling Squares 下落的方块 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/8486414.html">[LeetCode] Falling Squares 下落的方块</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>On an infinite number line (x-axis), we drop given squares in the order they are given.</p>
+<p>The&nbsp;<code>i</code>-th square dropped (<code>positions[i] = (left, side_length)</code>) is a square with the left-most point being&nbsp;<code>positions[i][0]</code>&nbsp;and sidelength&nbsp;<code>positions[i][1]</code>.</p>
+<p>The square is dropped with the bottom edge parallel to the number line, and from a higher height than all currently landed squares. We wait for each square to stick before dropping the next.</p>
+<p>The squares are infinitely sticky on their bottom edge, and will remain fixed to any positive length surface they touch (either the number line or another square). Squares dropped adjacent to each other will not stick together prematurely.</p>
+<p>&nbsp;</p>
+<p>Return a list&nbsp;<code>ans</code>&nbsp;of heights. Each height&nbsp;<code>ans[i]</code>&nbsp;represents the current highest height of any square we have dropped, after dropping squares represented by&nbsp;<code>positions[0], positions[1], ..., positions[i]</code>.</p>
+<p>Example 1:</p>
+<pre>Input: [[1, 2], [2, 3], [6, 1]]
+Output: [2, 5, 5]
+Explanation:</pre>
+<p>After the first drop of <code>positions[0] = [1, 2]: _aa _aa ------- </code>The maximum height of any square is 2.</p>
+<p>After the second drop of <code>positions[1] = [2, 3]: __aaa __aaa __aaa _aa__ _aa__ -------------- </code>The maximum height of any square is 5. The larger square stays on top of the smaller square despite where its center of gravity is, because squares are infinitely sticky on their bottom edge.</p>
+<p>After the third drop of <code>positions[1] = [6, 1]: __aaa __aaa __aaa _aa _aa___a -------------- </code>The maximum height of any square is still 5. Thus, we return an answer of <code>[2, 5, 5]</code>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Example 2:</p>
+<pre>Input: [[100, 100], [200, 100]]
+Output: [100, 100]
+Explanation: Adjacent squares don't get stuck prematurely - only their bottom edge can stick to surfaces.
+</pre>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ul>
+<li><code>1 &lt;= positions.length &lt;= 1000</code>.</li>
+<li><code>1 &lt;= positions[i][0] &lt;= 10^8</code>.</li>
+<li><code>1 &lt;= positions[i][1] &lt;= 10^6</code>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>这道题不就是经典的俄罗斯方块么？！只不过是简化版的，我们只有方块下落，没有其他那些奇形怪状的东西，这样简化了难度，不过方块的大小不是固定的，有可能很大，但是不管方块再大，只要有一点点部分搭在其他方块上面，整个方块都会在上面，并不会掉下来，让我们求每落下一个方块后的最大高度。我们知道返回的是每落下一个方块后当前场景中的最大高度，那么返回的数组的长度就应该和落下方块的个数相同。所以我们可以建立一个heights数组，其中heights[i]表示第i块方块落下后所在的高度，那么第i块方块落下后场景的最大高度就是[0, i]区间内的最大值。那么我们在求出heights数组后，只要不停返回[0, i]区间内的最大值即可。继续来看，这道题的难点就是方块重叠的情况，我们先来想，如果各个方块不重叠，那么heights[i]的高度就是每个方块自身的高度。一旦重叠了，就得在已有的基础上再加上自身的高度。那么我们可以采用brute force的思想，对于每个一个下落的方块，我们都去看和后面将要落下的方块有没有重叠，有的话，和后面将要落下的方块的位置相比较，取二者中较大值为后面要落下的方块位置高度heights[j]。判读两个方块是否重叠的方法是如果方块2的左边界小于方块1的右边界，并且方块2点右边界大于方块1点左边界。就拿题目中的例子1来举例吧，第一个下落的方块的范围是[1, 3]，长度为2，则heights[0]=2，然后我们看其和第二个方块[2, 5]是否重叠，发现是重叠的，则heights[1]更新为2，再看第三个方块[6, 7]，不重叠，不更新。然后第二个方块落下，此时累加高度，则heights[1]=5，再看第三个方块，不重叠，不更新。然后第三个方块落下, heights[2]=1。此时我们heights数组更新好了，然后我们开始从头遍历，维护一个当前最大值curMax，每次将[0, i]中最大值加入结果res即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; fallingSquares(vector&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> positions) {
+        </span><span style="color: #0000ff;">int</span> n = positions.size(), cur = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> heights(n), res;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">int</span> len = positions[i].second, left = positions[i].first, right = left +<span style="color: #000000;"> len;
+            heights[i] </span>+=<span style="color: #000000;"> len;
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = i + <span style="color: #800080;">1</span>; j &lt; n; ++<span style="color: #000000;">j) {
+                </span><span style="color: #0000ff;">int</span> l = positions[j].first, r = l +<span style="color: #000000;"> positions[j].second;
+                </span><span style="color: #0000ff;">if</span> (l &lt; right &amp;&amp; r &gt;<span style="color: #000000;"> left) {
+                    heights[j] </span>=<span style="color: #000000;"> max(heights[j], heights[i]);
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span><span style="color: #000000;"> h : heights) {
+            cur </span>=<span style="color: #000000;"> max(cur, h);
+            res.push_back(cur);
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们来看一种时间复杂度为O(nlogn)的解法，这种解法将每一个不同高度的区间都存到了一个HashMap中，然后每当有新的方块落下的时候，可以使用二分法来快速定位到可能发生重叠的区间的位置，如果有重叠的话，将原区间再根据高度拆成多个小区间，并且一直维护一个当前出现过的最高值，并加入结果res中。我们的HashMap的映射是建立pair和int之间的映射，由于HashMap是有自动排序的功能，默认的是使用pair中第一个元素，正好就是每个方块的起始位置。然后我们遍历每个下落的方块，建立一个临时的二维数组t，用来保存拆分后的小区间。然后我们取出当前方块的起始终止位置start和end，然后我们希望在HashMap中找第一个不大于当前方块起始位置的区间，在Java中我们可以使用floorKey()函数，但是在C++中，我们只有lower_bound()和upper_bound()可以用，分别表示找第一个不大于目标值，和第一个大于目标值的区间，那么我们为了找到第一个不大于当前起始位置的区间，可以先用upper_bound()来找到第一个大于起始位置的区间，然后向前移动一个，就是第一个不大于的了。注意向前移动操作有前提条件，就是upper_bound()返回的位置不能是首位置，否则无法前移，还有就是如果前一个区间的结束为止小于等于当前区间的起始位置，说明两个区间没有重叠，我们再移回来。</p>
+<p>下面就要进行拆分区间的核心操作了，我们用一个while循环，循环条件是it存在，并且it指向区间的起始位置小于当前区间的结束位置。由于之前的操作确定了这两个区间一定会有重叠，那么重叠的方式就有一下四种（上方为当前区间，下方为it区间）：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">      &mdash;&mdash;&mdash;
+      </span>| |<span style="color: #000000;">
+      &mdash;&mdash;&mdash;
+<span style="color: #ff0000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span>&mdash;&mdash;
+</span><span style="color: #ff0000;">|</span>      |<span style="color: #000000;"><span style="color: #ff0000;">
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span>&mdash;&mdash;</span></pre>
+</div>
+<p>如上图所示，如果当前区间（上方）的起始位置大于it指向区间（下方）的起始位置，说明红色那段区间需要被拆分出来，我们将其拆分出来并存入数组t中。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">  &mdash;&mdash;&mdash;
+  </span>| |<span style="color: #000000;">
+  &mdash;&mdash;&mdash;
+    &mdash;<span style="color: #ff00ff;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+    </span></span>|      <span style="color: #ff00ff;">|</span><span style="color: #000000;">
+    &mdash;<span style="color: #ff00ff;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span></span></pre>
+</div>
+<p>如上图所示，如果当前区间（上方）的结束位置小于it指向区间（下方）的结束位置，说明洋红色那段区间需要被拆分出来，我们将其拆分出来并存入数组t中。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">  &mdash;&mdash;&mdash;
+  </span>| |<span style="color: #000000;">
+  &mdash;&mdash;&mdash;
+<span style="color: #ff0000;">&mdash;&mdash;</span>&mdash;&mdash;&mdash;<span style="color: #ff00ff;">&mdash;&mdash;&mdash;
+</span></span><span style="color: #ff0000;">|</span>      <span style="color: #ff00ff;">|</span><span style="color: #000000;"><span style="color: #ff0000;">
+&mdash;&mdash;</span>&mdash;&mdash;&mdash;<span style="color: #ff00ff;">&mdash;&mdash;&mdash;</span></span></pre>
+</div>
+<p>如上图所示，红色区间和洋红色区间都需要拆分出来，我们将其拆分出来并存入数组t中。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+</span>|      |<span style="color: #000000;">
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+  &mdash;&mdash;&mdash;
+  </span>| |<span style="color: #000000;">
+  &mdash;&mdash;&mdash;</span></pre>
+</div>
+<p>如上图所示，底层方块被完全覆盖了，没有区间需要被拆分出来。</p>
+<p>我们用底层it指向的区间的高度来更新h，这里的h表示当前方块下落后的基础高度，然后我们将底层it指向的区间删除，因为我们已经将没有被覆盖的区间拆分出来并存入数组t中了。注意erase()函数返回的是被删除区间的下一个位置，这样使得我们的while函数能继续判断，直到it区间和当前区间不再重叠位置。退出while循环后，我们需要将当前下落方块的区间加入HashMap中，高度为基础高度h加上自身高度len。接下来就把数组t中拆分出来的小区间都加入到HashMap中，然后用当前用h+len来更新curMax，表示当前场景最大高度，加入结果res中，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; fallingSquares(vector&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt;&amp;<span style="color: #000000;"> positions) {
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> res;
+        map</span>&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;, <span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> m;
+        </span><span style="color: #0000ff;">int</span> curMax = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (auto &amp;<span style="color: #000000;">pos : positions) {
+            vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;<span style="color: #000000;"> t;
+            </span><span style="color: #0000ff;">int</span> len = pos.second, start = pos.first, end = start + len, h = <span style="color: #800080;">0</span><span style="color: #000000;">;
+            auto it </span>=<span style="color: #000000;"> m.upper_bound({start, start});
+            </span><span style="color: #0000ff;">if</span> (it != m.begin() &amp;&amp; (--it)-&gt;first.second &lt;= start) ++<span style="color: #000000;">it;
+            </span><span style="color: #0000ff;">while</span> (it != m.end() &amp;&amp; it-&gt;first.first &lt;<span style="color: #000000;"> end) {
+                </span><span style="color: #0000ff;">if</span> (start &gt; it-&gt;first.first) t.push_back({it-&gt;first.first, start, it-&gt;<span style="color: #000000;">second});
+                </span><span style="color: #0000ff;">if</span> (end &lt; it-&gt;first.second) t.push_back({end, it-&gt;first.second, it-&gt;<span style="color: #000000;">second});
+                h </span>= max(h, it-&gt;<span style="color: #000000;">second);
+                it </span>=<span style="color: #000000;"> m.erase(it);
+            }
+            m[{start, end}] </span>= h +<span style="color: #000000;"> len;
+            </span><span style="color: #0000ff;">for</span> (auto &amp;a : t) m[{a[<span style="color: #800080;">0</span>], a[<span style="color: #800080;">1</span>]}] = a[<span style="color: #800080;">2</span><span style="color: #000000;">];
+            curMax </span>= max(curMax, h +<span style="color: #000000;"> len);
+            res.push_back(curMax);
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4534586.html" target="_blank">The Skyline Problem</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/falling-squares/solution/">https://leetcode.com/problems/falling-squares/solution/</a></p>
+<p><a href="https://leetcode.com/problems/falling-squares/discuss/108769/C++-O(nlogn)">https://leetcode.com/problems/falling-squares/discuss/108769/C++-O(nlogn)</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-02-28 23:50</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8486414" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(8486414);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 8486414, cb_entryCreatedDate = '2018-02-28 23:50', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

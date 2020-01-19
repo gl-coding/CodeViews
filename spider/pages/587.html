@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta property="og:description" content="There are some trees, where each tree is represented by (x,y) coordinate in a two-dimensional garden" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Erect the Fence 竖立栅栏 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/7745697.html">[LeetCode] Erect the Fence 竖立栅栏</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>There are some trees, where each tree is represented by (x,y) coordinate in a two-dimensional garden. Your job is to fence the entire garden using the <strong>minimum length</strong> of rope as it is expensive. The garden is well fenced only if all the trees are enclosed. Your task is to help find the coordinates of trees which are exactly located on the fence perimeter.</p>
+<p><strong>Example 1:</strong><br />
+</p>
+<pre><strong>Input:</strong> [[1,1],[2,2],[2,0],[2,4],[3,3],[4,2]]
+<strong>Output:</strong> [[1,1],[2,0],[4,2],[3,3],[2,4]]
+<strong>Explanation:</strong>
+</pre>
+<p><img src="https://leetcode.com/static/images/problemset/erect_the_fence_1.png" alt="" width="30%" /></p>
+<p><strong>Example 2:</strong><br />
+</p>
+<pre><strong>Input:</strong> [[1,2],[2,2],[4,2]]
+<strong>Output:</strong> [[1,2],[2,2],[4,2]]
+<strong>Explanation:</strong>
+</pre>
+<p><img src="https://leetcode.com/static/images/problemset/erect_the_fence_2.png" alt="" width="30%" /></p>
+<pre>Even you only have trees in a line, you need to use rope to enclose them. 
+</pre>
+<p>Note:</p>
+<ol>
+<li>All trees should be enclosed together. You cannot cut the rope to enclose trees that will separate them in more than one group.</li>
+<li>All input integers will range from 0 to 100.</li>
+<li>The garden has at least one tree.</li>
+<li>All coordinates are distinct.</li>
+<li>Input points have <strong>NO</strong> order. No order required for output.</li>
+</ol>
+<p>&nbsp;</p>
+<p>这道题给了我们一些树，每个树都有其特定的坐标，让我们用最少的栅栏将其全部包住，让我们找出在栅栏边上的树。其实这道题是凸包问题，就是平面上给了一堆点，让我们找出一个多边形，正好包括了所有的点。凸包问题的算法有很多，常见的有八种，参见<a href="https://en.wikipedia.org/wiki/Convex_hull_algorithms" target="_blank">wiki上的这个帖子</a>。我们来看一种比较常见的算法，卷包裹Gift wrapping算法，又叫Jarvis march算法。这种算法的核心像一种卷包裹的操作，比如说我们把每个点当成墙上的钉子，然后我们有一个皮筋，我们直接将皮筋撑的老大，然后套在所有钉子上松手，其自动形成的形状就是要求的凸包，也是凸多边形。脑海中有没有产生这个画面？撑起皮筋的边缘点就是我们要求的关键的结点，形象的图文讲解可以参见<a href="http://www.cnblogs.com/Booble/archive/2011/02/28/1967179.html" target="_blank">这个帖子</a>。</p>
+<p>我们的目标是找到这些点，做法是先找到一个边缘点，然后按一个方向转一圈，找到所有的边缘点，当再次找到起始的边缘点时结束循环。起始点的选择方法是找横坐标最小的点，即最左边的点，如果有多个横坐标相同且最小的点也没有关系，其中任意一个都可以当作起始点。因为某个点的横坐标或纵坐标任意一个是最小或最大时，该点一定是边缘上的点。我们把这个起始点标记为first，其坐标标记为firstIdx，然后我们建立一个当前点遍历cur，初始化为first，当前点坐标curIdx，初始化为firstIdx。然后我们进行循环，我们目标是找到下一个边缘点next，初始化其为数组中的第一个点，在例子1中，起始点也是数组中的第一个点，这样cur和next重合了，不过没有关系，这是个初始化而已。好，现在两个点已经确定了，我们还需要一个点，这样三个点就可以利用叉积来求出向量间的夹角，从而根据正负来判断是否为边缘点。第三个点的选择就从数组中的第二个点开始遍历，如果遍历到了cur点，直接跳过。然后此时我们算三个点之间的叉积Cross Product，不太了解叉积的菊苣们可以google一些帖子看一看，简单的来说，就是比如有三个点A，B和C，那么叉积就是求和向量BA，BC都垂直的一个向量，等于两个向量的长度乘以夹角的正弦值。在之前那道<a href="http://www.cnblogs.com/grandyang/p/6146986.html">Convex Polygon</a>中，我们就是根据叉积来判断是否是凸多边形，要保持凸多边形，那么每三个点的叉积要同正或同负。这有什么用呢，别急，一会再说。先来说之前的cur和next重合了的情况，根据叉积的计算方法，只要有两个点重合，那么叉积就为0。比如当cur和next都是A，points[i]是B时，cross是0，此时我们判断如果points[i]到cur的距离大于next到cur的距离的话，将next移动到points[i]。为啥要判断距离呢，我们假设现在有种情况，cur是D，next是E，points[i]是F，此时的cross算出是0，而且FD的距离大于ED的距离，则将next移动到F点，是正确的。但假如此cur是D，next是F，pionts[i]是E，此时cross算出来也是0，但是ED的距离小于FD的距离，所以不用讲next移动到E，这也make sense。</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://images2017.cnblogs.com/blog/391947/201710/391947-20171030094511074-2031565893.png" alt="" width="339" height="267" /></p>
+<p>好，还有两种情况也需要移动next，一种是当next点和cur点相同的时候直接移动next到points[i]，其实这种情况已经在上面的分析中cover了，所以这个判断有没有都一样，有的话能省几步距离的计算吧。还有一种情况是cross大于0的时候，要找凸多边形，cross必须同正负，如果我们设定cross大于0移动next，那么就是逆时针来找边缘点。当我们算出来了next后，如果不存在三点共线的情况，我们可以直接将next存入结果res中，但是有共线点的话，我们只能遍历所有的点，再次计算cross，如果为0的话，说明共线，则加入结果res中。在大神的帖子中用的是Set可以自动取出重复，C++版本的应该使用指针的Point，这样才能让set的插入函数work，不加指针的话就不能用set了，那只能手动去重复了，写个去重复的子函数来filter一下吧，参见代码如下：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    vector</span>&lt;Point&gt; outerTrees(vector&lt;Point&gt;&amp;<span style="color: #000000;"> points) {
+        vector</span>&lt;Point&gt;<span style="color: #000000;"> res;
+        Point first </span>= points[<span style="color: #800080;">0</span><span style="color: #000000;">];
+        </span><span style="color: #0000ff;">int</span> firstIdx = <span style="color: #800080;">0</span>, n =<span style="color: #000000;"> points.size();
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (points[i].x &lt;<span style="color: #000000;"> first.x) {
+                first </span>=<span style="color: #000000;"> points[i];
+                firstIdx </span>=<span style="color: #000000;"> i;
+            }
+        }
+        res.push_back(first);
+        Point cur </span>=<span style="color: #000000;"> first;
+        </span><span style="color: #0000ff;">int</span> curIdx =<span style="color: #000000;"> firstIdx;
+        </span><span style="color: #0000ff;">while</span> (<span style="color: #0000ff;">true</span><span style="color: #000000;">) {
+            Point next </span>= points[<span style="color: #800080;">0</span><span style="color: #000000;">];
+            </span><span style="color: #0000ff;">int</span> nextIdx = <span style="color: #800080;">0</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt; n; ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">if</span> (i == curIdx) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">int</span> cross =<span style="color: #000000;"> crossProduct(cur, points[i], next);
+                </span><span style="color: #0000ff;">if</span> (nextIdx == curIdx || cross &gt; <span style="color: #800080;">0</span> || (cross == <span style="color: #800080;">0</span> &amp;&amp; dist(points[i], cur) &gt;<span style="color: #000000;"> dist(next, cur))) {
+                    next </span>=<span style="color: #000000;"> points[i];
+                    nextIdx </span>=<span style="color: #000000;"> i;
+                }
+            }
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">if</span> (i == curIdx) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">int</span> cross =<span style="color: #000000;"> crossProduct(cur, points[i], next);
+                </span><span style="color: #0000ff;">if</span> (cross == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                    </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (check(res, points[i])) res.push_back(points[i]);
+                }
+            }
+            cur </span>=<span style="color: #000000;"> next;
+            curIdx </span>=<span style="color: #000000;"> nextIdx;
+            </span><span style="color: #0000ff;">if</span> (curIdx == firstIdx) <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> crossProduct(Point A, Point B, Point C) {
+        </span><span style="color: #0000ff;">int</span> BAx = A.x -<span style="color: #000000;"> B.x;
+        </span><span style="color: #0000ff;">int</span> BAy = A.y -<span style="color: #000000;"> B.y;
+        </span><span style="color: #0000ff;">int</span> BCx = C.x -<span style="color: #000000;"> B.x;
+        </span><span style="color: #0000ff;">int</span> BCy = C.y -<span style="color: #000000;"> B.y;
+        </span><span style="color: #0000ff;">return</span> BAx * BCy - BAy *<span style="color: #000000;"> BCx;
+    }
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> dist(Point A, Point B) {
+        </span><span style="color: #0000ff;">return</span> (A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y -<span style="color: #000000;"> B.y);
+    }
+    </span><span style="color: #0000ff;">bool</span> check(vector&lt;Point&gt;&amp;<span style="color: #000000;"> res, Point p) {
+        </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (Point r : res) {
+            </span><span style="color: #0000ff;">if</span> (r.x == p.x &amp;&amp; r.y == p.y) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/6146986.html">Convex Polygon</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://en.wikipedia.org/wiki/Convex_hull_algorithms" target="_blank">https://en.wikipedia.org/wiki/Convex_hull_algorithms</a></p>
+<p><a href="http://www.cnblogs.com/Booble/archive/2011/02/28/1967179.html" target="_blank">http://www.cnblogs.com/Booble/archive/2011/02/28/1967179.html</a></p>
+<p><a href="https://discuss.leetcode.com/topic/89340/quickhull-c-solution-29ms" target="_blank">https://discuss.leetcode.com/topic/89340/quickhull-c-solution-29ms</a></p>
+<p><a href="https://discuss.leetcode.com/topic/89745/c-and-python-easy-wiki-solution" target="_blank">https://discuss.leetcode.com/topic/89745/c-and-python-easy-wiki-solution</a></p>
+<p><a href="https://discuss.leetcode.com/topic/89323/java-solution-convex-hull-algorithm-gift-wrapping-aka-jarvis-march" target="_blank">https://discuss.leetcode.com/topic/89323/java-solution-convex-hull-algorithm-gift-wrapping-aka-jarvis-march</a></p>
+<p><a href="https://discuss.leetcode.com/topic/89336/java-graham-scan-with-adapted-sorting-to-deal-with-collinear-points" target="_blank">https://discuss.leetcode.com/topic/89336/java-graham-scan-with-adapted-sorting-to-deal-with-collinear-points</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2017-10-27 23:54</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=7745697" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(7745697);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 7745697, cb_entryCreatedDate = '2017-10-27 23:54', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

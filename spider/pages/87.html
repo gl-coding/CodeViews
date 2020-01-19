@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given a string&amp;#160;s1, we may represent it as a binary tree by partitioning it to two non-empty sub" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 87. Scramble String 搅乱字符串 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/4318500.html">[LeetCode] 87. Scramble String 搅乱字符串</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given a string&nbsp;<em>s1</em>, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively.</p>
+<p>Below is one possible representation of&nbsp;<em>s1</em>&nbsp;=&nbsp;<code>"great"</code>:</p>
+<pre>    great
+   /    \
+  gr    eat
+ / \    /  \
+g   r  e   at
+           / \
+          a   t
+</pre>
+<p>To scramble the string, we may choose any non-leaf node and swap its two children.</p>
+<p>For example, if we choose the node&nbsp;<code>"gr"</code>&nbsp;and swap its two children, it produces a scrambled string&nbsp;<code>"rgeat"</code>.</p>
+<pre>    rgeat
+   /    \
+  rg    eat
+ / \    /  \
+r   g  e   at
+           / \
+          a   t
+</pre>
+<p>We say that&nbsp;<code>"rgeat"</code>&nbsp;is a scrambled string of&nbsp;<code>"great"</code>.</p>
+<p>Similarly, if we continue to swap the children of nodes&nbsp;<code>"eat"</code>&nbsp;and&nbsp;<code>"at"</code>, it produces a scrambled string&nbsp;<code>"rgtae"</code>.</p>
+<pre>    rgtae
+   /    \
+  rg    tae
+ / \    /  \
+r   g  ta  e
+       / \
+      t   a
+</pre>
+<p>We say that&nbsp;<code>"rgtae"</code>&nbsp;is a scrambled string of&nbsp;<code>"great"</code>.</p>
+<p>Given two strings&nbsp;<em>s1</em>&nbsp;and&nbsp;<em>s2</em>&nbsp;of the same length, determine if&nbsp;<em>s2</em>&nbsp;is a scrambled string of&nbsp;<em>s1</em>.</p>
+<p>Example 1:</p>
+<pre>Input: s1 = "great", s2 = "rgeat"
+Output: true
+</pre>
+<p>Example 2:</p>
+<pre>Input: s1 = "abcde", s2 = "caebd"
+Output: false</pre>
+<p>&nbsp;</p>
+<p>这道题定义了一种搅乱字符串，就是说假如把一个字符串当做一个二叉树的根，然后它的非空子字符串是它的子节点，然后交换某个子字符串的两个子节点，重新爬行回去形成一个新的字符串，这个新字符串和原来的字符串互为搅乱字符串。这道题可以用递归 Recursion 或是动态规划 Dynamic Programming 来做，我们先来看递归的解法，参见网友&nbsp;<a href="http://blog.unieagle.net/2012/10/23/leetcode%E9%A2%98%E7%9B%AE%EF%BC%9Ascramble-string%EF%BC%8C%E4%B8%89%E7%BB%B4%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank">uniEagle 的博客</a>，<strong>简单的说，就是 s1 和 s2 是 scramble 的话，那么必然存在一个在 s1 上的长度 l1，将 s1 分成 s11 和 s12 两段，同样有 s21 和 s22，那么要么 s11 和 s21 是 scramble 的并且 s12 和 s22 是 scramble 的；要么 s11 和 s22 是 scramble 的并且 s12 和 s21 是 scramble 的。</strong>就拿题目中的例子 rgeat 和 great 来说，rgeat 可分成 rg 和 eat 两段， great 可分成 gr 和 eat 两段，rg 和 gr 是 scrambled 的， eat 和 eat 当然是 scrambled。根据这点，我们可以写出代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> Recursion</span>
+<span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> isScramble(<span style="color: #0000ff;">string</span> s1, <span style="color: #0000ff;">string</span><span style="color: #000000;"> s2) {
+        </span><span style="color: #0000ff;">if</span> (s1.size() != s2.size()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (s1 == s2) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">string</span> str1 = s1, str2 =<span style="color: #000000;"> s2;
+        sort(str1.begin(), str1.end());
+        sort(str2.begin(), str2.end());
+        </span><span style="color: #0000ff;">if</span> (str1 != str2) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt; s1.size(); ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">string</span> s11 = s1.substr(<span style="color: #800080;">0</span><span style="color: #000000;">, i);
+            </span><span style="color: #0000ff;">string</span> s12 =<span style="color: #000000;"> s1.substr(i);
+            </span><span style="color: #0000ff;">string</span> s21 = s2.substr(<span style="color: #800080;">0</span><span style="color: #000000;">, i);
+            </span><span style="color: #0000ff;">string</span> s22 =<span style="color: #000000;"> s2.substr(i);
+            </span><span style="color: #0000ff;">if</span> (isScramble(s11, s21) &amp;&amp; isScramble(s12, s22)) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            s21 </span>= s2.substr(s1.size() -<span style="color: #000000;"> i);
+            s22 </span>= s2.substr(<span style="color: #800080;">0</span>, s1.size() -<span style="color: #000000;"> i);
+            </span><span style="color: #0000ff;">if</span> (isScramble(s11, s21) &amp;&amp; isScramble(s12, s22)) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>当然，这道题也可以用动态规划 Dynamic Programming，根据以往的经验来说，根字符串有关的题十有八九可以用 DP 来做，那么难点就在于如何找出状态转移方程。参见网友&nbsp;<a href="http://blog.csdn.net/linhuanmars/article/details/24506703" target="_blank">Code Ganker 的博客</a>，这其实是一道三维动态规划的题目，使用一个三维数组 dp[i][j][n]，其中i是 s1 的起始字符，j是 s2 的起始字符，而n是当前的字符串长度，dp[i][j][len] 表示的是以i和j分别为 s1 和 s2 起点的长度为 len 的字符串是不是互为 scramble。有了 dp 数组接下来看看状态转移方程，也就是怎么根据历史信息来得到 dp[i][j][len]。判断这个是不是满足，首先是把当前 s1[i...i+len-1] 字符串劈一刀分成两部分，然后分两种情况：第一种是左边和 s2[j...j+len-1] 左边部分是不是 scramble，以及右边和 s2[j...j+len-1] 右边部分是不是 scramble；第二种情况是左边和 s2[j...j+len-1] 右边部分是不是 scramble，以及右边和 s2[j...j+len-1] 左边部分是不是 scramble。如果以上两种情况有一种成立，说明 s1[i...i+len-1] 和 s2[j...j+len-1] 是 scramble 的。而对于判断这些左右部分是不是 scramble 是有历史信息的，因为长度小于n的所有情况都在前面求解过了（也就是长度是最外层循环）。上面说的是劈一刀的情况，对于 s1[i...i+len-1] 有 len-1 种劈法，在这些劈法中只要有一种成立，那么两个串就是 scramble 的。总结起来状态转移方程是：</p>
+<p>dp[i][j][len] = || (dp[i][j][k] &amp;&amp; dp[i+k][j+k][len-k] || dp[i][j+len-k][k] &amp;&amp; dp[i+k][j][len-k])</p>
+<p>对于所有 1&lt;=k&lt;len，也就是对于所有 len-1 种劈法的结果求或运算。因为信息都是计算过的，对于每种劈法只需要常量操作即可完成，因此求解递推式是需要 O(len)（因为 len-1 种劈法）。如此总时间复杂度因为是三维动态规划，需要三层循环，加上每一步需要线行时间求解递推式，所以是 O(n^4)。虽然已经比较高了，但是至少不是指数量级的，动态规划还是有很大优势的，空间复杂度是 O(n^3)。代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> DP</span>
+<span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> isScramble(<span style="color: #0000ff;">string</span> s1, <span style="color: #0000ff;">string</span><span style="color: #000000;"> s2) {
+        </span><span style="color: #0000ff;">if</span> (s1.size() != s2.size()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (s1 == s2) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> s1.size();
+        vector</span>&lt;vector&lt;vector&lt;<span style="color: #0000ff;">bool</span>&gt;&gt;&gt; dp (n, vector&lt;vector&lt;<span style="color: #0000ff;">bool</span>&gt;&gt;(n, vector&lt;<span style="color: #0000ff;">bool</span>&gt;(n + <span style="color: #800080;">1</span><span style="color: #000000;">)));
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> len = <span style="color: #800080;">1</span>; len &lt;= n; ++<span style="color: #000000;">len) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt;= n - len; ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = <span style="color: #800080;">0</span>; j &lt;= n - len; ++<span style="color: #000000;">j) {
+                    </span><span style="color: #0000ff;">if</span> (len == <span style="color: #800080;">1</span><span style="color: #000000;">) {
+                        dp[i][j][</span><span style="color: #800080;">1</span>] = s1[i] ==<span style="color: #000000;"> s2[j];
+                    } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = <span style="color: #800080;">1</span>; k &lt; len; ++<span style="color: #000000;">k) {
+                            </span><span style="color: #0000ff;">if</span> ((dp[i][j][k] &amp;&amp; dp[i + k][j + k][len - k]) || (dp[i + k][j][len - k] &amp;&amp; dp[i][j + len -<span style="color: #000000;"> k][k])) {
+                                dp[i][j][len] </span>= <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+                            }
+                        }
+                    }                
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> dp[<span style="color: #800080;">0</span>][<span style="color: #800080;">0</span><span style="color: #000000;">][n];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>上面的代码的实现过程如下，首先按单个字符比较，判断它们之间是否是 scrambled 的。在更新第二个表中第一个值 (gr 和 rg 是否为 scrambled 的)时，比较了第一个表中的两种构成，一种是 g与r, r与g，另一种是 g与g, r与r，其中后者是真，只要其中一个为真，则将该值赋真。其实这个原理和之前递归的原理很像，在判断某两个字符串是否为 scrambled 时，比较它们所有可能的拆分方法的子字符串是否是 scrambled 的，只要有一个种拆分方法为真，则比较的两个字符串一定是 scrambled 的。比较 rge 和 gre 的实现过程如下所示：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">     r    g    e
+g    x    &radic;    x
+r    &radic;    x    x
+e    x    x    &radic;
+
+
+     rg    ge
+gr    &radic;    x
+re    x    x
+
+
+     rge
+gre   &radic;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>DP 的另一种写法，参考<a href="http://blog.sina.com.cn/s/blog_b9285de20101gy6n.html" target="_blank">网友加载中..的博客</a>，思路都一样，代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> Still DP</span>
+<span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> isScramble(<span style="color: #0000ff;">string</span> s1, <span style="color: #0000ff;">string</span><span style="color: #000000;"> s2) {
+        </span><span style="color: #0000ff;">if</span> (s1.size() != s2.size()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (s1 == s2) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> s1.size();
+        vector</span>&lt;vector&lt;vector&lt;<span style="color: #0000ff;">bool</span>&gt;&gt;&gt; dp (n, vector&lt;vector&lt;<span style="color: #0000ff;">bool</span>&gt;&gt;(n, vector&lt;<span style="color: #0000ff;">bool</span>&gt;(n + <span style="color: #800080;">1</span><span style="color: #000000;">)));
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = n - <span style="color: #800080;">1</span>; i &gt;= <span style="color: #800080;">0</span>; --<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = n - <span style="color: #800080;">1</span>; j &gt;= <span style="color: #800080;">0</span>; --<span style="color: #000000;">j) {
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = <span style="color: #800080;">1</span>; k &lt;= n - max(i, j); ++<span style="color: #000000;">k) {
+                    </span><span style="color: #0000ff;">if</span> (s1.substr(i, k) ==<span style="color: #000000;"> s2.substr(j, k)) {
+                        dp[i][j][k] </span>= <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+                    } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> t = <span style="color: #800080;">1</span>; t &lt; k; ++<span style="color: #000000;">t) {
+                            </span><span style="color: #0000ff;">if</span> ((dp[i][j][t] &amp;&amp; dp[i + t][j + t][k - t]) || (dp[i][j + k - t][t] &amp;&amp; dp[i + t][j][k -<span style="color: #000000;"> t])) {
+                                dp[i][j][k] </span>= <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+                                </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> dp[<span style="color: #800080;">0</span>][<span style="color: #800080;">0</span><span style="color: #000000;">][n];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种解法和第一个解法思路相同，只不过没有用排序算法，而是采用了类似于求异构词的方法，用一个数组来保存每个字母出现的次数，后面判断 Scramble 字符串的方法和之前的没有区别：</p>
+<p>&nbsp;</p>
+<p>解法四：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> isScramble(<span style="color: #0000ff;">string</span> s1, <span style="color: #0000ff;">string</span><span style="color: #000000;"> s2) {
+        </span><span style="color: #0000ff;">if</span> (s1 == s2) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (s1.size() != s2.size()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> n = s1.size(), m[<span style="color: #800080;">26</span>] = {<span style="color: #800080;">0</span><span style="color: #000000;">};
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            </span>++m[s1[i] - <span style="color: #800000;">'</span><span style="color: #800000;">a</span><span style="color: #800000;">'</span><span style="color: #000000;">];
+            </span>--m[s2[i] - <span style="color: #800000;">'</span><span style="color: #800000;">a</span><span style="color: #800000;">'</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; <span style="color: #800080;">26</span>; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> (m[i] != <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">if</span> ((isScramble(s1.substr(<span style="color: #800080;">0</span>, i), s2.substr(<span style="color: #800080;">0</span>, i)) &amp;&amp; isScramble(s1.substr(i), s2.substr(i))) || (isScramble(s1.substr(<span style="color: #800080;">0</span>, i), s2.substr(n - i)) &amp;&amp; isScramble(s1.substr(i), s2.substr(<span style="color: #800080;">0</span>, n -<span style="color: #000000;"> i)))) {
+                </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种解法实际上是解法二的递归形式，我们用了 memo 数组来减少了大量的运算，注意这里的 memo 数组一定要有三种状态，初始化为 -1，区域内为 scramble 是1，不是 scramble 是0，这样就避免了已经算过了某个区间，但由于不是 scramble，从而又进行一次计算，从而会 TLE，感谢网友&nbsp;<a id="a_comment_author_3803895" href="https://www.cnblogs.com/grandyang/p/4318500.html#3803895" target="_blank">bambu</a>&nbsp;的提供的思路，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法五：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">bool</span> isScramble(<span style="color: #0000ff;">string</span> s1, <span style="color: #0000ff;">string</span><span style="color: #000000;"> s2) {
+        </span><span style="color: #0000ff;">if</span> (s1 == s2) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (s1.size() != s2.size()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> s1.size();
+        vector</span>&lt;vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&gt; memo(n, vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;(n, vector&lt;<span style="color: #0000ff;">int</span>&gt;(n + <span style="color: #800080;">1</span>, -<span style="color: #800080;">1</span><span style="color: #000000;">)));
+        </span><span style="color: #0000ff;">return</span> helper(s1, s2, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span><span style="color: #000000;">, n, memo);
+    }
+    </span><span style="color: #0000ff;">bool</span> helper(<span style="color: #0000ff;">string</span>&amp; s1, <span style="color: #0000ff;">string</span>&amp; s2, <span style="color: #0000ff;">int</span> idx1, <span style="color: #0000ff;">int</span> idx2, <span style="color: #0000ff;">int</span> len, vector&lt;vector&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt;&gt;&amp;<span style="color: #000000;"> memo) {
+        </span><span style="color: #0000ff;">if</span> (len == <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (len == <span style="color: #800080;">1</span>) memo[idx1][idx2][len] = s1[idx1] ==<span style="color: #000000;"> s2[idx2];
+        </span><span style="color: #0000ff;">if</span> (memo[idx1][idx2][len] != -<span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> memo[idx1][idx2][len];
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = <span style="color: #800080;">1</span>; k &lt; len; ++<span style="color: #000000;">k) {
+            </span><span style="color: #0000ff;">if</span> ((helper(s1, s2, idx1, idx2, k, memo) &amp;&amp; helper(s1, s2, idx1 + k, idx2 + k, len - k, memo)) || (helper(s1, s2, idx1, idx2 + len - k, k, memo) &amp;&amp; helper(s1, s2, idx1 + k, idx2, len -<span style="color: #000000;"> k, memo))) {
+                </span><span style="color: #0000ff;">return</span> memo[idx1][idx2][len] = <span style="color: #800080;">1</span><span style="color: #000000;">;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> memo[idx1][idx2][len] = <span style="color: #800080;">0</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/87">https://github.com/grandyang/leetcode/issues/87</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/scramble-string/">https://leetcode.com/problems/scramble-string/</a></p>
+<p><a href="https://leetcode.com/problems/scramble-string/discuss/29387/Accepted-Java-solution">https://leetcode.com/problems/scramble-string/discuss/29387/Accepted-Java-solution</a></p>
+<p><a href="https://leetcode.com/problems/scramble-string/discuss/29392/Share-my-4ms-c%2B%2B-recursive-solution">https://leetcode.com/problems/scramble-string/discuss/29392/Share-my-4ms-c%2B%2B-recursive-solution</a></p>
+<p><a href="https://leetcode.com/problems/scramble-string/discuss/29396/Simple-iterative-DP-Java-solution-with-explanation">https://leetcode.com/problems/scramble-string/discuss/29396/Simple-iterative-DP-Java-solution-with-explanation</a></p>
+<p><a href="https://leetcode.com/problems/scramble-string/discuss/29394/My-C%2B%2B-solutions-(recursion-with-cache-DP-recursion-with-cache-and-pruning)-with-explanation-(4ms)">https://leetcode.com/problems/scramble-string/discuss/29394/My-C%2B%2B-solutions-(recursion-with-cache-DP-recursion-with-cache-and-pruning)-with-explanation-(4ms)</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2015-03-06 15:53</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4318500" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(4318500);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 4318500, cb_entryCreatedDate = '2015-03-06 15:53', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

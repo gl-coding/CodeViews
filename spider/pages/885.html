@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta property="og:description" content="On a 2 dimensional grid with rows and columns, we start at facing east. Here, the north west corner " />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 885. Spiral Matrix III 螺旋矩阵之三 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/10887598.html">[LeetCode] 885. Spiral Matrix III 螺旋矩阵之三</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+On a 2 dimensional grid with <code>R</code> rows and <code>C</code> columns, we start at <code>(r0, c0)</code> facing east.</p>
+<p>Here, the north-west corner of the grid is at the first row and column, and the south-east corner of the grid is at the last row and column.</p>
+<p>Now, we walk in a clockwise spiral shape to visit every position in this grid. </p>
+<p>Whenever we would move outside the boundary of the grid, we continue our walk outside the grid (but may return to the grid boundary later.) </p>
+<p>Eventually, we reach all <code>R * C</code> spaces of the grid.</p>
+<p>Return a list of coordinates representing the positions of the grid in the order they were visited.</p>
+<p>Example 1:</p>
+<pre><code>Input: R = 1, C = 4, r0 = 0, c0 = 0
+Output: [[0,0],[0,1],[0,2],[0,3]]</code></pre>
+<p><img src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/24/example_1.png" /></p>
+<p>Example 2:</p>
+<pre><code>Input: R = 5, C = 6, r0 = 1, c0 = 4
+Output: [[1,4],[1,5],[2,5],[2,4],[2,3],[1,3],[0,3],[0,4],[0,5],[3,5],[3,4],[3,3],[3,2],[2,2],[1,2],[0,2],[4,5],[4,4],[4,3],[4,2],[4,1],[3,1],[2,1],[1,1],[0,1],[4,0],[3,0],[2,0],[1,0],[0,0]]</code></pre>
+<p><img src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/24/example_2.png" /></p>
+<p>Note:</p>
+<ol>
+<li><code>1 &lt;= R &lt;= 100</code></li>
+<li><code>1 &lt;= C &lt;= 100</code></li>
+<li><code>0 &lt;= r0 &lt; R</code></li>
+<li><code>0 &lt;= c0 &lt; C</code></li>
+</ol>
+<p><br><br />
+这道题给了我们一个二维矩阵，还给了其中一个位置，让从这个位置开始搓一个螺旋丸，哦不，是螺旋打印矩阵。具体怎么螺旋打印呢，题目中给了例子，又给了示例图，真的是很贴心呢。可以看出来，首先是打印给定的位置，然后向右走一位，打印出来，再向下方走一位打印，再向左边走两位打印，再向上方走三位打印，以此类推，螺旋打印。那仔细观察，可以发现，刚开始只是走一步，后来步子越来越大，若只看每个方向走的距离，可以得到如下数组 1,1,2,2,3,3... 步长有了，下面就是方向了，由于确定了起始是向右走，那么方向就是 右-&gt;下-&gt;左-&gt;上 这样的循环。方向和步长都分析清楚了，现在就可以尝试进行遍历了。由于最终是会遍历完所有的位置的，那么最后结果 res 里面的位置个数一定是等于 RxC 的，所以循环的条件就是当结果 res 中的位置数小于 R*C。我们还需要一个变量 step 表示当前的步长，初始化为1。在循环中，首先要想右走 step 步，一步一步走，走到一个新的位置上，要进行判断，若当前位置没有越界，才能加入结果 res 中，由于每次都要判断，所以把这部分抽取出来，放到一个子函数中。由于是向右走，每走一步之后，c0 都要自增1。右边走完了之后，再向下方走 step 步，同理，每走一步之后，要将 r0 自增1。再向左边走之前，要将步数增1，不然无法形成正确的螺旋，同理，再完成向上方走 step 步之后，step 要再增1，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; spiralMatrixIII(int R, int C, int r0, int c0) {
+        vector&lt;vector&lt;int&gt;&gt; res;
+        int step = 1;
+        while (res.size() &lt; R * C) {
+            for (int i = 0; i &lt; step; ++i) add(R, C, r0, c0++, res);
+            for (int i = 0; i &lt; step; ++i) add(R, C, r0++, c0, res);
+            ++step;
+            for (int i = 0; i &lt; step; ++i) add(R, C, r0, c0--, res);
+            for (int i = 0; i &lt; step; ++i) add(R, C, r0--, c0, res);
+            ++step;
+        }
+        return res;
+    }
+    void add(int R, int C, int x, int y, vector&lt;vector&lt;int&gt;&gt;&amp; res) {
+        if (x &gt;= 0 &amp;&amp; x &lt; R &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; C) res.push_back({x, y});
+    }
+};</code></pre>
+<p><br><br />
+上面的方法 for 循环太多，看的很木乱，可以用两个数组 dirX 和 dirY 来控制下一个方向，就像迷宫遍历中的那样，这样只需要一个变量 cur，来分别到 dirX 和 dirY 中取值，初始化为0，表示向右的方向。从螺旋遍历的机制可以看出，每当向右或者向左前进时，步长就要加1，那么我们只要判断当 cur 为0或者2的时候，step 就自增1。由于 cur 初始化为0，所以刚开始 step 就会增1，那么就可以将 step 初始化为0，同时还需要把起始位置提前加入结果 res 中。此时在 while 循环中只需要一个 for 循环即可，朝当前的 cur 方向前进 step 步，r0 加上 dirX[cur]，c0 加上 dirY[cur]，若没有越界，则加入结果 res 中即可。之后记得 cur 要自增1，为了防止越界，对4取余，就像循环数组一样的操作，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; spiralMatrixIII(int R, int C, int r0, int c0) {
+        vector&lt;vector&lt;int&gt;&gt; res{{r0, c0}};
+        vector&lt;int&gt; dirX{0, 1, 0, -1}, dirY{1, 0, -1, 0};
+        int step = 0, cur = 0;
+        while (res.size() &lt; R * C) {
+            if (cur == 0 || cur == 2) ++step;
+            for (int i = 0; i &lt; step; ++i) {
+                r0 += dirX[cur]; c0 += dirY[cur];
+                if (r0 &gt;= 0 &amp;&amp; r0 &lt; R &amp;&amp; c0 &gt;= 0 &amp;&amp; c0 &lt; C) res.push_back({r0, c0});
+            }
+            cur = (cur + 1) % 4;
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+我们也可以不使用方向数组，若仔细观察 右-&gt;下-&gt;左-&gt;上 四个方向对应的值 (0, 1) -&gt; (1, 0) -&gt; (0, -1) -&gt; (-1, 0), 实际上，下一个位置的x值是当前的y值，下一个位置的y值是当前的-x值，因为两个方向是相邻的两个方向是垂直的，由向量的叉乘得到 (x, y, 0) × (0, 0, 1) = (y, -x, 0)。所以可以通过当前的x和y值，来计算出下一个位置的值。同理，根据之前的说的步长数组 1,1,2,2,3,3...，可以推出通项公式为 n/2 + 1，这样连步长变量 step 都省了，不过需要统计当前已经遍历的位置的个数，实在想偷懒，也可以用 res.size() 来代替，参见代码如下：</p>
+<p><br><br />
+解法三：</p>
+<pre><code>class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; spiralMatrixIII(int R, int C, int r0, int c0) {
+        vector&lt;vector&lt;int&gt;&gt; res{{r0, c0}};
+        int x = 0, y = 1, t = 0;
+        for (int k = 0; res.size() &lt; R * C; ++k) {
+            for (int i = 0; i &lt; k / 2 + 1; ++i) {
+                r0 += x; c0 += y;
+                if (r0 &gt;= 0 &amp;&amp; r0 &lt; R &amp;&amp; c0 &gt;= 0 &amp;&amp; c0 &lt; C) res.push_back({r0, c0});
+            }
+            t = x; x = y; y = -t;
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/885" class="uri">https://github.com/grandyang/leetcode/issues/885</a></p>
+<p><br><br />
+类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4362813.html">Spiral Matrix II</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4362675.html">Spiral Matrix</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/spiral-matrix-iii/" class="uri">https://leetcode.com/problems/spiral-matrix-iii/</a></p>
+<p><a href="https://leetcode.com/problems/spiral-matrix-iii/discuss/158970/C%2B%2BJavaPython-112233-Steps">https://leetcode.com/problems/spiral-matrix-iii/discuss/158970/C%2B%2BJavaPython-112233-Steps</a></p>
+<p><a href="https://leetcode.com/problems/spiral-matrix-iii/discuss/163370/Simple-East-to-Understand-Java-solution" class="uri">https://leetcode.com/problems/spiral-matrix-iii/discuss/163370/Simple-East-to-Understand-Java-solution</a></p>
+<p><a href="https://leetcode.com/problems/spiral-matrix-iii/discuss/158977/Java-15-lines-concise-solution-with-comments" class="uri">https://leetcode.com/problems/spiral-matrix-iii/discuss/158977/Java-15-lines-concise-solution-with-comments</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-05-18 23:04</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10887598" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(10887598);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 10887598, cb_entryCreatedDate = '2019-05-18 23:04', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

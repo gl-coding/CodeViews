@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="You are given two linked lists representing two non-negative numbers. The most significant digit com" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Add Two Numbers II 两个数字相加之二 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/6216480.html">[LeetCode] Add Two Numbers II 两个数字相加之二</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>You are given two linked lists representing two non-negative numbers. The most significant digit comes first and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p>Follow up:<br />What if you cannot modify the input lists? In other words, reversing the lists is not allowed.</p>
+<p>Example:</p>
+<pre>Input: (7 -&gt; 2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
+Output: 7 -&gt; 8 -&gt; 0 -&gt; 7</pre>
+<p>&nbsp;</p>
+<p>这道题是之前那道<a href="http://www.cnblogs.com/grandyang/p/4129891.html" target="_blank">Add Two Numbers</a>的拓展，我们可以看到这道题的最高位在链表首位置，如果我们给链表翻转一下的话就跟之前的题目一样了，这里我们来看一些不修改链表顺序的方法。由于加法需要从最低位开始运算，而最低位在链表末尾，链表只能从前往后遍历，没法取到前面的元素，那怎么办呢？我们可以利用栈来保存所有的元素，然后利用栈的后进先出的特点就可以从后往前取数字了，我们首先遍历两个链表，将所有数字分别压入两个栈s1和s2中，我们建立一个值为0的res节点，然后开始循环，如果栈不为空，则将栈顶数字加入sum中，然后将res节点值赋为sum%10，然后新建一个进位节点head，赋值为sum/10，如果没有进位，那么就是0，然后我们head后面连上res，将res指向head，这样循环退出后，我们只要看res的值是否为0，为0返回res-&gt;next，不为0则返回res即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    ListNode</span>* addTwoNumbers(ListNode* l1, ListNode*<span style="color: #000000;"> l2) {
+        stack</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> s1, s2;
+        </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (l1) {
+            s1.push(l1</span>-&gt;<span style="color: #000000;">val);
+            l1 </span>= l1-&gt;<span style="color: #000000;">next;
+        }
+        </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (l2) {
+            s2.push(l2</span>-&gt;<span style="color: #000000;">val);
+            l2 </span>= l2-&gt;<span style="color: #000000;">next;
+        }
+        </span><span style="color: #0000ff;">int</span> sum = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        ListNode </span>*res = <span style="color: #0000ff;">new</span> ListNode(<span style="color: #800080;">0</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">while</span> (!s1.empty() || !<span style="color: #000000;">s2.empty()) {
+            </span><span style="color: #0000ff;">if</span> (!s1.empty()) {sum +=<span style="color: #000000;"> s1.top(); s1.pop();}
+            </span><span style="color: #0000ff;">if</span> (!s2.empty()) {sum +=<span style="color: #000000;"> s2.top(); s2.pop();}
+            res</span>-&gt;val = sum % <span style="color: #800080;">10</span><span style="color: #000000;">;
+            ListNode </span>*head = <span style="color: #0000ff;">new</span> ListNode(sum / <span style="color: #800080;">10</span><span style="color: #000000;">);
+            head</span>-&gt;next =<span style="color: #000000;"> res;
+            res </span>=<span style="color: #000000;"> head;
+            sum </span>/= <span style="color: #800080;">10</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span> res-&gt;val == <span style="color: #800080;">0</span> ? res-&gt;<span style="color: #000000;">next : res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种方法使用递归来实现的，我们知道递归其实也是用栈来保存每一个状态，那么也就可以实现从后往前取数字，我们首先统计出两个链表长度，然后根据长度来调用递归函数，需要传一个参数差值，递归函数参数中的l1链表长度长于l2，在递归函数中，我们建立一个节点res，如果差值不为0，节点值为l1的值，如果为0，那么就是l1和l2的和，然后在根据差值分别调用递归函数求出节点post，然后要处理进位，如果post的值大于9，那么对10取余，且res的值自增1，然后把pos连到res后面，返回res，最后回到原函数中，我们仍要处理进位情况，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    ListNode</span>* addTwoNumbers(ListNode* l1, ListNode*<span style="color: #000000;"> l2) {
+        </span><span style="color: #0000ff;">int</span> n1 = getLength(l1), n2 =<span style="color: #000000;"> getLength(l2);
+        ListNode </span>*head = <span style="color: #0000ff;">new</span> ListNode(<span style="color: #800080;">1</span><span style="color: #000000;">);
+        head</span>-&gt;next = (n1 &gt; n2) ? helper(l1, l2, n1 - n2) : helper(l2, l1, n2 -<span style="color: #000000;"> n1);
+        </span><span style="color: #0000ff;">if</span> (head-&gt;next-&gt;val &gt; <span style="color: #800080;">9</span><span style="color: #000000;">) {
+            head</span>-&gt;next-&gt;val %= <span style="color: #800080;">10</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> head;
+        }
+        </span><span style="color: #0000ff;">return</span> head-&gt;<span style="color: #000000;">next;
+    }
+    </span><span style="color: #0000ff;">int</span> getLength(ListNode*<span style="color: #000000;"> head) {
+        </span><span style="color: #0000ff;">int</span> cnt = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (head) {
+            </span>++<span style="color: #000000;">cnt;
+            head </span>= head-&gt;<span style="color: #000000;">next;
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> cnt;
+    }
+    ListNode</span>* helper(ListNode* l1, ListNode* l2, <span style="color: #0000ff;">int</span><span style="color: #000000;"> diff) {
+        </span><span style="color: #0000ff;">if</span> (!l1) <span style="color: #0000ff;">return</span><span style="color: #000000;"> NULL;
+        ListNode </span>*res = (diff == <span style="color: #800080;">0</span>) ? <span style="color: #0000ff;">new</span> ListNode(l1-&gt;val + l2-&gt;val) : <span style="color: #0000ff;">new</span> ListNode(l1-&gt;<span style="color: #000000;">val);
+        ListNode </span>*post = (diff == <span style="color: #800080;">0</span>) ? helper(l1-&gt;next, l2-&gt;next, <span style="color: #800080;">0</span>) : helper(l1-&gt;next, l2, diff - <span style="color: #800080;">1</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">if</span> (post &amp;&amp; post-&gt;val &gt; <span style="color: #800080;">9</span><span style="color: #000000;">) {
+            post</span>-&gt;val %= <span style="color: #800080;">10</span><span style="color: #000000;">;
+            </span>++res-&gt;<span style="color: #000000;">val;
+        }
+        res</span>-&gt;next =<span style="color: #000000;"> post;
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种方法借鉴了<a href="http://www.cnblogs.com/grandyang/p/5626389.html">Plus One Linked List</a>中的解法三，在处理加1问题时，我们需要找出右起第一个不等于9的位置，然后此位置值自增1，之后的全部赋为0。这里我们同样要先算出两个链表的长度，我们把其中较长的放在l1，然后我们算出两个链表长度差diff。如果diff大于0，我们用l1的值新建节点，并连在cur节点后(cur节点初始化时指向dummy节点)。并且如果l1的值不等于9，那么right节点也指向这个新建的节点，然后cur和l1都分别后移一位，diff自减1。当diff为0后，我们循环遍历，将此时l1和l2的值加起来放入变量val中，如果val大于9，那么val对10取余，right节点自增1，将right后面节点全赋值为0。在cur节点后新建节点，节点值为更新后的val，如果val的值不等于9，那么right节点也指向这个新建的节点，然后cur，l1和l2都分别后移一位。最后我们看dummy节点值若为1，返回dummy节点，如果是0，则返回dummy的下一个节点。</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    ListNode</span>* addTwoNumbers(ListNode* l1, ListNode*<span style="color: #000000;"> l2) {
+        </span><span style="color: #0000ff;">int</span> n1 = getLength(l1), n2 = getLength(l2), diff = abs(n1 -<span style="color: #000000;"> n2);
+        </span><span style="color: #0000ff;">if</span> (n1 &lt;<span style="color: #000000;"> n2) swap(l1, l2);
+        ListNode </span>*dummy = <span style="color: #0000ff;">new</span> ListNode(<span style="color: #800080;">0</span>), *cur = dummy, *right =<span style="color: #000000;"> cur;
+        </span><span style="color: #0000ff;">while</span> (diff &gt; <span style="color: #800080;">0</span><span style="color: #000000;">) {
+            cur</span>-&gt;next = <span style="color: #0000ff;">new</span> ListNode(l1-&gt;<span style="color: #000000;">val);
+            </span><span style="color: #0000ff;">if</span> (l1-&gt;val != <span style="color: #800080;">9</span>) right = cur-&gt;<span style="color: #000000;">next;
+            cur </span>= cur-&gt;<span style="color: #000000;">next;
+            l1 </span>= l1-&gt;<span style="color: #000000;">next;
+            </span>--<span style="color: #000000;">diff;
+        }
+        </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (l1) {
+            </span><span style="color: #0000ff;">int</span> val = l1-&gt;val + l2-&gt;<span style="color: #000000;">val;
+            </span><span style="color: #0000ff;">if</span> (val &gt; <span style="color: #800080;">9</span><span style="color: #000000;">) {
+                val </span>%= <span style="color: #800080;">10</span><span style="color: #000000;">;
+                </span>++right-&gt;<span style="color: #000000;">val;
+                </span><span style="color: #0000ff;">while</span> (right-&gt;<span style="color: #000000;">next) {
+                    right</span>-&gt;next-&gt;val = <span style="color: #800080;">0</span><span style="color: #000000;">;
+                    right </span>= right-&gt;<span style="color: #000000;">next;
+                }
+                right </span>=<span style="color: #000000;"> cur;
+            }
+            cur</span>-&gt;next = <span style="color: #0000ff;">new</span><span style="color: #000000;"> ListNode(val);
+            </span><span style="color: #0000ff;">if</span> (val != <span style="color: #800080;">9</span>) right = cur-&gt;<span style="color: #000000;">next;
+            cur </span>= cur-&gt;<span style="color: #000000;">next;
+            l1 </span>= l1-&gt;<span style="color: #000000;">next;
+            l2 </span>= l2-&gt;<span style="color: #000000;">next;
+        }
+        </span><span style="color: #0000ff;">return</span> (dummy-&gt;val == <span style="color: #800080;">1</span>) ? dummy : dummy-&gt;<span style="color: #000000;">next;
+    }
+    </span><span style="color: #0000ff;">int</span> getLength(ListNode*<span style="color: #000000;"> head) {
+        </span><span style="color: #0000ff;">int</span> cnt = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (head) {
+            </span>++<span style="color: #000000;">cnt;
+            head </span>= head-&gt;<span style="color: #000000;">next;
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> cnt;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4129891.html" target="_blank">Add Two Numbers</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/5626389.html">Plus One Linked List</a>&nbsp;</p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://discuss.leetcode.com/topic/67076/ac-follow-up-java" target="_blank">https://discuss.leetcode.com/topic/67076/ac-follow-up-java</a></p>
+<p><a href="https://discuss.leetcode.com/topic/65279/easy-o-n-java-solution-using-stack" target="_blank">https://discuss.leetcode.com/topic/65279/easy-o-n-java-solution-using-stack</a></p>
+<p><a href="https://discuss.leetcode.com/topic/65306/java-o-n-recursive-solution-by-counting-the-difference-of-length/2" target="_blank">https://discuss.leetcode.com/topic/65306/java-o-n-recursive-solution-by-counting-the-difference-of-length/2</a></p>
+<p><a href="https://discuss.leetcode.com/topic/66699/java-iterative-o-1-space-lastnot9-solution-changed-from-plus-one-linked-list" target="_blank">https://discuss.leetcode.com/topic/66699/java-iterative-o-1-space-lastnot9-solution-changed-from-plus-one-linked-list</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2016-12-23 23:55</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=6216480" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(6216480);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 6216480, cb_entryCreatedDate = '2016-12-23 23:55', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

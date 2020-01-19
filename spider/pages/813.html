@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="We partition a row of numbers&amp;#160;A&amp;#160;into at most&amp;#160;K&amp;#160;adjacent (non-empty) groups, then" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Largest Sum of Averages 最大的平均数之和 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9504413.html">[LeetCode] Largest Sum of Averages 最大的平均数之和</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>We partition a row of numbers&nbsp;<code>A</code>&nbsp;into at most&nbsp;<code>K</code>&nbsp;adjacent (non-empty) groups, then our score is the sum of the average of each group. What is the largest score we can achieve?</p>
+<p>Note that our partition must use every number in A, and that scores are not necessarily integers.</p>
+<pre>Example:
+Input: 
+A = [9,1,2,3,9]
+K = 3
+Output: 20
+Explanation: 
+The best choice is to partition A into [9], [1, 2, 3], [9]. The answer is 9 + (1 + 2 + 3) / 3 + 9 = 20.
+We could have also partitioned A into [9, 1], [2], [3, 9], for example.
+That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
+</pre>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ul>
+<li><code>1 &lt;= A.length &lt;= 100</code>.</li>
+<li><code>1 &lt;= A[i] &lt;= 10000</code>.</li>
+<li><code>1 &lt;= K &lt;= A.length</code>.</li>
+<li>Answers within&nbsp;<code>10^-6</code>&nbsp;of the correct answer will be accepted as correct.</li>
+</ul>
+<p>&nbsp;</p>
+<p>这道题给了我们一个数组，说是让我们将数组分成至多K个非空组，然后说需要统计的分数是各组的平均数之和，让我们求一个分割方法，使得这个分数值最大，当然这个分数值不一定是整型数。这道题限制了分割的组必须为非空组，那么就是说K值要小于等于数组的元素个数。但是实际上博主感觉这个必须为非空的限制有没有都一样，因为题目中说至多分成K组，也就是说可以根本不分组，那么比如你输入个A=[9,1], K=3，照样返回一个10，给人的感觉好像是分成了[9], [1], [] 这三组一样，但其实只是分成了两组[9] 和 [1]。但我们不必纠结这些，不是重点。没有啥思路的情况下我们就先想想brute force的解法呗，对于题目中给的那个例子，我们用最暴力的方法就是遍历所有的可能性，即遍历所有分割成三个组的情况，用三个for循环。貌似行的通，但问题来了，如果K大于3呢，每大一个，多加一个for循环么，总共K个for循环？如果K=100呢，100个for循环么？画面太美我不敢看！显然这道题用brute force是行不通的，那么换个方法呗！像这种求极值的题，又是玩数组的题，根据老夫行走江湖多年的经验，十有八九都是用Dynamic Programming来做的。玩子数组且跟极值有关的题天然适合用DP来做，想想为什么？DP的本质是什么，不就是状态转移方程，根据前面的状态来更新当前的状态。而子数组不就是整个数组的前一个状态，不停的更新的使得我们最终能得到极值。</p>
+<p>好，下面进入正题。DP走起，首先来考虑dp数组的定义，我们如何定义dp数组有时候很关键，定义的不好，那么就无法写出正确的状态转移方程。对于这道题，我们很容易直接用一个一维数组dp，其中dp[i]表示范围为[0, i]的子数组分成三组能得到的最大分数。用这样定义的dp数组的话，状态转移方程将会非常难写，因为我们忽略了一个重要的信息，即K。dp数组不把K加进去的话就不知道当前要分几组，这个Hidden Information是解题的关键。这是DP中比较难的一类，有些DP题的隐藏信息藏的更深，不挖出来就无法解题。这道题的dp数组应该是个二维数组，其中dp[i][k]表示范围是[i, n-1]的子数组分成k组的最大得分。那么这里你就会纳闷了，为啥范围是[i, n-1]而不是[0, i]，为啥要取后半段呢，不着急，听博主慢慢道来。由于把[i, n-1]范围内的子数组分成k组，那么suppose我们已经知道了任意范围内分成k-1组的最大分数，这是此类型题目的破题关键所在，要求状态k，一定要先求出所有的状态k-1，那么问题就转换成了从k-1组变成k组，即多分出一组，那么在范围[i, n-1]多分出一组，实际上就是将其分成两部分，一部分是一组，另一部分是k-1组，怎么分，就用一个变量j，遍历范围(i, n-1)中的每一个位置，那么分成的这两部分的分数如何计算呢？第一部分[i, j)，由于是一组，那么直接求出平均值即可，另一部分由于是k-1组，由于我们已经知道了所有k-1的情况，可以直接从cache中读出来dp[j][k-1]，二者相加即可 avg(i, j) + dp[j][k-1]，所以我们可以得出状态转移方程如下：</p>
+<p>dp[i][k] = max(avg(i, n) + max_{j &gt; i} (avg(i, j) + dp[j][k-1]))</p>
+<p>这里的avg(i, n)是其可能出现的情况，由于是至多分为k组，所以我们可以不分组，所以直接计算范围[i, n-1]内的平均值，然后用j来遍历区间(i, n-1)中的每一个位置，最终得到的dp[i][k]就即为所求。注意这里我们通过建立累加和数组sums来快速计算某个区间之和。博主觉得这道题十分的经典，考察点非常的多，很具有代表性，标为Hard都不过分，前面提到了dp[i][k]表示的是范围[i, n-1]的子数组分成k组的最大得分，现在想想貌似定义为[0, i]范围内的子数组分成k组的最大得分应该也是可以的，那么此时j就是遍历(0, i)中的每个位置了，好像也没什么不妥的地方，有兴趣的童鞋可以尝试的写一下～</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">double</span> largestSumOfAverages(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; A, <span style="color: #0000ff;">int</span><span style="color: #000000;"> K) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> A.size();
+        vector</span>&lt;<span style="color: #0000ff;">double</span>&gt; sums(n + <span style="color: #800080;">1</span><span style="color: #000000;">);
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">double</span>&gt;&gt; dp(n, vector&lt;<span style="color: #0000ff;">double</span>&gt;<span style="color: #000000;">(K));
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            sums[i </span>+ <span style="color: #800080;">1</span>] = sums[i] +<span style="color: #000000;"> A[i];
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            dp[i][</span><span style="color: #800080;">0</span>] = (sums[n] - sums[i]) / (n -<span style="color: #000000;"> i);
+        }    
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = <span style="color: #800080;">1</span>; k &lt; K; ++<span style="color: #000000;">k) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n - <span style="color: #800080;">1</span>; ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = i + <span style="color: #800080;">1</span>; j &lt; n; ++<span style="color: #000000;">j) {
+                    dp[i][k] </span>= max(dp[i][k], (sums[j] - sums[i]) / (j - i) + dp[j][k - <span style="color: #800080;">1</span><span style="color: #000000;">]);
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> dp[<span style="color: #800080;">0</span>][K - <span style="color: #800080;">1</span><span style="color: #000000;">];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们可以对空间进行优化，由于每次的状态k，只跟前一个状态k-1有关，所以我们不需要将所有的状态都保存起来，只需要保存前一个状态的值就行了，那么我们就用一个一维数组就可以了，不断的进行覆盖，从而达到了节省空间的目的，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">double</span> largestSumOfAverages(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; A, <span style="color: #0000ff;">int</span><span style="color: #000000;"> K) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> A.size();
+        vector</span>&lt;<span style="color: #0000ff;">double</span>&gt; sums(n + <span style="color: #800080;">1</span><span style="color: #000000;">);
+        vector</span>&lt;<span style="color: #0000ff;">double</span>&gt;<span style="color: #000000;"> dp(n);
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            sums[i </span>+ <span style="color: #800080;">1</span>] = sums[i] +<span style="color: #000000;"> A[i];
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            dp[i] </span>= (sums[n] - sums[i]) / (n -<span style="color: #000000;"> i);
+        }    
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = <span style="color: #800080;">1</span>; k &lt; K; ++<span style="color: #000000;">k) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n - <span style="color: #800080;">1</span>; ++<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = i + <span style="color: #800080;">1</span>; j &lt; n; ++<span style="color: #000000;">j) {
+                    dp[i] </span>= max(dp[i], (sums[j] - sums[i]) / (j - i) +<span style="color: #000000;"> dp[j]);
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> dp[<span style="color: #800080;">0</span><span style="color: #000000;">];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们也可以是用递归加记忆数组的方式来实现，记忆数组的运作原理和DP十分类似，也是一种cache，将已经计算过的结果保存起来，用的时候直接取即可，避免了大量的重复计算，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">double</span> largestSumOfAverages(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; A, <span style="color: #0000ff;">int</span><span style="color: #000000;"> K) {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> A.size();
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">double</span>&gt;&gt; memo(<span style="color: #800080;">101</span>, vector&lt;<span style="color: #0000ff;">double</span>&gt;(<span style="color: #800080;">101</span><span style="color: #000000;">));
+        </span><span style="color: #0000ff;">double</span> cur = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; ++<span style="color: #000000;">i) {
+            cur </span>+=<span style="color: #000000;"> A[i];
+            memo[i </span>+ <span style="color: #800080;">1</span>][<span style="color: #800080;">1</span>] = cur / (i + <span style="color: #800080;">1</span><span style="color: #000000;">);
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> helper(A, K, n, memo);
+    }
+    </span><span style="color: #0000ff;">double</span> helper(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; A, <span style="color: #0000ff;">int</span> k, <span style="color: #0000ff;">int</span> j, vector&lt;vector&lt;<span style="color: #0000ff;">double</span>&gt;&gt;&amp;<span style="color: #000000;"> memo) {
+        </span><span style="color: #0000ff;">if</span> (memo[j][k] &gt; <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> memo[j][k];
+        </span><span style="color: #0000ff;">double</span> cur = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = j - <span style="color: #800080;">1</span>; i &gt; <span style="color: #800080;">0</span>; --<span style="color: #000000;">i) {
+            cur </span>+=<span style="color: #000000;"> A[i];
+            memo[j][k] </span>= max(memo[j][k], helper(A, k - <span style="color: #800080;">1</span>, i, memo) + cur / (j -<span style="color: #000000;"> i));
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> memo[j][k];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/largest-sum-of-averages/description/" target="_blank">https://leetcode.com/problems/largest-sum-of-averages/description/</a></p>
+<p><a href="https://leetcode.com/problems/largest-sum-of-averages/solution/">https://leetcode.com/problems/largest-sum-of-averages/solution/</a></p>
+<p><a href="https://leetcode.com/problems/largest-sum-of-averages/discuss/122739/C++JavaPython-Easy-Understood-Solution-with-Explanation">https://leetcode.com/problems/largest-sum-of-averages/discuss/122739/C++JavaPython-Easy-Understood-Solution-with-Explanation</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4606334.html" target="_blank">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-08-20 11:05</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9504413" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(9504413);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 9504413, cb_entryCreatedDate = '2018-08-20 11:05', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

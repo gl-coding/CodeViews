@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given two integer arrays A and B, return the maximum length of an subarray that appears in both arra" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 718. Maximum Length of Repeated Subarray 最长的重复子数组 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/7801533.html">[LeetCode] 718. Maximum Length of Repeated Subarray 最长的重复子数组</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given two integer arrays <code>A</code> and <code>B</code>, return the maximum length of an subarray that appears in both arrays.</p>
+<p><strong>Example 1:</strong><br />
+</p>
+<pre><strong>Input:</strong>
+A: [1,2,3,2,1]
+B: [3,2,1,4,7]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> 
+The repeated subarray with maximum length is [3, 2, 1].
+</pre>
+<p><strong>Note:</strong><br />
+</p>
+<ol><ol>
+<li>1 &lt;= len(A), len(B) &lt;= 1000</li>
+<li>0 &lt;= A[i], B[i] &lt; 100</li>
+
+
+
+
+
+
+
+
+</ol></ol>
+<p>&nbsp;</p>
+<p>这道题给了我们两个数组A和B，让返回连个数组的最长重复子数组。那么如果将数组换成字符串，实际这道题就是求 Longest Common Substring 的问题了，而貌似 LeetCode 上并没有这种明显的要求最长相同子串的题，注意需要跟最长子序列 Longest Common Subsequence 区分开，关于最长子序列会在 follow up 中讨论。好，先来看这道题，既然是子数组，那么重复的地方一定是连续的，而且起点可能会是在数组中的任意地方，这样的话，最暴力的方法就是遍历A中的每个位置，把每个位置都当作是起点进行和B从开头比较，每次A和B都同时前进一个，假如相等，则计数器会累加1，不相等的话，计数器会重置为0，每次用计数器 cnt 的长度来更新结果 res。然后用同样的方法对B也处理一遍，把每个位置都当作是起点进行和A从开头比较，每次A和B都同时前进一个，这样最终下来，就可以求出最长重复子数组的长度，令人惊喜的是，这种暴力搜索解法的击败率相当的高，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> findLength(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; A, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> B) {
+        </span><span style="color: #0000ff;">int</span> m = A.size(), n = B.size(), res = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> offset = <span style="color: #800080;">0</span>; offset &lt; m; ++<span style="color: #000000;">offset) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = offset, j = <span style="color: #800080;">0</span>; i &lt; m &amp;&amp; j &lt;<span style="color: #000000;"> n;) {
+                </span><span style="color: #0000ff;">int</span> cnt = <span style="color: #800080;">0</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">while</span> (i &lt; m &amp;&amp; j &lt; n &amp;&amp; A[i++] == B[j++]) ++<span style="color: #000000;">cnt;
+                res </span>=<span style="color: #000000;"> max(res, cnt);
+            }
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> offset = <span style="color: #800080;">0</span>; offset &lt; n; ++<span style="color: #000000;">offset) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>, j = offset; i &lt; m &amp;&amp; j &lt;<span style="color: #000000;"> n;) {
+                </span><span style="color: #0000ff;">int</span> cnt = <span style="color: #800080;">0</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">while</span> (i &lt; m &amp;&amp; j &lt; n &amp;&amp; A[i++] == B[j++]) ++<span style="color: #000000;">cnt;
+                res </span>=<span style="color: #000000;"> max(res, cnt);
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们还可以使用二分法+哈希表来做，别问博主怎么知道（看了题目标签，然后去论坛上找对应的解法即可，哈哈～）。虽然解法看起来很炫，但不太简洁，不是博主的 style，但还是收录进来吧。这里使用二分搜索法来找什么呢？其实是来直接查找最长重叠子数组的长度的，因为这个长度是有范围限制的，在 [0, min(m, n)] 之间，其中m和n分别是数组A和B的长度。这样每次折半出一个 mid，然后验证有没有这么一个长度为 mid 的子数组在A和B中都存在。从数组中取子数组有些麻烦，可以将数组转为字符串，取子串就相对来说容易一些了。将数组A和B都先转化为字符串 strA 和 strB，但是这里很 tricky，转换的方式不能是直接将整型数字转为字符串，再连接起来，这样会出错，因为会导致一个整型数占据多位字符，所以这里是需要将每个整型数直接加入字符串，从而将该整型数当作 ASCII 码来处理，寻找对应的字符，使得转换后的 strA 和 strB 变成各种凌乱的怪异字符，不过不影响解题。这里的二分应该属于博主之前的总结贴&nbsp;<a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_1" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/6854825.html">LeetCode Binary Search Summary 二分搜索法小结</a>&nbsp;中的第四类，但是写法上却跟第三类的变形很像，因为博主平时的习惯是右边界设置为开区间，所以初始化为&nbsp;min(m, n)+1，当然博主之前就说过二分搜索的写有各种各样的，像<a href="https://leetcode.com/problems/maximum-length-of-repeated-subarray/discuss/109033/Solution-1%3A-DP-O(n2)-with-O(n)-space-Solution-2%3A-Stringify" target="_blank">这个帖子</a>中写法也是可以的。博主的这种写法实际上是在找第一个不大于目标值的数，这里的目标值就是那个 helper 子函数，也就是验证函数。如何实现这个验证函数呢，由于是要找长度为 len 的子串是否同时存在于 strA 和 strB 中，可以用一个 HashSet 保存 strA 中所有长度为 len 的子串，然后遍历 strB 中所有长度为 len 的子串，假如有任何一个在 HashSet 中存在，则直接返回 true，否则循环退出后，返回 false，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> findLength(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; A, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> B) {
+        </span><span style="color: #0000ff;">string</span> strA = stringify(A), strB =<span style="color: #000000;"> stringify(B);
+        </span><span style="color: #0000ff;">int</span> left = <span style="color: #800080;">0</span>, right = min(A.size(), B.size()) + <span style="color: #800080;">1</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">while</span> (left &lt;<span style="color: #000000;"> right) {
+            </span><span style="color: #0000ff;">int</span> mid = (left + right) / <span style="color: #800080;">2</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">if</span> (helper(strA, strB, mid)) left = mid + <span style="color: #800080;">1</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">else</span> right =<span style="color: #000000;"> mid;
+        }
+        </span><span style="color: #0000ff;">return</span> right - <span style="color: #800080;">1</span><span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">bool</span> helper(<span style="color: #0000ff;">string</span>&amp; strA, <span style="color: #0000ff;">string</span>&amp; strB, <span style="color: #0000ff;">int</span><span style="color: #000000;"> len) {
+        unordered_set</span>&lt;<span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;"> st;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>, j = len; j &lt;= strA.size(); ++i, ++<span style="color: #000000;">j) {
+            st.insert(strA.substr(i, j </span>-<span style="color: #000000;"> i));
+        }
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>, j = len; j &lt;= strB.size(); ++i, ++<span style="color: #000000;">j) {
+            </span><span style="color: #0000ff;">if</span> (st.count(strB.substr(i, j - i))) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;  
+        } 
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">string</span> stringify(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> nums) {
+        </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> res;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> num : nums) res +=<span style="color: #000000;"> num;
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>对于这种求极值的问题，动态规划 Dynamic Programming 一直都是一个很好的选择，这里使用一个二维的 DP 数组，其中 dp[i][j] 表示数组A的前i个数字和数组B的前j个数字的最长子数组的长度，如果 dp[i][j] 不为0，则A中第i个数组和B中第j个数字必须相等，比对于这两个数组 [1,2,2] 和 [3,1,2]，dp 数组为：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;"><span style="color: #0000ff;">  3 1 2</span>
+<span style="color: #0000ff;">1</span> 0 <span style="color: #ff0000;">1</span> 0
+<span style="color: #0000ff;">2</span> 0 0 <span style="color: #ff0000;">2</span>
+<span style="color: #0000ff;">2</span> 0 0 <span style="color: #ff0000;">1</span></span></pre>
+</div>
+<p>&nbsp;</p>
+<p>注意观察，dp 值不为0的地方，都是当 A[i] == B[j] 的地方，而且还要加上左上方的 dp 值，即 dp[i-1][j-1]，所以当前的 dp[i][j] 就等于 dp[i-1][j-1] + 1，而一旦 A[i] != B[j] 时，直接赋值为0，不用多想，因为子数组是要连续的，一旦不匹配了，就不能再增加长度了。每次算出一个 dp 值，都要用来更新结果 res，这样就能得到最长相同子数组的长度了，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> findLength(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; A, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> B) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span>, m = A.size(), n =<span style="color: #000000;"> B.size();
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; dp(m + <span style="color: #800080;">1</span>, vector&lt;<span style="color: #0000ff;">int</span>&gt;(n + <span style="color: #800080;">1</span>, <span style="color: #800080;">0</span><span style="color: #000000;">));
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt;= m; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = <span style="color: #800080;">1</span>; j &lt;= n; ++<span style="color: #000000;">j) {
+                dp[i][j] </span>= (A[i - <span style="color: #800080;">1</span>] == B[j - <span style="color: #800080;">1</span>]) ? dp[i - <span style="color: #800080;">1</span>][j - <span style="color: #800080;">1</span>] + <span style="color: #800080;">1</span> : <span style="color: #800080;">0</span><span style="color: #000000;">;
+                res </span>=<span style="color: #000000;"> max(res, dp[i][j]);
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Follow up：在开始时，博主提到了要跟最长相同子序列 Longest Common Subsequence 区分开来，虽然 LeetCode 没有直接求最大相同子序列的题，但有几道题利用到了求该问题的思想，比如&nbsp;<a href="http://www.cnblogs.com/grandyang/p/7144045.html">Delete Operation for Two Strings</a>&nbsp;和&nbsp;<a href="http://www.cnblogs.com/grandyang/p/7752002.html">Minimum ASCII Delete Sum for Two Strings</a>&nbsp;等，详细讨论请参见<a href="https://www.cnblogs.com/grandyang/p/7801533.html#3837972" target="_blank">评论区一楼</a> :)</p>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/718">https://github.com/grandyang/leetcode/issues/718</a></p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4501934.html" target="_blank">Minimum Size Subarray Sum</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/maximum-length-of-repeated-subarray/">https://leetcode.com/problems/maximum-length-of-repeated-subarray/</a></p>
+<p><a href="https://leetcode.com/problems/maximum-length-of-repeated-subarray/discuss/109068/JavaC%2B%2B-Clean-Code-8-lines">https://leetcode.com/problems/maximum-length-of-repeated-subarray/discuss/109068/JavaC%2B%2B-Clean-Code-8-lines</a></p>
+<p><a href="https://leetcode.com/problems/maximum-length-of-repeated-subarray/discuss/109039/Concise-Java-DP%3A-Same-idea-of-Longest-Common-Substring">https://leetcode.com/problems/maximum-length-of-repeated-subarray/discuss/109039/Concise-Java-DP%3A-Same-idea-of-Longest-Common-Substring</a></p>
+<p><a href="https://leetcode.com/problems/maximum-length-of-repeated-subarray/discuss/109033/Solution-1%3A-DP-O(n2)-with-O(n)-space-Solution-2%3A-Stringify">https://leetcode.com/problems/maximum-length-of-repeated-subarray/discuss/109033/Solution-1%3A-DP-O(n2)-with-O(n)-space-Solution-2%3A-Stringify</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2017-11-07 22:37</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=7801533" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(7801533);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 7801533, cb_entryCreatedDate = '2017-11-07 22:37', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

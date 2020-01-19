@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="On the first row, we write a&amp;#160;0. Now in every subsequent row, we look at the previous row and re" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] K-th Symbol in Grammar 语法中的第K个符号 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9027098.html">[LeetCode] K-th Symbol in Grammar 语法中的第K个符号</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>On the first row, we write a&nbsp;<code>0</code>. Now in every subsequent row, we look at the previous row and replace each occurrence of&nbsp;<code>0</code>&nbsp;with&nbsp;<code>01</code>, and each occurrence of&nbsp;<code>1</code>&nbsp;with&nbsp;<code>10</code>.</p>
+<p>Given row&nbsp;<code>N</code>&nbsp;and index&nbsp;<code>K</code>, return the&nbsp;<code>K</code>-th indexed symbol in row&nbsp;<code>N</code>. (The values of&nbsp;<code>K</code>&nbsp;are 1-indexed.) (1 indexed).</p>
+<pre>Examples:
+Input: N = 1, K = 1
+Output: 0
+
+Input: N = 2, K = 1
+Output: 0
+
+Input: N = 2, K = 2
+Output: 1
+
+Input: N = 4, K = 5
+Output: 1
+
+Explanation:
+row 1: 0
+row 2: 01
+row 3: 0110
+row 4: 01101001
+</pre>
+<p>Note:</p>
+<ol>
+<li><code>N</code>&nbsp;will be an integer in the range&nbsp;<code>[1, 30]</code>.</li>
+<li><code>K</code>&nbsp;will be an integer in the range&nbsp;<code>[1, 2^(N-1)]</code>.</li>
+</ol>
+<p>&nbsp;</p>
+<p>这道题说第一行写上了一个0，然后从第二行开始，遇到0，就变为01，遇到1，则变为10，问我们第N行的第K个数字是啥。这是一道蛮有意思的题目，首先如果没啥思路的话，按照给定的方法，一行行generate出来，直到生成第N行，那么第K个数字也就知道了。但是这种brute force的方法无法通过OJ，这里就不多说了，需要想一些更高端的解法。我们想啊，遇到0变为01，那么可不可以把0和1看作上一层0的左右子结点呢，同时，把1和0看作上一层1的左右子结点，这样的话，我们整个结构就可以转为二叉树了，那么前四层的二叉树结构如下所示：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;"><span style="color: #008080;">              0</span>
+       /             \
+      <span style="color: #ff0000;">0</span>               <span style="color: #0000ff;">1</span>
+   /     \         /     \
+  0       <span style="color: #ff0000;">1</span>       <span style="color: #0000ff;">1</span>       0
+ / \     / \     / \     / \
+0   1   <span style="color: #ff0000;">1</span>   0   1   <span style="color: #0000ff;">0</span>   0   1</span></pre>
+</div>
+<p>我们仔细观察上面这棵二叉树，第四层K=3的那个红色的左子结点，其父结点的位置是第三层的第 (K+1)/2 = 2个红色结点，而第四层K=6的那个蓝色幽子结点，其父节点的位置是第三层的第 K/2 = 3个蓝色结点。那么我们就可以一层一层的往上推，直到到达第一层的那个0。所以我们的思路是根据当前层K的奇偶性来确定上一层中父节点的位置，然后继续往上一层推，直到推倒第一层的0，然后再返回确定路径上每一个位置的值，这天然就是递归的运行机制啊。我们可以根据K的奇偶性知道其是左结点还是右结点，由于K是从1开始的，所以当K是奇数时，其是左结点，当K是偶数时，其是右结点。而且还能观察出来的是，左子结点和其父节点的值相同，右子结点和其父节点值相反，这是因为0换成了01，1换成了10，左子结点保持不变，右子结点flip了一下。想通了这些，那么我们的递归解法就不难写出来了，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> kthGrammar(<span style="color: #0000ff;">int</span> N, <span style="color: #0000ff;">int</span><span style="color: #000000;"> K) {
+        </span><span style="color: #0000ff;">if</span> (N == <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (K % <span style="color: #800080;">2</span> == <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span> (kthGrammar(N - <span style="color: #800080;">1</span>, K / <span style="color: #800080;">2</span>) == <span style="color: #800080;">0</span>) ? <span style="color: #800080;">1</span> : <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">return</span> (kthGrammar(N - <span style="color: #800080;">1</span>, (K + <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span>) == <span style="color: #800080;">0</span>) ? <span style="color: #800080;">0</span> : <span style="color: #800080;">1</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们可以简化下上面的解法，你们可能会说，纳尼？已经三行了还要简化？没错，博主就是这样一个精益求精的人（此处应有掌声👏）。我们知道偶数加1除以2，和其本身除以2的值是相同的，那么其实不论K是奇是偶，其父节点的位置都可以用 (K+1)/2 来表示，问题在于K本身的奇偶决定了其左右结点的位置，从而决定要不要flip父节点的值，这才是上面解法中我们要使用 if...else 结构的原因。实际上我们可以通过&lsquo;亦或&rsquo;操作来实现一行搞定，叼不叼。我们来看下变换规则，0换成了01，1换成了10。</p>
+<p>0 -&gt; 01</p>
+<p>左子结点(0) = 父节点(0) ^ 0&nbsp;</p>
+<p>右子结点(1) = 父节点(0) ^ 1&nbsp;</p>
+<p>1 -&gt; 10</p>
+<p>左子结点(1) = 父节点(1) ^ 0&nbsp;</p>
+<p>右子结点(0) = 父节点(1) ^ 1&nbsp;</p>
+<p>那么只要我们知道了父结点的值和当前K的奇偶性就可以知道K的值了，因为左子结点就是父结点值&lsquo;亦或&rsquo;0，右子结点就是父结点值&lsquo;亦或&rsquo;1，由于左子结点的K是奇数，我们可以对其取反再&lsquo;与&rsquo;1，所以就是 (~K &amp; 1)，再&lsquo;亦或&rsquo;上递归函数的返回值即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> kthGrammar(<span style="color: #0000ff;">int</span> N, <span style="color: #0000ff;">int</span><span style="color: #000000;"> K) {
+        </span><span style="color: #0000ff;">if</span> (N == <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span> (~K &amp; <span style="color: #800080;">1</span>) ^ kthGrammar(N - <span style="color: #800080;">1</span>, (K + <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span><span style="color: #000000;">);
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种解法的思路也十分巧妙，还是从变换规则入手，0换成了01，1换成了10。我们来看解法一讲解中的二叉树示例图中的蓝色路径，第四层K=6，第三层K=3，第二层K=2，第一层K=1，所以路径就是 6-&gt;3-&gt;2-&gt;1，如果我们换成0开头的计数方法，那么路径就是 5-&gt;2-&gt;1-&gt;0，再换成二进制的表达方式就是 101-&gt;10-&gt;1-&gt;0，我们发现其实就是每次右移一位，直到移动到0，而当最低位是1的时候，表示当前是右子结点，需要flip一下，那么只要我们知道总共flip了多少次，就能推算出第K个位置的值。比如&nbsp;101-&gt;10-&gt;1-&gt;0，总共flip了两次变成了0，那么说明K=6的位置值为0。于是问题就转化为了统计K-1这个数的二进制表示中位1的个数，使用一个while循环统计出来就可以了，然后根据个数的奇偶性返回1或0即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> kthGrammar(<span style="color: #0000ff;">int</span> N, <span style="color: #0000ff;">int</span><span style="color: #000000;"> K) {
+        </span><span style="color: #0000ff;">int</span> cnt = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span>--<span style="color: #000000;">K;
+        </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (K) {
+            cnt </span>+= K &amp; <span style="color: #800080;">1</span><span style="color: #000000;">;
+            K </span>&gt;&gt;= <span style="color: #800080;">1</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span> cnt % <span style="color: #800080;">2</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种解法的思路也很清新脱俗啊，一切的一切都是从变换规则入手，0换成了01，1换成了10。那么当K是奇数的时候，我们之前分析了，其一定是左子结点，那么其是01或者10的第一个数字，因为只有这两种组合方式，所以如果第K个数是0的话，那么第K+1个数就是1，同样，如果第K个数是1的话，那么第K+1个数就是0，所以此时第K个数和第K+1个数一定相反，那么我们就可以通过&lsquo;亦或&rsquo;1来实现这个一定相反的操作。</p>
+<p>当K是偶数的时候，那么其是01或者10的第二个数字，那么根据之前的分析，其是由上一层的第 K/2 位置的数字生成的，上一层的第 K/2 个数字和当前层的第 K/2 个数字是一样的，如果你仔细观察题目中的例子或者博主画的那个二叉树图，只要K不越界，每一层的第K个数字都是相等的。所以如果第K个数是0的话，那么第 K/2 个数就是1，同样，如果第K个数是1的话，那么第 K/2 个数就是0，所以此时第K个数和第 K/2 个数一定相反，那么我们也可以通过&lsquo;亦或&rsquo;1来实现这个一定相反的操作。</p>
+<p>于是乎，我们的操作就是，当K是奇数的时候，我们就将其换成K+1，当K是偶数的时候，我们将其换为K/2。然后每次都对结果res（初始化为0）进行&lsquo;亦或&rsquo;1操作，循环的终止条件是当K等于1时，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法四：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> kthGrammar(<span style="color: #0000ff;">int</span> N, <span style="color: #0000ff;">int</span><span style="color: #000000;"> K) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">while</span> (K &gt; <span style="color: #800080;">1</span><span style="color: #000000;">) {
+            K </span>= (K % <span style="color: #800080;">2</span> == <span style="color: #800080;">1</span>) ? K + <span style="color: #800080;">1</span> : K / <span style="color: #800080;">2</span><span style="color: #000000;">;
+            res </span>^= <span style="color: #800080;">1</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种解法跟解法三的思路完全相同，只不过使用了bitset这个内置的数据结构来快速的求出了K-1的二进制表达数中的位1的个数，Java中可以直接使用Integer.bitCount()函数，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法五：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> kthGrammar(<span style="color: #0000ff;">int</span> N, <span style="color: #0000ff;">int</span><span style="color: #000000;"> K) {
+        </span><span style="color: #0000ff;">return</span> bitset&lt;<span style="color: #800080;">32</span>&gt;(K - <span style="color: #800080;">1</span>).count() % <span style="color: #800080;">2</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/k-th-symbol-in-grammar/solution/">https://leetcode.com/problems/k-th-symbol-in-grammar/solution/</a></p>
+<p><a href="https://leetcode.com/problems/k-th-symbol-in-grammar/discuss/113705/JAVA-one-line">https://leetcode.com/problems/k-th-symbol-in-grammar/discuss/113705/JAVA-one-line</a></p>
+<p><a href="https://leetcode.com/problems/k-th-symbol-in-grammar/discuss/113697/My-3-lines-C++-recursive-solution">https://leetcode.com/problems/k-th-symbol-in-grammar/discuss/113697/My-3-lines-C++-recursive-solution</a></p>
+<p><a href="https://leetcode.com/problems/k-th-symbol-in-grammar/discuss/121544/C++JavaPython-Another-Solution-with-Explanation">https://leetcode.com/problems/k-th-symbol-in-grammar/discuss/121544/C++JavaPython-Another-Solution-with-Explanation</a></p>
+<p><a href="https://leetcode.com/problems/k-th-symbol-in-grammar/discuss/113721/C++-with-explanation-three-solutions-O(n)-O(logn)-and-O(loglogn)">https://leetcode.com/problems/k-th-symbol-in-grammar/discuss/113721/C++-with-explanation-three-solutions-O(n)-O(logn)-and-O(loglogn)</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-05-11 23:55</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9027098" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(9027098);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 9027098, cb_entryCreatedDate = '2018-05-11 23:55', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

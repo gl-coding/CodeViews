@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Alex and Lee play a game with piles of stones. There are an even number of&amp;#160;piles&amp;#160;arranged " />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 877. Stone Game 石子游戏 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/10828725.html">[LeetCode] 877. Stone Game 石子游戏</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+Alex and Lee play a game with piles of stones.  There are an even number of piles arranged in a row, and each pile has a positive integer number of stones <code>piles[i]</code>.</p>
+<p>The objective of the game is to end with the most stones.  The total number of stones is odd, so there are no ties.</p>
+<p>Alex and Lee take turns, with Alex starting first.  Each turn, a player takes the entire pile of stones from either the beginning or the end of the row.  This continues until there are no more piles left, at which point the person with the most stones wins.</p>
+<p>Assuming Alex and Lee play optimally, return <code>True</code> if and only if Alex wins the game.</p>
+<p>Example 1:</p>
+<pre><code>Input: [5,3,4,5]
+Output: true
+Explanation:
+Alex starts first, and can only take the first 5 or the last 5.
+Say he takes the first 5, so that the row becomes [3, 4, 5].
+If Lee takes 3, then the board is [4, 5], and Alex takes 5 to win with 10 points.
+If Lee takes the last 5, then the board is [3, 4], and Alex takes 4 to win with 9 points.
+This demonstrated that taking the first 5 was a winning move for Alex, so we return true.</code></pre>
+<p>Note:</p>
+<ol>
+<li><code>2 &lt;= piles.length &lt;= 500</code></li>
+<li><code>piles.length</code> is even.</li>
+<li><code>1 &lt;= piles[i] &lt;= 500</code></li>
+<li><code>sum(piles)</code> is odd.</li>
+</ol>
+<p><br><br />
+这道题说是有偶数堆的石子，每堆的石子个数可能不同，但石子总数是奇数个。现在 Alex 和 Lee （不应该是 Alice 和 Bob 么？？）两个人轮流选石子堆，规则是每次只能选开头和末尾中的一堆，最终获得石子总数多的人获胜。若 Alex 先选，两个人都会一直做最优选择，问我们最终 Alex 是否能获胜。博主最先想到的方法是像 <a href="http://www.cnblogs.com/grandyang/p/6369688.html">Predict the Winner</a> 中的那样，用个 player 变量来记录当前是哪个玩家在操作，若为0，表示 Alex 在选，那么他只有两种选择，要么拿首堆，要么拿尾堆，两种情况分别调用递归，两个递归函数只要有一个能返回 true，则表示 Alex 可以获胜，还需要用个变量 cur0 来记录当前 Alex 的石子总数。同理，若 Lee 在选，即 player 为1的时候，也是只有两种选择，分别调用递归，两个递归函数只要有一个能返回 true，则表示 Lee 可以获胜，用 cur1 来记录当前 Lee 的石子总数。需要注意的是，当首堆或尾堆被选走了后，我们需要标记，这里就有两种方法，一种是从原 piles 中删除选走的堆（或者是新建一个不包含选走堆的数组），但是这种方法会包括大量的拷贝运算，无法通过 OJ。另一种方法是用两个指针 left 和 right，分别指向首尾的位置。当选取了首堆时，则 left 自增1，若选了尾堆时，则 right 自减1。这样就不用执行删除操作，或是拷贝数组了，大大的提高了运行效率，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    bool stoneGame(vector&lt;int&gt;&amp; piles) {
+        return helper(piles, 0, 0, 0, (int)piles.size() - 1, 0);     
+    }
+    bool helper(vector&lt;int&gt;&amp; piles, int cur0, int cur1, int left, int right, int player) {
+        if (left &gt; right) return cur0 &gt; cur1;
+        if (player == 0) {
+            return helper(piles, cur0 + piles[left], cur1, left + 1, right, 1) || helper(piles, cur0 + piles[right], cur1, left + 1, right, 1);
+        } else {
+            return helper(piles, cur0, cur1 + piles[left], left, right - 1, 0) || helper(piles, cur0, cur1 + piles[right], left, right - 1, 0);
+        }
+    }
+};</code></pre>
+<p><br><br />
+这道题也可以使用动态规划 Dynamic Programming 来做，由于玩家获胜的规则是拿到的石子数多，那么多的石子数就可以量化为 dp 值。所以我们用一个二维数组，其中 dp[i][j] 表示在区间 [i, j] 内 Alex 比 Lee 多拿的石子数，若为正数，说明 Alex 拿得多，若为负数，则表示 Lee 拿得多。则最终只要看 dp[0][n-1] 的值，若为正数，则 Alex 能获胜。现在就要找状态转移方程了，我们想，在区间 [i, j] 内要计算 Alex 比 Lee 多拿的石子数，在这个区间内，Alex 只能拿i或者j位置上的石子，那么当 Alex 拿了 piles[i] 的话，等于 Alex 多了 piles[i] 个石子，此时区间缩小成了 [i+1, j]，此时应该 Lee 拿了，此时根据我们以往的 DP 经验，应该调用子区间的 dp 值，没错，但这里 dp[i+1][j] 表示是在区间 [i+1, j] 内 Alex 多拿的石子数，但是若区间 [i+1, j] 内 Lee 先拿的话，其多拿的石子数也应该是 dp[i+1][j]，因为两个人都要最优化拿，那么 dp[i][j] 的值其实可以被 piles[i] - dp[i+1][j] 更新，因为 Alex 拿了 piles[i]，减去 Lee 多出的 dp[i+1][j]，就是区间 [i, j] 中 Alex 多拿的石子数。同理，假如 Alex 先拿 piles[j]，那么就用 piles[j] - dp[i][j-1] 来更新 dp[i][j]，则我们用二者的较大值来更新即可。注意开始的时候要把 dp[i][i] 都初始化为 piles[i]，还需要注意的是，这里的更新顺序很重要，是从小区间开始更新，在之前那道 <a href="http://www.cnblogs.com/grandyang/p/5006441.html">Burst Balloons</a>，博主详细的讲了这种 dp 的更新顺序，可以去看看，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    bool stoneGame(vector&lt;int&gt;&amp; piles) {
+        int n = piles.size();
+        vector&lt;vector&lt;int&gt;&gt; dp(n, vector&lt;int&gt;(n));
+        for (int i = 0; i &lt; n; ++i) dp[i][i] = piles[i];
+        for (int len = 1; len &lt; n; ++len) {
+            for (int i = 0; i &lt; n - len; ++i) {
+                int j = i + len;
+                dp[i][j] = max(piles[i] - dp[i + 1][j], piles[j] - dp[i][j - 1]);
+            }
+        }
+        return dp[0][n - 1] &gt; 0;
+    }
+};</code></pre>
+<p><br><br />
+其实这道题是一道脑筋急转弯题，跟之前那道 <a href="http://www.cnblogs.com/grandyang/p/4873248.html">Nim Game</a> 有些像。原因就在于题目中的一个条件，那就是总共有偶数堆，那么就是可以分为堆数相等的两堆，比如我们按奇偶分为两堆。题目还说了石子总数为奇数个，那么分出的这两堆的石子总数一定是不相等的，那么我们只要每次一直取石子总数多的奇数堆或者偶数堆，Alex 就一定可以躺赢，所以最叼的方法就是直接返回 true。我。。我。。我王司徒。。表示不服。。。我从未见过如此。。机智过人。。的解法～</p>
+<p><br><br />
+解法三：</p>
+<pre><code>class Solution {
+public:
+    bool stoneGame(vector&lt;int&gt;&amp; piles) {
+        return true;
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/877" class="uri">https://github.com/grandyang/leetcode/issues/877</a></p>
+<p><br><br />
+类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/5006441.html">Burst Balloons</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4873248.html">Nim Game</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/5226206.html">Flip Game II</a>   </p>
+<p><a href="http://www.cnblogs.com/grandyang/p/5677550.html">Guess Number Higher or Lower II</a> </p>
+<p><a href="http://www.cnblogs.com/grandyang/p/6369688.html">Predict the Winner</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/stone-game/" class="uri">https://leetcode.com/problems/stone-game/</a></p>
+<p><a href="https://leetcode.com/problems/stone-game/discuss/154610/DP-or-Just-return-true" class="uri">https://leetcode.com/problems/stone-game/discuss/154610/DP-or-Just-return-true</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-05-07 22:44</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10828725" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(10828725);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 10828725, cb_entryCreatedDate = '2019-05-07 22:44', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="A character is unique in string if it occurs exactly once in it. For example, in string , the only u" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 828. Unique Letter String 独特字符串 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/11616485.html">[LeetCode] 828. Unique Letter String 独特字符串</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+A character is unique in string <code>S</code> if it occurs exactly once in it.</p>
+<p>For example, in string <code>S = &quot;LETTER&quot;</code>, the only unique characters are <code>&quot;L&quot;</code> and <code>&quot;R&quot;</code>.</p>
+<p>Let's define <code>UNIQ(S)</code> as the number of unique characters in string <code>S</code>.</p>
+<p>For example, <code>UNIQ(&quot;LETTER&quot;) =  2</code>.</p>
+<p>Given a string <code>S</code> with only uppercases, calculate the sum of <code>UNIQ(substring)</code> over all non-empty substrings of <code>S</code>.</p>
+<p>If there are two or more equal substrings at different positions in <code>S</code>, we consider them different.</p>
+<p>Since the answer can be very large, return the answer modulo <code>10 ^ 9 + 7</code>.</p>
+<p>Example 1:</p>
+<pre><code>Input: &quot;ABC&quot;
+Output: 10
+Explanation: All possible substrings are: &quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;AB&quot;,&quot;BC&quot; and &quot;ABC&quot;.
+Evey substring is composed with only unique letters.
+Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10</code></pre>
+<p>Example 2:</p>
+<pre><code>Input: &quot;ABA&quot;
+Output: 8
+Explanation: The same as example 1, except uni(&quot;ABA&quot;) = 1.</code></pre>
+<p>Note: <code>0 &lt;= S.length &lt;= 10000</code>.</p>
+<p><br><br />
+这道题给了我们一个字符串S，要统计其所有的子串中不同字符的个数之和，这里的子串是允许重复的，而且说结果需要对一个超大数取余，这暗示了返回值可能会很大，这样的话对于纯暴力的解法，比如遍历所有可能的子串并统计不同字符的个数的这种解法肯定是不行的。这道题还真是一点没有辱没其 Hard 标签，确实是一道很有难度的题，不太容易想出正确解法。还好有 <a href="https://leetcode.com/problems/unique-letter-string/discuss/128952/One-pass-O(N)-Straight-Forward">李哥 lee215 的帖子</a>，一个帖子的点赞数超过了整个第一页所有其他帖子的点赞数之和，简直是刷题界的 Faker，你李哥永远是你李哥。这里就按照李哥的帖子来讲解吧，首先来看一个字符串 CACACCAC，若想让第二个A成为子串中的唯一，那么必须要知道其前后两个相邻的A的位置，比如 CA(CACC)AC，括号中的子串 CACC 中A就是唯一的存在，同样，对于 CAC(AC)CAC，括号中的子串 AC 中A也是唯一的存在。这样就可以观察出来，只要左括号的位置在第一个A和第二个A之间（共有2个位置），右括号在第二个A和第三个A之间（共有3个位置），这样第二个A在6个子串中成为那个唯一的存在。换个角度来说，只有6个子串可以让第二个A作为单独的存在从而在结果中贡献。这是个很关键的转换思路，与其关注每个子串中的单独字符个数，不如换个角度，对于每个字符，统计其可以在多少个子串中成为单独的存在，同样可以得到正确的结果。这样的话，每个字母出现的位置就很重要了，由于上面的分析说了，只要知道三个位置，就可以求出中间的字母的贡献值，为了节省空间，只保留每个字母最近两次的出现位置，这样加上当前位置i，就可以知道前一个字母的贡献值了。这里使用一个长度为 26x2 的二维数组 idx，因为题目中限定了只有26个大写字母。这里只保留每个字母的前两个出现位置，均初始化为 -1。然后遍历S中每个字母，对于每个字符减去A，就是其对应位置，此时将前一个字母的贡献值累加到结果 res 中，假如当前字母是首次出现，也不用担心，前两个字母的出现位置都是 -1，相减后为0，所以累加值还是0。然后再更新 idx 数组的值。由于每次都是计算该字母前一个位置的贡献值，所以最后还需要一个 for 循环去计算每个字母最后出现位置的贡献值，此时由于身后没有该字母了，就用位置N来代替即可，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    int uniqueLetterString(string S) {
+        int res = 0, n = S.size(), M = 1e9 + 7;
+        vector&lt;vector&lt;int&gt;&gt; idx(26, vector&lt;int&gt;(2, -1));
+        for (int i = 0; i &lt; n; ++i) {
+            int c = S[i] - &#39;A&#39;;
+            res = (res + (i - idx[c][1]) * (idx[c][1] - idx[c][0]) % M) % M;
+            idx[c][0] = idx[c][1];
+            idx[c][1] = i;
+        }
+        for (int c = 0; c &lt; 26; ++c) {
+            res = (res + (n - idx[c][1]) * (idx[c][1] - idx[c][0]) % M) % M;
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+我们也可以换一种解法，使得其更加简洁一些，思路稍微有些不同，这里参考了 <a href="https://leetcode.com/problems/unique-letter-string/discuss/158378/Concise-DP-O(n)-solution">大神 meng789987 的帖子</a>。使用的是动态规划 Dynmaic Programming 的思想，用一个一维数组 dp，其中 dp[i] 表示以 S[i] 为结尾的所有子串中的单独字母个数之和，这样只要把 [0, n-1] 范围内所有的 dp[i] 累加起来就是最终的结果了。更新 dp[i] 的方法关键也是要看重复的位置，比如当前是 AB 的话，此时 dp[1]=3，因为以B结尾的子串是 B 和 AB，共有3个单独字母。若此时再后面加上个C的话，由于没有重复出现，则以C结尾的子串 C，BC，ABC 共有6个单独字母，即 dp[2]=6，怎么由 dp[1] 得到呢？首先新加的字母本身就是子串，所以一定是可以贡献1的，然后由于之前都没有C出现，则之前的每个子串中C都可以贡献1，而原本的A和B的贡献值也将保留，所以总共就是 dp[2] = 1+dp[1]+2 = 6。但若新加的字母是A的话，就比较 tricky 了，首先A本身也是子串，有稳定的贡献1，由于之前已经有A的出现了，所以只要知道了之前A的位置，那么中间部分是没有A的，即子串 B 中没有A，A可以贡献1，但是对于之前的有A的子串，比如 AB，此时新加的A不但不能贡献，反而还会伤害之前A的贡献值，即变成 ABA 了后，不但第二个A不能贡献，连第一个A之前的贡献值也要减去，此时 dp[2] = 1+dp[1]+(2-1)-(1-0) = 4。其中2是当前A的位置，1是前一个A的位置加1，0是再前一个A的位置加1。讲到这里应该就比较清楚了吧，这里还是要知道每个字符的前两次出现的位置，这里用两个数组 first 和 second，不过需要注意的是，这里保存的是位置加1。又因为每个 dp 值只跟其前一个 dp 值有关，所以为了节省空间，并不需要一个 dp 数组，而是只用一个变量 cur 进行累加即可，记得每次循环都要把 cur 存入结果 res 中。那么每次 cur 的更新方法就是前一个 cur 值加上1，再加上当前字母产生的贡献值，减去当前字母抵消的贡献值，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    int uniqueLetterString(string S) {
+        int res = 0, n = S.size(), cur = 0, M = 1e9 + 7;
+        vector&lt;int&gt; first(26), second(26);
+        for (int i = 0; i &lt; n; ++i) {
+            int c = S[i] - &#39;A&#39;;
+            cur = cur + 1 + i - first[c] * 2 + second[c];
+            res = (res + cur) % M;
+            second[c] = first[c];
+            first[c] = i + 1;
+        }
+        return res;
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/828" class="uri">https://github.com/grandyang/leetcode/issues/828</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/unique-letter-string/" class="uri">https://leetcode.com/problems/unique-letter-string/</a></p>
+<p><a href="https://leetcode.com/problems/unique-letter-string/discuss/158378/Concise-DP-O(n)-solution" class="uri">https://leetcode.com/problems/unique-letter-string/discuss/158378/Concise-DP-O(n)-solution</a></p>
+<p><a href="https://leetcode.com/problems/unique-letter-string/discuss/128952/One-pass-O(N)-Straight-Forward" class="uri">https://leetcode.com/problems/unique-letter-string/discuss/128952/One-pass-O(N)-Straight-Forward</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-10-01 23:36</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11616485" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(11616485);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 11616485, cb_entryCreatedDate = '2019-10-01 23:36', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

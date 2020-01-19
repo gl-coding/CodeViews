@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Your car starts at position 0 and speed &#x2B;1 on an infinite number line. (Your car can go into negativ" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 818. Race Car 赛车 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/10360655.html">[LeetCode] 818. Race Car 赛车</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Your car starts at position 0 and speed +1 on an infinite number line.&nbsp; (Your car can go into negative positions.)</p>
+<p>Your car drives automatically according to a sequence of instructions A (accelerate) and R (reverse).</p>
+<p>When you get an instruction "A", your car does the following:&nbsp;<code>position += speed, speed *= 2</code>.</p>
+<p>When you get an instruction "R", your car does the following: if your speed is positive then&nbsp;<code>speed = -1</code>&nbsp;, otherwise&nbsp;<code>speed = 1</code>.&nbsp; (Your position stays the same.)</p>
+<p>For example, after commands "AAR", your car goes to positions 0-&gt;1-&gt;3-&gt;3, and your speed goes to 1-&gt;2-&gt;4-&gt;-1.</p>
+<p>Now for some target position, say the&nbsp;length&nbsp;of the shortest sequence of instructions to get there.</p>
+<pre>Example 1:
+Input: 
+target = 3
+Output: 2
+Explanation: 
+The shortest instruction sequence is "AA".
+Your position goes from 0-&gt;1-&gt;3.
+</pre>
+<pre>Example 2:
+Input: 
+target = 6
+Output: 5
+Explanation: 
+The shortest instruction sequence is "AAARA".
+Your position goes from 0-&gt;1-&gt;3-&gt;7-&gt;7-&gt;6.
+</pre>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ul>
+<li><code>1 &lt;= target &lt;= 10000</code>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>这道题是关于赛车的题（估计韩寒会比较感兴趣吧，从《后会无期》，到《乘风破浪》，再到《飞驰人生》，貌似每一部都跟车有关，正所谓不会拍电影的赛车手不是好作家，哈哈～）。好，不多扯了，来做题吧，以下讲解主要参考了&nbsp;<a href="https://leetcode.com/problems/race-car/discuss/124326/Summary-of-the-BFS-and-DP-solutions-with-intuitive-explanation" target="_blank">fun4LeetCode 大神的帖子</a>。说是起始时有个小车在位置0，速度为1，有个目标位置 target，是小车要到达的地方。而小车只有两种操作，第一种是加速操作，首先当前位置加上小车速度，然后小车速度乘以2。第二种是反向操作，小车位置不变，小车速度重置为单位长度，并且反向。问我们最少需要多少个操作才能到达 target。我们首先来看下若小车一直加速的话，都能经过哪些位置，从起点开始，若小车连加五次速，位置的变化为：</p>
+<p>0 -&gt; 1 -&gt; 3 -&gt; 7 -&gt; 15 -&gt; 31</p>
+<p>有没有发现这些数字很眼熟，没有的话，就每个数字都加上个1，那么就应该眼熟了吧，对于信仰 1024 的程序猿来说，不眼熟不行啊，这就变成了2的指数数列啊，那么我们得出了结论，当小车从0开始连加n个速的话，其将会到达位置 2^n - 1。我们可以看出，小车越往后，位置跨度越大，那么当 target 不在这些位置上，很有可能一脚油门就开过了，比如，target = 6 的话，小车在3的位置上，一脚油门，就到7了，这时候就要回头，回头后，速度变为 -1，此时正好就到达6了，那么小车的操作如下：</p>
+<p>Initial:&nbsp; &nbsp; pos -&gt; 0,&nbsp; &nbsp; speed -&gt; 1</p>
+<p>A:&nbsp; &nbsp; 　　pos -&gt; 1,&nbsp; &nbsp; speed -&gt; 2</p>
+<p>A:&nbsp; &nbsp;&nbsp;　　pos -&gt; 3,&nbsp; &nbsp; speed -&gt; 4</p>
+<p>A:&nbsp; &nbsp;&nbsp;　　pos -&gt; 7,&nbsp; &nbsp; speed -&gt; 8</p>
+<p><span style="color: #ff0000;">R:&nbsp; &nbsp;&nbsp;　　pos -&gt; 7,&nbsp; &nbsp; speed -&gt; -1</span></p>
+<p>A:&nbsp; &nbsp;&nbsp;　　<strong>pos -&gt; <span style="color: #000000;">6</span></strong>,&nbsp; &nbsp; speed -&gt; -2</p>
+<p>所以，我们只需要5步就可以了。但是还有个问题，假如回头了以后，一脚油门之后，又过站了怎么办？比如 target = 5 的时候，之前小车回头之后到达了6的位置，此时速度已经是 -2了，再加个速，就直接干到了位置4，就得再回头，那么这种方式小车的操作如下：</p>
+<p>Initial:&nbsp; &nbsp; pos -&gt; 0,&nbsp; &nbsp; speed -&gt; 1</p>
+<p>A:&nbsp; &nbsp; 　　pos -&gt; 1,&nbsp; &nbsp; speed -&gt; 2</p>
+<p>A:&nbsp; &nbsp;&nbsp;　　pos -&gt; 3,&nbsp; &nbsp; speed -&gt; 4</p>
+<p>A:&nbsp; &nbsp;&nbsp;　　pos -&gt; 7,&nbsp; &nbsp; speed -&gt; 8</p>
+<p><span style="color: #ff0000;">R:&nbsp; &nbsp;&nbsp;　　pos -&gt; 7,&nbsp; &nbsp; speed -&gt; -1</span></p>
+<p>A:&nbsp; &nbsp;&nbsp;　　pos -&gt;&nbsp;6,&nbsp; &nbsp; speed -&gt; -2</p>
+<p>A:&nbsp; &nbsp;&nbsp;　　pos -&gt; 4,&nbsp; &nbsp; speed -&gt; -4</p>
+<p><span style="color: #ff0000;">R:&nbsp; &nbsp;&nbsp;　　pos -&gt; 4,&nbsp; &nbsp; speed -&gt; 1</span></p>
+<p>A:&nbsp; &nbsp;&nbsp;　　<strong>pos -&gt;</strong><span style="color: #000000;"><strong> 5</strong>,</span>&nbsp; &nbsp; speed -&gt; 2</p>
+<p>那么此时我们就用了8步，但这是最优的方法么，我们一定要在过了目标才回头么，不撞南墙不回头么？其实不必，我们可以在到达 target 之前提前调头，然后往回走走，再调回来，使得之后能恰好到达 target，比如下面这种走法：</p>
+<p>Initial:&nbsp; &nbsp; pos -&gt; 0,&nbsp; &nbsp; speed -&gt; 1</p>
+<p>A:&nbsp; &nbsp; 　　pos -&gt; 1,&nbsp; &nbsp; speed -&gt; 2</p>
+<p>A:&nbsp; &nbsp;&nbsp;　　pos -&gt; 3,&nbsp; &nbsp; speed -&gt; 4</p>
+<p><span style="color: #ff0000;">R:&nbsp; &nbsp;&nbsp;　　pos -&gt; 3,&nbsp; &nbsp; speed -&gt; -1</span></p>
+<p>A:&nbsp; &nbsp;&nbsp;　　pos -&gt; 2,&nbsp; &nbsp; speed -&gt; -2</p>
+<p><span style="color: #ff0000;">R:&nbsp; &nbsp;&nbsp;　　pos -&gt;&nbsp;2,&nbsp; &nbsp; speed -&gt; 1</span></p>
+<p>A:&nbsp; &nbsp;&nbsp;　　pos -&gt; 3,&nbsp; &nbsp; speed -&gt; 2</p>
+<p>A:&nbsp; &nbsp;&nbsp;　　<strong>pos -&gt;</strong><strong>&nbsp;5</strong>,&nbsp; &nbsp; speed -&gt; 4</p>
+<p>我们在未到达 target 的位置3时就直接掉头了，往后退到2，再调回来，往前走，到达5，此时总共只用了7步，是最优解。那么我们怎么知道啥时候要掉头？问得好，答案是不知道，我们得遍历每种情况。但是为了避免计算一些无用的情况，比如小车反向过了起点，或者是超过 target 好远都不回头，我们需要限定一些边界，比如小车不能去小于0的位置，以及小车在超过了 target 时，就必须回头了，不能继续往前开了。还有就是小车当前的位置不能超过 target x 2，不过这个限制条件博主还没有想出合理的解释，各位看官大神们知道的话可以给博主讲讲～</p>
+<p>对于求极值的题目，根据博主多年与 LeetCode 抗争的经验，就是 BFS，带剪枝的 DFS 解法，贪婪算法，或者动态规划 Dynamic Programming 这几种解法（带记忆数组的 DFS 解法也可以归到 DP 一类中去）。一般来说，贪婪算法比较 naive，大概率会跪。BFS 有时候可以，带剪枝的 DFS 解法中的剪枝比较难想，而 DP 绝对是神器，基本没有解决不了的问题，但是代价就是得抓破头皮想状态转移方程，并且一般 DP 只能用来求极值，而想求极值对应的具体情况（比如这道题如果让求最少个数的指令是什么），有时候可能还得用带剪枝的 DFS 解法。不过这道题 BFS 也可以，那么我们就先用 BFS 来解吧。</p>
+<p>这里的 BFS 解法，跟迷宫遍历中的找最短路径很类似，可以想像成水波，一圈一圈的往外扩散，当碰到 target 时候，当前的半径就是最短距离。用队列 queue 来辅助遍历，里面放的是位置和速度的 pair 对儿，将初始状态位置0速度1先放进 queue，然后需要一个 HashSet 来记录处理过的状态，为了节省空间和加快速度，我们将位置和速度变为字符串，并在中间加逗号隔开，这样 HashSet 中只要保存字符串即可。之后开始 while 循环，此时采用的是层序遍历的写法，当前 queue 中所有元素遍历完了之后，结果 res 才自增1。在 for 循环中，首先取出队首 pair 对儿的位置和速度，如果位置和 target 相等，直接返回结果 res。否则就要去新的地方了，首先尝试的是加速操作，此时新的位置 newPos 为之前的位置加速度，新的速度 newSpeed 为之前速度的2倍，然后将 newPos 和 newSpeed 加码成字符串，若新的状态没有处理过，且新位置大于0，小于 target x 2 的话，则将新状态加入 visited，并排入队列中。接下来就是转向的情况，newPos 和原位置保持不变，newSpeed 根据之前 speed 的正负变成 -1 或1，然后将 newPos 和 newSpeed 加码成字符串，若新的状态没有处理过，且新位置大于0，小于 target x 2 的话，则将新状态加入 visited，并排入队列中。for循环结束后，结果 res 自增1即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> racecar(<span style="color: #0000ff;">int</span><span style="color: #000000;"> target) {
+        </span><span style="color: #0000ff;">int</span> res = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        queue</span>&lt;pair&lt;<span style="color: #0000ff;">int</span>, <span style="color: #0000ff;">int</span>&gt;&gt; q{{{<span style="color: #800080;">0</span>, <span style="color: #800080;">1</span><span style="color: #000000;">}}};
+        unordered_set</span>&lt;<span style="color: #0000ff;">string</span>&gt; visited{{<span style="color: #800000;">"</span><span style="color: #800000;">0,1</span><span style="color: #800000;">"</span><span style="color: #000000;">}};
+        </span><span style="color: #0000ff;">while</span> (!<span style="color: #000000;">q.empty()) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = q.size(); i &gt; <span style="color: #800080;">0</span>; --<span style="color: #000000;">i) {
+                </span><span style="color: #0000ff;">int</span> pos = q.front().first, speed =<span style="color: #000000;"> q.front().second; q.pop();
+                </span><span style="color: #0000ff;">if</span> (pos == target) <span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+                </span><span style="color: #0000ff;">int</span> newPos = pos + speed, newSpeed = speed * <span style="color: #800080;">2</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">string</span> key = to_string(newPos) + <span style="color: #800000;">"</span><span style="color: #800000;">,</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> to_string(newSpeed);
+                </span><span style="color: #0000ff;">if</span> (!visited.count(key) &amp;&amp; newPos &gt; <span style="color: #800080;">0</span> &amp;&amp; newPos &lt; (target * <span style="color: #800080;">2</span><span style="color: #000000;">)) {
+                    visited.insert(key);
+                    q.push({newPos, newSpeed});
+                }
+                newPos </span>=<span style="color: #000000;"> pos; 
+                newSpeed </span>= (speed &gt; <span style="color: #800080;">0</span>) ? -<span style="color: #800080;">1</span> : <span style="color: #800080;">1</span><span style="color: #000000;">;
+                key </span>= to_string(newPos) + <span style="color: #800000;">"</span><span style="color: #800000;">,</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> to_string(newSpeed);
+                </span><span style="color: #0000ff;">if</span> (!visited.count(key) &amp;&amp; newPos &gt; <span style="color: #800080;">0</span> &amp;&amp; newPos &lt; (target * <span style="color: #800080;">2</span><span style="color: #000000;">)) {
+                    visited.insert(key);
+                    q.push({newPos, newSpeed});
+                }
+            }
+            </span>++<span style="color: #000000;">res;
+        }
+        </span><span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>好，既然说了 DP 是神器，那么就来用用这传说中的神器吧。首先来定义 dp 数组吧，就用一个一维的 dp 数组，长度为 target+1，其中 dp[i] 表示到达位置i，所需要的最少的指令个数。接下来就是推导最难的状态转移方程了，这里我们不能像 BFS 解法一样对每个状态都无脑尝试加速和反向操作，因为状态转移方程是要跟之前的状态建立联系的。根据之前的分析，对于某个位置i，我们有两种操作，一种是在到达该位置之前，回头两次，另一种是超过该位置后再回头，我们就要模拟这两种情况。</p>
+<p>首先来模拟位置i之前回头两次的情况，那么这里我们就有正向加速，和反向加速两种可能。我们假设正向加速能到达的位置为j，正向加速次数为 cnt1，反向加速能到达的位置为k，反向加速的次数为 cnt2。那么正向加速位置j从1开始遍历，不能超过i，且根据之前的规律，j每次的更新应该是 2^cnt1 - 1，然后对于每个j位置，我们都要反向跑一次，此时反向加速位置k从0开始遍历，不能超过j，k每次更新应该是 2^cnt2 - 1，那么到达此时的位置时，我们正向走了j，反向走了k，即可表示为正向走了 (j - k)，此时的指令数为 cnt1 + 1 + cnt2 + 1，加的2个 &lsquo;1&rsquo; 分贝是反向操作的两次计数，当我们第二次反向后，此时的方向就是朝着i的方向了，此时跟i之间的距离可以直接用差值在 dp 数组中取，为 dp[i - (j - k)]，以此来更新 dp[i]。</p>
+<p>接下来模拟超过i位置后才回头的情况，此时 cnt1 是刚好能超过或到达i位置的加速次数，我们可以直接使用，此时我们比较i和j，若相等，则直接用 cnt1 来更新 dp[i]，否则就反向操作一次，然后距离差为 j-i，从 dp 数组中直接调用 dp[j-i]，然后加上反向操作1次，用来更新 dp[i]，最终返回 dp[target] 即为所求，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> racecar(<span style="color: #0000ff;">int</span><span style="color: #000000;"> target) {
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; dp(target + <span style="color: #800080;">1</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt;= target; ++<span style="color: #000000;">i) {
+            dp[i] </span>=<span style="color: #000000;"> INT_MAX;
+            </span><span style="color: #0000ff;">int</span> j = <span style="color: #800080;">1</span>, cnt1 = <span style="color: #800080;">1</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">for</span> (; j &lt; i; j = (<span style="color: #800080;">1</span> &lt;&lt; ++cnt1) - <span style="color: #800080;">1</span><span style="color: #000000;">) {
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = <span style="color: #800080;">0</span>, cnt2 = <span style="color: #800080;">0</span>; k &lt; j; k = (<span style="color: #800080;">1</span> &lt;&lt; ++cnt2) - <span style="color: #800080;">1</span><span style="color: #000000;">) {
+                    dp[i] </span>= min(dp[i], cnt1 + <span style="color: #800080;">1</span> + cnt2 + <span style="color: #800080;">1</span> + dp[i - (j -<span style="color: #000000;"> k)]);
+                }
+            }
+            dp[i] </span>= min(dp[i], cnt1 + (i == j ? <span style="color: #800080;">0</span> : <span style="color: #800080;">1</span> + dp[j -<span style="color: #000000;"> i]));
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> dp[target];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面是 DP 的递归写法，跟上面的迭代写法并没有太大的区别，只是将直接从 dp 数组中取值的过程变成了调用递归函数，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> racecar(<span style="color: #0000ff;">int</span><span style="color: #000000;"> target) {
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; dp(target + <span style="color: #800080;">1</span>, -<span style="color: #800080;">1</span><span style="color: #000000;">);
+        dp[</span><span style="color: #800080;">0</span>] = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> helper(target, dp);
+    }
+    </span><span style="color: #0000ff;">int</span> helper(<span style="color: #0000ff;">int</span> i, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> dp) {
+        </span><span style="color: #0000ff;">if</span> (dp[i] &gt;= <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> dp[i];
+        dp[i] </span>=<span style="color: #000000;"> INT_MAX;
+        </span><span style="color: #0000ff;">int</span> j = <span style="color: #800080;">1</span>, cnt1 = <span style="color: #800080;">1</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (; j &lt; i; j = (<span style="color: #800080;">1</span> &lt;&lt; ++cnt1) - <span style="color: #800080;">1</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> k = <span style="color: #800080;">0</span>, cnt2 = <span style="color: #800080;">0</span>; k &lt; j; k = (<span style="color: #800080;">1</span> &lt;&lt; ++cnt2) - <span style="color: #800080;">1</span><span style="color: #000000;">) {
+                dp[i] </span>= min(dp[i], cnt1 + <span style="color: #800080;">1</span> + cnt2 + <span style="color: #800080;">1</span> + helper(i - (j -<span style="color: #000000;"> k), dp));
+            }
+        }
+        dp[i] </span>= min(dp[i], cnt1 + (i == j ? <span style="color: #800080;">0</span> : <span style="color: #800080;">1</span> + helper(j -<span style="color: #000000;"> i, dp)));
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> dp[i];
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/818">https://github.com/grandyang/leetcode/issues/818</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/race-car/" target="_blank">https://leetcode.com/problems/race-car/</a></p>
+<p><a href="https://leetcode.com/problems/race-car/discuss/123834/C%2B%2BJavaPython-DP-solution" target="_blank">https://leetcode.com/problems/race-car/discuss/123834/C%2B%2BJavaPython-DP-solution</a></p>
+<p><a href="https://leetcode.com/problems/race-car/discuss/124326/Summary-of-the-BFS-and-DP-solutions-with-intuitive-explanation" target="_blank">https://leetcode.com/problems/race-car/discuss/124326/Summary-of-the-BFS-and-DP-solutions-with-intuitive-explanation</a></p>
+<p>&nbsp;</p>
+<div id="cnblogs_post_body" class="blogpost-body">
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-02-10 23:46</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10360655" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(10360655);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 10360655, cb_entryCreatedDate = '2019-02-10 23:46', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

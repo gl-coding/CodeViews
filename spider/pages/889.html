@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Return any binary tree that matches the given preorder and postorder traversals. Values in the trave" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 889. Construct Binary Tree from Preorder and Postorder Traversal 由先序和后序遍历建立二叉树 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/10909191.html">[LeetCode] 889. Construct Binary Tree from Preorder and Postorder Traversal 由先序和后序遍历建立二叉树</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+Return any binary tree that matches the given preorder and postorder traversals.</p>
+<p>Values in the traversals <code>pre</code> and <code>post</code> are distinct positive integers.</p>
+<p>Example 1:</p>
+<pre><code>Input: pre = [1,2,4,5,3,6,7], post = [4,5,2,6,7,3,1]
+Output: [1,2,3,4,5,6,7]</code></pre>
+<p>Note:</p>
+<ul>
+<li><code>1 &lt;= pre.length == post.length &lt;= 30</code></li>
+<li><code>pre[]</code> and <code>post[]</code> are both permutations of <code>1, 2, ..., pre.length</code>.</li>
+<li>It is guaranteed an answer exists. If there exists multiple answers, you can return any of them.</li>
+</ul>
+<p><br><br />
+这道题给了一棵树的先序遍历和后序遍历的数组，让我们根据这两个数组来重建出原来的二叉树。之前也做过二叉树的先序遍历 <a href="http://www.cnblogs.com/grandyang/p/4146981.html">Binary Tree Preorder Traversal</a> 和 后序遍历 <a href="http://www.cnblogs.com/grandyang/p/4251757.html">Binary Tree Postorder Traversal</a>，所以应该对其遍历的顺序并不陌生。其实二叉树最常用的三种遍历方式，先序，中序，和后序遍历，只要知道其中的任意两种遍历得到的数组，就可以重建出原始的二叉树，而且正好都在 LeetCode 中有出现，其他两道分别是 <a href="https://www.cnblogs.com/grandyang/p/4296193.html">Construct Binary Tree from Inorder and Postorder Traversal</a> 和 <a href="https://www.cnblogs.com/grandyang/p/4296500.html">Construct Binary Tree from Preorder and Inorder Traversal</a>。如果做过之前两道题，那么这道题就没有什么难度了，若没有的话，可能还是有些 tricky 的，虽然这仅仅只是一道 Medium 的题。</p>
+<p>我们知道，先序遍历的顺序是 根-&gt;左-&gt;右，而后序遍历的顺序是 左-&gt;右-&gt;根，既然要建立树，那么肯定要从根结点开始创建，然后再创建左右子结点，若你做过很多树相关的题目的话，就会知道大多数都是用递归才做，那么创建的时候也是对左右子结点调用递归来创建。心中有这么个概念就好，可以继续来找这个重复的 pattern。由于先序和后序各自的特点，根结点的位置是固定的，既是先序遍历数组的第一个，又是后序遍历数组的最后一个，而如果给我们的是中序遍历的数组，那么根结点的位置就只能从另一个先序或者后序的数组中来找了，但中序也有中序的好处，其根结点正好分割了左右子树，就不在这里细讲了，还是回到本题吧。知道了根结点的位置后，我们需要分隔左右子树的区间，先序和后序的各个区间表示如下：</p>
+<p>preorder -&gt; [root] [left subtree] [right subtree]<br />
+postorder -&gt; [left subtree] [right substree] [root]</p>
+<p>具体到题目中的例子就是：</p>
+<p>preorder -&gt; [1] [2,4,5] [3,6,7]<br />
+postorder -&gt; [4,5,2] [6,7,3] [root]</p>
+<p>先序和后序中各自的左子树区间的长度肯定是相等的，但是其数字顺序可能是不同的，但是我们仔细观察的话，可以发现先序左子树区间的第一个数字2，在后序左右子树区间的最后一个位置，而且这个规律对右子树区间同样适用，这是为啥呢，这就要回到各自遍历的顺序了，先序遍历的顺序是 根-&gt;左-&gt;右，而后序遍历的顺序是 左-&gt;右-&gt;根，其实这个2就是左子树的根结点，当然会一个在开头，一个在末尾了。发现了这个规律，就可以根据其来定位左右子树区间的位置范围了。既然要拆分数组，那么就有两种方式，一种是真的拆分成小的子数组，另一种是用双指针来指向子区间的开头和末尾。前一种方法无疑会有大量的数组拷贝，不是很高效，所以我们这里采用第二种方法来做。用 preL 和 preR 分别表示左子树区间的开头和结尾位置，postL 和 postR 表示右子树区间的开头和结尾位置，那么若 preL 大于 preR 或者 postL 大于 postR 的时候，说明已经不存在子树区间，直接返回空指针。然后要先新建当前树的根结点，就通过 pre[preL] 取到即可，接下来要找左子树的根结点在 post 中的位置，最简单的方法就是遍历 post 中的区间 [postL, postR]，找到其位置 idx，然后根据这个 idx，就可以算出左子树区间长度为 len = (idx-postL)+1，那么 pre 数组中左子树区间为 [preL+1, preL+len]，右子树区间为 [preL+1+len, preR]，同理，post 数组中左子树区间为 [postL, idx]，右子树区间为 [idx+1, postR-1]。知道了这些信息，就可以分别调用递归函数了，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    TreeNode* constructFromPrePost(vector&lt;int&gt;&amp; pre, vector&lt;int&gt;&amp; post) {
+        return helper(pre, 0, (int)pre.size() - 1, post, 0, (int)post.size() - 1);
+    }
+    TreeNode* helper(vector&lt;int&gt;&amp; pre, int preL, int preR, vector&lt;int&gt;&amp; post, int postL, int postR) {
+        if (preL &gt; preR || postL &gt; postR) return nullptr;
+        TreeNode *node = new TreeNode(pre[preL]);
+        if (preL == preR) return node;
+        int idx = -1;
+        for (idx = postL; idx &lt;= postR; ++idx) {
+            if (pre[preL + 1] == post[idx]) break;
+        }
+        node-&gt;left = helper(pre, preL + 1, preL + 1 + (idx - postL), post, postL, idx);
+        node-&gt;right = helper(pre, preL + 1 + (idx - postL) + 1, preR, post, idx + 1, postR - 1);
+        return node;
+    }
+};</code></pre>
+<p><br><br />
+我们也可以使用 STL 内置的 find() 函数来查找左子树的根结点在 post 中的位置，其余的地方都跟上面的解法相同，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    TreeNode* constructFromPrePost(vector&lt;int&gt;&amp; pre, vector&lt;int&gt;&amp; post) {
+        return helper(pre, 0, (int)pre.size() - 1, post, 0, (int)post.size() - 1);
+    }
+    TreeNode* helper(vector&lt;int&gt;&amp; pre, int preL, int preR, vector&lt;int&gt;&amp; post, int postL, int postR) {
+        if (preL &gt; preR || postL &gt; postR) return nullptr;
+        TreeNode *node = new TreeNode(pre[preL]);
+        if (preL == preR) return node;
+        int idx = find(post.begin() + postL, post.begin() + postR + 1, pre[preL + 1]) - post.begin();
+        node-&gt;left = helper(pre, preL + 1, preL + 1 + (idx - postL), post, postL, idx);
+        node-&gt;right = helper(pre, preL + 1 + (idx - postL) + 1, preR, post, idx + 1, postR - 1);
+        return node;
+    }
+};</code></pre>
+<p><br><br />
+为了进一步优化时间复杂度，我们可以事先用一个 HashMap，来建立 post 数组中每个元素和其坐标之间的映射，这样在递归函数中，就不用进行查找了，直接在 HashMap 中将其位置取出来用即可，用空间换时间，也不失为一个好的方法，参见代码如下：</p>
+<p><br><br />
+解法三：</p>
+<pre><code>class Solution {
+public:
+    TreeNode* constructFromPrePost(vector&lt;int&gt;&amp; pre, vector&lt;int&gt;&amp; post) {
+        unordered_map&lt;int, int&gt; m;
+        for (int i = 0; i &lt; post.size(); ++i) m[post[i]] = i;
+        return helper(pre, 0, (int)pre.size() - 1, post, 0, (int)post.size() - 1, m);
+    }
+    TreeNode* helper(vector&lt;int&gt;&amp; pre, int preL, int preR, vector&lt;int&gt;&amp; post, int postL, int postR, unordered_map&lt;int, int&gt;&amp; m) {
+        if (preL &gt; preR || postL &gt; postR) return nullptr;
+        TreeNode *node = new TreeNode(pre[preL]);
+        if (preL == preR) return node;
+        int idx = m[pre[preL + 1]], len = (idx - postL) + 1;
+        node-&gt;left = helper(pre, preL + 1, preL + len, post, postL, idx, m);
+        node-&gt;right = helper(pre, preL + 1 + len, preR, post, idx + 1, postR - 1, m);
+        return node;
+    }
+};</code></pre>
+<p><br><br />
+论坛上 <a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/discuss/161268/C%2B%2BJavaPython-One-Pass-Real-O(N)">lee215 大神</a> 提出了一种迭代的写法，借助了栈来做，其实就用个数组就行，模拟栈的后进先出的特性。这种设计思路很巧妙，现根据 pre 数组进行先序创建二叉树，当前我们的策略是，只要栈顶结点没有左子结点，就把当前结点加到栈顶元素的左子结点上，否则加到右子结点上，并把加入的结点压入栈。同时我们用两个指针i和j分别指向当前在 pre 和 post 数组中的位置，若某个时刻，栈顶元素和 post[j] 相同了，说明当前子树已经建立完成了，要将栈中当前的子树全部出栈，直到 while 循环的条件不满足。这样最终建立下来，栈中就只剩下一个根结点了，返回即可，参见代码如下：</p>
+<p><br><br />
+解法四：</p>
+<pre><code>class Solution {
+public:
+    TreeNode* constructFromPrePost(vector&lt;int&gt;&amp; pre, vector&lt;int&gt;&amp; post) {
+        vector&lt;TreeNode*&gt; st;
+        st.push_back(new TreeNode(pre[0]));
+        for (int i = 1, j = 0; i &lt; pre.size(); ++i) {
+            TreeNode *node = new TreeNode(pre[i]);
+            while (st.back()-&gt;val == post[j]) {
+                st.pop_back();
+                ++j;
+            }
+            if (!st.back()-&gt;left) st.back()-&gt;left = node;
+            else st.back()-&gt;right = node;
+            st.push_back(node);
+        }
+        return st[0];
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/889" class="uri">https://github.com/grandyang/leetcode/issues/889</a></p>
+<p><br><br />
+类似题目：</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4146981.html">Binary Tree Preorder Traversal</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/4251757.html">Binary Tree Postorder Traversal</a></p>
+<p><a href="https://www.cnblogs.com/grandyang/p/4296193.html">Construct Binary Tree from Inorder and Postorder Traversal</a></p>
+<p><a href="https://www.cnblogs.com/grandyang/p/4296500.html">Construct Binary Tree from Preorder and Inorder Traversal</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/" class="uri">https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/</a></p>
+<p><a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/discuss/161286/C%2B%2B-O(N)-recursive-solution">https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/discuss/161286/C%2B%2B-O(N)-recursive-solution</a></p>
+<p><a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/discuss/163540/Java-recursive-solution-beat-99.9" class="uri">https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/discuss/163540/Java-recursive-solution-beat-99.9</a></p>
+<p><a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/discuss/161268/C%2B%2BJavaPython-One-Pass-Real-O(N)">https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/discuss/161268/C%2B%2BJavaPython-One-Pass-Real-O(N)</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-05-22 23:10</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10909191" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(10909191);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 10909191, cb_entryCreatedDate = '2019-05-22 23:10', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

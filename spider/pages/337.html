@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="The thief has found himself a new place for his thievery again. There is only one entrance to this a" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 337. House Robber III 打家劫舍之三 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/5275096.html">[LeetCode] 337. House Robber III 打家劫舍之三</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the "root." Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that "all houses in this place forms a binary tree". It will automatically contact the police if two directly-linked houses were broken into on the same night.</p>
+<p>Determine the maximum amount of money the thief can rob tonight without alerting the police.</p>
+<p>Example 1:</p>
+<pre>     <span style="color: red;">3</span>
+    / \
+   2   3
+    \   \ 
+     <span style="color: red;">3   1</span>
+</pre>
+<p>Maximum amount of money the thief can rob =&nbsp;<span style="color: red;">3</span>&nbsp;+&nbsp;<span style="color: red;">3</span>&nbsp;+&nbsp;<span style="color: red;">1</span>&nbsp;=&nbsp;7.</p>
+<p>&nbsp;</p>
+<p>Example 2:</p>
+<pre>     3
+    / \
+   <span style="color: red;">4</span>   <span style="color: red;">5</span>
+  / \   \ 
+ 1   3   1
+</pre>
+<p>Maximum amount of money the thief can rob =&nbsp;<span style="color: red;">4</span>&nbsp;+&nbsp;<span style="color: red;">5</span>&nbsp;=&nbsp;9.</p>
+<p>&nbsp;</p>
+<p>Credits:<br />Special thanks to&nbsp;<a href="https://leetcode.com/discuss/user/dietpepsi">@dietpepsi</a>&nbsp;for adding this problem and creating all test cases.</p>
+<p>&nbsp;</p>
+<p>这道题是之前那两道&nbsp;<a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_129" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/4518674.html">House Robber II</a>&nbsp;和&nbsp;<a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_173" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/4383632.html">House Robber</a>&nbsp;的拓展，这个小偷又偷出新花样了，沿着二叉树开始偷，碉堡了，题目中给的例子看似好像是要每隔一个偷一次，但实际上不一定只隔一个，比如如下这个例子：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>        <span style="color: #800080;">4</span>
+       /
+      <span style="color: #800080;">1</span>
+     /
+    <span style="color: #800080;">2</span>
+   /
+  <span style="color: #800080;">3</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>如果隔一个偷，那么是 4+2=6，其实最优解应为 4+3=7，隔了两个，所以说纯粹是怎么多怎么来，那么这种问题是很典型的递归问题，可以利用回溯法来做，因为当前的计算需要依赖之前的结果，那么对于某一个节点，如果其左子节点存在，通过递归调用函数，算出不包含左子节点返回的值，同理，如果右子节点存在，算出不包含右子节点返回的值，那么此节点的最大值可能有两种情况，一种是该节点值加上不包含左子节点和右子节点的返回值之和，另一种是左右子节点返回值之和不包含当期节点值，取两者的较大值返回即可，但是这种方法无法通过 OJ，超时了<span style="font-size: 14px;">，所以必须优化这种方法，这种方法重复计算了很多地方，比如要完成一个节点的计算，就得一直找左右子节点计算，可以把已经算过的节点用 HashMap 保存起来，以后递归调用的时候，现在 HashMap 里找，如果存在直接返回，如果不存在，等计算出来后，保存到 HashMap 中再返回，这样方便以后再调用，参见代码如下：</span></p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> rob(TreeNode*<span style="color: #000000;"> root) {
+        unordered_map</span>&lt;TreeNode*, <span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> m;
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> dfs(root, m);
+    }
+    </span><span style="color: #0000ff;">int</span> dfs(TreeNode *root, unordered_map&lt;TreeNode*, <span style="color: #0000ff;">int</span>&gt; &amp;<span style="color: #000000;">m) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (m.count(root)) <span style="color: #0000ff;">return</span><span style="color: #000000;"> m[root];
+        </span><span style="color: #0000ff;">int</span> val = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (root-&gt;<span style="color: #000000;">left) {
+            val </span>+= dfs(root-&gt;left-&gt;left, m) + dfs(root-&gt;left-&gt;<span style="color: #000000;">right, m);
+        }
+        </span><span style="color: #0000ff;">if</span> (root-&gt;<span style="color: #000000;">right) {
+            val </span>+= dfs(root-&gt;right-&gt;left, m) + dfs(root-&gt;right-&gt;<span style="color: #000000;">right, m);
+        }
+        val </span>= max(val + root-&gt;val, dfs(root-&gt;left, m) + dfs(root-&gt;<span style="color: #000000;">right, m));
+        m[root] </span>=<span style="color: #000000;"> val;
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> val;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面再来看一种方法，这种方法的递归函数返回一个大小为2的一维数组 res，其中 res[0] 表示不包含当前节点值的最大值，res[1] 表示包含当前值的最大值，那么在遍历某个节点时，首先对其左右子节点调用递归函数，分别得到包含与不包含左子节点值的最大值，和包含于不包含右子节点值的最大值，则当前节点的 res[0] 就是左子节点两种情况的较大值加上右子节点两种情况的较大值，res[1] 就是不包含左子节点值的最大值加上不包含右子节点值的最大值，和当前节点值之和，返回即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> rob(TreeNode*<span style="color: #000000;"> root) {
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; res =<span style="color: #000000;"> dfs(root);
+        </span><span style="color: #0000ff;">return</span> max(res[<span style="color: #800080;">0</span>], res[<span style="color: #800080;">1</span><span style="color: #000000;">]);
+    }
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; dfs(TreeNode *<span style="color: #000000;">root) {
+        </span><span style="color: #0000ff;">if</span> (!root) <span style="color: #0000ff;">return</span> vector&lt;<span style="color: #0000ff;">int</span>&gt;(<span style="color: #800080;">2</span>, <span style="color: #800080;">0</span><span style="color: #000000;">);
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; left = dfs(root-&gt;<span style="color: #000000;">left);
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; right = dfs(root-&gt;<span style="color: #000000;">right);
+        vector</span>&lt;<span style="color: #0000ff;">int</span>&gt; res(<span style="color: #800080;">2</span>, <span style="color: #800080;">0</span><span style="color: #000000;">);
+        res[</span><span style="color: #800080;">0</span>] = max(left[<span style="color: #800080;">0</span>], left[<span style="color: #800080;">1</span>]) + max(right[<span style="color: #800080;">0</span>], right[<span style="color: #800080;">1</span><span style="color: #000000;">]);
+        res[</span><span style="color: #800080;">1</span>] = left[<span style="color: #800080;">0</span>] + right[<span style="color: #800080;">0</span>] + root-&gt;<span style="color: #000000;">val;
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>下面这种解法由网友&nbsp;<a id="a_comment_author_3808057" href="http://home.cnblogs.com/u/1090659/" target="_blank">edyyy</a>&nbsp;提供，仔细看了一下，也非常的巧妙，思路和解法二有些类似。这里的 helper 函数返回当前结点为根结点的最大 rob 的钱数，里面的两个参数l和r表示分别从左子结点和右子结点开始 rob，分别能获得的最大钱数。在递归函数里面，如果当前结点不存在，直接返回0。否则对左右子结点分别调用递归函数，得到l和r。另外还得到四个变量，ll和lr表示左子结点的左右子结点的最大 rob 钱数，rl 和 rr 表示右子结点的最大 rob 钱数。那么最后返回的值其实是两部分的值比较，其中一部分的值是当前的结点值加上 ll, lr, rl, 和 rr 这四个值，这不难理解，因为抢了当前的房屋，则左右两个子结点就不能再抢了，但是再下一层的四个子结点都是可以抢的；另一部分是不抢当前房屋，而是抢其左右两个子结点，即 l+r 的值，返回两个部分的值中的较大值即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">int</span> rob(TreeNode*<span style="color: #000000;"> root) {
+        </span><span style="color: #0000ff;">int</span> l = <span style="color: #800080;">0</span>, r = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> helper(root, l, r);
+    }
+    </span><span style="color: #0000ff;">int</span> helper(TreeNode* node, <span style="color: #0000ff;">int</span>&amp; l, <span style="color: #0000ff;">int</span>&amp;<span style="color: #000000;"> r) {
+        </span><span style="color: #0000ff;">if</span> (!node) <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> ll = <span style="color: #800080;">0</span>, lr = <span style="color: #800080;">0</span>, rl = <span style="color: #800080;">0</span>, rr = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        l </span>= helper(node-&gt;<span style="color: #000000;">left, ll, lr);
+        r </span>= helper(node-&gt;<span style="color: #000000;">right, rl, rr);
+        </span><span style="color: #0000ff;">return</span> max(node-&gt;val + ll + lr + rl + rr, l +<span style="color: #000000;"> r);
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/337">https://github.com/grandyang/leetcode/issues/337</a></p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_129" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/4518674.html">House Robber II</a></p>
+<p><a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_173" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/4383632.html">House Robber</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/house-robber-iii/">https://leetcode.com/problems/house-robber-iii/</a></p>
+<p><a href="https://leetcode.com/problems/house-robber-iii/discuss/79333/Simple-C%2B%2B-solution">https://leetcode.com/problems/house-robber-iii/discuss/79333/Simple-C%2B%2B-solution</a></p>
+<p><a href="https://leetcode.com/problems/house-robber-iii/discuss/79363/Easy-understanding-solution-with-dfs">https://leetcode.com/problems/house-robber-iii/discuss/79363/Easy-understanding-solution-with-dfs</a></p>
+<p><a href="https://leetcode.com/problems/house-robber-iii/discuss/79330/Step-by-step-tackling-of-the-problem">https://leetcode.com/problems/house-robber-iii/discuss/79330/Step-by-step-tackling-of-the-problem</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2016-03-14 11:32</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=5275096" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(5275096);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 5275096, cb_entryCreatedDate = '2016-03-14 11:32', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

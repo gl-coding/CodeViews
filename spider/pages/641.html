@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Design your implementation of the circular double-ended queue (deque). Your implementation should su" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Design Circular Deque 设计环形双向队列 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/9899490.html">[LeetCode] Design Circular Deque 设计环形双向队列</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<div class="content__1c40">
+<div>
+<p>Design your implementation of the circular double-ended queue (deque).</p>
+<p>Your implementation should support following operations:</p>
+<ul>
+<li><code>MyCircularDeque(k)</code>: Constructor, set the size of the deque to be k.</li>
+<li><code>insertFront()</code>: Adds an item at the front of Deque. Return true if the operation is successful.</li>
+<li><code>insertLast()</code>: Adds an item at the rear of Deque. Return true if the operation is successful.</li>
+<li><code>deleteFront()</code>: Deletes an item from the front of Deque. Return true if the operation is successful.</li>
+<li><code>deleteLast()</code>: Deletes an item from the rear of Deque. Return true if the operation is successful.</li>
+<li><code>getFront()</code>: Gets the front item from the Deque. If the deque is empty, return -1.</li>
+<li><code>getRear()</code>: Gets the last item from Deque. If the deque is empty, return -1.</li>
+<li><code>isEmpty()</code>: Checks whether Deque is empty or not.&nbsp;</li>
+<li><code>isFull()</code>: Checks whether Deque is full or not.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Example:</p>
+<pre>MyCircularDeque circularDeque = new MycircularDeque(3); // set the size to be 3
+circularDeque.insertLast(1);			// return true
+circularDeque.insertLast(2);			// return true
+circularDeque.insertFront(3);			// return true
+circularDeque.insertFront(4);			// return false, the queue is full
+circularDeque.getRear();  			// return 2
+circularDeque.isFull();				// return true
+circularDeque.deleteLast();			// return true
+circularDeque.insertFront(4);			// return true
+circularDeque.getFront();			// return 4
+</pre>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ul>
+<li>All values will be in the range of [0, 1000].</li>
+<li>The number of operations will be in the range of&nbsp;[1, 1000].</li>
+<li>Please do not use the built-in Deque library.</li>
+</ul>
+</div>
+</div>
+<div class="header__2cgQ">&nbsp;</div>
+<p>这道题让我们设计一个环形双向队列，由于之前刚做过一道<a href="https://www.cnblogs.com/grandyang/p/9899034.html">Design Circular Queue</a>，那道设计一个环形队列，其实跟这道题非常的类似，环形双向队列在环形队列的基础上多了几个函数而已，其实本质并没有啥区别，那么之前那道题的解法一改吧改吧也能用在这道题上，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> MyCircularDeque {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Initialize your data structure here. Set the size of the deque to be k. </span><span style="color: #008000;">*/</span><span style="color: #000000;">
+    MyCircularDeque(</span><span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        size </span>=<span style="color: #000000;"> k;   
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Adds an item at the front of Deque. Return true if the operation is successful. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">bool</span> insertFront(<span style="color: #0000ff;">int</span><span style="color: #000000;"> value) {
+        </span><span style="color: #0000ff;">if</span> (isFull()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        data.insert(data.begin(), value);
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Adds an item at the rear of Deque. Return true if the operation is successful. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">bool</span> insertLast(<span style="color: #0000ff;">int</span><span style="color: #000000;"> value) {
+        </span><span style="color: #0000ff;">if</span> (isFull()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        data.push_back(value);
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Deletes an item from the front of Deque. Return true if the operation is successful. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">bool</span><span style="color: #000000;"> deleteFront() {
+        </span><span style="color: #0000ff;">if</span> (isEmpty()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        data.erase(data.begin());
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Deletes an item from the rear of Deque. Return true if the operation is successful. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">bool</span><span style="color: #000000;"> deleteLast() {
+        </span><span style="color: #0000ff;">if</span> (isEmpty()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        data.pop_back();
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Get the front item from the deque. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">int</span><span style="color: #000000;"> getFront() {
+        </span><span style="color: #0000ff;">if</span> (isEmpty()) <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> data.front();
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Get the last item from the deque. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">int</span><span style="color: #000000;"> getRear() {
+        </span><span style="color: #0000ff;">if</span> (isEmpty()) <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> data.back();
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Checks whether the circular deque is empty or not. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">bool</span><span style="color: #000000;"> isEmpty() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> data.empty();
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Checks whether the circular deque is full or not. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">bool</span><span style="color: #000000;"> isFull() {
+        </span><span style="color: #0000ff;">return</span> data.size() &gt;=<span style="color: #000000;"> size;
+    }
+
+</span><span style="color: #0000ff;">private</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> data;
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> size;
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>就像前一道题中的分析的一样，上面的解法并不是本题真正想要考察的内容，我们要用上环形Circular的性质，我们除了使用size来记录环形队列的最大长度之外，还要使用三个变量，head，tail，cnt，分别来记录队首位置，队尾位置，和当前队列中数字的个数，这里我们将head初始化为k-1，tail初始化为0。还是从简单的做起，判空就看当前个数cnt是否为0，判满就看当前个数cnt是否等于size。接下来取首尾元素，先进行判空，然后根据head和tail分别向后和向前移动一位取即可，记得使用上循环数组的性质，要对size取余。再来看删除末尾函数，先进行判空，然后tail向前移动一位，使用循环数组的操作，然后cnt自减1。同理，删除开头函数，先进行判空，队首位置head要向后移动一位，同样进行加1之后对长度取余的操作，然后cnt自减1。再来看插入末尾函数，先进行判满，然后将新的数字加到当前的tail位置，tail移动到下一位，为了避免越界，我们使用环形数组的经典操作，加1之后对长度取余，然后cnt自增1即可。同样，插入开头函数，先进行判满，然后将新的数字加到当前的head位置，head移动到前一位，然后cnt自增1，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> MyCircularDeque {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Initialize your data structure here. Set the size of the deque to be k. </span><span style="color: #008000;">*/</span><span style="color: #000000;">
+    MyCircularDeque(</span><span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        size </span>= k; head = k - <span style="color: #800080;">1</span>; tail = <span style="color: #800080;">0</span>, cnt = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        data.resize(k);
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Adds an item at the front of Deque. Return true if the operation is successful. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">bool</span> insertFront(<span style="color: #0000ff;">int</span><span style="color: #000000;"> value) {
+        </span><span style="color: #0000ff;">if</span> (isFull()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        data[head] </span>=<span style="color: #000000;"> value;
+        head </span>= (head - <span style="color: #800080;">1</span> + size) %<span style="color: #000000;"> size;
+        </span>++<span style="color: #000000;">cnt;
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Adds an item at the rear of Deque. Return true if the operation is successful. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">bool</span> insertLast(<span style="color: #0000ff;">int</span><span style="color: #000000;"> value) {
+        </span><span style="color: #0000ff;">if</span> (isFull()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        data[tail] </span>=<span style="color: #000000;"> value;
+        tail </span>= (tail + <span style="color: #800080;">1</span>)  %<span style="color: #000000;"> size;
+        </span>++<span style="color: #000000;">cnt;
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Deletes an item from the front of Deque. Return true if the operation is successful. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">bool</span><span style="color: #000000;"> deleteFront() {
+        </span><span style="color: #0000ff;">if</span> (isEmpty()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        head </span>= (head + <span style="color: #800080;">1</span>) %<span style="color: #000000;"> size;
+        </span>--<span style="color: #000000;">cnt;
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Deletes an item from the rear of Deque. Return true if the operation is successful. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">bool</span><span style="color: #000000;"> deleteLast() {
+        </span><span style="color: #0000ff;">if</span> (isEmpty()) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        tail </span>= (tail - <span style="color: #800080;">1</span> + size) %<span style="color: #000000;"> size;
+        </span>--<span style="color: #000000;">cnt;
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Get the front item from the deque. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">int</span><span style="color: #000000;"> getFront() {
+        </span><span style="color: #0000ff;">return</span> isEmpty() ? -<span style="color: #800080;">1</span> : data[(head + <span style="color: #800080;">1</span>) %<span style="color: #000000;"> size];
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Get the last item from the deque. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">int</span><span style="color: #000000;"> getRear() {
+        </span><span style="color: #0000ff;">return</span> isEmpty() ? -<span style="color: #800080;">1</span> : data[(tail - <span style="color: #800080;">1</span> + size) %<span style="color: #000000;"> size];
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Checks whether the circular deque is empty or not. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">bool</span><span style="color: #000000;"> isEmpty() {
+        </span><span style="color: #0000ff;">return</span> cnt == <span style="color: #800080;">0</span><span style="color: #000000;">;
+    }
+    
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">* Checks whether the circular deque is full or not. </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">bool</span><span style="color: #000000;"> isFull() {
+        </span><span style="color: #0000ff;">return</span> cnt ==<span style="color: #000000;"> size;
+    }
+
+</span><span style="color: #0000ff;">private</span><span style="color: #000000;">:
+    vector</span>&lt;<span style="color: #0000ff;">int</span>&gt;<span style="color: #000000;"> data;
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> size, head, tail, cnt;
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>论坛上还见到了使用链表来做的解法，由于博主比较抵触在解法中新建class，所以这里就不贴了，可以<a href="https://leetcode.com/problems/design-circular-deque/discuss/149371/Java-doubly-LinkedList-solution-very-straightforward" target="_blank">参见这个帖子</a>。</p>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a href="https://www.cnblogs.com/grandyang/p/9899034.html">Design Circular Queue</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/design-circular-deque/" target="_blank">https://leetcode.com/problems/design-circular-deque/</a></p>
+<p><a href="https://leetcode.com/problems/design-circular-deque/discuss/149371/Java-doubly-LinkedList-solution-very-straightforward" target="_blank">https://leetcode.com/problems/design-circular-deque/discuss/149371/Java-doubly-LinkedList-solution-very-straightforward</a></p>
+<p><a href="https://leetcode.com/problems/design-circular-deque/discuss/155209/c%2B%2B-99-ring-buffer-no-edge-cases.-fb-interviewer-really-loves-it.-easy-to-impl-in-4mins.-cheers!" target="_blank">https://leetcode.com/problems/design-circular-deque/discuss/155209/c%2B%2B-99-ring-buffer-no-edge-cases.-fb-interviewer-really-loves-it.-easy-to-impl-in-4mins.-cheers!</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-11-03 04:13</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9899490" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(9899490);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 9899490, cb_entryCreatedDate = '2018-11-03 04:13', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

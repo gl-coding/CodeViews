@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="There are two sorted arrays&amp;#160;nums1&amp;#160;and&amp;#160;nums2&amp;#160;of size m and n respectively. Find t" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 4. Median of Two Sorted Arrays 两个有序数组的中位数 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/4465932.html">[LeetCode] 4. Median of Two Sorted Arrays 两个有序数组的中位数</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>There are two sorted arrays&nbsp;nums1&nbsp;and&nbsp;nums2&nbsp;of size m and n respectively.</p>
+<p>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p>
+<p>You may assume&nbsp;nums1&nbsp;and&nbsp;nums2&nbsp;cannot be both empty.</p>
+<p>Example 1:</p>
+<pre>nums1 = [1, 3]
+nums2 = [2]
+
+The median is 2.0
+</pre>
+<p>Example 2:</p>
+<pre>nums1 = [1, 2]
+nums2 = [3, 4]
+
+The median is (2 + 3)/2 = 2.5</pre>
+<p>&nbsp;</p>
+<p>这道题让我们求两个有序数组的中位数，而且限制了时间复杂度为 O(log (m+n))，看到这个时间复杂度，自然而然的想到了应该使用二分查找法来求解。但是这道题被定义为 Hard 也是有其原因的，难就难在要在两个未合并的有序数组之间使用二分法，如果这道题只有一个有序数组，让求中位数的话，估计就是个 Easy 题。对于这道题来说，可以将两个有序数组混合起来成为一个有序数组再做吗，图样图森破，这个时间复杂度限制的就是告诉你金坷垃别想啦。还是要用二分法，而且是在两个数组之间使用，感觉很高端啊。回顾一下中位数的定义，如果某个有序数组长度是奇数，那么其中位数就是最中间那个，如果是偶数，那么就是最中间两个数字的平均值。这里对于两个有序数组也是一样的，假设两个有序数组的长度分别为m和n，由于两个数组长度之和 m+n 的奇偶不确定，因此需要分情况来讨论，对于奇数的情况，直接找到最中间的数即可，偶数的话需要求最中间两个数的平均值。为了简化代码，不分情况讨论，使用一个小 trick，分别找第 (m+n+1) / 2 个，和 (m+n+2) / 2 个，然后求其平均值即可，这对奇偶数均适用。若 m+n 为奇数的话，那么其实 (m+n+1) / 2 和 (m+n+2) / 2 的值相等，相当于两个相同的数字相加再除以2，还是其本身。</p>
+<p>好，这里需要定义一个函数来在两个有序数组中找到第K个元素，下面重点来看如何实现找到第K个元素。首先，为了避免拷贝产生新的数组从而增加时间复杂度，使用两个变量i和j分别来标记数组 nums1 和 nums2 的起始位置。然后来处理一些 corner cases，比如当某一个数组的起始位置大于等于其数组长度时，说明其所有数字均已经被淘汰了，相当于一个空数组了，那么实际上就变成了在另一个数组中找数字，直接就可以找出来了。还有就是如果 K=1 的话，只要比较 nums1 和 nums2 的起始位置i和j上的数字就可以了。难点就在于一般的情况怎么处理？因为需要在两个有序数组中找到第K个元素，为了加快搜索的速度，可以使用二分法，那么对谁二分呢，数组么？其实要对K二分，意思是需要分别在 nums1 和 nums2 中查找第 K/2 个元素，注意这里由于两个数组的长度不定，所以有可能某个数组没有第 K/2 个数字，所以需要先 check 一下，数组中到底存不存在第 K/2 个数字，如果存在就取出来，否则就赋值上一个整型最大值（目的是要在 nums1 或者 nums2 中先淘汰 K/2 个较小的数字，判断的依据就是看 midVal1 和 midVal2 谁更小，但如果某个数组的个数都不到 K/2 个，自然无法淘汰，所以将其对应的 midVal 值设为整型最大值，以保证其不会被淘汰），若某个数组没有第 K/2 个数字，则淘汰另一个数组的前 K/2 个数字即可。举个例子来说吧，比如 nums1 = {3}，nums2 = {2, 4, 5, 6, 7}，K=4，要找两个数组混合中第4个数字，则分别在 nums1 和 nums2 中找第2个数字，而 nums1 中只有一个数字，不存在第二个数字，则 nums2 中的前2个数字可以直接跳过，为啥呢，因为要求的是整个混合数组的第4个数字，不管 nums1 中的那个数字是大是小，第4个数字绝不会出现在 nums2 的前两个数字中，所以可以直接跳过。</p>
+<p>有没有可能两个数组都不存在第 K/2 个数字呢，这道题里是不可能的，因为K不是任意给的，而是给的 m+n 的中间值，所以必定至少会有一个数组是存在第 K/2 个数字的。最后就是二分法的核心啦，比较这两个数组的第 K/2 小的数字 midVal1 和 midVal2 的大小，如果第一个数组的第 K/2 个数字小的话，那么说明要找的数字肯定不在 nums1 中的前 K/2 个数字，可以将其淘汰，将 nums1 的起始位置向后移动 K/2 个，并且此时的K也自减去 K/2，调用递归，举个例子来说吧，比如 nums1 = {1, 3}，nums2 = {2, 4, 5}，K=4，要找两个数组混合中第4个数字，那么分别在 nums1 和 nums2 中找第2个数字，nums1 中的第2个数字是3，nums2 中的第2个数字是4，由于3小于4，所以混合数组中第4个数字肯定在 nums2 中，可以将 nums1 的起始位置向后移动 K/2 个。反之，淘汰 nums2 中的前 K/2 个数字，并将 nums2 的起始位置向后移动 K/2 个，并且此时的K也自减去 K/2，调用递归即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>C++ 解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">double</span> findMedianSortedArrays(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; nums1, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> nums2) {
+        </span><span style="color: #0000ff;">int</span> m = nums1.size(), n = nums2.size(), left = (m + n + <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span>, right = (m + n + <span style="color: #800080;">2</span>) / <span style="color: #800080;">2</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span> (findKth(nums1, <span style="color: #800080;">0</span>, nums2, <span style="color: #800080;">0</span>, left) + findKth(nums1, <span style="color: #800080;">0</span>, nums2, <span style="color: #800080;">0</span>, right)) / <span style="color: #800080;">2.0</span><span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">int</span> findKth(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; nums1, <span style="color: #0000ff;">int</span> i, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; nums2, <span style="color: #0000ff;">int</span> j, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        </span><span style="color: #0000ff;">if</span> (i &gt;= nums1.size()) <span style="color: #0000ff;">return</span> nums2[j + k - <span style="color: #800080;">1</span><span style="color: #000000;">];
+        </span><span style="color: #0000ff;">if</span> (j &gt;= nums2.size()) <span style="color: #0000ff;">return</span> nums1[i + k - <span style="color: #800080;">1</span><span style="color: #000000;">];
+        </span><span style="color: #0000ff;">if</span> (k == <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> min(nums1[i], nums2[j]);
+        </span><span style="color: #0000ff;">int</span> midVal1 = (i + k / <span style="color: #800080;">2</span> - <span style="color: #800080;">1</span> &lt; nums1.size()) ? nums1[i + k / <span style="color: #800080;">2</span> - <span style="color: #800080;">1</span><span style="color: #000000;">] : INT_MAX;
+        </span><span style="color: #0000ff;">int</span> midVal2 = (j + k / <span style="color: #800080;">2</span> - <span style="color: #800080;">1</span> &lt; nums2.size()) ? nums2[j + k / <span style="color: #800080;">2</span> - <span style="color: #800080;">1</span><span style="color: #000000;">] : INT_MAX;
+        </span><span style="color: #0000ff;">if</span> (midVal1 &lt;<span style="color: #000000;"> midVal2) {
+            </span><span style="color: #0000ff;">return</span> findKth(nums1, i + k / <span style="color: #800080;">2</span>, nums2, j, k - k / <span style="color: #800080;">2</span><span style="color: #000000;">);
+        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+            </span><span style="color: #0000ff;">return</span> findKth(nums1, i, nums2, j + k / <span style="color: #800080;">2</span>, k - k / <span style="color: #800080;">2</span><span style="color: #000000;">);
+        }
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Java 解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span> findMedianSortedArrays(<span style="color: #0000ff;">int</span>[] nums1, <span style="color: #0000ff;">int</span><span style="color: #000000;">[] nums2) {
+        </span><span style="color: #0000ff;">int</span> m = nums1.length, n = nums2.length, left = (m + n + <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span>, right = (m + n + <span style="color: #800080;">2</span>) / <span style="color: #800080;">2</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span> (findKth(nums1, <span style="color: #800080;">0</span>, nums2, <span style="color: #800080;">0</span>, left) + findKth(nums1, <span style="color: #800080;">0</span>, nums2, <span style="color: #800080;">0</span>, right)) / <span style="color: #800080;">2.0</span><span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">int</span> findKth(<span style="color: #0000ff;">int</span>[] nums1, <span style="color: #0000ff;">int</span> i, <span style="color: #0000ff;">int</span>[] nums2, <span style="color: #0000ff;">int</span> j, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        </span><span style="color: #0000ff;">if</span> (i &gt;= nums1.length) <span style="color: #0000ff;">return</span> nums2[j + k - <span style="color: #800080;">1</span><span style="color: #000000;">];
+        </span><span style="color: #0000ff;">if</span> (j &gt;= nums2.length) <span style="color: #0000ff;">return</span> nums1[i + k - <span style="color: #800080;">1</span><span style="color: #000000;">];
+        </span><span style="color: #0000ff;">if</span> (k == <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span><span style="color: #000000;"> Math.min(nums1[i], nums2[j]);
+        </span><span style="color: #0000ff;">int</span> midVal1 = (i + k / <span style="color: #800080;">2</span> - <span style="color: #800080;">1</span> &lt; nums1.length) ? nums1[i + k / <span style="color: #800080;">2</span> - <span style="color: #800080;">1</span><span style="color: #000000;">] : Integer.MAX_VALUE;
+        </span><span style="color: #0000ff;">int</span> midVal2 = (j + k / <span style="color: #800080;">2</span> - <span style="color: #800080;">1</span> &lt; nums2.length) ? nums2[j + k / <span style="color: #800080;">2</span> - <span style="color: #800080;">1</span><span style="color: #000000;">] : Integer.MAX_VALUE;
+        </span><span style="color: #0000ff;">if</span> (midVal1 &lt;<span style="color: #000000;"> midVal2) {
+            </span><span style="color: #0000ff;">return</span> findKth(nums1, i + k / <span style="color: #800080;">2</span>, nums2, j, k - k / <span style="color: #800080;">2</span><span style="color: #000000;">);
+        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+            </span><span style="color: #0000ff;">return</span> findKth(nums1, i, nums2, j + k / <span style="color: #800080;">2</span>, k - k / <span style="color: #800080;">2</span><span style="color: #000000;">);
+        }
+    }
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>上面的解法一直使用的是原数组，同时用了两个变量来分别标记当前的起始位置。我们也可以直接生成新的数组，这样就不要用起始位置变量了，不过拷贝数组的操作可能会增加时间复杂度，也许会超出限制，不过就算当个思路拓展也是极好的。首先要判断数组是否为空，为空的话，直接在另一个数组找第K个即可。还有一种情况是当 K = 1 时，表示要找第一个元素，只要比较两个数组的第一个元素，返回较小的那个即可。这里分别取出两个数组的第 K/2 个数字的位置坐标i和j，为了避免数组没有第 K/2 个数组的情况，每次都和数组长度做比较，取出较小值。这里跟上面的解法有些许不同，上面解法直接取出的是值，而这里取出的是位置坐标，但是思想都是很类似的。不同在于，上面解法中每次固定淘汰 K/2 个数字，而这里由于取出了合法的i和j，所以每次淘汰i或j个。评论区有网友提出，可以让 j = k-i，这样也是对的，可能还更好一些，收敛速度可能会更快一些，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>C++ 解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">double</span> findMedianSortedArrays(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; nums1, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> nums2) {
+        </span><span style="color: #0000ff;">int</span> m = nums1.size(), n =<span style="color: #000000;"> nums2.size();
+        </span><span style="color: #0000ff;">return</span> (findKth(nums1, nums2, (m + n + <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span>) + findKth(nums1, nums2, (m + n + <span style="color: #800080;">2</span>) / <span style="color: #800080;">2</span>)) / <span style="color: #800080;">2.0</span><span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">int</span> findKth(vector&lt;<span style="color: #0000ff;">int</span>&gt; nums1, vector&lt;<span style="color: #0000ff;">int</span>&gt; nums2, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        </span><span style="color: #0000ff;">if</span> (nums1.empty()) <span style="color: #0000ff;">return</span> nums2[k - <span style="color: #800080;">1</span><span style="color: #000000;">];
+        </span><span style="color: #0000ff;">if</span> (nums2.empty()) <span style="color: #0000ff;">return</span> nums1[k - <span style="color: #800080;">1</span><span style="color: #000000;">];
+        </span><span style="color: #0000ff;">if</span> (k == <span style="color: #800080;">1</span>) <span style="color: #0000ff;">return</span> min(nums1[<span style="color: #800080;">0</span>], nums2[<span style="color: #800080;">0</span><span style="color: #000000;">]);
+        </span><span style="color: #0000ff;">int</span> i = min((<span style="color: #0000ff;">int</span>)nums1.size(), k / <span style="color: #800080;">2</span>), j = min((<span style="color: #0000ff;">int</span>)nums2.size(), k / <span style="color: #800080;">2</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">if</span> (nums1[i - <span style="color: #800080;">1</span>] &gt; nums2[j - <span style="color: #800080;">1</span><span style="color: #000000;">]) {
+            </span><span style="color: #0000ff;">return</span> findKth(nums1, vector&lt;<span style="color: #0000ff;">int</span>&gt;(nums2.begin() + j, nums2.end()), k -<span style="color: #000000;"> j);
+        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+            </span><span style="color: #0000ff;">return</span> findKth(vector&lt;<span style="color: #0000ff;">int</span>&gt;(nums1.begin() + i, nums1.end()), nums2, k -<span style="color: #000000;"> i);
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Java 解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span> findMedianSortedArrays(<span style="color: #0000ff;">int</span>[] nums1, <span style="color: #0000ff;">int</span><span style="color: #000000;">[] nums2) {
+        </span><span style="color: #0000ff;">int</span> m = nums1.length, n = nums2.length, left = (m + n + 1) / 2, right = (m + n + 2) / 2<span style="color: #000000;">;
+        </span><span style="color: #0000ff;">return</span> (findKth(nums1, nums2, left) + findKth(nums1, nums2, right)) / 2.0<span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">int</span> findKth(<span style="color: #0000ff;">int</span>[] nums1, <span style="color: #0000ff;">int</span>[] nums2, <span style="color: #0000ff;">int</span><span style="color: #000000;"> k) {
+        </span><span style="color: #0000ff;">int</span> m = nums1.length, n =<span style="color: #000000;"> nums2.length;
+        </span><span style="color: #0000ff;">if</span> (m == 0) <span style="color: #0000ff;">return</span> nums2[k - 1<span style="color: #000000;">];
+        </span><span style="color: #0000ff;">if</span> (n == 0) <span style="color: #0000ff;">return</span> nums1[k - 1<span style="color: #000000;">];
+        </span><span style="color: #0000ff;">if</span> (k == 1) <span style="color: #0000ff;">return</span> Math.min(nums1[0], nums2[0<span style="color: #000000;">]);
+        </span><span style="color: #0000ff;">int</span> i = Math.min(m, k / 2), j = Math.min(n, k / 2<span style="color: #000000;">);
+        </span><span style="color: #0000ff;">if</span> (nums1[i - 1] &gt; nums2[j - 1<span style="color: #000000;">]) {
+            </span><span style="color: #0000ff;">return</span> findKth(nums1, Arrays.copyOfRange(nums2, j, n), k -<span style="color: #000000;"> j);
+        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+            </span><span style="color: #0000ff;">return</span> findKth(Arrays.copyOfRange(nums1, i, m), nums2, k -<span style="color: #000000;"> i);
+        }
+    }
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>此题还能用迭代形式的二分搜索法来解，是一种相当巧妙的应用，这里就参照 <a href="https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2471/very-concise-ologminmn-iterative-solution-with-detailed-explanation" target="_blank">stellari 大神的帖子</a>&nbsp;来讲解吧。所谓的中位数，换一种角度去看，其实就是把一个有序数组分为长度相等的两段，中位数就是前半段的最大值和后半段的最小值的平均数，也就是离分割点相邻的两个数字的平均值。比如说对于偶数个数组 [1 3 5 7]，那么分割开来就是 [1 3 / 5 7]，其中 '/' 表示分割点，中位数就是3和5的平均值。对于奇数个数组 [1 3 4 5 7]，可以分割为 [1 3 4 / 4 5 7]，可以发现左右两边都有个4，则中位数是两个4的平均数，还是4。这里使用L表示分割点左边的数字，R表示分割点右边的数字，则对于 [1 3 5 7] 来说，L=3，R=5。对于 [1 3 4 5 7] 来说，L=4，R=4。那么对于长度为N的数组来说，可以分别得到L和R的位置，如下所示：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">N        Index of L        Index of R
+</span><span style="color: #800080;">1</span>            <span style="color: #800080;">0</span>                <span style="color: #800080;">0</span>
+<span style="color: #800080;">2</span>            <span style="color: #800080;">0</span>                <span style="color: #800080;">1</span>
+<span style="color: #800080;">3</span>            <span style="color: #800080;">1</span>                <span style="color: #800080;">1</span>
+<span style="color: #800080;">4</span>            <span style="color: #800080;">1</span>                <span style="color: #800080;">2</span>
+<span style="color: #800080;">5</span>            <span style="color: #800080;">2</span>                <span style="color: #800080;">2</span>
+<span style="color: #800080;">6</span>            <span style="color: #800080;">2</span>                <span style="color: #800080;">3</span>
+<span style="color: #800080;">7</span>            <span style="color: #800080;">3</span>                <span style="color: #800080;">3</span>
+<span style="color: #800080;">8</span>            <span style="color: #800080;">3</span>                <span style="color: #800080;">4</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>观察上表，可以得到规律，Idx(L)= (N-1)/2，idx(R) = N/2，所以中位数可以用下式表示：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>(L + R) / <span style="color: #800080;">2</span> = (A[(N - <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span>] + A[N / <span style="color: #800080;">2</span>]) / <span style="color: #800080;">2</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>为了统一数组长度为奇数和偶数的情况，可以使用一个小 tricky，即在每个数字的两边都加上一个特殊字符，比如井号，这个 tricky 其实在马拉车算法中也使用过，可以参见博主之前的帖子&nbsp;<a id="CategoryEntryList1_EntryStoryList_ctl00_Entries_TitleUrl_4" class="entrylistItemTitle" href="http://www.cnblogs.com/grandyang/p/4475985.html">Manacher's Algorithm 马拉车算法</a>。这样做的好处是不管奇数或者偶数，加井号后数组的长度都是奇数，并且切割点的位置也是确定的，比如：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>[<span style="color: #800080;">1</span> <span style="color: #800080;">3</span> <span style="color: #800080;">5</span> <span style="color: #800080;">7</span>]    -&gt;    [# <span style="color: #800080;">1</span> # <span style="color: #800080;">3</span> # <span style="color: #800080;">5</span> # <span style="color: #800080;">7</span> #]        N = <span style="color: #800080;">4</span><span style="color: #000000;">
+index               </span><span style="color: #800080;">0</span> <span style="color: #800080;">1</span> <span style="color: #800080;">2</span> <span style="color: #800080;">3</span> <span style="color: #800080;">4</span> <span style="color: #800080;">5</span> <span style="color: #800080;">6</span> <span style="color: #800080;">7</span> <span style="color: #800080;">8</span>         newN = <span style="color: #800080;">9</span><span style="color: #000000;">
+
+[</span><span style="color: #800080;">1</span> <span style="color: #800080;">3</span> <span style="color: #800080;">4</span> <span style="color: #800080;">5</span> <span style="color: #800080;">7</span>]    -&gt;    [# <span style="color: #800080;">1</span> # <span style="color: #800080;">3</span> # <span style="color: #800080;">4</span> # <span style="color: #800080;">5</span> # <span style="color: #800080;">7</span> #]        N = <span style="color: #800080;">5</span><span style="color: #000000;">
+index                 </span><span style="color: #800080;">0</span> <span style="color: #800080;">1</span> <span style="color: #800080;">2</span> <span style="color: #800080;">3</span> <span style="color: #800080;">4</span> <span style="color: #800080;">5</span> <span style="color: #800080;">6</span> <span style="color: #800080;">7</span> <span style="color: #800080;">8</span> <span style="color: #800080;">9</span> <span style="color: #800080;">10</span>        newN = <span style="color: #800080;">11</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>这里的N是原数组的长度，newN 是添加井号后新数组的长度，可以发现 newN = 2N+1，而且切割点永远都在新数组中坐标为N的位置，且 idx(L) = (N-1)/2，idx(R) = N/2，这里的N就可以换成分割点的位置，岂不美哉（注意这里的 idx(L) 和 idx(R) 表示的是在未填充#号的坐标位置）！现在假设有两个数组：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>[<span style="color: #800080;">1</span> <span style="color: #800080;">3</span> <span style="color: #800080;">4</span> <span style="color: #800080;">5</span> <span style="color: #800080;">7</span>]    -&gt;    [# <span style="color: #800080;">1</span> # <span style="color: #800080;">3</span> # <span style="color: #800080;">4</span> # <span style="color: #800080;">5</span> # <span style="color: #800080;">7</span> #]        N1 = <span style="color: #800080;">5</span><span style="color: #000000;">
+index                 </span><span style="color: #800080;">0</span> <span style="color: #800080;">1</span> <span style="color: #800080;">2</span> <span style="color: #800080;">3</span> <span style="color: #800080;">4</span> <span style="color: #800080;">5</span> <span style="color: #800080;">6</span> <span style="color: #800080;">7</span> <span style="color: #800080;">8</span> <span style="color: #800080;">9</span> <span style="color: #800080;">10</span>        newN1 = <span style="color: #800080;">11</span><span style="color: #000000;">
+
+[</span><span style="color: #800080;">1</span> <span style="color: #800080;">2</span> <span style="color: #800080;">2</span> <span style="color: #800080;">2</span>]    -&gt;    [# <span style="color: #800080;">1</span> # <span style="color: #800080;">2</span> # <span style="color: #800080;">2</span> # <span style="color: #800080;">2</span> #]        N2 = <span style="color: #800080;">4</span><span style="color: #000000;">
+index               </span><span style="color: #800080;">0</span> <span style="color: #800080;">1</span> <span style="color: #800080;">2</span> <span style="color: #800080;">3</span> <span style="color: #800080;">4</span> <span style="color: #800080;">5</span> <span style="color: #800080;">6</span> <span style="color: #800080;">7</span> <span style="color: #800080;">8</span>         newN2 = <span style="color: #800080;">9</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>跟只有一个数组的情况类似，这里需要找到一个切割点，使得其分别可以将两个数组分成左右两部分，需要满足的是两个左半边中的任意一个数字都要小于两个右半边数组的数字，注意这里可能有的左半边或右半边会为空，但是两个左半边数字的个数和应该等于两个右半边的个数和。这里还可以观察出一些规律：</p>
+<p>1. 总共有 2N1 + 2N2 + 2 个位置，那么除去两个分割点，两个左右半边应该各有 N1 + N2 个数字。</p>
+<p>2. 因此，对于一个在 A2 数组中的分割点位置 C2 = K，在 A1 数组中的位置应该为 C1 = N1 + N2 - K，比如假如在 A2 中的分割点位置为 C2 = 2，那么在 A1 中的位置为 C1 = 4 + 5 - C2 = 7。</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>[# <span style="color: #800080;">1</span> # <span style="color: #800080;">3</span> # <span style="color: #800080;">4</span> # (<span style="color: #800080;">5</span>/<span style="color: #800080;">5</span>) # <span style="color: #800080;">7</span><span style="color: #000000;"> #]
+
+[# </span><span style="color: #800080;">1</span> / <span style="color: #800080;">2</span> # <span style="color: #800080;">2</span> # <span style="color: #800080;">2</span> #]</pre>
+</div>
+<p>&nbsp;</p>
+<p>3. 假如两个数组都被分割了，那么就应该会有两个L和R，分别是：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>L1 = A1[(C1 - <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span><span style="color: #000000;">]
+R1 </span>= A1[C1 / <span style="color: #800080;">2</span><span style="color: #000000;">]
+
+L2 </span>= A2[(C2 - <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span><span style="color: #000000;">]
+R2 </span>= A2[C2 / <span style="color: #800080;">2</span>]</pre>
+</div>
+<p>&nbsp;</p>
+<p>对于上面的例子就有：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>L1 = A1[(<span style="color: #800080;">7</span> - <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span>] = A1[<span style="color: #800080;">3</span>] = <span style="color: #800080;">5</span><span style="color: #000000;">
+R1 </span>= A1[<span style="color: #800080;">7</span> / <span style="color: #800080;">2</span>] = A1[<span style="color: #800080;">3</span>] = <span style="color: #800080;">5</span><span style="color: #000000;">
+
+L2 </span>= A2[(<span style="color: #800080;">2</span> - <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span>] = A2[<span style="color: #800080;">0</span>] = <span style="color: #800080;">1</span><span style="color: #000000;">
+R2 </span>= A2[<span style="color: #800080;">2</span> / <span style="color: #800080;">2</span>] = A2[<span style="color: #800080;">1</span>] = <span style="color: #800080;">2</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>现在需要检测这个切割点是否是正确的中位数的切割点，那么根据之前的分析，任意的左半边的数字都需要小于等于右半边的数字，L1 和 L2 是左半边的最大的数字，R1 和 R2 是右半边的最小的数字，所以需要满足下列关系：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>L1 &lt;= R1 &amp;&amp; L1 &lt;= R2 &amp;&amp; L2 &lt;= R1 &amp;&amp; L2 &lt;= R2</pre>
+</div>
+<p>&nbsp;</p>
+<p>由于两个数组都是有序的，所以 L1 &lt;= R1 和 L2 &lt;= R2 都是满足的，那么就只需要满足下列的不等式即可：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>L1 &lt;= R2 &amp;&amp; L2 &lt;= R1</pre>
+</div>
+<p>&nbsp;</p>
+<p>这样的话就可以利用二分搜索了，假如 L1 &gt; R2 的话，说明数组 A1 的左半边的数字过大了，需要把切割点 C1 往左移动。假如 L2 &gt; R1，说明数组 A2 的左半边数字过大，需要把分割点 C2 左移。若满足上面的条件，说明当前切割点就是正确的，那么中位数就可以求出来了，即为：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>(max(L1, L2) + min(R1, R2)) / <span style="color: #800080;">2</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>最后还有两点注意事项：</p>
+<p>1. 由于 C1 和 C2 是可以互相计算而得，即一个确定了，另一个就可以计算出来了。所以尽量去移动较短的那个数组，这样得到的时间复杂度为 O(lg(min(N1, N2)))。</p>
+<p>2. 对于 corner case 的处理，当切割点在 0 或者 2n 的位置时，将L或R的值分别赋值为整型最小值和最大值，这不会改变正确的切割点的位置，会使得代码实现更加方便。</p>
+<p>&nbsp;</p>
+<p>C++ 解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">double</span> findMedianSortedArrays(vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp; nums1, vector&lt;<span style="color: #0000ff;">int</span>&gt;&amp;<span style="color: #000000;"> nums2) {
+        </span><span style="color: #0000ff;">int</span> m = nums1.size(), n =<span style="color: #000000;"> nums2.size();
+        </span><span style="color: #0000ff;">if</span> (m &lt; n) <span style="color: #0000ff;">return</span><span style="color: #000000;"> findMedianSortedArrays(nums2, nums1);
+        </span><span style="color: #0000ff;">if</span> (n == <span style="color: #800080;">0</span>) <span style="color: #0000ff;">return</span> ((<span style="color: #0000ff;">double</span>)nums1[(m - <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span>] + (<span style="color: #0000ff;">double</span>)nums1[m / <span style="color: #800080;">2</span>]) / <span style="color: #800080;">2.0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> left = <span style="color: #800080;">0</span>, right = n * <span style="color: #800080;">2</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">while</span> (left &lt;=<span style="color: #000000;"> right) {
+            </span><span style="color: #0000ff;">int</span> mid2 = (left + right) / <span style="color: #800080;">2</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">int</span> mid1 = m + n -<span style="color: #000000;"> mid2;
+            </span><span style="color: #0000ff;">double</span> L1 = mid1 == <span style="color: #800080;">0</span> ? INT_MIN : nums1[(mid1 - <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span><span style="color: #000000;">];
+            </span><span style="color: #0000ff;">double</span> L2 = mid2 == <span style="color: #800080;">0</span> ? INT_MIN : nums2[(mid2 - <span style="color: #800080;">1</span>) / <span style="color: #800080;">2</span><span style="color: #000000;">];
+            </span><span style="color: #0000ff;">double</span> R1 = mid1 == m * <span style="color: #800080;">2</span> ? INT_MAX : nums1[mid1 / <span style="color: #800080;">2</span><span style="color: #000000;">];
+            </span><span style="color: #0000ff;">double</span> R2 = mid2 == n * <span style="color: #800080;">2</span> ? INT_MAX : nums2[mid2 / <span style="color: #800080;">2</span><span style="color: #000000;">];
+            </span><span style="color: #0000ff;">if</span> (L1 &gt; R2) left = mid2 + <span style="color: #800080;">1</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (L2 &gt; R1) right = mid2 - <span style="color: #800080;">1</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">return</span> (max(L1, L2) + min(R1, R2)) / <span style="color: #800080;">2</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Java 解法三：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span> findMedianSortedArrays(<span style="color: #0000ff;">int</span>[] nums1, <span style="color: #0000ff;">int</span><span style="color: #000000;">[] nums2) {
+        </span><span style="color: #0000ff;">int</span> m = nums1.length, n =<span style="color: #000000;"> nums2.length;
+        </span><span style="color: #0000ff;">if</span> (m &lt; n) <span style="color: #0000ff;">return</span><span style="color: #000000;"> findMedianSortedArrays(nums2, nums1);
+        </span><span style="color: #0000ff;">if</span> (n == 0) <span style="color: #0000ff;">return</span> (nums1[(m - 1) / 2] + nums1[m / 2]) / 2.0<span style="color: #000000;">;
+        </span><span style="color: #0000ff;">int</span> left = 0, right = 2 *<span style="color: #000000;"> n;
+        </span><span style="color: #0000ff;">while</span> (left &lt;=<span style="color: #000000;"> right) {
+            </span><span style="color: #0000ff;">int</span> mid2 = (left + right) / 2<span style="color: #000000;">;
+            </span><span style="color: #0000ff;">int</span> mid1 = m + n -<span style="color: #000000;"> mid2;
+            </span><span style="color: #0000ff;">double</span> L1 = mid1 == 0 ? Double.MIN_VALUE : nums1[(mid1 - 1) / 2<span style="color: #000000;">];
+            </span><span style="color: #0000ff;">double</span> L2 = mid2 == 0 ? Double.MIN_VALUE : nums2[(mid2 - 1) / 2<span style="color: #000000;">];
+            </span><span style="color: #0000ff;">double</span> R1 = mid1 == m * 2 ? Double.MAX_VALUE : nums1[mid1 / 2<span style="color: #000000;">];
+            </span><span style="color: #0000ff;">double</span> R2 = mid2 == n * 2 ? Double.MAX_VALUE : nums2[mid2 / 2<span style="color: #000000;">];
+            </span><span style="color: #0000ff;">if</span> (L1 &gt; R2) left = mid2 + 1<span style="color: #000000;">;
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (L2 &gt; R1) right = mid2 - 1<span style="color: #000000;">;
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">return</span> (Math.max(L1, L2) + Math.min(R1, R2)) / 2<span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span> -1<span style="color: #000000;">;
+    }
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>Github 同步地址：</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/4">https://github.com/grandyang/leetcode/issues/4</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/" target="_blank">https://leetcode.com/problems/median-of-two-sorted-arrays/</a></p>
+<p><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2496/Concise-JAVA-solution-based-on-Binary-Search" target="_blank">https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2496/Concise-JAVA-solution-based-on-Binary-Search</a></p>
+<p><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2499/Share-my-simple-O(log(m%2Bn))-solution-for-your-reference" target="_blank">https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2499/Share-my-simple-O(log(m%2Bn))-solution-for-your-reference</a></p>
+<p><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2471/Very-concise-O(log(min(MN)))-iterative-solution-with-detailed-explanation" target="_blank">https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2471/Very-concise-O(log(min(MN)))-iterative-solution-with-detailed-explanation</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2015-04-29 14:37</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4465932" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(4465932);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 4465932, cb_entryCreatedDate = '2015-04-29 14:37', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

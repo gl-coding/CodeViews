@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta property="og:description" content="On an N x N , the numbers from to are written boustrophedonically starting from the bottom&#xA0;left of t" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 909. Snakes and Ladders 蛇梯棋 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/11342652.html">[LeetCode] 909. Snakes and Ladders 蛇梯棋</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <p><br><br />
+On an N x N <code>board</code>, the numbers from <code>1</code> to <code>N*N</code>are written <em>boustrophedonically</em> starting from the bottom left of the board, and alternating direction each row.  For example, for a 6 x 6 board, the numbers are written as follows:</p>
+<p><img src="https://assets.leetcode.com/uploads/2018/09/23/snakes.png" /></p>
+<p>You start on square <code>1</code> of the board (which is always in the last row and first column).  Each move, starting from square <code>x</code>, consists of the following:</p>
+<ul>
+<li>You choose a destination square <code>S</code> with number <code>x+1</code>, <code>x+2</code>, <code>x+3</code>, <code>x+4</code>, <code>x+5</code>, or <code>x+6</code>, provided this number is <code>&lt;= N*N</code>.
+<ul>
+<li>(This choice simulates the result of a standard 6-sided die roll: ie., there are always at most 6 destinations, regardless of the size of the board.)</li>
+</ul></li>
+<li>If <code>S</code> has a snake or ladder, you move to the destination of that snake or ladder.  Otherwise, you move to <code>S</code>.</li>
+</ul>
+<p>A board square on row <code>r</code> and column <code>c</code> has a &quot;snake or ladder&quot; if <code>board[r][c] != -1</code>.  The destination of that snake or ladder is <code>board[r][c]</code>.</p>
+<p>Note that you only take a snake or ladder at most once per move: if the destination to a snake or ladder is the start of another snake or ladder, you do not continue moving.  (For example, if the board is <code>[[4,-1],[-1,3]]</code>, and on the first move your destination square is <code>2</code>, then you finish your first move at <code>3</code>, because you do notcontinue moving to <code>4</code>.)</p>
+<p>Return the least number of moves required to reach square N*N.  If it is not possible, return <code>-1</code>.</p>
+<p>Example 1:</p>
+<pre><code>Input: [
+[-1,-1,-1,-1,-1,-1],
+[-1,-1,-1,-1,-1,-1],
+[-1,-1,-1,-1,-1,-1],
+[-1,35,-1,-1,13,-1],
+[-1,-1,-1,-1,-1,-1],
+[-1,15,-1,-1,-1,-1]]
+Output: 4
+Explanation:
+At the beginning, you start at square 1 [at row 5, column 0].
+You decide to move to square 2, and must take the ladder to square 15.
+You then decide to move to square 17 (row 3, column 5), and must take the snake to square 13.
+You then decide to move to square 14, and must take the ladder to square 35.
+You then decide to move to square 36, ending the game.
+It can be shown that you need at least 4 moves to reach the N*N-th square, so the answer is 4.</code></pre>
+<p>Note:</p>
+<ol>
+<li><code>2 &lt;= board.length = board[0].length &lt;= 20</code></li>
+<li><code>board[i][j]</code> is between <code>1</code> and <code>N*N</code> or is equal to <code>-1</code>.</li>
+<li>The board square with number <code>1</code> has no snake or ladder.</li>
+<li>The board square with number <code>N*N</code> has no snake or ladder.</li>
+</ol>
+<p><br><br />
+这道题给了一个 NxN 大小的二维数组，从左下角从1开始，蛇形游走，到左上角或者右上角到数字为 NxN，中间某些位置会有梯子，就如同传送门一样，直接可以到达另外一个位置。现在就如同玩大富翁 Big Rich Man 一样，有一个骰子，可以走1到6内的任意一个数字，现在奢侈一把，有无限个遥控骰子，每次都可以走1到6以内指定的步数，问最小能用几步快速到达终点 NxN 位置。博主刚开始做这道题的时候，看是求极值，以为是一道动态规划 Dynamic Programming 的题，结果发现木有办法重现子问题，没法写出状态转移方程，只得作罢。但其实博主忽略了一点，求最小值还有一大神器，广度优先搜索 BFS，最直接的应用就是在迷宫遍历的问题中，求从起点到终点的最少步数，也可以用在更 general 的场景，只要是存在确定的状态转移的方式，可能也可以使用。这道题基本就是类似迷宫遍历的问题，可以走的1到6步可以当作六个方向，这样就可以看作是一个迷宫了，唯一要特殊处理的就是遇见梯子的情况，要跳到另一个位置。这道题还有另一个难点，就是数字标号和数组的二维坐标的转换，这里起始点是在二维数组的左下角，且是1，而代码中定义的二维数组的 (0, 0) 点是在左上角，需要转换一下，还有就是这道题的数字是蛇形环绕的，即当行号是奇数的时候，是从右往左遍历的，转换的时候要注意一下。</p>
+<p>难点基本都提到了，现在开始写代码吧，既然是 BFS，就需要用队列 queue 来辅助，初始时将数字1放入，然后还需要一个 visited 数组，大小为 nxn+1。在 while 循环中进行层序遍历，取出队首数字，判断若等于 nxn 直接返回结果 res。否则就要遍历1到6内的所有数字i，则 num+i 就是下一步要走的距离，需要将其转为数组的二维坐标位置，这个操作放到一个单独的子函数中，后边再讲。有了数组的坐标，就可以看该位置上是否有梯子，有的话，需要换成梯子能到达的位置，没有的话还是用 num+i。有了下一个位置，再看 visited 中的值，若已经访问过了直接跳过，否则标记为 true，并且加入队列 queue 中即可，若 while 循环退出了，表示无法到达终点，返回 -1。将数字标号转为二维坐标位置的子函数也不算难，首先应将数字标号减1，因为这里是从1开始的，而代码中的二维坐标是从0开始的，然后除以n得到横坐标，对n取余得到纵坐标。但这里得到的横纵坐标都还不是正确的，因为前面说了数字标记是蛇形环绕的，当行号是奇数的时候，列数需要翻转一下，即用 n-1 减去当前列数。又因为代码中的二维数组起点位置在左上角，同样需要翻转一样，这样得到的才是正确的横纵坐标，返回即可，参见代码如下：</p>
+<p><br><br />
+解法一：</p>
+<pre><code>class Solution {
+public:
+    int snakesAndLadders(vector&lt;vector&lt;int&gt;&gt;&amp; board) {
+        int n = board.size(), res = 0;
+        queue&lt;int&gt; q{{1}};
+        vector&lt;bool&gt; visited(n * n + 1);
+        while (!q.empty()) {
+            for (int k = q.size(); k &gt; 0; --k) {
+                int num = q.front(); q.pop();
+                if (num == n * n) return res;
+                for (int i = 1; i &lt;= 6 &amp;&amp; num + i &lt;= n * n; ++i) {
+                    auto pos = getPosition(num + i, n);
+                    int next = board[pos[0]][pos[1]] == -1 ? (num + i) : board[pos[0]][pos[1]];
+                    if (visited[next]) continue;
+                    visited[next] = true;
+                    q.push(next);
+                }
+            }
+            ++res;
+        }
+        return -1;
+    }
+    vector&lt;int&gt; getPosition(int num, int n) {
+        int x = (num - 1) / n, y = (num - 1) % n;
+        if (x % 2 == 1) y = n - 1 - y;
+        x = n - 1 - x;
+        return {x, y};
+    }
+};</code></pre>
+<p><br><br />
+我们也可以让子函数直接返回正确的数字标号，而不是数组的二维坐标，这样的写法虽然解题思路和上面都一样，但击败率要更高一些，参见代码如下：</p>
+<p><br><br />
+解法二：</p>
+<pre><code>class Solution {
+public:
+    int snakesAndLadders(vector&lt;vector&lt;int&gt;&gt;&amp; board) {
+        int n = board.size(), res = 0;
+        queue&lt;int&gt; q{{1}};
+        vector&lt;bool&gt; visited(n * n + 1);
+        while (!q.empty()) {
+            for (int k = q.size(); k &gt; 0; --k) {
+                int num = q.front(); q.pop();
+                if (num == n * n) return res;
+                for (int i = 1; i &lt;= 6 &amp;&amp; num + i &lt;= n * n; ++i) {
+                    int next = getBoardValue(board, num + i);
+                    if (next == -1) next = num + i;
+                    if (visited[next]) continue;
+                    visited[next] = true;
+                    q.push(next);
+                }
+            }
+            ++res;
+        }
+        return -1;
+    }
+    int getBoardValue(vector&lt;vector&lt;int&gt;&gt;&amp; board, int num) {
+        int n = board.size(), x = (num - 1) / n, y = (num - 1) % n;
+        if (x % 2 == 1) y = n - 1 - y;
+        x = n - 1 - x;
+        return board[x][y];
+    }
+};</code></pre>
+<p><br><br />
+Github 同步地址:</p>
+<p><a href="https://github.com/grandyang/leetcode/issues/909" class="uri">https://github.com/grandyang/leetcode/issues/909</a></p>
+<p><br><br />
+参考资料：</p>
+<p><a href="https://leetcode.com/problems/snakes-and-ladders/" class="uri">https://leetcode.com/problems/snakes-and-ladders/</a></p>
+<p><a href="https://leetcode.com/problems/snakes-and-ladders/discuss/174643/C%2B%2B-solutions-Easy-to-understandBFS">https://leetcode.com/problems/snakes-and-ladders/discuss/174643/C%2B%2B-solutions-Easy-to-understandBFS</a></p>
+<p><a href="https://leetcode.com/problems/snakes-and-ladders/discuss/173682/Java-concise-solution-easy-to-understand" class="uri">https://leetcode.com/problems/snakes-and-ladders/discuss/173682/Java-concise-solution-easy-to-understand</a></p>
+<p><br><br />
+<a href="https://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-08-12 21:16</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11342652" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(11342652);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 11342652, cb_entryCreatedDate = '2019-08-12 21:16', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

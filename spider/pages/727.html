@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="Given strings&amp;#160;S&amp;#160;and&amp;#160;T, find the minimum (contiguous)&amp;#160;substring&amp;#160;W&amp;#160;of&amp;#1" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] 727. Minimum Window Subsequence 最小窗口序列 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/8684817.html">[LeetCode] 727. Minimum Window Subsequence 最小窗口序列</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<p>Given strings&nbsp;<code>S</code>&nbsp;and&nbsp;<code>T</code>, find the minimum (contiguous)&nbsp;substring&nbsp;<code>W</code>&nbsp;of&nbsp;<code>S</code>, so that&nbsp;<code>T</code>&nbsp;is a&nbsp;subsequence&nbsp;of&nbsp;<code>W</code>.</p>
+<p>If there is no such window in&nbsp;<code>S</code>&nbsp;that covers all characters in&nbsp;<code>T</code>, return the empty string&nbsp;<code>""</code>. If there are multiple such minimum-length windows, return the one with the left-most starting index.</p>
+<p>Example 1:</p>
+<pre>Input: 
+S = "abcdebdde", T = "bde"
+Output: "bcde"
+Explanation: 
+"bcde" is the answer because it occurs before "bdde" which has the same length.
+"deb" is not a smaller window because the elements of T in the window must occur in order.
+</pre>
+<p>&nbsp;</p>
+<p>Note:</p>
+<ul>
+<li>All the strings in the input will only contain lowercase letters.</li>
+<li>The length of&nbsp;<code>S</code>&nbsp;will be in the range&nbsp;<code>[1, 20000]</code>.</li>
+<li>The length of&nbsp;<code>T</code>&nbsp;will be in the range&nbsp;<code>[1, 100]</code>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>这道题给了我们两个字符串S和T，让我们找出S的一个长度最短子串W，使得T是W的子序列，如果长度相同，取起始位置靠前的。清楚子串和子序列的区别，那么题意就不难理解，题目中给的例子也很好的解释了题意。我们经过研究可以发现，返回的子串的起始字母和T的起始字母一定相同，这样才能保证最短。那么你肯定会想先试试暴力搜索吧，以S中每个T的起始字母为起点，均开始搜索字符串T，然后维护一个子串长度的最小值。如果是这种思路，那么还是趁早打消念头吧，博主已经替你试过了，OJ 不依。原因也不难想，假如S中有大量的连续b，并且如果T也很长的话，这种算法实在是不高效啊。根据博主多年经验，这种玩字符串且还是 Hard 的题，十有八九都是要用动态规划 Dynamic Programming 来做的，那么就直接往 DP 上去想吧。DP 的第一步就是设计 dp 数组，像这种两个字符串的题，一般都是一个二维数组，想想该怎么定义。确定一个子串的两个关键要素是起始位置和长度，那么我们的 dp 值到底应该是定起始位置还是长度呢？That is a question! 仔细想一想，其实起始位置是长度的基础，因为我们一旦知道了起始位置，那么当前位置减去起始位置，就是长度了，所以我们 dp 值定为起始位置。那么 dp[i][j] 表示范围S中前i个字符包含范围T中前j个字符的子串的起始位置，注意这里的包含是子序列包含关系。然后就是确定长度了，有时候会使用字符串的原长度，有时候会多加1，看个人习惯吧，这里博主长度多加了个1。</p>
+<p>OK，下面就是重中之重啦，求状态转移方程。一般来说，dp[i][j] 的值是依赖于之前已经求出的dp值的，在递归形式的解法中，dp数组也可以看作是记忆数组，从而省去了大量的重复计算，这也是 dp 解法凌驾于暴力搜索之上的主要原因。牛B的方法总是最难想出来的，dp 的状态转移方程就是其中之一。在脑子一片浆糊的情况下，博主的建议是从最简单的例子开始分析，比如 S = "b", T = "b", 那么我们就有 dp[1][1] = 0，因为S中的起始位置为0，长度为1的子串可以包含T。如果当&nbsp;S = "d", T = "b"，那么我们有 dp[1][1] = -1，因为我们的dp数组初始化均为 -1，表示未匹配或者无法匹配。下面来看一个稍稍复杂些的例子，S = "dbd", T = "bd"，我们的dp数组是：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">   &empty;  b  d
+&empty;  </span>?  ?  ?<span style="color: #000000;">
+d  </span>? -<span style="color: #800080;">1</span> -<span style="color: #800080;">1</span><span style="color: #000000;">
+b  </span>?  <span style="color: #800080;">1</span> -<span style="color: #800080;">1</span><span style="color: #000000;">
+d  </span>?  <span style="color: #800080;">1</span>  <span style="color: #800080;">1</span></pre>
+</div>
+<p>这里的问号是边界，我们还不知道如何初给边界赋值，我们看到，为 -1 的地方是对应的字母不相等的地方。我们首先要明确的是 dp[i][j] 中的j不能大于i，因为T的长度不能大于S的长度，所以j大于i的 dp[i][j] 一定都是-1的。再来看为1的几个位置，首先是 dp[2][1] = 1，这里表示db包含b的子串起始位置为1，make sense！然后是 dp[3][1] = 1，这里表示 dbd 包含b的子串起始位置为1，没错！然后是 dp[3][2] = 1，这里表示 dbd 包含 bd 的起始位置为1，all right! 那么我们可以观察出，当 S[i] == T[j] 的时候，实际上起始位置和 dp[i - 1][j - 1] 是一样的，比如 dbd 包含 bd 的起始位置和 db 包含b的起始位置一样，所以可以继承过来。那么当 S[i] != T[j] 的时候，怎么搞？其实是和 dp[i - 1][j] 是一样的，比如 dbd 包含b的起始位置和 db 包含b的起始位置是一样的。</p>
+<p>嗯，这就是状态转移方程的核心了，下面再来看边界怎么赋值，由于j比如小于等于i，所以第一行的第二个位置往后一定都是-1，我们只需要给第一列赋值即可。通过前面的分析，我们知道了当 S[i] == T[j] 时，我们取的是左上角的 dp 值，表示当前字母在S中的位置，由于我们dp数组提前加过1，所以第一列的数只要赋值为当前行数即可。最终的 dp 数组如下：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">   &empty;  b  d
+&empty;  </span><span style="color: #800080;">0</span> -<span style="color: #800080;">1</span> -<span style="color: #800080;">1</span><span style="color: #000000;">
+d  </span><span style="color: #800080;">1</span> -<span style="color: #800080;">1</span> -<span style="color: #800080;">1</span><span style="color: #000000;">
+b  </span><span style="color: #800080;">2</span>  <span style="color: #800080;">1</span> -<span style="color: #800080;">1</span><span style="color: #000000;">
+d  </span><span style="color: #800080;">3</span>  <span style="color: #800080;">1</span>  <span style="color: #800080;">1</span></pre>
+</div>
+<p>为了使代码更加简洁，我们在遍历完每一行，检测如果 dp[i][n] 不为-1，说明T已经被完全包含了，且当前的位置跟起始位置都知道了，我们计算出长度来更新一个全局最小值 minLen，同时更新最小值对应的起始位置 start，最后取出这个全局最短子串，如果没有找到返回空串即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">string</span> minWindow(<span style="color: #0000ff;">string</span> S, <span style="color: #0000ff;">string</span><span style="color: #000000;"> T) {
+        </span><span style="color: #0000ff;">int</span> m = S.size(), n = T.size(), start = -<span style="color: #800080;">1</span>, minLen =<span style="color: #000000;"> INT_MAX;
+        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt;&gt; dp(m + <span style="color: #800080;">1</span>, vector&lt;<span style="color: #0000ff;">int</span>&gt;(n + <span style="color: #800080;">1</span>, -<span style="color: #800080;">1</span><span style="color: #000000;">));
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt;= m; ++i) dp[i][<span style="color: #800080;">0</span>] =<span style="color: #000000;"> i;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt;= m; ++<span style="color: #000000;">i) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = <span style="color: #800080;">1</span>; j &lt;= min(i, n); ++<span style="color: #000000;">j) {
+                dp[i][j] </span>= (S[i - <span style="color: #800080;">1</span>] == T[j - <span style="color: #800080;">1</span>]) ? dp[i - <span style="color: #800080;">1</span>][j - <span style="color: #800080;">1</span>] : dp[i - <span style="color: #800080;">1</span><span style="color: #000000;">][j];
+            }
+            </span><span style="color: #0000ff;">if</span> (dp[i][n] != -<span style="color: #800080;">1</span><span style="color: #000000;">) {
+                </span><span style="color: #0000ff;">int</span> len = i -<span style="color: #000000;"> dp[i][n];
+                </span><span style="color: #0000ff;">if</span> (minLen &gt;<span style="color: #000000;"> len) {
+                    minLen </span>=<span style="color: #000000;"> len;
+                    start </span>=<span style="color: #000000;"> dp[i][n];
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> (start != -<span style="color: #800080;">1</span>) ? S.substr(start, minLen) : <span style="color: #800000;">""</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>论坛上的&nbsp;<a href="https://leetcode.com/problems/minimum-window-subsequence/discuss/109356/JAVA-two-pointer-solution-(12ms-beat-100)-with-explaination" target="_blank">danzhutest大神</a>&nbsp;提出了一种双指针的解法，其实这是优化过的暴力搜索的方法，而且居然 beat 了 100%，给跪了好嘛？！而且这双指针的跳跃方式犹如舞蹈般美妙绝伦，比那粗鄙的暴力搜索双指针不知道高到哪里去了？！举个栗子来说吧，比如当&nbsp;S = "bbbbdde", T = "bde" 时，我们知道暴力搜索的双指针在S和T的第一个b匹配上之后，就开始检测S之后的字符能否包含T之后的所有字符，当匹配结束后，S的指针就会跳到第二个b开始匹配，由于有大量的重复b出现，所以每一个b都要遍历一遍，会达到平方级的复杂度，会被 OJ 无情拒绝。而下面这种修改后的算法会跳过所有重复的b，使得效率大大提升，具体是这么做的，当第一次匹配成功后，我们的双指针往前走，找到那个刚好包含T中字符的位置，比如开始指针 i = 0 时，指向S中的第一个b，指针 j = 0 时指向T中的第一个b，然后开始匹配T，当 i = 6， j = 2 时，此时完全包含了T。暴力搜索解法中此时i会回到1继续找，而这里，我们通过向前再次匹配T，会在 i = 3，j = 0 处停下，然后继续向后找，这样S中重复的b就会被跳过，从而大大的提高了效率，但是最坏情况下的时间复杂度还是 O(mn)。旋转，跳跃，我闭着眼，尘嚣看不见，你沉醉了没？博主已经沉醉在这双指针之舞中了......</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">string</span> minWindow(<span style="color: #0000ff;">string</span> S, <span style="color: #0000ff;">string</span><span style="color: #000000;"> T) {
+        </span><span style="color: #0000ff;">int</span> m = S.size(), n = T.size(), start = -<span style="color: #800080;">1</span>, minLen = INT_MAX, i = <span style="color: #800080;">0</span>, j = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">while</span> (i &lt;<span style="color: #000000;"> m) {
+            </span><span style="color: #0000ff;">if</span> (S[i] ==<span style="color: #000000;"> T[j]) {
+                </span><span style="color: #0000ff;">if</span> (++j ==<span style="color: #000000;"> n) {
+                    </span><span style="color: #0000ff;">int</span> end = i + <span style="color: #800080;">1</span><span style="color: #000000;">;
+                    </span><span style="color: #0000ff;">while</span> (--j &gt;= <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                        </span><span style="color: #0000ff;">while</span> (S[i--] !=<span style="color: #000000;"> T[j]);
+                    }
+                    </span>++i; ++<span style="color: #000000;">j;
+                    </span><span style="color: #0000ff;">if</span> (end - i &lt;<span style="color: #000000;"> minLen) {
+                        minLen </span>= end -<span style="color: #000000;"> i;
+                        start </span>=<span style="color: #000000;"> i;
+                    }
+                }
+            }
+            </span>++<span style="color: #000000;">i;
+        }
+        </span><span style="color: #0000ff;">return</span> (start != -<span style="color: #800080;">1</span>) ? S.substr(start, minLen) : <span style="color: #800000;">""</span><span style="color: #000000;">;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>类似题目：</p>
+<p><a id="homepage1_HomePageDays_DaysList_ctl03_DayList_TitleUrl_0" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/8679286.html">Largest Plus Sign</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/9109981.html">Cheapest Flights Within K Stops</a>&nbsp;</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/9179556.html">Domino and Tromino Tiling</a>&nbsp;</p>
+<p><a href="http://www.cnblogs.com/grandyang/p/8684817.html" target="_blank">Minimum Window Subsequence</a></p>
+<p><a href="http://www.cnblogs.com/grandyang/p/7608976.html">Longest Continuous Increasing Subsequence</a></p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/minimum-window-subsequence/">https://leetcode.com/problems/minimum-window-subsequence/</a></p>
+<p><a href="https://leetcode.com/problems/minimum-window-subsequence/discuss/109358/C++-DP-with-explanation-O(ST)-53ms">https://leetcode.com/problems/minimum-window-subsequence/discuss/109358/C++-DP-with-explanation-O(ST)-53ms</a></p>
+<p><a href="https://leetcode.com/problems/minimum-window-subsequence/discuss/109356/JAVA-two-pointer-solution-(12ms-beat-100)-with-explaination">https://leetcode.com/problems/minimum-window-subsequence/discuss/109356/JAVA-two-pointer-solution-(12ms-beat-100)-with-explaination</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-03-31 23:54</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8684817" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(8684817);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 8684817, cb_entryCreatedDate = '2018-03-31 23:54', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>

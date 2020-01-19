@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="We are given a&amp;#160;personal information string&amp;#160;S, which may represent&amp;#160;either&amp;#160;an emai" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>[LeetCode] Masking Personal Information 给个人信息打码 - Grandyang - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=PyyhYDRKBG1sYtpoHme_xHO5AMd5iN57I45iBKF8FVY" />
+    <link id="MainCss" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight.min.css?v=0PW-IbyD73rSsrHXyZPdWAdlgI9zvcQ6P3MLE4OIhi4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/unlimitedsunlight/bundle-unlimitedsunlight-mobile.min.css?v=1PFKcj_AbkIURdVbGrJ7RA7MSm_08tLLOsnXtqTHyME" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/grandyang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/grandyang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/grandyang/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=F-Iy-_Lj7VcUKRIvNkS6UZ5LItMqjh1_L0VZk9Yxfb8"></script>
+    <script>
+        var currentBlogId = 198221;
+        var currentBlogApp = 'grandyang';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/grandyang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/grandyang/">Grandyang</a>
+</h1>
+<h2>
+仰天长啸仗剑红尘，冬去春来寒暑几更...
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/grandyang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Grandyang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/grandyang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+1424&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4014</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/grandyang/p/10340260.html">[LeetCode] Masking Personal Information 给个人信息打码</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;</p>
+<div class="content__eAC7">
+<div>
+<p>We are given a&nbsp;personal information string&nbsp;<code>S</code>, which may represent&nbsp;either&nbsp;an email address&nbsp;or&nbsp;a phone number.</p>
+<p>We would like to mask this&nbsp;personal information according to the&nbsp;following rules:</p>
+<p><br /><span style="text-decoration: underline;">1. Email address:</span></p>
+<p>We define a&nbsp;name&nbsp;to be a string of&nbsp;<code>length &ge; 2</code>consisting&nbsp;of only lowercase letters&nbsp;<code>a-z</code>&nbsp;or uppercase&nbsp;letters&nbsp;<code>A-Z</code>.</p>
+<p>An email address starts with a name, followed by the&nbsp;symbol&nbsp;<code>'@'</code>, followed by a name, followed by the&nbsp;dot&nbsp;<code>'.'</code>&nbsp;and&nbsp;followed by a name.&nbsp;</p>
+<p>All email addresses are&nbsp;guaranteed to be valid and in the format of&nbsp;<code>"name1@name2.name3".</code></p>
+<p>To mask an email,&nbsp;all names must be converted to lowercase&nbsp;and&nbsp;all letters between the first and last letter of the first name&nbsp;must be replaced by 5 asterisks&nbsp;<code>'*'</code>.</p>
+<p><br /><span style="text-decoration: underline;">2. Phone number:</span></p>
+<p>A phone number is a string consisting of&nbsp;only the digits&nbsp;<code>0-9</code>or the characters from the set&nbsp;<code>{'+', '-', '(', ')', '&nbsp;'}.</code>&nbsp;You may assume a phone&nbsp;number contains&nbsp;10 to 13 digits.</p>
+<p>The last 10 digits make up the local&nbsp;number, while the digits before those make up the country code. Note that&nbsp;the country code is optional. We want to expose only the last 4 digits&nbsp;and mask all other&nbsp;digits.</p>
+<p>The local&nbsp;number&nbsp;should be formatted and masked as&nbsp;<code>"***-***-1111",&nbsp;</code>where&nbsp;<code>1</code>&nbsp;represents the exposed digits.</p>
+<p>To mask a phone number with country code like&nbsp;<code>"+111 111 111 1111"</code>, we write it in the form&nbsp;<code>"+***-***-***-1111".</code>&nbsp; The&nbsp;<code>'+'</code>&nbsp;sign and the first&nbsp;<code>'-'</code>&nbsp;sign before the local number should only exist if there is a country code.&nbsp; For example, a 12 digit phone number mask&nbsp;should start&nbsp;with&nbsp;<code>"+**-"</code>.</p>
+<p>Note that extraneous characters like&nbsp;<code>"(", ")", " "</code>, as well as&nbsp;extra dashes or plus signs not part of the above formatting scheme should be removed.</p>
+<p>&nbsp;</p>
+<p>Return the correct "mask" of the information provided.</p>
+<p>&nbsp;</p>
+<p>Example 1:</p>
+<pre>Input: "LeetCode@LeetCode.com"
+Output: "l*****e@leetcode.com"
+Explanation:&nbsp;All names are converted to lowercase, and the letters between the
+&nbsp;            first and last letter of the first name is replaced by 5 asterisks.
+&nbsp;            Therefore, "leetcode" -&gt; "l*****e".
+</pre>
+<p>Example 2:</p>
+<pre>Input: "AB@qq.com"
+Output: "a*****b@qq.com"
+Explanation:&nbsp;There must be 5 asterisks between the first and last letter 
+&nbsp;            of the first name "ab". Therefore, "ab" -&gt; "a*****b".
+</pre>
+<p>Example 3:</p>
+<pre>Input: "1(234)567-890"
+Output: "***-***-7890"
+Explanation:&nbsp;10 digits in the phone number, which means all digits make up the local number.
+</pre>
+<p>Example 4:</p>
+<pre>Input: "86-(10)12345678"
+Output: "+**-***-***-5678"
+Explanation:&nbsp;12 digits, 2 digits for country code and 10 digits for local number. 
+</pre>
+<p>Notes:</p>
+<ol>
+<li><code>S.length&nbsp;&lt;=&nbsp;40</code>.</li>
+<li>Emails have length at least 8.</li>
+<li>Phone numbers have length at least 10.</li>
+</ol></div>
+</div>
+<div>&nbsp;</div>
+<p>这道题让我们给个人信息打码，在这个注重保护隐私的时代，打码什么的都是家常便饭了，想看高清无码的，那就得掏钱。这里对邮箱和电话分别进行了不同的打码方式，对于邮箱来说，只保留用户名的首尾两个字符，然后中间固定加上五个星号，还有就是所有的字母转小写。对于电话来说，有两种方式，有和没有国家代号，有的话其前面必须有加号，跟后面的区域号用短杠隔开，后面的10个电话号分为三组，个数分别为3，3，4。每组之间还是用短杠隔开，除了最后一组的数字保留之外，其他的都用星号代替。弄清楚了题意，就开始解题吧。既然是字符串的题目，那么肯定要遍历这个字符串了，我们关心的主要是数字和字母，所以要用个变量str来保存遍历到的数字和字母，所以判断，如果是数字或者小写字母的话，直接加入str中，若是大写字母的话，转成小写字母再加入str，如果遇到了 &lsquo;@&rsquo; 号，那么表示当前处理的是邮箱，而此时的用户已经全部读入str了，那直接就取出首尾字符，然后中间加五个星号，并再加上&nbsp;&lsquo;@&rsquo; 号存入结果res中，并把str清空。若遇到了点，说明此时是邮箱的后半段，因为题目中限制了用户名中不会有点存在，那么我们将str和点一起加入结果res，并将str清空。当遍历结束时，若此时结果res不为空，说明我们处理的是邮箱，那么返回结果res加上str，因为str中存的是 "com"，还没有来得及加入结果res。若res为空，说明处理的是电话号码，所有的数字都已经加入了str，由于国家代号可能有也可能没有，所以判断一下存入的数字的个数，如果超过10个了，说明有国家代号，那么将超过的部分取出来拼装一下，前面加 &lsquo;+&rsquo; 号，后面加短杠。然后再将10位号码的前六位的星号格式加上，并加上最后四个数字即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法一：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">string</span> maskPII(<span style="color: #0000ff;">string</span><span style="color: #000000;"> S) {
+        </span><span style="color: #0000ff;">string</span> res = <span style="color: #800000;">""</span>, str = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">char</span><span style="color: #000000;"> c : S) {
+            </span><span style="color: #0000ff;">if</span> (c &gt;= <span style="color: #800000;">'</span><span style="color: #800000;">a</span><span style="color: #800000;">'</span> &amp;&amp; c &lt;= <span style="color: #800000;">'</span><span style="color: #800000;">z</span><span style="color: #800000;">'</span><span style="color: #000000;">) str.push_back(c);
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (c &gt;= <span style="color: #800000;">'</span><span style="color: #800000;">A</span><span style="color: #800000;">'</span> &amp;&amp; c &lt;= <span style="color: #800000;">'</span><span style="color: #800000;">Z</span><span style="color: #800000;">'</span>) str.push_back(c + <span style="color: #800080;">32</span><span style="color: #000000;">);
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (c &gt;= <span style="color: #800000;">'</span><span style="color: #800000;">0</span><span style="color: #800000;">'</span> &amp;&amp; c &lt;= <span style="color: #800000;">'</span><span style="color: #800000;">9</span><span style="color: #800000;">'</span><span style="color: #000000;">) str.push_back(c);
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (c == <span style="color: #800000;">'</span><span style="color: #800000;">@</span><span style="color: #800000;">'</span><span style="color: #000000;">) {
+                res </span>+= <span style="color: #0000ff;">string</span>(<span style="color: #800080;">1</span>, str[<span style="color: #800080;">0</span>]) + <span style="color: #800000;">"</span><span style="color: #800000;">*****</span><span style="color: #800000;">"</span> + <span style="color: #0000ff;">string</span>(<span style="color: #800080;">1</span>, str.back()) + <span style="color: #800000;">"</span><span style="color: #800000;">@</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                str.clear();
+            } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (c == <span style="color: #800000;">'</span><span style="color: #800000;">.</span><span style="color: #800000;">'</span><span style="color: #000000;">) {
+                res </span>+= str + <span style="color: #800000;">"</span><span style="color: #800000;">.</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                str.clear();
+            }
+        }
+        </span><span style="color: #0000ff;">if</span> (!res.empty()) <span style="color: #0000ff;">return</span> res +<span style="color: #000000;"> str;
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> str.size();
+        </span><span style="color: #0000ff;">if</span> (n &gt; <span style="color: #800080;">10</span>) res += <span style="color: #800000;">"</span><span style="color: #800000;">+</span><span style="color: #800000;">"</span> + <span style="color: #0000ff;">string</span>(n - <span style="color: #800080;">10</span>, <span style="color: #800000;">'</span><span style="color: #800000;">*</span><span style="color: #800000;">'</span>) + <span style="color: #800000;">"</span><span style="color: #800000;">-</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+        res </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">***-***-</span><span style="color: #800000;">"</span> + str.substr(n - <span style="color: #800080;">4</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>我们还可以换一种写法，首先在字符串S中找&nbsp;&lsquo;@&rsquo; 号，这是区分邮箱地址和电话号码的关键所在。若没找到，则按电话号码的方法处理，跟上面的操作几乎相同。若找到了，则直接取出第一个字母，加五个星号，然后将&nbsp;&lsquo;@&rsquo; 号位置及其后面所有的字符都加入结果res，然后再统一转为小写即可，参见代码如下：</p>
+<p>&nbsp;</p>
+<p>解法二：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">string</span> maskPII(<span style="color: #0000ff;">string</span><span style="color: #000000;"> S) {
+        </span><span style="color: #0000ff;">string</span> res = <span style="color: #800000;">""</span>, str = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        auto pos </span>= S.find(<span style="color: #800000;">'</span><span style="color: #800000;">@</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">if</span> (pos == <span style="color: #0000ff;">string</span><span style="color: #000000;">::npos) {
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">char</span><span style="color: #000000;"> c : S) {
+                </span><span style="color: #0000ff;">if</span> (c &gt;= <span style="color: #800000;">'</span><span style="color: #800000;">0</span><span style="color: #800000;">'</span> &amp;&amp; c &lt;= <span style="color: #800000;">'</span><span style="color: #800000;">9</span><span style="color: #800000;">'</span><span style="color: #000000;">) str.push_back(c);
+            }
+            </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> str.size();
+            </span><span style="color: #0000ff;">if</span> (n &gt; <span style="color: #800080;">10</span>) res += <span style="color: #800000;">"</span><span style="color: #800000;">+</span><span style="color: #800000;">"</span> + <span style="color: #0000ff;">string</span>(n - <span style="color: #800080;">10</span>, <span style="color: #800000;">'</span><span style="color: #800000;">*</span><span style="color: #800000;">'</span>) + <span style="color: #800000;">"</span><span style="color: #800000;">-</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            res </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">***-***-</span><span style="color: #800000;">"</span> + str.substr(n - <span style="color: #800080;">4</span><span style="color: #000000;">);
+        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+            res </span>= S.substr(<span style="color: #800080;">0</span>, <span style="color: #800080;">1</span>) + <span style="color: #800000;">"</span><span style="color: #800000;">*****</span><span style="color: #800000;">"</span> + S.substr(pos - <span style="color: #800080;">1</span><span style="color: #000000;">);
+            transform(res.begin(), res.end(), res.begin(), ::tolower);
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> res;
+    }
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p><a href="https://leetcode.com/problems/masking-personal-information/" target="_blank">https://leetcode.com/problems/masking-personal-information/</a></p>
+<p><a href="https://leetcode.com/problems/masking-personal-information/discuss/129400/Straightforward-C%2B%2B" target="_blank">https://leetcode.com/problems/masking-personal-information/discuss/129400/Straightforward-C%2B%2B</a></p>
+<p>&nbsp;</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/grandyang/p/4606334.html">LeetCode All in One 题目讲解汇总(持续更新中...)</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-01-30 23:48</span>&nbsp;
+<a href="https://www.cnblogs.com/grandyang/">Grandyang</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10340260" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(10340260);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 198221, cb_blogApp = 'grandyang', cb_blogUserGuid = '02affae8-0e77-e111-aa3f-842b2b196315';
+    var cb_entryId = 10340260, cb_entryCreatedDate = '2019-01-30 23:48', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 Grandyang
+<br /><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <a href="https://github.com/grandyang"> 
+<img style="position: absolute; top: 0; left: 0; border: 0; z-index:9999;" 
+src="https://github.blog/wp-content/uploads/2008/12/forkme_left_gray_6d6d6d.png" 
+alt="Fork me on GitHub"> 
+</a>
+
+<script src="https://files.cnblogs.com/files/grandyang/tctip-1.0.4.js" defer></script>
+<script>
+new tctip({
+top: '20%',
+button: {
+  id:7,
+  type: 'zanzhu',
+},
+list: [
+  {
+        type: 'wechat',
+	qrImg: 'https://files.cnblogs.com/files/grandyang/wepay.gif'
+  }, {
+	type: 'announcement',
+        qrText: '2020，新的征途...'
+  }
+]
+}).init()
+</script>
+    </div>
+</body>
+</html>
