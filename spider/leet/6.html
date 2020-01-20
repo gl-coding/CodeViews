@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://static.leetcode-cn.com">
+  <link rel="preconnect" href="https://assets.leetcode-cn.com">
+  
+  <link rel="preload" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/styles.5558f7d8.css" as="style" onload="this.onload=null; this.setAttribute('rel', 'stylesheet');">
+  
+  <link rel="preload" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-88ad8183.9a6f021a.css" as="style" onload="this.onload=null; this.setAttribute('rel', 'stylesheet');">
+  
+  <link rel="preload" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-components.6a824e61.css" as="style" onload="this.onload=null; this.setAttribute('rel', 'stylesheet');">
+  
+  <link rel="preload" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-modules.bb2e511b.css" as="style" onload="this.onload=null; this.setAttribute('rel', 'stylesheet');">
+  
+  <link rel="preload" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-main.aa29f75d.css" as="style" onload="this.onload=null; this.setAttribute('rel', 'stylesheet');">
+  
+  <link rel="preload" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-assets.5423104e.css" as="style" onload="this.onload=null; this.setAttribute('rel', 'stylesheet');">
+  
+  <link rel="preload" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/main.978d5b14.css" as="style" onload="this.onload=null; this.setAttribute('rel', 'stylesheet');">
+  
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/runtime~main.54284632.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/styles.5558f7d8.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-596046b7.4e03f7a8.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-f693a0bb.4eba03f3.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-88ad8183.9a6f021a.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-ea8a6886.d311776b.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-78587d68.6760db3f.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-89c4d2d6.f0a47554.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-b3a903c8.184dd991.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-cb4214fe.e8047ba4.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-4e1ec07c.e6a186f0.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/vendor.c10f2f15.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-components.6a824e61.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-modules.bb2e511b.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-common.37ef4468.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-main.aa29f75d.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-dls.53245a24.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-track.bbe1f3fb.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-jobs.3987b87d.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-assets.5423104e.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-ws.0255568d.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-schema.f2578c00.js">
+  
+  <link rel="preload" as="script" href="https://static.leetcode-cn.com/cn-mono-assets/production/main/main.978d5b14.js">
+  
+  <title>力扣</title>
+  <meta name="keywords" content="力扣, 力扣中国, leetcode, lingkou, leetcode中国, leetcode官网, 在线编程, lc, leetcode题解, leetcode答案, 面经, 算法, 面试, 求职, 招聘, 校招, 社招, 内推, 笔试, 面试题, 面试经验, 刷题, leetcode题库, 机器学习, 算法岗, 数据结构, 代码, 互联网, 编程, 开发, 程序员, 工程师, 白板面试, 码农, 程序猿, 领扣, 领扣网, 领扣网络, 领扣中国, BAT, BAT面试, OJ, online judge, coding interview, 技术面试, leetcode中文版, leetcodechina" />
+  <script>window.prerenderReady = false;</script>
+  <script>
+    (function preloadFallbackStrategy() {
+      function preloadNotSupported() {
+        var relList = document.createElement('link').relList;
+        return !(relList && relList.supports && relList.supports('preload'));
+      }
+
+      if (preloadNotSupported()) {
+        document.querySelectorAll('link[rel="preload"][as="style"]').forEach(function (linkElm) {
+          linkElm.onload = null
+          linkElm.setAttribute('rel', 'stylesheet')
+        })
+      }
+    }())
+  </script>
+</head>
+<body>
+  <style id="initial-loading-style">
+    #initial-loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      transition: opacity .6s;
+      z-index: 100;
+    }
+
+    #initial-loading[data-is-hide="true"] {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #initial-loading .spinner {
+      display: flex;
+    }
+
+    #initial-loading .bounce {
+      width: 18px;
+      height: 18px;
+      margin: 0 3px;
+      background-color: #999999;
+      border-radius: 100%;
+      display: inline-block;
+      -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+      animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    }
+
+    #initial-loading .bounce:nth-child(1) {
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+    }
+
+    #initial-loading .bounce:nth-child(2) {
+      -webkit-animation-delay: -0.16s;
+      animation-delay: -0.16s;
+    }
+
+    @-webkit-keyframes sk-bouncedelay {
+      0%, 80%, 100% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+      } 40% {
+        -webkit-transform: scale(1.0);
+                transform: scale(1.0);
+      }
+    }
+
+    @keyframes sk-bouncedelay {
+      0%, 80%, 100% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+      } 40% {
+        -webkit-transform: scale(1.0);
+                transform: scale(1.0);
+      }
+    }
+  </style>
+  <!-- af6dc569b -->
+  <!-- 1.58.9 -->
+  <div id="initial-loading">
+    <div class="spinner">
+      <div class="bounce"></div>
+      <div class="bounce"></div>
+      <div class="bounce"></div>
+    </div>
+  </div>
+
+  <div id="app"></div>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/runtime~main.54284632.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/styles.5558f7d8.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-596046b7.4e03f7a8.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-f693a0bb.4eba03f3.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-88ad8183.9a6f021a.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-ea8a6886.d311776b.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-78587d68.6760db3f.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-89c4d2d6.f0a47554.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-b3a903c8.184dd991.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-cb4214fe.e8047ba4.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/npm-4e1ec07c.e6a186f0.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/vendor.c10f2f15.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-components.6a824e61.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-modules.bb2e511b.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-common.37ef4468.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-main.aa29f75d.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-dls.53245a24.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-track.bbe1f3fb.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-jobs.3987b87d.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-assets.5423104e.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-ws.0255568d.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/noj-schema.f2578c00.js"></script>
+  
+  <script src="https://static.leetcode-cn.com/cn-mono-assets/production/main/main.978d5b14.js"></script>
+  
+
+  <script>
+    // avoid running analysis codes for prerender
+    if (!/prerender/i.test(navigator.userAgent) && /leetcode-cn\.com/.test(window.location.href)) {
+      // 百度统计
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?fa218a3ff7179639febdb15e372f411c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+
+      // Google Analytics
+      (function() {
+        var script = document.createElement("script");
+        script.src = "https://www.googletagmanager.com/gtag/js?id=UA-131851415-1";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(script, s);
+        script.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-131851415-1');
+        }
+      })();
+    }
+  </script>
+
+  <!-- Start Alexa Certify Javascript -->
+  <noscript><img src="https://certify.alexametrics.com/atrk.gif?account=tIUcs1Y1Mn20Io" style="display:none" height="1" width="1" alt="" /></noscript>
+  <!-- End Alexa Certify Javascript -->
+
+  <!-- Hotfix -->
+<style>
+  /* Circle hide date */
+  [class*="ArticleRowWrapper"] [class*="PublishDate"],
+  [class*="DiscussionRowWrapper"] [class*="PublishDate"] {
+    display: none;
+  }
+  /* Monaco */
+  [class*="containerCls"] {
+    border-left: 1px solid #eee;
+  }
+
+  .btns__3jf0 > .tool-item__39Vq:first-child {
+    position: relative;
+  }
+  .btns__3jf0 > .tool-item__39Vq:first-child::after {
+    content: "新";
+    font-weight: bold;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    color: rgb(245, 0, 87);
+    font-size: 12px;
+    transform: scale(0.8);
+  }
+
+  @media (max-width: 600px) {
+    .css-6ku2ay-OwnershipWrapper {
+      flex-direction: column;
+      line-height: 38px;
+    }
+  }
+
+  #circle-article #lc-header {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12);
+    border-bottom: none;
+  }
+  [class*="ghost-xs-Btn-ShortcutButton"][data-type="video"] {
+    position: relative;
+    color: #009975;
+  }
+  [class*="ghost-xs-Btn-ShortcutButton"][data-type="video"]::after {
+    content: "视频";
+    display: block;
+    color: rgb(245, 0, 87);
+    font-weight: bold;
+    font-size: 12px;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    transform: scale(0.8);
+  }
+</style>
+<script>
+  if (window.location.pathname.includes("/circle/article")) {
+    document.querySelector("body").id = "circle-article";
+  }
+
+  // dynamic script
+  function addCoins(selector) {
+    if (document.querySelector(selector) == null) {
+      setTimeout(function() {
+        addCoins(selector);
+      }, 100);
+    } else {
+      document.querySelector(selector).innerHTML =
+        document.querySelector(selector).innerHTML +
+        `
+  (<span style="color: orange">
+  +50 <img src="https://static.leetcode-cn.com/cn-legacy-assets/images/coin.gif" width="12" style="transform: translateY(-2px);" />
+  </span>)
+  <style>
+  button[class*="BaseButton-Contribute"] {
+    color: rgb(0, 153, 117);
+  }
+  </style>
+  `;
+    }
+  }
+
+  if (window.location.pathname.includes("/tag/")) {
+    addCoins('span[class*="BtnContent"]');
+  }
+
+  if (window.location.pathname.includes("/company/")) {
+    addCoins('button[class*="BaseButton-Contribute"]');
+  }
+</script>
+
+<!--@START: New Feature Tag -->
+<script type="text/javascript">
+  var stroageItemShowNew = "1336943";
+  var stroageItemShowNewVersion = "v1";
+  var showNewFt = localStorage.getItem(
+    stroageItemShowNew + stroageItemShowNewVersion
+  );
+
+  function closeNewFt() {
+    localStorage.setItem(stroageItemShowNew + stroageItemShowNewVersion, true);
+    document.querySelector("#lc_navbar #new-ft").remove();
+  }
+
+  var newFt =
+    '<a href="https://support.leetcode-cn.com/user/login/?request=%2Fhc%2Fkb%2Farticle%2F' +
+    stroageItemShowNew +
+    '%2F" onclick="closeNewFt()" target="_blank">\
+    <img src="https://assets.leetcode-cn.com/support/new.svg" />\
+    </a>';
+
+  // dynamic script
+  function applyNewFt(selector) {
+    if (document.querySelector(selector) == null) {
+      setTimeout(function() {
+        applyNewFt(selector);
+      }, 100);
+    } else {
+      console.log("Found!");
+      var newFtDiv = document.createElement("div");
+      newFtDiv.innerHTML = newFt;
+      newFtDiv.id = "new-ft";
+      document.querySelector(selector).appendChild(newFtDiv);
+    }
+  }
+
+  if (showNewFt == null) {
+    applyNewFt('[class*="NavWrapper"] [class*="NavContainer"]');
+  }
+</script>
+
+<style>
+.css-14nfknu-Date {
+  display: none;
+}
+.css-d7whqy-Author {
+  margin-right: 10px;
+}
+  #new-ft img {
+    width: 48px;
+  }
+  #new-ft {
+    transition: all 0.2s;
+    cursor: pointer;
+    position: absolute;
+    z-index: 800;
+    top: -10px;
+    right: 400px;
+  }
+  #new-ft:hover {
+    top: -5px;
+  }
+  @media (max-width: 767px) {
+    #new-ft {
+      right: 60px;
+    }
+  }
+  [class*="NavWrapper"] [class*="NavContainer"] {
+    position: relative;
+  }
+</style>
+<!--@END: New Feature Tag -->
+
+<!--@START: Nav Highlight Tag -->
+<style>
+  [class*="NavbarListItem"] {
+    position: relative;
+  }
+  [class*="NavbarListItem"] > a {
+    position: relative;
+  }
+  /* [class*="NavbarListItem"] > .ant-dropdown-link > div::after {
+      right: -16px !important;
+      top: -9px;
+      content: "双11" !important;
+      background: #fe4316 !important;
+      color: #fff;
+      font-size: 12px;
+      position: absolute;
+      padding: 0 5px;
+      border-radius: 9px;
+      height: 18px;
+      line-height: 18px;
+      transform: scale(0.7);
+    }
+    .ant-dropdown-menu-item > a {
+        position: relative;
+    }
+    .ant-dropdown-menu-item > a[href="/store/"]::after{
+      display: block;
+      font-size: 12px;
+      position: absolute;
+      top: -3px;
+      right: -1px;
+      font-weight: 500;
+      transform: scale(0.8);
+      content: "新";
+      color: red;
+    }
+    .ant-dropdown-menu-item > a[href="/premium/"]::after{
+      display: block;
+      font-size: 12px;
+      position: absolute;
+      top: -3px;
+      right: -1px;
+      font-weight: 500;
+      transform: scale(0.8);
+      content: "赠";
+      color: red;
+    } */
+</style>
+<!--@END: Nav Highlight Tag -->
+
+<style>
+  a.header-anchor {
+    display: none;
+  }
+</style>
+
+<script>
+  if (/discuss.lingkou.com/.test(location.href)) {
+    __runForLingkouDotCom();
+  }
+
+  function __runForLingkouDotCom() {
+    function findSocial(selector) {
+      if (document.querySelector(selector) == null) {
+        setTimeout(function() {
+          findSocial(selector);
+        }, 100);
+      } else {
+        document.querySelector(selector).style.display = "none";
+      }
+    }
+    findSocial(".css-3hcwga-NavbarMenuItem:nth-child(6)");
+
+    // dynamic script
+    function findFooter(selector) {
+      if (document.querySelector(selector) == null) {
+        setTimeout(function() {
+          findFooter(selector);
+        }, 100);
+      } else {
+        document.querySelector(selector).innerHTML =
+          '<div><ul class="css-3fea3i-CnLicensingWrapper e5i1odf0"><li><a href="http://www.miitbeian.gov.cn">沪ICP备18019787号</a></li><li><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502007802">沪公网安备31011502007802号</a></li><li><a href="http://www.shjbzx.cn/">上海市互联网违法和不良信息举报中心</a></li><li><a href="http://report.12377.cn:13225/toreportinputNormal_anis.do">中国互联网违法和不良信息举报中心</a></li></ul></div>';
+      }
+    }
+    findFooter(".css-3fea3i-CnLicensingWrapper.e5i1odf0");
+  }
+</script>
+
+<script>
+  // dynamic script
+  function findpager(selector) {
+    if (document.querySelector(selector) == null) {
+      setTimeout(function() {
+        document.body.classList.remove("shared-ws-collage");
+        findpager(selector);
+      }, 100);
+    } else {
+      setTimeout(function() {
+        document.body.classList.add("shared-ws-collage");
+        findpager(selector);
+      }, 100);
+    }
+  }
+
+  if (window.location.href.includes("?college=")) {
+    findpager('#ranking button[type="primary"][data-page="1"]');
+  }
+</script>
+
+<style>
+  .shared-ws-collage
+    div[class*="PopularityRankInner"]
+    .ant-table-wrapper
+    .ant-table-tbody
+    > tr:first-child {
+    color: orange;
+    font-weight: bold;
+  }
+
+  .shared-ws-collage
+    div[class*="PopularityRankInner"]
+    .ant-table-wrapper
+    .ant-table-tbody
+    > tr
+    * {
+    background: none;
+  }
+  .shared-ws-collage
+    div[class*="PopularityRankInner"]
+    .ant-table-wrapper
+    .ant-table-tbody
+    > tr:first-child
+    > td {
+    border-bottom: none;
+  }
+  .shared-ws-collage
+    div[class*="PopularityRankInner"]
+    .ant-table-wrapper
+    .ant-table-tbody
+    > tr:first-child {
+    height: 50px;
+  }
+
+  @media screen and (max-width: 992px) {
+    .shared-ws-collage
+      div[class*="PopularityRankInner"]
+      .ant-table-body::before {
+      content: " ";
+      display: block;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0px 5px rgba(0, 0, 0, 0.15);
+      height: 40px;
+      margin-bottom: -75px;
+    }
+    .shared-ws-collage
+      div[class*="PopularityRankInner"]
+      .college-contest-popularity-share {
+      padding-top: 5px;
+    }
+  }
+  @media screen and (min-width: 993px) {
+    .shared-ws-collage
+      div[class*="PopularityRankInner"]
+      .ant-table-body::before {
+      content: " ";
+      display: block;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0px 5px rgba(0, 0, 0, 0.15);
+      height: 50px;
+      margin-bottom: -50px;
+    }
+  }
+</style>
+
+<script>
+  var currLocation = window.location.pathname;
+  if (
+    currLocation.includes("/charon/tag") &&
+    currLocation.match(/gs\/[0-9]+/g) == null
+  ) {
+    document.body.classList.add("charon-tag");
+    var newMeta = document.createElement("meta");
+    newMeta.setAttribute("name", "apple-mobile-web-app-capable");
+    newMeta.setAttribute("content", "yes");
+    document.getElementsByTagName("head")[0].appendChild(newMeta);
+  }
+</script>
+<style>
+  @media screen and (max-width: 736px) {
+    .charon-tag #lc-home > div:first-child {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 737px) {
+    .charon-tag #lc-content > div {
+      max-width: 100%;
+    }
+    .charon-tag #lc-content > div:first-child > div:first-child {
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      z-index: 100;
+    }
+
+    .charon-tag #lc-content {
+      margin-top: 35px;
+    }
+
+    .charon-tag .ant-pagination.ant-table-pagination {
+      position: fixed;
+      bottom: 10px;
+      padding: 10px;
+      padding-right: 0px;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      right: 50%;
+      transform: translateX(50%);
+      background: white;
+    }
+    .charon-tag #lc-footer {
+      height: 80px;
+    }
+    .charon-tag #lc-footer *,
+    .charon-tag #lc-header {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // dynamic script
+  function findContestHosts(selector) {
+    if (document.querySelector(selector) == null) {
+      setTimeout(function() {
+        findContestHosts(selector);
+      }, 100);
+    } else {
+      document.querySelector(selector).innerText = "领扣网络（上海）有限公司";
+    }
+  }
+  if (window.location.pathname.includes("/contest/college/2019-spring")) {
+    findContestHosts(".css-1fzgbam-OwnershipCompanyTitle");
+  }
+</script>
+
+</body>
+</html>

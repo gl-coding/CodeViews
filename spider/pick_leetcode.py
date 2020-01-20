@@ -4,6 +4,9 @@ import urllib
 import traceback
 from selenium import webdriver        
 from bs4 import BeautifulSoup
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 def getProblemListPage(url):
     driver = webdriver.Chrome()
@@ -71,27 +74,66 @@ def get_link(string, idx):
             print idx, line
         pre = line
 
-def getPageDetail(filename):
+def getPageDetail(filename, begin_idx=0):
+    #driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.set_headless()
+    driver = webdriver.Chrome(chrome_options=options)
     with open(filename) as f:
+        counter = 0
         for line in f:
+            counter += 1
             line = line.strip()
-            idx, title, url = line.split("\t")
-            path = "pages/" + idx + ".html"
-            #print "path:" + path
+            #print line
+            #print counter
+            if counter <= begin_idx:
+                continue
+            flag, idx, url, title, typ = line.split("\t")
+            print flag
+            if flag == "0":
+                continue
+            path = "leet/" + idx + ".html"
+            print "path:" + path
             #download problem page
             #detailPick(path, url)
-            title, content = contentPick(path)
+            driver.get(url)
+            print url
+            entrys = driver.find_elements_by_xpath("//div[@class='side-tools__3mLh']")
+            if len(entrys) == 0:
+                continue
+            tag = driver.find_elements_by_xpath("//div[@class='header__22S7']")
+            if len(tag) != 0:
+                try:
+                    tag[0].click()
+                except:
+                    time.sleep(1)
+                    continue
+            sim = driver.find_elements_by_xpath("//div[@class='header___3eQ']")
+            if len(sim) != 0:
+                try:
+                    sim[0].click()
+                except:
+                    time.sleep(1)
+                    continue
+            #print len(entrys)
+            time.sleep(1)
+            print entrys[0].text
+            #time.sleep(1)
+            #title, content = contentPick(path)
             #print "title:" + title.encode("utf8")
             #print content.encode("utf8")
-            get_link(content, idx)
+            #get_link(content, idx)
             #break
+    #driver.quit()
 
 if __name__ == '__main__':
     begin_url = "https://leetcode-cn.com/problemset/all/"
 
     #get leetcode problem idx title url
-    getProblemListPage(begin_url)
+    #getProblemListPage(begin_url)
 
     #save problem html page
     #getPageDetail("problem.idx")
+
+    getPageDetail("leetcode.idx", 204)
 
