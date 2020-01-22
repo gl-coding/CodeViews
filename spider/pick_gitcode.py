@@ -8,7 +8,7 @@ def pickIndex(file):
             fullpath  = os.path.join(root, d)
             split_res = d.split(".")
             idx       = int(split_res[0])
-            res[idx] = fullpath
+            res[idx]  = fullpath
     return res
 
 def pickSolution(file):
@@ -22,27 +22,46 @@ def pickSolution(file):
                 res["so"] = fullpath
     return res
 
-def catFile(path):
+def catFile(path, printflag=False):
+    res = []
     with open(path) as f:
         for line in f:
-            print line.rstrip()
+            res.append(line.rstrip())
+            if printflag:
+                print line.rstrip()
+    return res
 
-def pick_solution(idx):
-    all_res = pickIndex("../solution_code")
+def pick_solution(all_res, idx, printflag=False):
+    res_list = []
     res     = all_res.get(idx, {})
     if len(res) == 0:
         return
     res     = pickSolution(res)
     res_md  = res["md"]
     res_so  = res["so"]
-    print "***"*40
-    catFile(res_md)
-    print "***"*40
-    print "\n"
-    catFile(res_so)
-    print "\n"
+    #print "***"*40
+    res_md_list = catFile(res_md, printflag)
+    #print "***"*40
+    #print "\n"
+    res_so_list = catFile(res_so, printflag)
+    #print "\n"
+    #res_list.extend(res_md_list)
+    #res_list.append("")
+    res_list.extend(res_so_list)
+    return res_list
+
+def build_idx():
+    res = {}
+    all_res = pickIndex("../solution_code")
+    for idx in range(1, 668):
+        #print idx
+        item_res = pick_solution(all_res, idx, printflag=False)
+        if item_res == None:
+            continue
+        res[idx] = "\n".join(item_res)
+        print res[idx]
+    return res
 
 if __name__ == '__main__':
-    #idx     = int(sys.argv[1])
-    for idx in range(1, 668):
-        pick_solution(idx)
+    build_idx()
+    print ""

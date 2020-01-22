@@ -2,8 +2,13 @@
 import time
 import urllib
 import traceback
+import os
 from selenium import webdriver        
 from bs4 import BeautifulSoup
+
+import pick_bokeyuan as pb
+import pick_gitcode  as pg
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -59,6 +64,7 @@ def detailPick(filename):
     res_item = []
     cate_dic = {}
     sim_dic  = []
+    desc_dic = {}
     with open(filename) as f:
         for line in f:
             line = line.strip()
@@ -84,10 +90,18 @@ def detailPick(filename):
                     #print "\t".join(ret)
                     sim_dic.append(ret)
 
+                flag, ret = descPick(res_item)
+                if flag != None:
+                    #flag = int(flag)
+                    #print "\t".join(ret)
+                    desc_dic[flag] = ret
+                    print flag
+
                 #print "\t".join(ret)
                 res_item = []
             res_item.append(line)
-    return cate_dic, sim_dic
+
+    return cate_dic, sim_dic, desc_dic
 
 def categoryPick(data_list):
     idx = data_list[0].replace("path:leet/", "").replace(".html", "")
@@ -124,6 +138,26 @@ def simPick(data_list):
             break
         if "简单" in item or "中等" in item or "困难" in item:
             continue
+        else:
+            res.append(item.strip())
+    if flag == 1:
+        return idx, res
+    else:
+        return None, []
+
+def descPick(data_list):
+    idx = data_list[0].replace("path:leet/", "").replace(".html", "")
+    if not idx.isdigit():
+        return None, []
+    res = []
+    flag = 0
+    for item in data_list:
+        if "提交记录" in item:
+            res = []
+            flag = 1
+            continue
+        if "贡献者" in item:
+            break
         else:
             res.append(item.strip())
     if flag == 1:
@@ -183,46 +217,28 @@ def getPageDetail(filename, begin_idx=0):
             #break
     #driver.quit()
 
+def ropen(filename):
+    if os.path.exists(filename):
+        os.remove(filename)
+    return open(filename, "a+")
+
+def loadProblemName(filename):
+    res_dic = {}
+    with open(filename) as f:
+        for line in f:
+            line = line.strip()
+            split_res = line.split("\t")
+            idx = split_res[1]
+            name = "\t".join(split_res[3:])
+            print name
+            res_dic[idx] = name
+    return res_dic
+
 num_dic = {
-        1: "一",
-        2: "二",
-        3: "三",
-        4: "四",
-        5: "五",
-        6: "六",
-        7: "七",
-        8: "八",
-        9: "九",
-        10:"十",
-        11:"十一",
-        12:"十二",
-        13:"十三",
-        14:"十四",
-        15:"十五",
-        16:"十六",
-        17:"十七",
-        18:"十八",
-        19:"十九",
-        20:"二十",
-        21:"二一",
-        22:"二二",
-        23:"二三",
-        24:"二四",
-        25:"二五",
-        26:"二六",
-        27:"二七",
-        28:"二八",
-        29:"二九",
-        30:"三十",
-        31:"三一",
-        32:"三二",
-        33:"三三",
-        34:"三四",
-        35:"三五",
-        36:"三六",
-        37:"三七",
-        38:"三八",
-        39:"三九"
+        1: "一", 2: "二", 3: "三", 4: "四", 5: "五", 6: "六", 7: "七", 8: "八", 9: "九", 10:"十",
+        11:"十一", 12:"十二", 13:"十三", 14:"十四", 15:"十五", 16:"十六", 17:"十七", 18:"十八", 19:"十九",
+        20:"二十", 21:"二一", 22:"二二", 23:"二三", 24:"二四", 25:"二五", 26:"二六", 27:"二七", 28:"二八", 29:"二九", 30:"三十",
+        31:"三一", 32:"三二", 33:"三三", 34:"三四", 35:"三五", 36:"三六", 37:"三七", 38:"三八", 39:"三九"
         }
 
 if __name__ == '__main__':
@@ -236,7 +252,13 @@ if __name__ == '__main__':
 
     #getPageDetail("leetcode.idx", 204)
 
-    cate_dic, sim_dic = detailPick("leet.log")
+    cate_dic, sim_dic, desc_dic = detailPick("leet.log")
+    #boke 
+    bok_dic = pb.getPageDetail("boke_problem.idx")
+    #gitcode
+    git_dic = pg.build_idx()
+    #problem name
+    name_dic = loadProblemName("leetcode.idx")
 
     print len(cate_dic)
     gcounter = 0
@@ -260,14 +282,32 @@ if __name__ == '__main__':
             counter += 1
             #print counter
             item_res.append(item)
-            if counter == len(v):
+            if counter % 12 == 0 or counter == len(v):
                 print "    * [第" + str(chapter) + "节](Chapter" + str(gcounter) + "/" + str(counter) + ".md)"
-                print "\n".join([str(i) for i in item_res])
-                res.append(item_res)
-            if counter % 12 == 0:
-                print "    * [第" + str(chapter) + "节](Chapter" + str(gcounter) + "/" + str(counter) + ".md)"
+                path = "../gitbook/Chapter" + str(gcounter) + "/" + str(counter) + ".md"
+                fin = ropen(path)
+                print path
                 chapter += 1
-                print "\n".join([str(i) for i in item_res])
+                #print "\t".join([str(i) for i in item_res])
+                page = "" 
+                title = "# 第" + str(chapter) + "节"
+                for item in item_res:
+                    name = name_dic[str(item)]
+                    page += "\n#### 第" + str(item) + "题\t**" + name + "\t**"
+                    page += "\n***\n"
+                    desc = "<br>".join(desc_dic.get(str(item), []))
+                    page += desc
+                    #page += "```cpp"
+                    #page += bok_dic.get(item, "")
+                    #page += "```\n"
+                    page += "\n***\n"
+                    page += "\n"
+                    solu = git_dic.get(item, "todo\n")
+                    page += "```python\n"
+                    page += solu
+                    page += "```"
+                print >> fin, title
+                print >> fin, page 
                 res.append(item_res)
                 item_res = []
             

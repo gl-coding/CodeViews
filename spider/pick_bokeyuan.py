@@ -67,6 +67,7 @@ def get_link(string, idx):
 
 def getPageDetail(filename, download=False, writelog=False):
     log = ropen(boke_content_file)
+    res = {}
     with open(filename) as f:
         for line in f:
             line = line.strip()
@@ -82,8 +83,12 @@ def getPageDetail(filename, download=False, writelog=False):
                 print >> log, "title:" + title.encode("utf8")
                 print >> log, content.encode("utf8")
 
+            idx = int(idx)
+            res[idx] = content
+
             #get_link(content, idx)
             #break
+    return res
 
 if __name__ == '__main__':
     begin_url = "https://www.cnblogs.com/grandyang/p/4606334.html"
